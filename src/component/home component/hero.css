@@ -22,16 +22,18 @@ body {
   justify-content: center;
   align-items: center;
   /* border: 2px solid red; */
-  padding: 0px  20px;
+  padding: 0px 20px;
 }
 
 .right_div {
-  flex: 1;
+  /* flex: 1; */
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   align-items: center;
   /* border:2px solid red; */
-  padding: 20px ;
+  padding: 20px;
+  width: 50%;
 }
 
 .left_div h1 {
@@ -49,12 +51,90 @@ body {
   text-align: left;
   margin-top: 5px;
 }
-/* hero-right-img */
 .right_div img {
   padding-right: 50px;
   width: 100%;
   height: auto;
   max-width: 566px;
+}
+.user-input-section {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  border-radius: 8px;
+  width: 96%;
+  background-color: white;
+  margin-top: -60px;
+  border-left: 4px solid #2b2d4a;
+}
+.hero_label {
+  height: 150px;
+  border-width: 2px solid;
+  border-color: red;
+  font-family: "Inter", sans-serif;
+  font-size: 17px;
+  width: 30%;
+}
+.hero_labelP {
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+}
+.inpbox-style {
+  height: 35px;
+  padding: 10px;
+  outline: none;
+  border-radius: 10px;
+  width: 100%;
+  font-size: 17px;
+  border: 2px solid #2b2d4ae4;
+}
+.inpbox-style::placeholder {
+  font-size: 17px;
+  font-family: "Inter", sans-serif;
+}
+
+.hero_btn {
+  font-family: "Inter", sans-serif;
+  letter-spacing: 1px;
+  color: white;
+  background-color: #f26822;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: 0.3s;
+  height: 59px;
+  cursor: pointer;
+  padding: 10px;
+  outline: none;
+  border-radius: 10px;
+  border: none;
+  width: 100%;
+}
+.heroBtnCover {
+  height: 114px;
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+.hero_btn:hover {
+  letter-spacing: 1px;
+  color: #f26822;
+  background-color: #ffece3;
+}
+.heroBtnIcon {
+  color: white;
+}
+.hero_btn:hover .heroBtnIcon {
+  color: #f26822;
+  transition: 0.3s;
+}
+
+.inpbox-style:focus {
+  border-color: #f26822;
+  border-width: 2px;
 }
 
 @media (max-width: 555px) {
@@ -67,6 +147,10 @@ body {
   .right_div {
     flex: auto;
     padding: 10px;
+  }
+
+  .right_div {
+    width: 90%;
   }
 
   .left_div h1 {
@@ -82,6 +166,10 @@ body {
     width: 100%;
     height: auto;
     max-width: 566px;
+  }
+
+  .user-input-section {
+    margin-top: 20px;
   }
 }
 
