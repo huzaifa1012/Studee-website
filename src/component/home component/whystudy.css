@@ -1,5 +1,6 @@
+/* General Styles */
 .why_use_main_wrap {
-    margin: 50px 0px;
+    margin: 50px 0;
 }
 
 .why_use_head {
@@ -9,14 +10,11 @@
 
 .why_use_head h2 {
     font-size: 32px;
-
 }
 
 .why_use_head p {
-    /* font-weight: 500; */
     font-size: 18px;
     margin-top: 10px;
-
 }
 
 .Why_Use_studee_wrap {
@@ -28,8 +26,7 @@
 
 .Why_Use_studee_body {
     width: 88%;
-    padding: 0px 0px;
-    display: none;
+    padding: 0;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -41,13 +38,19 @@
     width: 22%;
 }
 
+.Why_Use_studee_box img {
+    margin-bottom: 20px;
+}
+
 .Why_Use_studee_box h2 {
     font-size: 18px;
     font-weight: bold;
+    margin-bottom: 5px;
 }
 
 .Why_Use_studee_box p {
     font-size: 16px;
+    line-height: 1.5rem;
 }
 
 .why_use_bottom_wrap {
@@ -65,11 +68,38 @@
     align-items: center;
     flex-direction: column;
     text-align: center;
-    margin: 10px 0px;
+    margin: 10px 0;
+}
+
+.why_bottom_p1 {
+    color: #4a9878;
+    background-color: #f3f8f6;
+    font-size: 17px;
+    padding: 10px 10px;
+    border-radius: 7px;
+    margin: 15px 0px;
+    display: inline-block;
+    width: 100%
+}
+
+.why_bottom_p2 {
+    color: #5a5a72;
+    background-color: #f7f8f9;
+    font-size: 17px;
+    padding: 10px 10px;
+    border-Radius: 7px;
+    margin: 15px 0px;
+    margin-bottom: 30px;
+    display: inline-block;
+    width: 100%
+}
+
+.why_bottom_p3 {
+    margin-bottom: 40px;
+    justify-content: center
 }
 
 .why_use_bottom_btn {
-
     font-family: "Inter", sans-serif;
     letter-spacing: 1px;
     color: white;
@@ -86,7 +116,6 @@
     outline: none;
     border-radius: 8px;
     border: none;
-    /* padding: ; */
 }
 
 .why_use_bottom_btn:hover {
@@ -98,4 +127,99 @@
 .why_use_bottom_btn:hover .heroBtnIcon {
     color: #603392;
     transition: 0.3s;
+}
+
+/* Mobile Styles */
+@media screen and (max-width: 767px) {
+    .why_use_main_wrap {
+        margin: 30px 0;
+    }
+
+    .why_use_head h2 {
+        margin: 0px 30px;
+        text-align: left;
+        font-size: 24px;
+    }
+
+    .why_use_head p {
+        margin: 0px 30px;
+        text-align: left;
+        font-size: 16px;
+    }
+
+    .Why_Use_studee_body {
+        width: 100%;
+        padding: 0;
+        justify-content: center;
+    }
+
+    .Why_Use_studee_box {
+        width: 80%;
+        margin-bottom: 30px;
+    }
+
+    .why_use_bottom {
+        width: 100%;
+    }
+
+    .why_use_bottom_btn {
+        font-size: 0.9rem;
+        height: 50px;
+        padding: 10px 20px;
+    }
+
+    .why_bottom_p1 {
+        text-align: left;
+        font-size: 15px;
+        margin: 15px 0px;
+        width: 95%
+    }
+
+    .why_bottom_p2 {
+        text-align: left;
+        font-size: 15px;
+        margin: 15px 0px;
+        width: 95%
+    }
+
+    .why_bottom_p3 {
+        padding: 10px 10px;
+        font-size: 15px;
+        text-align: left;
+        width: 95%;
+
+        margin: 5px;
+        margin-bottom: 20px;
+    }
+    .why_use_bottom_btn{
+        width: 90%;
+    }
+}
+
+/* Tablet Styles */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .why_use_main_wrap {
+        margin: 40px 0;
+    }
+
+    .why_use_head h2 {
+        font-size: 28px;
+    }
+
+    .why_use_head p {
+        font-size: 17px;
+    }
+
+    .Why_Use_studee_body {
+        width: 90%;
+    }
+
+    .Why_Use_studee_box {
+        width: 45%;
+        margin-bottom: 30px;
+    }
+
+    .why_use_bottom {
+        width: 90%;
+    }
 }
