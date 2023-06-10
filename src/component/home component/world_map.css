@@ -1,0 +1,64 @@
+.world_map_head {
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    line-height: 2.8rem;
+    letter-spacing: -0.501px;
+    align-items: center;
+    text-align: center;
+}
+
+.world_map_head h1 {
+    color: #2b2d4a;
+    font-size: 36px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.world_map_head h2 {
+    color: #5a5a72;
+    margin: 20px 20px;
+    font-size: 24px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.world_map_body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0px;
+}
+
+/* Mobile Styles */
+@media screen and (max-width: 767px) {
+    .world_map_head h1 {
+        font-size: 28px;
+        width: 100%;
+    }
+
+    .world_map_head h2 {
+        font-size: 20px;
+        width: 100%;
+    }
+}
+
+/* Tablet Styles */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .world_map_head {
+        line-height: 2.5rem;
+    }
+
+    .world_map_head h1 {
+        font-size: 32px;
+        width: 70%;
+    }
+
+    .world_map_head h2 {
+        font-size: 24px;
+        width: 70%;
+    }
+}

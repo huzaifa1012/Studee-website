@@ -4,6 +4,7 @@ import { Navbar } from "../component/home component/navbar";
 import Hero from "../component/home component/hero";
 import Whystudee from "../component/home component/whystudee";
 import TreesProject from "../component/home component/treesProject.jsx";
+import WorldMap from "../component/home component/worldMap.jsx";
 const Home = () => {
   return (
     <>
@@ -11,6 +12,7 @@ const Home = () => {
       <Hero />
       <Whystudee/>
       <TreesProject/>
+      <WorldMap/>
     </>
   );
 };
