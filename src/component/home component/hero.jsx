@@ -46,7 +46,7 @@ const Hero = () => {
             />
           </div>
           <div className="heroBtnCover">
-            <button name="" id="" className=" hero_btn ">
+            <button name="" id="" className="hero_btn ">
               Find Your Perfect Program{" "}
               <BiRightArrowAlt className="heroBtnIcon" size={25} />
             </button>

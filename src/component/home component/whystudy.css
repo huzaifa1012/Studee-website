@@ -1,0 +1,101 @@
+.why_use_main_wrap {
+    margin: 50px 0px;
+}
+
+.why_use_head {
+    text-align: center;
+    font-family: "Inter", "sans-serif";
+}
+
+.why_use_head h2 {
+    font-size: 32px;
+
+}
+
+.why_use_head p {
+    /* font-weight: 500; */
+    font-size: 18px;
+    margin-top: 10px;
+
+}
+
+.Why_Use_studee_wrap {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 50px;
+}
+
+.Why_Use_studee_body {
+    width: 88%;
+    padding: 0px 0px;
+    display: none;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    font-family: "Inter", sans-serif;
+    margin-bottom: 30px;
+}
+
+.Why_Use_studee_box {
+    width: 22%;
+}
+
+.Why_Use_studee_box h2 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.Why_Use_studee_box p {
+    font-size: 16px;
+}
+
+.why_use_bottom_wrap {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.why_use_bottom {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    margin: 10px 0px;
+}
+
+.why_use_bottom_btn {
+
+    font-family: "Inter", sans-serif;
+    letter-spacing: 1px;
+    color: white;
+    background-color: #603392;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: 0.3s;
+    height: 59px;
+    cursor: pointer;
+    padding: 10px 30px;
+    outline: none;
+    border-radius: 8px;
+    border: none;
+    /* padding: ; */
+}
+
+.why_use_bottom_btn:hover {
+    letter-spacing: 1px;
+    color: #603392;
+    background-color: #e2c6ff;
+}
+
+.why_use_bottom_btn:hover .heroBtnIcon {
+    color: #603392;
+    transition: 0.3s;
+}

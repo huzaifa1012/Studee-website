@@ -8,7 +8,7 @@ body {
   background-color: #efeaf4  !important;
 }
 .hero_container {
-  width: 96%;
+  width: 90%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -115,17 +115,17 @@ body {
   border: none;
   width: 100%;
 }
+.hero_btn:hover {
+  letter-spacing: 1px;
+  color: #f26822;
+  background-color: #ffece3;
+}
 .heroBtnCover {
   height: 114px;
   width: 30%;
   display: flex;
   justify-content: center;
   align-items: flex-end;
-}
-.hero_btn:hover {
-  letter-spacing: 1px;
-  color: #f26822;
-  background-color: #ffece3;
 }
 .heroBtnIcon {
   color: white;
