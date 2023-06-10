@@ -1,0 +1,43 @@
+.tree_hero-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.tree_hero-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.tree_hero-image img {
+  width: 70%;
+  /* max-width: 100%; */
+}
+
+.tree_hero-text {
+  width: 55%;
+  padding-left: 20px;
+}
+
+.tree_hero-heading {
+  line-height: 2.5rem;
+  margin-bottom: 20px;
+  font-size: 32px;
+  color: #2b2d4a;
+  font-family: "Inter", sans-serif;
+  
+}
+
+.tree_hero-paragraph {
+  font-size: 17px;
+  columns: #5a5a72;
+}
+
+.tree_hero-link {
+  color: blue;
+}
