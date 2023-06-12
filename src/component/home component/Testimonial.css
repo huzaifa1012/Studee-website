@@ -96,11 +96,6 @@
     width: 100%;
   }
 
-  .testimonial_head {
-    /* flex-direction: column; */
-    /* align-items: center; */
-  }
-
   .testimonial_head img {
     margin-right: 10;
     margin-bottom: 15;
@@ -117,11 +112,10 @@
   .testimonial_head p {
     font-size: 12px;
   }
-  
-.testimonial_body p {
+
+  .testimonial_body p {
     font-style: italic;
     font-size: 14px;
     line-height: 1.4rem;
   }
-  
 }

@@ -6,6 +6,7 @@ import Whystudee from "../component/home component/whystudee";
 import TreesProject from "../component/home component/treesProject.jsx";
 import WorldMap from "../component/home component/worldMap.jsx";
 import Testimonial from "../component/home component/Testimonial.jsx";
+import StudyingAbroad from "../component/home component/StudyingAbroad.jsx";
 const Home = () => {
   return (
     <>
@@ -15,6 +16,7 @@ const Home = () => {
       <TreesProject/>
       <WorldMap/>
       <Testimonial/>
+      <StudyingAbroad/>
     </>
   );
 };
