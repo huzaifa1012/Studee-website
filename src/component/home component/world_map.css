@@ -1,64 +1,121 @@
 .world_map_head {
-    padding-top: 20px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    line-height: 2.8rem;
-    letter-spacing: -0.501px;
-    align-items: center;
-    text-align: center;
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  line-height: 2.8rem;
+  letter-spacing: -0.501px;
+  align-items: center;
+  text-align: center;
 }
 
 .world_map_head h1 {
-    color: #2b2d4a;
-    font-size: 36px;
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
+  color: #2b2d4a;
+  font-size: 36px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .world_map_head h2 {
-    color: #5a5a72;
-    margin: 20px 20px;
-    font-size: 24px;
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
+  color: #5a5a72;
+  margin: 20px 20px;
+  font-size: 24px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .world_map_body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0px;
+}
+
+/* Brand Logo Section styling start */
+.world_map_brands_wrap {
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.world_map_brands {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap-reverse;
+  width: 100%;
+
+  flex-direction: column;
+}
+.world_map_brands img {
+  max-width: 30%;
+}
+.world_map_brands_image_row1 {
+  width: 70%;
+  /* border: 2px solid; */
+  justify-content: space-around;
+  display: flex;
+  flex-wrap: wrap;
+}
+.world_map_brands_image_row2 {
+  width: 70%;
+  /* border: 2px solid; */
+  justify-content: space-around;
+  display: flex;
+  flex-wrap: wrap;
+}
+.world_map_brand_image {
+  width: 170px;
+  margin: 5px 20px;
 }
 
 /* Mobile Styles */
 @media screen and (max-width: 767px) {
-    .world_map_head h1 {
-        font-size: 28px;
-        width: 100%;
-    }
+  .world_map_head h1 {
+    font-size: 28px;
+    width: 100%;
+  }
 
-    .world_map_head h2 {
-        font-size: 20px;
-        width: 100%;
-    }
+  .world_map_head h2 {
+    font-size: 20px;
+    width: 100%;
+  }
+  .world_map_brands {
+    display:flex;
+    flex-direction: column;
+    /* border:10px solid red; */
+    flex-wrap: wrap-reverse !important;
+  }
+  .world_map_brands img {
+    max-width: 40%;
+  }
+  .world_map_brands_image_row2 {
+    width: 100%;
+  }
+  .world_map_brands_image_row1 {
+    width: 100%;
+  }
+  .world_map_brand_image {
+    width: 50%;
+    margin: 0px;
+  }
 }
 
 /* Tablet Styles */
 @media screen and (min-width: 768px) and (max-width: 1023px) {
-    .world_map_head {
-        line-height: 2.5rem;
-    }
+  .world_map_head {
+    line-height: 2.5rem;
+  }
 
-    .world_map_head h1 {
-        font-size: 32px;
-        width: 70%;
-    }
+  .world_map_head h1 {
+    font-size: 32px;
+    width: 70%;
+  }
 
-    .world_map_head h2 {
-        font-size: 24px;
-        width: 70%;
-    }
+  .world_map_head h2 {
+    font-size: 24px;
+    width: 70%;
+  }
 }
