@@ -3,10 +3,10 @@ body {
 }
 .main-hero_wrap {
   font-family: "Inter", sans-serif;
-  width: 100% !important;
-  display: flex !important;
-  justify-content: center !important;
-  background-color: #efeaf4 !important;
+  width: 100% ;
+  display: flex ;
+  justify-content: center ;
+  background-color: #efeaf4 ;
 }
 .hero_container {
   width: 90%;
@@ -67,13 +67,12 @@ body {
 }
 .theHero_label {
   justify-content: flex-start;
-
-  height: 150px !important;
-  border-width: 2px solid !important;
-  border-color: red !important;
-  font-family: "Inter", sans-serif !important;
-  font-size: 17px !important;
-  width: 30% !important;
+  height: 150px ;
+  border-width: 2px solid ;
+  border-color: red ;
+  font-family: "Inter", sans-serif ;
+  font-size: 17px ;
+  width: 30% ;
 }
 .hero_labelP {
   margin-top: 30px;
@@ -82,17 +81,17 @@ body {
   font-weight: bold;
 }
 .hero_inpbox-style {
-  height: 59px !important;
-  padding: 10px !important;
-  outline: none !important;
-  border-radius: 10px !important;
-  width: 100% !important;
-  font-size: 17px !important;
-  border: 2px solid #2b2d4ae4 !important;
+  height: 59px ;
+  padding: 10px ;
+  outline: none ;
+  border-radius: 10px ;
+  width: 100% ;
+  font-size: 17px ;
+  border: 2px solid #2b2d4ae4 ;
 }
 .hero_inpbox-style::placeholder {
-  font-size: 17px !important;
-  font-family: "Inter", sans-serif !important;
+  font-size: 17px ;
+  font-family: "Inter", sans-serif ;
 }
 
 .hero_btn {
@@ -151,6 +150,7 @@ font-size: 14px;
 }
 
 @media (max-width: 555px) {
+
   .hero_container {
     flex-direction: column;
     text-align: center;
@@ -183,6 +183,39 @@ font-size: 14px;
 
   .hero_user-input-section {
     margin-top: 20px;
+  }
+
+
+  /* input section styling responsiveness */
+  .theHero_label {
+    justify-content: flex-start;
+    height: 100px ;
+    border-width: 2px solid ;
+    border-color: red ;
+    font-family: "Inter", sans-serif ;
+    font-size: 17px ;
+    width: 90% ;
+  }
+  .hero_labelP {
+    text-align: left;
+  }
+  .hero_inpbox-style {
+    height: 59px ;
+    padding: 10px ;
+    outline: none ;
+    border-radius: 10px ;
+    width: 100% ;
+    font-size: 17px ;
+    border: 2px solid #2b2d4ae4 ;
+  }
+  .heroBtnCover {
+    height: 80px;
+    width: 90%;
+    margin: 20px 0px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
   }
 }
 
