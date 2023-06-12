@@ -52,12 +52,11 @@ const Hero = () => {
             </button>
           </div>
         </div>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet quo quae
-          at, quos esse illum atque. Soluta at autem facilis quidem doloremque
-          necessitatibus cupiditate, ut, voluptates excepturi perspiciatis animi
-          ipsa!
-        </p>
+        <div className="studee_home_hero_bottom ltc">
+          <p>
+            Promote your university to students worldwide. <u> Learn more </u>
+          </p>
+        </div>
       </div>
     </div>
   );
