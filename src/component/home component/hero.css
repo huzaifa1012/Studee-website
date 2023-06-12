@@ -3,12 +3,13 @@ body {
 }
 .main-hero_wrap {
   font-family: "Inter", sans-serif;
-  width: 100% ;
-  display: flex ;
-  justify-content: center ;
-  background-color: #efeaf4 ;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: #efeaf4;
 }
 .hero_container {
+  margin-top: 40px;
   width: 90%;
   display: flex;
   flex-wrap: wrap;
@@ -50,7 +51,7 @@ body {
   margin-bottom: 40px;
 }
 .hero_right_div img {
-  padding-right: 50px;
+  /* padding-right: 50px; */
   width: 100%;
   height: auto;
   max-width: 566px;
@@ -62,17 +63,17 @@ body {
   border-radius: 8px;
   width: 96%;
   background-color: white;
-  margin-top: -40px;
+  margin-top: -10px;
   border-left: 4px solid #2b2d4a;
 }
 .theHero_label {
   justify-content: flex-start;
-  height: 150px ;
-  border-width: 2px solid ;
-  border-color: red ;
-  font-family: "Inter", sans-serif ;
-  font-size: 17px ;
-  width: 30% ;
+  height: 150px;
+  border-width: 2px solid;
+  border-color: red;
+  font-family: "Inter", sans-serif;
+  font-size: 17px;
+  width: 30%;
 }
 .hero_labelP {
   margin-top: 30px;
@@ -81,17 +82,17 @@ body {
   font-weight: bold;
 }
 .hero_inpbox-style {
-  height: 59px ;
-  padding: 10px ;
-  outline: none ;
-  border-radius: 10px ;
-  width: 100% ;
-  font-size: 17px ;
-  border: 2px solid #2b2d4ae4 ;
+  height: 59px;
+  padding: 10px;
+  outline: none;
+  border-radius: 10px;
+  width: 100%;
+  font-size: 17px;
+  border: 2px solid #2b2d4ae4;
 }
 .hero_inpbox-style::placeholder {
-  font-size: 17px ;
-  font-family: "Inter", sans-serif ;
+  font-size: 17px;
+  font-family: "Inter", sans-serif;
 }
 
 .hero_btn {
@@ -145,12 +146,11 @@ body {
 .studee_home_hero_bottom p {
   text-align: left;
   width: 96%;
-font-size: 14px;
+  font-size: 14px;
   margin: 15px 0px;
 }
 
 @media (max-width: 555px) {
-
   .hero_container {
     flex-direction: column;
     text-align: center;
@@ -185,28 +185,27 @@ font-size: 14px;
     margin-top: 20px;
   }
 
-
   /* input section styling responsiveness */
   .theHero_label {
     justify-content: flex-start;
-    height: 100px ;
-    border-width: 2px solid ;
-    border-color: red ;
-    font-family: "Inter", sans-serif ;
-    font-size: 17px ;
-    width: 90% ;
+    height: 100px;
+    border-width: 2px solid;
+    border-color: red;
+    font-family: "Inter", sans-serif;
+    font-size: 17px;
+    width: 90%;
   }
   .hero_labelP {
     text-align: left;
   }
   .hero_inpbox-style {
-    height: 59px ;
-    padding: 10px ;
-    outline: none ;
-    border-radius: 10px ;
-    width: 100% ;
-    font-size: 17px ;
-    border: 2px solid #2b2d4ae4 ;
+    height: 59px;
+    padding: 10px;
+    outline: none;
+    border-radius: 10px;
+    width: 100%;
+    font-size: 17px;
+    border: 2px solid #2b2d4ae4;
   }
   .heroBtnCover {
     height: 80px;
@@ -217,11 +216,45 @@ font-size: 14px;
     justify-content: center;
     align-items: flex-end;
   }
+  .hero_btn {
+    font-size: 13px;
+    word-spacing: -1.1px;
+  }
 }
 
 @media (min-width: 40em) {
   .hero_left_div h1 {
     font-size: 2.7rem;
     line-height: 1.27;
+  }
+}
+@media (min-width: 555px) and (max-width: 768px) {
+  .hero_left_div {
+    padding: 0px;
+  }
+  .hero_left_div h1 {
+    font-size: 30px;
+  }
+  .hero_left_div p {
+    font-size: 15px;
+  }
+  .hero_right_div {
+    width: 40%;
+    padding: 0px;
+    /* display: none; */
+  }
+  .hero-right-img {
+    padding: 0px !important;
+  }
+  .hero_user-input-section {
+    width: 100%;
+    margin-top: 5px;
+  }
+
+  .hero_btn {
+    font-size: 12px;
+  }
+  .hero_inpbox-style::placeholder {
+    font-size: 15px;
   }
 }
