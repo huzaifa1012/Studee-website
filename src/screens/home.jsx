@@ -5,6 +5,7 @@ import Hero from "../component/home component/hero";
 import Whystudee from "../component/home component/whystudee";
 import TreesProject from "../component/home component/treesProject.jsx";
 import WorldMap from "../component/home component/worldMap.jsx";
+import Testimonial from "../component/home component/Testimonial.jsx";
 const Home = () => {
   return (
     <>
@@ -13,6 +14,7 @@ const Home = () => {
       <Whystudee/>
       <TreesProject/>
       <WorldMap/>
+      <Testimonial/>
     </>
   );
 };

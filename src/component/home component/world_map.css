@@ -39,6 +39,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 120px;
+
 }
 .world_map_brands {
   justify-content: center;
