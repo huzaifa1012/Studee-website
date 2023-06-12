@@ -7,6 +7,7 @@ import TreesProject from "../component/home component/treesProject.jsx";
 import WorldMap from "../component/home component/worldMap.jsx";
 import Testimonial from "../component/home component/Testimonial.jsx";
 import StudyingAbroad from "../component/home component/StudyingAbroad.jsx";
+import BrowseByCountry from "../component/home component/browseByCountry.jsx";
 const Home = () => {
   return (
     <>
@@ -17,6 +18,7 @@ const Home = () => {
       <WorldMap/>
       <Testimonial/>
       <StudyingAbroad/>
+      <BrowseByCountry/>
     </>
   );
 };
