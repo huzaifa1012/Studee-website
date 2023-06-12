@@ -1,0 +1,67 @@
+.populer_subject_wrap {
+  display: flex;
+  justify-content: center;
+  font-family: "Inter", sans-serif;
+}
+.populer_subject_main {
+  margin: 50px 0px;
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+}
+
+.populer_subject_head {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+.populer_subject_head h1 {
+  font-size: 36px;
+  width: 97%;
+  margin: 0px 0px;
+}
+.populer_subject_body {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.populer_subject_card {
+    border-radius: 5px;
+    background-color: #f7f8f9;
+    max-width: 31%;
+    width: 34%;
+    margin: 15px 0px;
+    padding: 25px 0px;
+    border: 1px solid rgba(128, 128, 128, 0.171);
+    transition: 0.2s;
+    cursor: pointer;
+
+}
+.populer_subject_card:hover {
+  box-shadow: 0px 5px 9px rgb(128, 128, 128);
+
+}
+.populer_subject_card h2 {
+    text-align: center;
+    font-weight: 700;
+    font-size: large;
+    color: #603392;
+}
+.populer_subject_bottom p {
+    color: #603392;
+  font-weight: 600;
+  width: 97%;
+  margin: 20px 0px;
+}
+
+@media (max-width: 600px) {
+  .populer_subject_card {
+    border-radius: 5px;
+    max-width: 98%;
+    width: 100%;
+    margin: 10px 0px;
+  }
+  .populer_subject_head h1 {
+    font-size: 28px;}
+}
