@@ -37,9 +37,8 @@ export function Navbar() {
         <div className="flex lg:flex-1">
           <a href="#" className="-m-1.5 p-1.5">
             <div className='flex'>
-              <img className="h-8 w-auto" src={logo} alt="" />
+              <img className="h-8 w-auto" src={"https://images.studee.com/logos/logo__horizontal--full-colour.svg"} alt="" />
             </div>
-            {/* <h2 className="sr-only">Your Company</h2> */}
           </a>
 
         </div>
@@ -51,7 +50,7 @@ export function Navbar() {
             placeholder="Find a university"
             type="search"
           />
-          <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+          <div className="_header_search_iconDiv absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
             <FiSearch />
           </div>
         </div>
