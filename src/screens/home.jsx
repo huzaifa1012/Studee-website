@@ -8,7 +8,8 @@ import WorldMap from "../component/home component/worldMap.jsx";
 import Testimonial from "../component/home component/Testimonial.jsx";
 import StudyingAbroad from "../component/home component/StudyingAbroad.jsx";
 import BrowseByCountry from "../component/home component/browseByCountry.jsx";
-import PopularSubjects from "../component/home component/PopularSubjects.jsx";
+import PopularSubjects from "../component/home component/popularSubjects.jsx";
+import Footer from "../component/home component/footer.jsx";
 const Home = () => {
   return (
     <>
@@ -21,6 +22,8 @@ const Home = () => {
       <StudyingAbroad/>
       <BrowseByCountry/>
       <PopularSubjects/>
+      
+      <Footer/>
     </>
   );
 };

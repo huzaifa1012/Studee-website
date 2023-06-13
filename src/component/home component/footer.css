@@ -1,0 +1,81 @@
+.footer {
+    color: #5a5a72;
+    font-family: "Inter", "sans-serif";
+    border-top: 1px solid #e2e3e9;
+    background-color: #f7f8f9;
+  }
+  
+  .footer-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 50px 0 0 0;
+  }
+  
+  .footer-logo {
+    width: 90%;
+  }
+  
+  .footer-logo-image {
+    width: 130px;
+  }
+  
+  .footer-content {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .footer-section {
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 50px;
+    text-align: center;
+  }
+  
+  .footer-section-title {
+    color: #5a5a72;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .footer-link {
+    color: #5a5a72;
+    text-decoration: none;
+  }
+  
+  .footer-link:hover {
+    color: #000000;
+  }
+  
+  .footer-partnership-logos {
+    max-width: 140px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+  }
+  
+  .footer-partnership-logo {
+    width: 40%;
+    margin-left: 10%;
+  }
+  
+  .footer-bottom {
+    background-color: #f7f8f9;
+    padding: 1.5rem;
+    text-align: center;
+  }
+  
+  .footer-bottom-link {
+    font-weight: bold;
+    color: #5a5a72;
+    text-decoration: none;
+  }
+  
+  .footer-bottom-link:hover {
+    color: #000000;
+  }
+  

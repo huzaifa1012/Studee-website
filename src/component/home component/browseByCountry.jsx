@@ -1,6 +1,5 @@
 import React from "react";
 import "./BrowseByCountry.css";
-import dad from "../../assets/studee_short_logo.png";
 const BrowseByCountry = () => {
   return (
     <>

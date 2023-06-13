@@ -1,0 +1,130 @@
+import React from 'react'
+
+export default function footer() {
+    return (
+
+        <footer style={{ color: '#5a5a72', fontFamily: '"Inter", "sans-serif"', borderTop: '1px solid #e2e3e9', backgroundColor: '#f7f8f9' }} className="bg-neutral-100 text-center text-neutral-600 dark:bg-neutral-600 dark:text-neutral-200 lg:text-left">
+
+            {/* Main container div: holds the entire content of the footer, including four sections (Tailwind Elements, Products, Useful links, and Contact), with responsive styling and appropriate padding/margins. */}
+            <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
+                <div style={{ width: '90%', margin: '50px 0px 00px 0px' }}>
+                    <img style={{ width: '130px' }} src='https://images.studee.com/logos/logo__horizontal--full-colour.svg' className='w-40' />
+                </div>
+            </div>
+            <div style={{ width: '100%', display: 'flex', justifyContent: 'center', }}>
+
+                <div style={{ width: '90%' }} className="mx-6 py-10 text-center md:text-left">
+                    <div style={{ textAlign: 'left' }} className="grid-1 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+                        {/* Tailwind Elements section */}
+                        <div >
+                            <h6 style={{ color: '#5a5a72', }} className="mb-4 flex items-center  font-semibold  md:justify-start">
+                                About
+                            </h6>
+
+                            <p className="mb-4">
+                                <a href="#!" className="text-neutral-600 dark:text-neutral-200">
+                                    About Studee
+                                </a>
+                            </p>
+                            <p className="mb-4">
+                                <a href="#!" className="text-neutral-600 dark:text-neutral-200">
+                                    Careers
+                                </a>
+                            </p>
+                            <p className="mb-4">
+                                <a href="#!" className="text-neutral-600 dark:text-neutral-200">
+                                    Press & Media
+                                </a>
+                            </p>
+                            <p className="mb-4">
+                                <a href="#!" className="text-neutral-600 dark:text-neutral-200">
+                                    Discovers
+                                </a>
+                            </p>
+
+                        </div>
+                        {/* Products section */}
+                        <div className="">
+                            <h6 style={{ color: '#5a5a72' }} className="mb-4 flex  font-semibold   md:justify-start">
+                                Services & support
+                            </h6>
+                            <p className="mb-4">
+                                <a href="#!" className="text-neutral-600 dark:text-neutral-200">
+                                    Become a university partner
+                                </a>
+                            </p>
+                            <p className="mb-4">
+                                <a href="#!" className="text-neutral-600 dark:text-neutral-200">
+
+                                    University partner support
+                                </a>
+                            </p>
+                            <p className="mb-4">
+                                <a href="#!" className="text-neutral-600 dark:text-neutral-200">
+
+                                    Contact us
+                                </a>
+                            </p>
+                        </div>
+                        {/* Useful links section */}
+                        <div className="">
+                            <h6 style={{ color: '#5a5a72' }} className="mb-4 flex  font-semibold   md:justify-start">
+                                Our planet
+                            </h6>
+                            <p className="mb-4">
+                                <a href="#!" className="text-neutral-600 dark:text-neutral-200">
+                                    B-Corp
+                                </a>
+                            </p>
+                            <p className="mb-4">
+                                <a href="#!" className="text-neutral-600 dark:text-neutral-200">
+                                    Our scholarship project
+                                </a>
+                            </p>
+                            <p className="mb-4">
+                                <a href="#!" className="text-neutral-600 dark:text-neutral-200">
+                                    Our tree project
+                                </a>
+                            </p>
+                            <p>
+                                <a href="#!" className="text-neutral-600 dark:text-neutral-200">
+                                    Environment & sustainability
+
+                                </a>
+                            </p>
+                        </div>
+                        {/* Contact section */}
+                        <div style={{ width: '100%' }} >
+                            <h6 style={{ color: '#5a5a72' }} className="mb-4 flex font-semibold   md:justify-start">
+                                Our partnerships
+                            </h6>
+                            <div className='className="mb-4 flex items-center justify-center md:justify-start"' style={{ maxWidth: '70%', display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
+                                <img style={{ width: '40%', marginLeft: '0%' }} src='https://images.studee.com/images/content/content__airc-logo.png?ixlib=js-2.3.2&auto=format&q=60&w=74' />
+                                <img style={{ width: '40%', marginLeft: '10%' }} src='https://images.studee.com/images/content/content__nafsa-badge--large.png?ixlib=js-2.3.2&auto=format&q=60&w=74' />
+                                <img style={{ width: '40%', marginLeft: '0%' }} src='https://images.studee.com/images/content/content__icef-badge--large.png?ixlib=js-2.3.2&auto=format&q=60&w=74' />
+                                <img style={{ width: '40%', marginLeft: '10%' }} src='https://images.studee.com/images/content/content__bcorp-logo--positive.png?ixlib=js-2.3.2&auto=format&q=60&w=60' />
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/*Copyright section*/}
+            <div style={{ display: 'flex', justifyContent: 'space-between' }} className="bg-neutral-200 p-6 text-center dark:bg-neutral-700">
+                <div style={{ width: '100%' }}>
+
+                    <span>
+                        © Studee Ltd 2023. A UK registered company. All rights reserved by cloud lab web.</span>
+
+                </div>
+                {/* <div style={{  width: '50%' }}>
+                    <span>office@studee.com</span>
+                   
+                </div> */}
+            </div>
+        </footer>
+
+    )
+}
