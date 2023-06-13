@@ -1,5 +1,6 @@
 import { Fragment, useState } from 'react'
 import { Dialog, Disclosure, Popover, Transition } from '@headlessui/react'
+import "./header.css"
 import {
   ArrowPathIcon,
   Bars3Icon,
@@ -11,7 +12,7 @@ import {
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
 import logo from "../../assets/studee_short_logo.png"
-
+import { FiSearch } from "react-icons/fi"
 const products = [
   { name: 'Analytics', description: 'Get a better understanding of your traffic', href: '#', icon: ChartPieIcon },
   { name: 'Engagement', description: 'Speak directly to your customers', href: '#', icon: CursorArrowRaysIcon },
@@ -32,16 +33,29 @@ export function Navbar() {
 
   return (
     <header className="bg-white">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between p-3 lg:px-8" aria-label="Global">
         <div className="flex lg:flex-1">
           <a href="#" className="-m-1.5 p-1.5">
             <div className='flex'>
               <img className="h-8 w-auto" src={logo} alt="" />
-              <h2 className='mtc'>Studee</h2>
             </div>
-            <span className="sr-only">Your Company</span>
+            {/* <h2 className="sr-only">Your Company</h2> */}
           </a>
+
         </div>
+        <div className="relative">
+          <input
+            id="search"
+            name="search"
+            className="header_custom_searchbar block w-full bg-white border border-gray-300 rounded-md py-2 pr-10 pl-3 text-sm placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            placeholder="Find a university"
+            type="search"
+          />
+          <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+            <FiSearch />
+          </div>
+        </div>
+
         <div className="flex lg:hidden">
           <button
             type="button"
@@ -126,17 +140,11 @@ export function Navbar() {
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                 {/* <SearchIcon className="h-5 w-5" aria-hidden="true" /> */}
               </div>
-              <input
-                id="search"
-                name="search"
-                className="block w-full bg-white border border-gray-300 rounded-md py-2 pl-10 pr-3 text-sm placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                placeholder="Search"
-                type="search"
-              />
+
             </div>
           </div>
         </div>
-        
+
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
             Log in <span aria-hidden="true">&rarr;</span>
@@ -146,7 +154,7 @@ export function Navbar() {
 
 
 
-      
+
       <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
         <div className="fixed inset-0 z-10" />
         <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">

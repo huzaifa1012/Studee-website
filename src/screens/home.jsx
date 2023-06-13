@@ -22,7 +22,6 @@ const Home = () => {
       <StudyingAbroad/>
       <BrowseByCountry/>
       <PopularSubjects/>
-      
       <Footer/>
     </>
   );

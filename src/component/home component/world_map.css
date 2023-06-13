@@ -1,3 +1,9 @@
+body {
+  font-family: "Inter", sans-serif;
+  
+}
+
+
 .world_map_head {
   padding-top: 20px;
   display: flex;
@@ -100,7 +106,7 @@
     width: 100%;
   }
   .world_map_brand_image {
-    width: 50%;
+    width: 35%;
     margin: 0px;
   }
 }
