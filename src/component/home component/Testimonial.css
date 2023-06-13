@@ -71,6 +71,7 @@
 /* Media Queries */
 
 @media (max-width: 640px) {
+
   .testimonial-container {
     flex-direction: column;
     align-items: center;
@@ -94,11 +95,28 @@
 
   .testimonial_card {
     width: 100%;
+    padding: 20px;
   }
-
+.testimonial_head div{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
   .testimonial_head img {
+    width: 80px ;
+    height: 80px ;
     margin-right: 10;
     margin-bottom: 15;
+  }
+  .testimonial_head h2 {
+    font-size:18px;
+  }
+  .testimonial_head h3 {
+    font-size: 12px;
+  }
+  .testimonial_head p {
+    font-size: 12px;
   }
 }
 

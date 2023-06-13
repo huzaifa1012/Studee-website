@@ -80,9 +80,13 @@
   .browseByCountry_head h1 {
     font-size: 32px;
   }
+  .browseByCountry_main {
+    margin: 10px 0px;
+  }
 }
 
 @media (min-width: 600px) {
+  
   .browseByCountry_card {
     margin: 27px 10px;
   }
