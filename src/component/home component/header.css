@@ -1,3 +1,6 @@
+.the_main_header_wrap {
+  border-bottom: 1px solid rgba(76, 76, 76, 0.128);
+}
 .header_custom_searchbar {
   margin-left: 20px;  
   margin-right: 10px;  

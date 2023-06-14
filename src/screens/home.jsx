@@ -13,7 +13,7 @@ import Footer from "../component/home component/footer.jsx";
 const Home = () => {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <Hero />
       <Whystudee/>
       <TreesProject/>
@@ -22,7 +22,7 @@ const Home = () => {
       <StudyingAbroad/>
       <BrowseByCountry/>
       <PopularSubjects/>
-      <Footer/>
+      {/* <Footer/> */}
     </>
   );
 };

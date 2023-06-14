@@ -1,7 +1,7 @@
 import React from 'react'
 import "./footerStyle.css"
 import { BsFacebook, BsInstagram, BsYoutube,BsTwitter } from 'react-icons/bs'
-export default function footer() {
+export default function Footer() {
     return (
 
         <footer style={{ color: '#5a5a72', fontFamily: '"Inter", "sans-serif"', borderTop: '1px solid #e2e3e9', backgroundColor: '#f7f8f9' }} className="bg-neutral-100 text-center text-neutral-600 dark:bg-neutral-600 dark:text-neutral-200 lg:text-left">
