@@ -70,7 +70,7 @@ body {
   justify-content: flex-start;
   height: 150px;
   border-width: 2px solid;
-  border-color: red;
+  /* border-color: red; */
   font-family: "Inter", sans-serif;
   font-size: 17px;
   width: 30%;

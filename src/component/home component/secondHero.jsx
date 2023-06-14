@@ -1,6 +1,5 @@
 import React from "react";
 import "./secondhero.css";
-import heroImage from "../../assets/illustration__feature--homepage-hero.avif";
 import { BiRightArrowAlt } from "react-icons/bi";
 
 const SecondHero = () => {

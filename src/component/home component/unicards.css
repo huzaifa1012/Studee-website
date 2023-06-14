@@ -1,0 +1,148 @@
+.uni_cards_main_wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.uni_cards_main {
+  width: 95%;
+}
+
+.university_card_body {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.university_card_card {
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 0px 2px 9px rgba(69, 69, 69, 0.208);
+  max-width: 31%;
+  margin-bottom: 25px;
+}
+.university_card_card img {
+  max-height: 120px;
+  width: 100%;
+
+  border-radius: 5px 5px 0px 0px;
+}
+.university_card_card_bottom {
+  margin: 30px;
+}
+.university_card_card_bottom h2 {
+  color: #603392;
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  min-height: 60px;
+}
+.university_card_bottom {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.university_card_bottom p {
+  color: #603392;
+  font-weight: 600;
+  width: 97%;
+  margin: 20px 0px;
+}
+.uni_country_city-p {
+  font-size: 17px;
+  margin: 6px 0px 20px 0px;
+}
+/* squares styling in bottom   */
+
+.uni_bottom_square_wrap {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.uni_bottom_square_box {
+  width: 48.5%;
+  padding: 8px;
+  margin-bottom: 3%;
+  background-color: #f7f8f9;
+  border-radius: 3px;
+}
+/* purple Btn */
+
+.unicard_btn_wrap {
+  width: 100%;
+}
+
+.unicard_btn_orange {
+  width: 100%;
+  font-family: "Inter", sans-serif;
+  color: white;
+  background-color: #f26822;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.1rem;
+  letter-spacing: 0.2px;
+  font-weight: bold;
+  transition: 0.3s;
+  height: 59px;
+  cursor: pointer;
+  padding: 10px 30px;
+  margin: 20px 0px 20px 0px;
+
+  border-radius: 8px;
+}
+
+.unicard_btn_orange:hover {
+  /* letter-spacing: 1px; */
+  color: #f26822;
+  background-color: #ffece3;
+}
+
+.unicard_btn_orange:hover .heroBtnIcon {
+  color: #603392;
+  transition: 0.3s;
+}
+
+.unicard_btn {
+  width: 100%;
+  font-family: "Inter", sans-serif;
+  color: #603392;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.1rem;
+  letter-spacing: 0.2px;
+  font-weight: bold;
+  transition: 0.3s;
+  height: 59px;
+  cursor: pointer;
+  padding: 10px 30px;
+  margin: 20px 0px 10px 0px;
+
+  border-radius: 8px;
+  border: 2px solid #603392;
+}
+
+.unicard_btn:hover {
+  color: white;
+  background-color: #603392;
+}
+
+.unicard_btn:hover .heroBtnIcon {
+  color: #603392;
+  transition: 0.3s;
+}
+
+@media (max-width: 600px) {
+  .university_card_card {
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0px 2px 9px rgba(69, 69, 69, 0.208);
+    max-width: 95%;
+    margin: 10px 0px;
+  }
+  .university_card_main {
+    margin: 10px 0px;
+  }
+}

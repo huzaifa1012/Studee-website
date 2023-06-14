@@ -105,9 +105,8 @@ body {
 
 .universities_hero_left_btn {
   font-family: "Inter", sans-serif;
-
   color: #603392;
-  background-color: transparent;
+  background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -134,7 +133,6 @@ body {
 }
 
 @media (max-width: 555px) {
-
   .secondHero_container {
     flex-direction: column;
     text-align: center;
@@ -145,8 +143,7 @@ body {
     flex: auto;
     padding: 10px;
   }
-  
-  
+
   .secondHero_left_div h1 {
     font-size: 2.05rem;
     line-height: 1.28;
@@ -156,7 +153,7 @@ body {
     text-align: left;
     font-size: 1.7rem;
   }
-  
+
   .secondHero_left_div p {
     font-size: 20px;
     text-align: left;
@@ -165,7 +162,7 @@ body {
     width: 100%;
     padding: 0px;
   }
-  
+
   .universities_hero_right_btn {
     margin-top: 10px;
   }
@@ -179,15 +176,15 @@ body {
 }
 @media (min-width: 555px) and (max-width: 768px) {
   .secondHero_right_div_section_body {
-      padding: 10px;
-    }
-    .secondHero_right_div_section_body  p {
-        font-size: 13px;
-        line-height: 1.3rem;
-    }
+    padding: 10px;
+  }
+  .secondHero_right_div_section_body p {
+    font-size: 13px;
+    line-height: 1.3rem;
+  }
   .universities_hero_right_btn {
     margin: 10px 0px;
-    font-size: 13px     ;
+    font-size: 13px;
     height: 35px;
     padding: 0px 12px !important;
   }
