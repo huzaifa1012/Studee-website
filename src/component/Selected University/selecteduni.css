@@ -1,0 +1,243 @@
+.main-selected_uni_wrap {
+  font-family: "Inter", sans-serif;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-position: right;
+  background-size: cover;
+  background-position-x: right;
+  background-repeat: no-repeat;
+  background-image: url("https://images.studee.com/images/university/university__altinbas-university.jpg?ixlib=js-2.3.2&auto=format&fit=crop&q=35&fallback=true&w=1920&h=640&blend=%2Ftreatments%2Ftreatment__text-overlay.jpg&blend-size=inherit&blend-mode=normal&blend-alpha=80");
+}
+.selected_uni_container {
+  padding: 100px 0px;
+
+  background-position: right;
+  background-size: cover;
+  background-position-x: right;
+  background-repeat: no-repeat;
+  width: 95%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.selected_uni_left_div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 20px;
+}
+.selected_uni_heading_wrap {
+  width: 100%;
+  color: white;
+}
+.selected_uni_first_h1 {
+  font-weight: 700;
+}
+.selected_uni_left_div h1 {
+  font-size: 20px;
+  font-family: "Inter", sans-serif;
+}
+.selected_uni_left_div p {
+  font-family: "Inter", sans-serif;
+  font-size: 1.5rem;
+  color: white;
+}
+
+.selected_uni_right_div {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 20px;
+  width: 50%;
+}
+.selected_uni_right_div_section_body {
+  box-shadow: 0px 2px 9px #160b2421;
+  width: 100%;
+  max-width: 350px;
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: white;
+  margin-bottom: 20px;
+}
+.selected_uni_right_div_section_body h2 {
+  font-size: 1.4rem;
+  margin: 10px 0px;
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+}
+.selected_uni_right_div_section_body p {
+  line-height: 1.6rem;
+}
+.universities_hero_right_btn_wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.universities_hero_right_btn {
+  font-family: "Inter", sans-serif;
+  letter-spacing: 1px;
+  color: white;
+  background-color: #603392;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.1rem;
+  letter-spacing: 0.2px;
+  font-weight: bold;
+  transition: 0.3s;
+  height: 59px;
+  cursor: pointer;
+  padding: 10px 30px;
+  margin: 30px 0px 0px 0px;
+  border-radius: 8px;
+  border: 3px solid #603392;
+}
+
+.universities_hero_right_btn:hover {
+  color: #603392;
+  background-color: white;
+}
+
+.universities_hero_right_btn:hover .heroBtnIcon {
+  color: #603392;
+  transition: 0.3s;
+}
+
+.universities_hero_left_btn_wrap {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.universities_hero_left_btn1 {
+  font-family: "Inter", sans-serif;
+  color: white;
+  background-color: #f26822;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.1rem;
+  letter-spacing: 0.2px;
+  font-weight: bold;
+  transition: 0.3s;
+  height: 59px;
+  cursor: pointer;
+  padding: 10px 30px;
+  margin: 30px 0px;
+  border-radius: 8px;
+  border: 2px solid #f26822;
+}
+
+.universities_hero_left_btn1:hover {
+  border: 2px solid #ffece3;
+  color: #f26822;
+  background-color: #ffece3;
+}
+
+.universities_hero_left_btn2 {
+  font-family: "Inter", sans-serif;
+  color: white;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.1rem;
+  letter-spacing: 0.2px;
+  font-weight: bold;
+  transition: 0.3s;
+  height: 59px;
+  cursor: pointer;
+  padding: 10px 30px;
+  margin: 30px 0px;
+  margin-left: 10px;
+
+  border-radius: 8px;
+  border: 2px solid white;
+}
+
+.universities_hero_left_btn2:hover {
+  color: #603392;
+  background-color: white;
+}
+
+.universities_hero_left_btn:hover .heroBtnIcon {
+  color: #603392;
+  transition: 0.3s;
+}
+
+@media (max-width: 555px) {
+  .selected_uni_container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .selected_uni_left_div,
+  .selected_uni_right_div {
+    flex: auto;
+    padding: 10px;
+  }
+
+  .selected_uni_left_div h1 {
+    line-height: 1.28;
+    text-align: left;
+    font-size: 1.7rem;
+  }
+
+  .selected_uni_left_div p {
+    font-size: 20px;
+    text-align: left;
+  }
+  .selected_uni_right_div {
+    width: 100%;
+    padding: 0px;
+  }
+
+  .universities_hero_right_btn {
+    margin-top: 10px;
+  }
+}
+
+@media (min-width: 40em) {
+  .selected_uni_left_div h1 {
+    font-size: 2.1rem;
+    text-align: left;
+    line-height: 28px;
+  }
+}
+@media (min-width: 555px) and (max-width: 768px) {
+  .selected_uni_right_div_section_body {
+    padding: 10px;
+  }
+  .selected_uni_right_div_section_body p {
+    font-size: 13px;
+    line-height: 1.3rem;
+  }
+  .universities_hero_right_btn {
+    margin: 10px 0px;
+    font-size: 13px;
+    height: 35px;
+    padding: 0px 12px !important;
+  }
+}
+@media (min-width: 555px) and (max-width: 768px) {
+  .selected_uni_left_div {
+    padding: 0px;
+  }
+  .selected_uni_left_div h1 {
+    font-size: 30px;
+  }
+  .selected_uni_left_div p {
+    font-size: 15px;
+  }
+  .selected_uni_right_div {
+    width: 40%;
+    padding: 0px;
+  }
+}

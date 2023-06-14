@@ -1,14 +1,16 @@
 import React from "react";
 import "./unicards.css";
 import Whystudee from "../home component/whystudee"
+import { Link } from "react-router-dom";
 const Unicards = () => {
   return (
     <>
       <div className="uni_cards_main_wrap">
         <div className="uni_cards_main">
           <div className="university_card_body">
-          
+
             <div className="university_card_card">
+          <Link to={{ pathname: "/selected-universities", state: {} }}>
               <img
                 src="https://images.studee.com/images/university/university__modul-university-vienna.jpg?ixlib=js-2.3.2&auto=format&fit=crop&q=35&w=816&h=272"
                 alt=""
@@ -43,7 +45,9 @@ const Unicards = () => {
                   <button className="unicard_btn">How study can help</button>
                 </div>
               </div>
+          </Link>
             </div>
+
             <div className="university_card_card">
               <img
                 src="https://images.studee.com/images/university/university__university-of-applied-sciences-upper-austria.jpg?ixlib=js-2.3.2&auto=format&fit=crop&q=35&w=816&h=272"

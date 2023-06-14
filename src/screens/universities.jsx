@@ -1,6 +1,6 @@
 import React from "react";
-import SecondHero from "../component/home component/secondHero";
-import Unicards from "../component/home component/unicards.jsx";
+import SecondHero from "../component/university component/secondHero";
+import Unicards from "../component/university component/unicards";
 
 const Universities = () => {
   return (
