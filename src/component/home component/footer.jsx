@@ -1,5 +1,6 @@
 import React from 'react'
-
+import "./footerStyle.css"
+import { BsFacebook, BsInstagram, BsYoutube,BsTwitter } from 'react-icons/bs'
 export default function footer() {
     return (
 
@@ -112,17 +113,20 @@ export default function footer() {
             </div>
 
             {/*Copyright section*/}
-            <div style={{ display: 'flex', justifyContent: 'space-between' }} className="bg-neutral-200 p-6 text-center dark:bg-neutral-700">
-                <div style={{ width: '100%' }}>
-
-                    <span>
-                        © Studee Ltd 2023. A UK registered company. All rights reserved by cloud lab web.</span>
+            <div className="footer_bottom_bar_wrap bg-neutral-200 p-6  dark:bg-neutral-700">
+              <div className='footer_bottom_bar_main'>
+                <div className='footer_bottom_bar_left'>
+                    <p>
+                        © Studee Ltd 2023. A UK registered company. All rights reserved by cloud lab web.</p>
 
                 </div>
-                {/* <div style={{  width: '50%' }}>
-                    <span>office@studee.com</span>
-                   
-                </div> */}
+                <div className='footer_bottom_bar_right'>
+                    <span style={{margin:'0px 10px'}}><BsFacebook size={25} className='footer_bottombar_icons'/></span>
+                    <span style={{margin:'0px 10px'}}><BsInstagram size={25} className='footer_bottombar_icons'/></span>
+                    <span style={{margin:'0px 10px'}}><BsYoutube size={25} className='footer_bottombar_icons'/></span>    
+                    <span style={{margin:'0px 10px'}}><BsTwitter size={25} className='footer_bottombar_icons'/></span>    
+                </div>
+              </div>
             </div>
         </footer>
 

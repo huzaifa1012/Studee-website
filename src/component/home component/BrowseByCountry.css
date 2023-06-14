@@ -4,7 +4,8 @@
   font-family: "Inter", sans-serif;
 }
 .browseByCountry_main {
-  margin: 150px 0px;
+  margin: 130px 0px;
+  margin-top: 0px;
   display: flex;
   flex-direction: column;
   width: 95%;

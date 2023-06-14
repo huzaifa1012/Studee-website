@@ -45,8 +45,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 120px;
-
+  margin-bottom: 110px;
 }
 .world_map_brands {
   justify-content: center;
@@ -54,7 +53,6 @@ body {
   display: flex;
   flex-wrap: wrap-reverse;
   width: 100%;
-
   flex-direction: column;
 }
 .world_map_brands img {
@@ -62,14 +60,12 @@ body {
 }
 .world_map_brands_image_row1 {
   width: 70%;
-  /* border: 2px solid; */
   justify-content: space-around;
   display: flex;
   flex-wrap: wrap;
 }
 .world_map_brands_image_row2 {
   width: 70%;
-  /* border: 2px solid; */
   justify-content: space-around;
   display: flex;
   flex-wrap: wrap;
@@ -108,6 +104,13 @@ body {
   .world_map_brand_image {
     width: 35%;
     margin: 0px;
+  }
+  .world_map_brands_wrap {
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom:60px;
   }
 }
 
