@@ -5,6 +5,7 @@ import { Home } from '../screens/home'
 import { About } from '../screens/about'
 import Universities from "../screens/universities";
 import SelectedUniversity from "../screens/selected university";
+import Guides from "../screens/guides";
 const Routing = () => (
     <Routes>
         <Route path="/" element={<Home/>} />
@@ -12,6 +13,7 @@ const Routing = () => (
         <Route path="/about" element={<About />} />
         <Route path="/universities" element={<Universities />} />
         <Route path="/selected-universities" element={<SelectedUniversity />} />
+        <Route path="/guide" element={<Guides />} />
     </Routes>
 );
 

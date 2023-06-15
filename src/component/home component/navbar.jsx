@@ -171,7 +171,8 @@ export function Navbar() {
             <Link to="universities">Universities</Link>
           </a>
           <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-            Guide
+            <Link to="guide">Guides</Link>
+            
           </a>
           <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
             Company

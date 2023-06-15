@@ -1,0 +1,89 @@
+.guide_wrap {
+  display: flex;
+  justify-content: center;
+  font-family: "Inter", sans-serif;
+}
+.guide_section_header_text_wrap {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+    }
+.guide_section_header_text {
+  margin-top: 10px;
+    width: 98%;
+}
+.guide_section_header_text h1{
+    font-size: 2.2rem;
+    margin: 15px 0px;
+    padding-left: 5px
+}
+.guide_main {
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  margin-bottom: 100px;
+}
+
+.guide_head {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+.guide_head h1 {
+  font-size: 28px;
+  width: 97%;
+  margin: 20px 0px 5px 0px;
+}
+.guide_body {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.guide_card {
+  border-radius: 5px;
+  background-color: white;
+  margin: 20px 0px;
+  box-shadow: 0px 2px 9px rgba(69, 69, 69, 0.208);
+  max-width: 30%;
+}
+.guide_card img {
+  border-radius: 5px 5px 0px 0px;
+}
+.guide_card_bottom {
+  margin: 20px;
+}
+.guide_card_bottom h2 {
+  color: #603392;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+.guide_card_bottom h2:hover {
+  color: #603392;
+  text-decoration: underline;
+}
+.guide_bottom {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.guide_bottom p {
+  color: #603392;
+  font-weight: 600;
+  width: 97%;
+  margin: 20px 0px;
+}
+
+@media (max-width: 600px) {
+  .guide_card {
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0px 2px 9px rgba(69, 69, 69, 0.208);
+    max-width: 95%;
+    margin: 10px 0px;
+  }
+  .guide_main {
+    margin: 10px 0px;
+  }
+}
