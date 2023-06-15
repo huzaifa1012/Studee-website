@@ -44,19 +44,19 @@ const SelectedUniHero = () => {
               </p>
               <div className="uni_bottom_square_wrap">
                 <div className="uni_bottom_square_box">
-                  <p>Type</p>
+                  <p className="ltc">Type</p>
                   <b> Private </b>
                 </div>
                 <div className="uni_bottom_square_box">
-                  <p>Students</p>
+                  <p className="ltc">Students</p>
                   <b> 3000 </b>
                 </div>
                 <div className="uni_bottom_square_box">
-                  <p>Nationalities</p>
+                  <p className="ltc">Nationalities</p>
                   <b> 42 </b>
                 </div>
                 <div className="uni_bottom_square_box">
-                  <p>Total programs</p>
+                  <p className="ltc">Total programs</p>
                   <b>140</b>
                 </div>
               </div>
