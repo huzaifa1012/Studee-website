@@ -35,10 +35,7 @@
   color: white;
 }
 .selected_uni_first_h1 {
-  font-weight: 700;
-}
-.selected_uni_left_div h1 {
-  font-size: 20px;
+  font-size: 5rem;
   font-family: "Inter", sans-serif;
 }
 .selected_uni_left_div p {
@@ -46,30 +43,31 @@
   font-size: 1.5rem;
   color: white;
 }
+.selectedUniHero_main_P {
+  margin-bottom: 50px;
+}
 
 .selected_uni_right_div {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   align-items: center;
-  padding: 20px;
-  width: 50%;
+  width: 45%;
 }
 .selected_uni_right_div_section_body {
   box-shadow: 0px 2px 9px #160b2421;
   width: 100%;
-  max-width: 350px;
-  text-align: center;
+  max-width: 420px;
+  text-align: left;
   padding: 20px;
   border-radius: 10px;
   background-color: white;
   margin-bottom: 20px;
 }
 .selected_uni_right_div_section_body h2 {
-  font-size: 1.4rem;
+  font-size: 2rem;
   margin: 10px 0px;
   font-family: "Inter", sans-serif;
-  font-weight: bold;
 }
 .selected_uni_right_div_section_body p {
   line-height: 1.6rem;
@@ -140,7 +138,9 @@
   color: #f26822;
   background-color: #ffece3;
 }
-
+.selected_uni_left_labels {
+  font-size: 17px !important ;
+}
 .universities_hero_left_btn2 {
   font-family: "Inter", sans-serif;
   color: white;
@@ -156,8 +156,6 @@
   cursor: pointer;
   padding: 10px 30px;
   margin: 30px 0px;
-  margin-left: 10px;
-
   border-radius: 8px;
   border: 2px solid white;
 }
@@ -172,7 +170,11 @@
   transition: 0.3s;
 }
 
-@media (max-width: 555px) {
+@media (max-width: 768px) {
+  
+  .selected_uni_container {
+    padding: 50px 0px;}
+  
   .selected_uni_container {
     flex-direction: column;
     text-align: center;
@@ -182,6 +184,9 @@
   .selected_uni_right_div {
     flex: auto;
     padding: 10px;
+  }
+  .selectedUniHero_main_P {
+    margin-bottom: 0px;
   }
 
   .selected_uni_left_div h1 {
@@ -202,42 +207,51 @@
   .universities_hero_right_btn {
     margin-top: 10px;
   }
+  .universities_hero_left_btn_wrap {
+    display: flex;
+    flex-direction: column;
+    margin: 30px 0px;
+  }
+  .selected_uni_left_labels {
+    margin: 10px 0px 0px 0px;
+  }
+  
+  .universities_hero_left_btn2 {
+    width: 100% ;
+    margin: 10px 0px;
+    padding: 0px 0px;
+    font-size: 16px;
+  }
+  .universities_hero_left_btn1 {
+    width: 100% ;
+    margin: 10px 0px;
+    padding: 0px 0px;
+    font-size: 16px;
+  }
+  .selected_uni_right_div {
+    width: 100%;
+  }
+  .selected_uni_right_div_section_body {
+    width: 100%;
+    max-width: 100% ;
+  }
 }
 
 @media (min-width: 40em) {
   .selected_uni_left_div h1 {
     font-size: 2.1rem;
     text-align: left;
-    line-height: 28px;
+    line-height: 45px;
   }
-}
-@media (min-width: 555px) and (max-width: 768px) {
-  .selected_uni_right_div_section_body {
-    padding: 10px;
-  }
-  .selected_uni_right_div_section_body p {
-    font-size: 13px;
-    line-height: 1.3rem;
-  }
-  .universities_hero_right_btn {
+  .universities_hero_left_btn1 {
     margin: 10px 0px;
-    font-size: 13px;
-    height: 35px;
-    padding: 0px 12px !important;
+  }
+  .universities_hero_left_btn2 {
+    width: 100% ;
+    margin: 10px 0px 10px 10px;
+  }
+  .selected_uni_left_label2 {
+    margin-left: 10px;
   }
 }
-@media (min-width: 555px) and (max-width: 768px) {
-  .selected_uni_left_div {
-    padding: 0px;
-  }
-  .selected_uni_left_div h1 {
-    font-size: 30px;
-  }
-  .selected_uni_left_div p {
-    font-size: 15px;
-  }
-  .selected_uni_right_div {
-    width: 40%;
-    padding: 0px;
-  }
-}
+
