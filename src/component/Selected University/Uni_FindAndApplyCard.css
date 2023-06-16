@@ -1,0 +1,161 @@
+.Uni_FindAndApplyCard_bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.UniFindAndApply_Main_wrap {
+  box-shadow: 0px 2px 8px #cecece;
+  width: 85%;
+
+  padding: 10px 50px;
+  border-radius: 5px;
+}
+.UniFindAndApply_Main_wrap h1 {
+  margin: 20px 0px 5px 0px;
+  font-size: 2.2rem;
+}
+.UniFindAndApply_Main_wrap p {
+}
+.UniFindAndApply_user-input-section {
+  /* border: 2px solid red; */
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  border-radius: 8px;
+  width: 100%;
+  background-color: white;
+  margin-top: -10px;
+  /* border-left: 4px solid #2b2d4a; */
+}
+
+.theUniFindAndApply_label {
+  justify-content: flex-start;
+  height: 150px;
+  border-width: 2px solid;
+  /* border-color: red; */
+  font-family: "Inter", sans-serif;
+  font-size: 17px;
+  width: 49%;
+}
+.UniFindAndApply_labelP {
+  margin-top: 30px;
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+}
+
+.UniFindAndApply_inpbox-style {
+  height: 59px;
+  padding: 10px;
+  outline: none;
+  border-radius: 10px;
+  width: 100%;
+  font-size: 17px;
+  border: 2px solid #2b2d4ae4;
+}
+.UniFindAndApply_inpbox-style::placeholder {
+  font-size: 17px;
+  font-family: "Inter", sans-serif;
+}
+
+.UniFindAndApplyBtnCover {
+  height: 114px;
+  width: 49%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+.UniFindAndApply_btn {
+  font-family: "Inter", sans-serif;
+  letter-spacing: 1px;
+  color: white;
+  background-color: #f26822;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: 0.3s;
+  height: 59px;
+  cursor: pointer;
+  padding: 10px;
+  outline: none;
+  border-radius: 10px;
+  border: none;
+  width: 100%;
+}
+.UniFindAndApply_btn:hover {
+  letter-spacing: 1px;
+  color: #f26822;
+  background-color: #ffece3;
+}
+.UniFindAndApplyBtnIcon {
+  color: white;
+}
+.UniFindAndApply_btn:hover .UniFindAndApplyBtnIcon {
+  color: #f26822;
+  transition: 0.3s;
+}
+
+.UniFindAndApply_inpbox-style:focus {
+  border-color: #f26822;
+  border-width: 2px;
+}
+
+@media (max-width: 555px) {
+  .UniFindAndApply_user-input-section {
+    margin-top: 20px;
+  }
+  .UniFindAndApply_Main_wrap {
+    width: 100%;
+    border: none;
+    padding: 15px 20px;
+  }
+  .theUniFindAndApply_label {
+    justify-content: flex-start;
+    height: 100px;
+    border-width: 2px solid;
+    border-color: red;
+    font-family: "Inter", sans-serif;
+    font-size: 17px;
+    width: 100%;
+  }
+  .UniFindAndApply_labelP {
+    text-align: left;
+  }
+  .UniFindAndApply_inpbox-style {
+    height: 59px;
+    padding: 10px;
+    outline: none;
+    border-radius: 10px;
+    width: 100%;
+    font-size: 17px;
+    border: 2px solid #2b2d4ae4;
+  }
+  .UniFindAndApplyBtnCover {
+    height: 80px;
+    width: 100%;
+    margin: 20px 0px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+  .UniFindAndApply_btn {
+    font-size: 13px;
+    word-spacing: -1.1px;
+  }
+}
+
+@media (min-width: 555px) and (max-width: 768px) {
+  .UniFindAndApply_user-input-section {
+    width: 100%;
+    margin-top: 5px;
+  }
+
+  .UniFindAndApply_btn {
+    font-size: 12px;
+  }
+  .UniFindAndApply_inpbox-style::placeholder {
+    font-size: 15px;
+  }
+}
