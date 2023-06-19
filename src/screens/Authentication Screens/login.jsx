@@ -1,5 +1,6 @@
 import React from "react";
-import "./Login.css";
+import "../../component/css storation/Login.css";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   return (
@@ -20,7 +21,10 @@ const Login = () => {
               <input type="password" id="password" className="login_input" />
             </div>
             <div className="login_card_bottom">
-              <a href="/sd">Forgot your password</a>
+              <Link to="/forget-password">
+                <p>Forgot your password</p>
+              </Link>
+
               <button type="submit" className="login_button">
                 Login
               </button>
