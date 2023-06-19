@@ -68,7 +68,8 @@ export function Navbar() {
         aria-label="Global"
       >
         <div className="flex lg:flex-1">
-          <a href="#" className="-m-1.5 p-1.5">
+          {/* <a href="#" className="-m-1.5 p-1.5"> */}
+          <Link to="/">
             <div className="flex">
               <img
                 className="h-8 w-auto"
@@ -78,7 +79,8 @@ export function Navbar() {
                 alt=""
               />
             </div>
-          </a>
+</Link>
+          {/* </a> */}
         </div>
         <div className="relative">
           <input

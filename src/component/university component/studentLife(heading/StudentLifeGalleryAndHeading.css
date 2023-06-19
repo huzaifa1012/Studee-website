@@ -1,0 +1,17 @@
+.StudentLifeGalleryAndHeading_Wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.StudentLifeGalleryAndHeading_main {
+    width: 90%;
+}
+
+.StudentLifeGalleryAndHeading_main h1 { 
+    /* padding: 15px 0px; */
+}
+@media screen {
+    
+}
+
+
