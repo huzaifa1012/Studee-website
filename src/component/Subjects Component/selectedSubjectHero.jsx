@@ -1,7 +1,7 @@
 import React from "react";
 import "./selectedSubject.css";
 import { useLocation } from "react-router-dom";
-
+import {BiRightArrowAlt} from "react-icons/bi"
 const SelectedSubjectHero = () => {
   const location = useLocation();
 
@@ -23,9 +23,16 @@ const SelectedSubjectHero = () => {
               chosen universities
             </p>
             <div className="universities_hero_left_btn_wrap">
-              <button className="universities_hero_left_btn">
+            <button className="universities_hero_left_btn_org">
+              Find Your Perfect Program
+              <BiRightArrowAlt className="heroBtnIcon" size={25} />
+
+            </button>
+
+              <button className="universities_hero_left_btn_trp">
                 How study can help
               </button>
+              
             </div>
           </div>
         </div>

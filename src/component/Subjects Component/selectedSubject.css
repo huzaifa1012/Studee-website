@@ -1,217 +1,219 @@
 body {
-    margin: 0;
-  }
-  .main-selectedSubHero_wrap {
-    font-family: "Inter", sans-serif;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    background-image: url("https://images.studee.com/images/content/content__search--hero.svg");
-    background-position: right;
-    background-size: cover;
-    background-position-x: right;
-    background-repeat: no-repeat;
+  margin: 0;
+}
+.main-selectedSubHero_wrap {
+  font-family: "Inter", sans-serif;
+  width: 100%;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  background-image: url("https://images.studee.com/images/content/content__search--hero.svg");
+  background-position: right;
+  background-size: cover;
+  background-position-x: right;
+  background-repeat: no-repeat;
+}
+.selectedSubHero_container {
+  margin-top: 30px;
+  width: 95%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  /* text-align: left; */
+}
+
+.selectedSubHero_left_div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+  padding: 0px 20px;
+}
+.selectedSubHero_left_div h1 {
+  font-family: "Inter", sans-serif;
+  color: white;
+  font-weight: 700;
+}
+.selectedSubHero_left_div p {
+  font-family: "Inter", sans-serif;
+  font-size: 1.5rem;
+  color: white;
+  max-width: 70%;
+}
+
+.selectedSubHero_right_div {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 20px;
+  width: 50%;
+}
+.selectedSubHero_right_div_section_body {
+  box-shadow: 0px 2px 9px #160b2421;
+  width: 100%;
+  max-width: 350px;
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: white;
+  margin-bottom: 20px;
+}
+.selectedSubHero_right_div_section_body h2 {
+  font-size: 1.4rem;
+  margin: 10px 0px;
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+}
+.selectedSubHero_right_div_section_body p {
+  line-height: 1.6rem;
+}
+.universities_hero_right_btn_wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.universities_hero_left_btn_org {
+  font-family: "Inter", sans-serif;
+  letter-spacing: 1px;
+  color: white;
+  background-color: #f26822;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  letter-spacing: 0.2px;
+  font-weight: 500;
+  transition: 0.3s;
+  height: 59px;
+  cursor: pointer;
+  padding: 10px 30px;
+  margin: 30px 0px 0px 0px;
+  border-radius: 8px;
+  border: 3px solid #f26822;
+}
+
+.universities_hero_left_btn_org:hover {
+  color: #f26822;
+  border-color: #ffece3;
+  background-color: #ffece3;
+}
+
+.universities_hero_right_btn:hover .heroBtnIcon {
+  color: #603392;
+  transition: 0.3s;
+}
+
+.universities_hero_left_btn_wrap {
+  width: 100%;
+}
+
+.universities_hero_left_btn_trp {
+  font-family: "Inter", sans-serif;
+  color: white;
+  background-color:transparent ;
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  letter-spacing: 0.2px;
+  font-weight: 500;
+  transition: 0.3s;
+  height: 59px;
+  cursor: pointer;
+  padding: 10px 30px;
+  margin: 30px 0px;
+  border-radius: 8px;
+  margin-left: 10px;
+  border: 3px solid white;
+}
+
+.universities_hero_left_btn_trp:hover {
+  color: #603392;
+  background-color:white;
+}
+
+.universities_hero_left_btn:hover .heroBtnIcon {
+  color: #603392;
+  transition: 0.3s;
+}
+
+@media (max-width: 555px) {
+  .selectedSubHero_left_div p {
+    max-width: 100%;
   }
   .selectedSubHero_container {
-    margin-top: 30px;
-    width: 95%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    /* text-align: left; */
-  }
-  
-  .selectedSubHero_left_div {
-    flex: 1;
-    display: flex;
     flex-direction: column;
-    justify-content: center;
-    /* align-items: center; */
-    padding: 0px 20px;
-  }
-  .selectedSubHero_left_div h1 {
-    font-family: "Inter", sans-serif;
-    color: white ;
-    font-weight: 700;
-  }
-  .selectedSubHero_left_div p {
-    font-family: "Inter", sans-serif;
-    font-size: 1.5rem;
-    color: white ;
-    max-width: 70%;
-  }
-  
-  .selectedSubHero_right_div {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    align-items: center;
-    padding: 20px;
-    width: 50%;
-  }
-  .selectedSubHero_right_div_section_body {
-    box-shadow: 0px 2px 9px #160b2421;
-    width: 100%;
-    max-width: 350px;
     text-align: center;
-    padding: 20px;
-    border-radius: 10px;
-    background-color: white;
-    margin-bottom: 20px;
   }
-  .selectedSubHero_right_div_section_body h2 {
-    font-size: 1.4rem;
-    margin: 10px 0px;
-    font-family: "Inter", sans-serif;
-    font-weight: bold;
+
+  .selectedSubHero_left_div,
+  .selectedSubHero_right_div {
+    flex: auto;
+    padding: 10px;
+  }
+
+  .selectedSubHero_left_div h1 {
+    font-size: 2.05rem;
+    line-height: 1.28;
+  }
+
+  .selectedSubHero_left_div h1 {
+    text-align: left;
+    font-size: 1.7rem;
+  }
+
+  .selectedSubHero_left_div p {
+    font-size: 20px;
+    text-align: left;
+  }
+  .selectedSubHero_right_div {
+    width: 100%;
+    padding: 0px;
+  }
+
+  .universities_hero_right_btn {
+    margin-top: 10px;
+  }
+}
+
+@media (min-width: 40em) {
+  .selectedSubHero_left_div h1 {
+    font-size: 2.7rem;
+    line-height: 1.27;
+  }
+}
+@media (min-width: 555px) and (max-width: 768px) {
+  .selectedSubHero_right_div_section_body {
+    padding: 10px;
   }
   .selectedSubHero_right_div_section_body p {
-    line-height: 1.6rem;
-  }
-  .universities_hero_right_btn_wrap {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    font-size: 13px;
+    line-height: 1.3rem;
   }
   .universities_hero_right_btn {
-    font-family: "Inter", sans-serif;
-    letter-spacing: 1px;
-    color: white;
-    background-color: #603392;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.1rem;
-    letter-spacing: 0.2px;
-    font-weight: bold;
-    transition: 0.3s;
-    height: 59px;
-    cursor: pointer;
-    padding: 10px 30px;
-    margin: 30px 0px 0px 0px;
-    border-radius: 8px;
-    border: 3px solid #603392;
+    margin: 10px 0px;
+    font-size: 13px;
+    height: 35px;
+    padding: 0px 12px !important;
   }
-  
-  .universities_hero_right_btn:hover {
-    color: #603392;
-    background-color: white;
+}
+@media (min-width: 555px) and (max-width: 768px) {
+  .selectedSubHero_left_div {
+    padding: 0px;
   }
-  
-  .universities_hero_right_btn:hover .heroBtnIcon {
-    color: #603392;
-    transition: 0.3s;
+  .selectedSubHero_left_div h1 {
+    font-size: 30px;
   }
-  
-  .universities_hero_left_btn_wrap {
-    width: 100%;
+
+  .selectedSubHero_left_div p {
+    font-size: 15px;
   }
-  
-  .universities_hero_left_btn {
-    font-family: "Inter", sans-serif;
-    color: #603392;
-    background-color: white;
-    width: fit-content;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.1rem;
-    letter-spacing: 0.2px;
-    font-weight: bold;
-    transition: 0.3s;
-    height: 59px;
-    cursor: pointer;
-    padding: 10px 30px;
-    margin: 30px 0px;
-    border-radius: 8px;
-    border: 3px solid #603392;
+  .selectedSubHero_right_div {
+    width: 40%;
+    padding: 0px;
   }
-  
-  .universities_hero_left_btn:hover {
-    color: white;
-    background-color: #603392;
-  }
-  
-  .universities_hero_left_btn:hover .heroBtnIcon {
-    color: #603392;
-    transition: 0.3s;
-  }
-  
-  @media (max-width: 555px) {
-    .selectedSubHero_left_div p {
-    max-width: 100%;
-    }
-    .selectedSubHero_container {
-      flex-direction: column;
-      text-align: center;
-    }
-  
-    .selectedSubHero_left_div,
-    .selectedSubHero_right_div {
-      flex: auto;
-      padding: 10px;
-    }
-  
-    .selectedSubHero_left_div h1 {
-      font-size: 2.05rem;
-      line-height: 1.28;
-    }
-  
-    .selectedSubHero_left_div h1 {
-      text-align: left;
-      font-size: 1.7rem;
-    }
-  
-    .selectedSubHero_left_div p {
-      font-size: 20px;
-      text-align: left;
-    }
-    .selectedSubHero_right_div {
-      width: 100%;
-      padding: 0px;
-    }
-  
-    .universities_hero_right_btn {
-      margin-top: 10px;
-    }
-  }
-  
-  @media (min-width: 40em) {
-    .selectedSubHero_left_div h1 {
-      font-size: 2.7rem;
-      line-height: 1.27;
-    }
-  }
-  @media (min-width: 555px) and (max-width: 768px) {
-    .selectedSubHero_right_div_section_body {
-      padding: 10px;
-    }
-    .selectedSubHero_right_div_section_body p {
-      font-size: 13px;
-      line-height: 1.3rem;
-    }
-    .universities_hero_right_btn {
-      margin: 10px 0px;
-      font-size: 13px;
-      height: 35px;
-      padding: 0px 12px !important;
-    }
-  }
-  @media (min-width: 555px) and (max-width: 768px) {
-    .selectedSubHero_left_div {
-      padding: 0px;
-    }
-    .selectedSubHero_left_div h1 {
-      font-size: 30px;
-    }
-    
-    .selectedSubHero_left_div p {
-      font-size: 15px;
-    }
-    .selectedSubHero_right_div {
-      width: 40%;
-      padding: 0px;
-    }
-  }
-  
+}

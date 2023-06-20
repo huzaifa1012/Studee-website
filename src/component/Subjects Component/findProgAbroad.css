@@ -1,0 +1,259 @@
+/* General Styles */
+.findProgBox_main_wrap {
+  margin: 50px 0;
+margin-bottom: 100px;
+}
+
+.findProgBox_head {
+  text-align: center;
+  font-family: "Inter", "sans-serif";
+}
+
+.findProgBox_head h2 {
+  font-size: 32px;
+}
+
+.findProgBox_head p {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.findProgBox_studee_wrap {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 50px;
+  /* margin-bottom: 60px; */
+}
+
+.findProgBox_studee_body {
+  width: 70%;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  font-family: "Inter", sans-serif;
+  margin-bottom: 30px;
+}
+
+.findProgBox_studee_box {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 30%;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0px 3px 2px rgba(82, 82, 82, 0.103);
+  border-radius: 8px;
+  border: 2px solid transparent;
+  padding: 10px;
+}
+.findProgBox_studee_box img {
+  margin-bottom: 20px;
+}
+
+.findProgBox_studee_box h2 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.findProgBox_studee_box:hover  {
+  transition: 0.2s;
+    border: 2px solid #603392;
+
+}
+.findProgBox_studee_box:hover .findProgBox_nextIcon {
+  fill: white;
+  background-color: #603392;
+}
+.findProgBox_nextIcon {
+  fill: #603392;
+  margin: 20px;
+  transition: 0.2s;
+  width: 30px !important;
+  height: 30px !important;
+  border: 2px solid #603392;
+  border-radius: 90px;
+}
+
+.findProgBox_studee_box p {
+  font-size: 16px;
+  line-height: 1.5rem;
+  text-align: center;
+}
+
+.findProgBox_bottom_wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.findProgBox_bottom {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  margin: 10px 0;
+}
+.findProgBox_bottom p {
+    color: #603392;
+    font-weight: 500;
+}
+
+.why_bottom_p1 {
+  color: #4a9878;
+  background-color: #f3f8f6;
+  font-size: 17px;
+  padding: 10px 10px;
+  border-radius: 7px;
+  margin: 15px 0px;
+  display: inline-block;
+  width: 100%;
+}
+
+.why_bottom_p2 {
+  color: #5a5a72;
+  background-color: #f7f8f9;
+  font-size: 17px;
+  padding: 10px 10px;
+  border-radius: 7px;
+  margin: 15px 0px;
+  margin-bottom: 30px;
+  display: inline-block;
+  width: 100%;
+}
+
+.why_bottom_p3 {
+  margin-bottom: 40px;
+  justify-content: center;
+}
+
+.findProgBox_bottom_btn {
+  font-family: "Inter", sans-serif;
+  letter-spacing: 1px;
+  color: white;
+  background-color: #603392;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: 0.3s;
+  height: 59px;
+  cursor: pointer;
+  padding: 10px 30px;
+  outline: none;
+  border-radius: 8px;
+  border: none;
+}
+
+.findProgBox_bottom_btn:hover {
+  letter-spacing: 1px;
+  color: #603392;
+  background-color: #e2c6ff;
+}
+
+.findProgBox_bottom_btn:hover .heroBtnIcon {
+  color: #603392;
+  transition: 0.3s;
+}
+
+/* Mobile Styles */
+@media screen and (max-width: 767px) {
+  .findProgBox_main_wrap {
+    margin: 30px 0;
+  }
+
+  .findProgBox_head h2 {
+    margin: 0px 30px;
+    text-align: left;
+    font-size: 24px;
+  }
+
+  .findProgBox_head p {
+    margin: 0px 30px;
+    text-align: left;
+    font-size: 16px;
+  }
+
+  .findProgBox_studee_body {
+    width: 100%;
+    padding: 0;
+    justify-content: center;
+  }
+
+  .findProgBox_studee_box {
+    width: 80%;
+    margin-bottom: 30px;
+  }
+
+  .findProgBox_bottom {
+    width: 100%;
+  }
+
+  .findProgBox_bottom_btn {
+    font-size: 0.9rem;
+    height: 50px;
+    padding: 10px 20px;
+  }
+
+  .why_bottom_p1 {
+    text-align: left;
+    font-size: 15px;
+    margin: 15px 0px;
+    width: 95%;
+  }
+
+  .why_bottom_p2 {
+    text-align: left;
+    font-size: 15px;
+    margin: 15px 0px;
+    width: 95%;
+  }
+
+  .why_bottom_p3 {
+    padding: 10px 10px;
+    font-size: 15px;
+    text-align: left;
+    width: 95%;
+
+    margin: 5px;
+    margin-bottom: 20px;
+  }
+  .findProgBox_bottom_btn {
+    width: 90%;
+  }
+}
+
+/* Tablet Styles */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .findProgBox_main_wrap {
+    margin: 40px 0;
+  }
+
+  .findProgBox_head h2 {
+    font-size: 28px;
+  }
+
+  .findProgBox_head p {
+    font-size: 17px;
+  }
+
+  .findProgBox_studee_body {
+    width: 90%;
+  }
+
+  .findProgBox_studee_box {
+    width: 45%;
+    margin-bottom: 30px;
+  }
+
+  .findProgBox_bottom {
+    width: 90%;
+  }
+}
