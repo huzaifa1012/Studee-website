@@ -65,7 +65,7 @@
 }
 
 .login_button {
-  min-width: 30%;
+  min-width: 60%;
   max-width: fit-content;
   padding: 13px 10px;
   font-size: 1.1rem;
@@ -87,8 +87,9 @@
   background-color: #fff;
   display: flex;
   border-radius: 8px;
-  align-items: center;
+  align-items: flex-start;
   justify-content: flex-start;
+  flex-direction: column;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   padding: 20px;
   height: fit-content;
@@ -127,6 +128,7 @@
 }
 
 .login_register_box_main {
+  margin-bottom: 20px;
   padding-bottom: 10px;
 }
 .login_register_box_main h3 {
@@ -156,3 +158,35 @@
   transition: 0.1s;
   color: #fff;
 }
+
+
+/* Register Label */
+.lable_in_signup_screen {
+  margin-top: 20px;
+}
+.country_of_nationality_p {
+  font-size: 14px;
+}
+
+/* Register Sidebox */
+.Register_side_box_wrap {
+  /* border-top: 2px solid #603392; */
+  
+}
+.Register_individual_side_box  {
+  margin: 20px 0px;
+  display: flex;
+  justify-content:space-around;
+  align-items: center;
+}
+.Register_individual_side_box h3  {
+  font-size: 1.2rem;
+  margin:-5px 0px
+}
+.Register_individual_side_box img {
+  width: 20%;
+}
+  .Register_individual_side_box div {
+    width: 70%;
+  }
+  

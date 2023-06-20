@@ -35,7 +35,9 @@ const Login = () => {
           <div className="login_register_box_main">
             <h3>Don't have an account?</h3>
             <p>Register for free today and start your study abroad journey</p>
+            <Link to="/register">
             <button className="login_register_button">Register for free</button>
+            </Link>
           </div>
         </div>
       </div>
