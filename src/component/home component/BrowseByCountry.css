@@ -29,6 +29,7 @@
 .browseByCountry_card {
   display: flex;
   justify-content: center;
+  text-align: center;
   align-items: center;
   border-radius: 5px;
   background-color: white;

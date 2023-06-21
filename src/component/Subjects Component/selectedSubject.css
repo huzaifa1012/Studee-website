@@ -83,6 +83,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: fit-content;
   font-size: 1rem;
   letter-spacing: 0.2px;
   font-weight: 500;
@@ -142,6 +143,9 @@ body {
 }
 
 @media (max-width: 555px) {
+  .main-selectedSubHero_wrap {
+    height: fit-content;
+  }
   .selectedSubHero_left_div p {
     max-width: 100%;
   }
@@ -177,6 +181,9 @@ body {
 
   .universities_hero_right_btn {
     margin-top: 10px;
+  }
+.universities_hero_left_btn_trp {
+    margin-left: 0px;
   }
 }
 
