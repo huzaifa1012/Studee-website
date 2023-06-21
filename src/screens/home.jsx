@@ -24,6 +24,35 @@ const Home = () => {
     {subject:"History",image:""},
     {subject:"LAW",image:""},
   ];
+  const countries = [
+    {
+      name: 'USA',
+      image: 'https://images.studee.com/images/country/country__uk.jpg?ixlib=js-2.3.2&auto=format&fit=crop&q=35&w=580&h=350&blend=%2Ftreatments%2Ftreatment__split-tone-with-overlay.jpg&blend-size=inherit&blend-mode=multiply&blend-alpha=80',
+    },
+    {
+      name: 'Canada',
+      image: 'https://images.studee.com/images/country/country__australia.jpg?ixlib=js-2.3.2&auto=format&fit=crop&q=35&w=340&h=296&blend=%2Ftreatments%2Ftreatment__split-tone-with-overlay.jpg&blend-size=inherit&blend-mode=multiply&blend-alpha=80',
+    },
+    {
+      name: 'UAE',
+      image: 'https://images.studee.com/images/country/country__belgium.jpg?ixlib=js-2.3.2&auto=format&fit=crop&q=35&w=340&h=296&blend=%2Ftreatments%2Ftreatment__split-tone-with-overlay.jpg&blend-size=inherit&blend-mode=multiply&blend-alpha=80',
+    },
+    {
+      name: 'Cyprus',
+      image: 'https://images.studee.com/images/country/country__cyprus.jpg?ixlib=js-2.3.2&auto=format&fit=crop&q=35&w=340&h=296&blend=%2Ftreatments%2Ftreatment__split-tone-with-overlay.jpg&blend-size=inherit&blend-mode=multiply&blend-alpha=80',
+    },
+    {
+      name: 'Austria',
+      image: 'https://images.studee.com/images/country/country__canada.jpg?ixlib=js-2.3.2&auto=format&fit=crop&q=35&w=340&h=296&blend=%2Ftreatments%2Ftreatment__split-tone-with-overlay.jpg&blend-size=inherit&blend-mode=multiply&blend-alpha=80',
+    },
+    {
+      name: 'UK',
+      image: 'https://images.studee.com/images/country/country__cyprus.jpg?ixlib=js-2.3.2&auto=format&fit=crop&q=35&w=340&h=296&blend=%2Ftreatments%2Ftreatment__split-tone-with-overlay.jpg&blend-size=inherit&blend-mode=multiply&blend-alpha=80',
+    },
+    // Add more country objects as needed
+  ];
+  
+  
   return (
     <>
       <Hero />
@@ -38,8 +67,9 @@ const Home = () => {
       <WorldMap />
       <Testimonial />
       <StudyingAbroad />
-      <BrowseByCountry />
+      <BrowseByCountry heading={"Browse by country"} countries={countries}/>
       <PopularSubjects heading={"Popular Subjects"} allSubjects={allSubjects} length={9}  />
+
     </>
   );
 };
