@@ -2,13 +2,13 @@ import React from "react";
 import "./selectedSubject.css";
 import { useLocation } from "react-router-dom";
 import {BiRightArrowAlt} from "react-icons/bi"
-const SelectedSubjectHero = () => {
-  const location = useLocation();
+const SelectedSubjectHero = ({subjectName,BGImage}) => {
+  // const location = useLocation();
 
-  const searchParams = new URLSearchParams(location.search);
+  // const searchParams = new URLSearchParams(location.search);
 
-  const subjectName = searchParams.get("subject");
-  const BGImage = searchParams.get("backgroundImage");
+  // const subjectName = searchParams.get("subject");
+  // const BGImage = searchParams.get("backgroundImage");
 
   return (
     <>

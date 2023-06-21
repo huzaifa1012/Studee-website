@@ -5,15 +5,31 @@ import WorldMap from "../component/home component/worldMap.jsx";
 import Testimonial from "../component/home component/Testimonial.jsx";
 import StudyingAbroad from "../component/home component/StudyingAbroad.jsx";
 import BrowseByCountry from "../component/home component/browseByCountry.jsx";
-import PopularSubjects from "../component/home component/popularSubjects.jsx";
 import TreeProjectComponent from "../component/home component/treesProject.jsx";
+import tresImg from "../assets/trees image.png"
+import PopularSubjects from "../component/home component/PopularSubjects";
 const Home = () => {
+  const allSubjects = [
+    {subject: "Accounting",image:"https://images.studee.com/images/program/programs__creative-arts-design.jpg?ixlib=js-2.3.2&auto=format&fit=crop&q=35&fallback=true&w=1920&h=640&blend=%2Ftreatments%2Ftreatment__split-tone-with-overlay.jpg&blend-size=inherit&blend-mode=multiply&blend-alpha=80",},
+    {subject: "Agriculture",image: "https://images.studee.com/images/program/programs__agriculture-food-animal-sciences.jpg?ixlib=js-2.3.2&auto=format&fit=crop&q=35&fallback=true&w=1920&h=640&blend=%2Ftreatments%2Ftreatment__split-tone-with-overlay.jpg&blend-size=inherit&blend-mode=multiply&blend-alpha=80",},
+    // ["Economics"],
+    {subject:"Art",image:'https://images.studee.com/images/program/programs__creative-arts-design.jpg?ixlib=js-2.3.2&auto=format&fit=crop&q=35&fallback=true&w=1920&h=640&blend=%2Ftreatments%2Ftreatment__split-tone-with-overlay.jpg&blend-size=inherit&blend-mode=multiply&blend-alpha=80'},
+    {subject:"Biology",image:"https://images.studee.com/images/program/programs__life-sciences-medicine-health.jpg?ixlib=js-2.3.2&auto=format&fit=crop&q=35&fallback=true&w=1920&h=640&blend=%2Ftreatments%2Ftreatment__split-tone-with-overlay.jpg&blend-size=inherit&blend-mode=multiply&blend-alpha=80"},
+    {subject:"Communication",image:"https://images.studee.com/images/program/programs__business-management-studies.jpg?ixlib=js-2.3.2&auto=format&fit=crop&q=35&fallback=true&w=1920&h=640&blend=%2Ftreatments%2Ftreatment__split-tone-with-overlay.jpg&blend-size=inherit&blend-mode=multiply&blend-alpha=80"},
+    {subject:"History",image:""},
+    {subject:"Economics",image:""},
+    {subject:"Business",image:"https://images.studee.com/images/program/programs__business-management-studies.jpg?ixlib=js-2.3.2&auto=format&fit=crop&q=35&fallback=true&w=1920&h=640&blend=%2Ftreatments%2Ftreatment__split-tone-with-overlay.jpg&blend-size=inherit&blend-mode=multiply&blend-alpha=80"},
+    {subject:"Engineering",image:""},
+    {subject:"Agriculture",image:""},
+    {subject:"History",image:""},
+    {subject:"LAW",image:""},
+  ];
   return (
     <>
       <Hero />
       <Whystudee />
       <TreeProjectComponent
-        imageUrl="https://images.studee.com/images/content/content__trees-for-degrees-badge.svg"
+        imageUrl={tresImg}
         heading="Trees for degrees - The one million trees project"
         paragraph="When you enroll through us, you become part of a new movement to help reduce the environmental impact of international student flights. We’ll donate to Plant-for-the-Planet, who plant trees on your behalf. These trees contribute towards absorbing the CO2 released into our atmosphere, which helps to protect our climate and the planet."
         linkText="Find out more about Project 1"
@@ -23,7 +39,7 @@ const Home = () => {
       <Testimonial />
       <StudyingAbroad />
       <BrowseByCountry />
-      <PopularSubjects />
+      <PopularSubjects heading={"Popular Subjects"} allSubjects={allSubjects} length={9}  />
     </>
   );
 };
