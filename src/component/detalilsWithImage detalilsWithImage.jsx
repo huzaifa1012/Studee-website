@@ -5,9 +5,6 @@ function DetalilsWithImage({ imageUrl, heading,subHeading, body, linkText, linkU
   return (
     <div className="detailsWith_image-section">
       <div className="detailsWith_image-content">
-        {/* <div className="detailsWith_image-image">
-          <img src={imageUrl} alt="Hero" />
-        </div> */}
         <div className="detailsWith_image-text">
           <h1 className="detailsWith_image-heading">{heading}</h1>
           <div className="detailsWith_image-body_subHeading">

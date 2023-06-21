@@ -2,7 +2,7 @@ import React from "react";
 import ProgramDetailHero from "../component/programs components/programDetailHero.jsx";
 import Whystudee from "../component/home component/whystudee.jsx";
 import VerticalizeTreeProjectComponent from "../component/home component/Verticalize layout treeProject.jsx";
-import TreeProjectComponent from "../component/home component/treesProject.jsx";
+import VisaRequirementCard from "../component/programs components/visaRequirementCard.jsx";
 import DetalilsWithImage from "../component/detalilsWithImage detalilsWithImage.jsx";
 const ProgramDetails = () => {
   return (
@@ -149,6 +149,9 @@ Software Programs we'll provide:`}
           </>
         }
       />
+
+      <VisaRequirementCard/>
+
     </>
   );
 };
