@@ -1,5 +1,6 @@
 import React from "react";
 import "./ProgramCard.css";
+import { Link } from "react-router-dom";
 const ProgramCard = () => {
   return (
     <>
@@ -14,8 +15,13 @@ const ProgramCard = () => {
                 />
               </div>
               <div className="Program_card_left_top_right pl-10">
-                <h2><b>2D Animation (Melbourne Campus) </b>  - BAnim</h2>{" "}
-                <p> <b> AIT Academy of Interactive Technology, </b> Australia </p>
+                <h2>
+                  <b>2D Animation (Melbourne Campus) </b> - BAnim
+                </h2>{" "}
+                <p>
+                  {" "}
+                  <b> AIT Academy of Interactive Technology, </b> Australia{" "}
+                </p>
               </div>
             </div>
             <div className="Program_card_left_bottom">
@@ -43,9 +49,11 @@ const ProgramCard = () => {
             <button className="programs_card_right_btn1">
               Start Application{" "}
             </button>
-            <button className="programs_card_right_btn2 ">
-              Program Details
-            </button>
+            <Link to="/program-details" className="programs_card_right_btn2">
+              <button >
+                Program Details
+              </button>
+            </Link>
           </div>
         </div>
         <div className="Program_card_main">
@@ -58,8 +66,13 @@ const ProgramCard = () => {
                 />
               </div>
               <div className="Program_card_left_top_right pl-10">
-                <h2><b>2D Animation (Melbourne Campus) </b>  - BAnim</h2>{" "}
-                <p> <b> AIT Academy of Interactive Technology, </b> Australia </p>
+                <h2>
+                  <b>2D Animation (Melbourne Campus) </b> - BAnim
+                </h2>{" "}
+                <p>
+                  {" "}
+                  <b> AIT Academy of Interactive Technology, </b> Australia{" "}
+                </p>
               </div>
             </div>
             <div className="Program_card_left_bottom">
@@ -87,9 +100,11 @@ const ProgramCard = () => {
             <button className="programs_card_right_btn1">
               Start Application{" "}
             </button>
-            <button className="programs_card_right_btn2 ">
-              Program Details
-            </button>
+            <Link to="/program-details" className="programs_card_right_btn2">
+              <button >
+                Program Details
+              </button>
+            </Link>
           </div>
         </div>
         <div className="Program_card_main">
@@ -102,8 +117,13 @@ const ProgramCard = () => {
                 />
               </div>
               <div className="Program_card_left_top_right pl-10">
-                <h2><b>2D Animation (Melbourne Campus) </b>  - BAnim</h2>{" "}
-                <p> <b> AIT Academy of Interactive Technology, </b> Australia </p>
+                <h2>
+                  <b>2D Animation (Melbourne Campus) </b> - BAnim
+                </h2>{" "}
+                <p>
+                  {" "}
+                  <b> AIT Academy of Interactive Technology, </b> Australia{" "}
+                </p>
               </div>
             </div>
             <div className="Program_card_left_bottom">
@@ -131,9 +151,11 @@ const ProgramCard = () => {
             <button className="programs_card_right_btn1">
               Start Application{" "}
             </button>
-            <button className="programs_card_right_btn2 ">
-              Program Details
-            </button>
+            <Link to="/program-details" className="programs_card_right_btn2">
+              <button >
+                Program Details
+              </button>
+            </Link>
           </div>
         </div>
         <div className="Program_card_main">
@@ -146,8 +168,13 @@ const ProgramCard = () => {
                 />
               </div>
               <div className="Program_card_left_top_right pl-10">
-                <h2><b>2D Animation (Melbourne Campus) </b>  - BAnim</h2>{" "}
-                <p> <b> AIT Academy of Interactive Technology, </b> Australia </p>
+                <h2>
+                  <b>2D Animation (Melbourne Campus) </b> - BAnim
+                </h2>{" "}
+                <p>
+                  {" "}
+                  <b> AIT Academy of Interactive Technology, </b> Australia{" "}
+                </p>
               </div>
             </div>
             <div className="Program_card_left_bottom">
@@ -175,9 +202,11 @@ const ProgramCard = () => {
             <button className="programs_card_right_btn1">
               Start Application{" "}
             </button>
-            <button className="programs_card_right_btn2 ">
-              Program Details
-            </button>
+            <Link to="/program-details" className="programs_card_right_btn2">
+              <button >
+                Program Details
+              </button>
+            </Link>
           </div>
         </div>
         <div className="Program_card_main">
@@ -190,8 +219,13 @@ const ProgramCard = () => {
                 />
               </div>
               <div className="Program_card_left_top_right pl-10">
-                <h2><b>2D Animation (Melbourne Campus) </b>  - BAnim</h2>{" "}
-                <p> <b> AIT Academy of Interactive Technology, </b> Australia </p>
+                <h2>
+                  <b>2D Animation (Melbourne Campus) </b> - BAnim
+                </h2>{" "}
+                <p>
+                  {" "}
+                  <b> AIT Academy of Interactive Technology, </b> Australia{" "}
+                </p>
               </div>
             </div>
             <div className="Program_card_left_bottom">
@@ -219,9 +253,11 @@ const ProgramCard = () => {
             <button className="programs_card_right_btn1">
               Start Application{" "}
             </button>
-            <button className="programs_card_right_btn2 ">
-              Program Details
-            </button>
+            <Link to="/program-details" className="programs_card_right_btn2">
+              <button >
+                Program Details
+              </button>
+            </Link>
           </div>
         </div>
       </div>

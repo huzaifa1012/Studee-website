@@ -1,20 +1,20 @@
 import React from "react";
-import "./selecteduni.css";
-const SelectedUniHero = () => {
+const ProgramDetailHero = () => {
   return (
     <>
       <div className="main-selected_uni_wrap">
         <div className="selected_uni_container">
           <div className="selected_uni_left_div">
             <div className="selected_uni_heading_wrap">
-              <h1 className=" pb-5 selected_uni_first_h1">
+              <h1 className="pb-5 selected_uni_first_h1">
                 <b>Apply to 3A L'ecole du Management Responsable</b> :
                 Accredited university partner
               </h1>
             </div>
             <p className="selectedUniHero_main_P">
-              Get a free 48 hour fast-track assessment (worth $185*) to maximize
-              your chance of getting admitted
+              We maximize your chance of getting admitted to your chosen
+              universities. Reduced application fees, a free assessment and
+              access to a dedicated advisor
             </p>
             <div className="universities_hero_left_btn_wrap">
               <label htmlFor="universities_hero_left_btn  universities_hero_left_btn_main_label">
@@ -37,26 +37,33 @@ const SelectedUniHero = () => {
 
           <div className="selected_uni_right_div">
             <div className="selected_uni_right_div_section_body">
-              <h2>Uni Facts</h2>
+              <h2>Program facts</h2>
               <p className="mtc">
-                Milan,  <span className="dtc" style={{marginBottom:'5px'}}><b>italy</b></span>
+                Milan,{" "}
+                <span className="dtc" style={{ marginBottom: "5px" }}>
+                  <b>italy</b>
+                </span>
               </p>
               <div className="uni_bottom_square_wrap">
                 <div className="uni_bottom_square_box">
-                  <p className="ltc">Type</p>
-                  <b> Private </b>
+                  <p className="ltc">Program Type</p>
+                  <b> Bachelor's</b>
                 </div>
                 <div className="uni_bottom_square_box">
-                  <p className="ltc">Students</p>
-                  <b> 3000 </b>
+                  <p className="ltc">Duration</p>
+                  <b> 2 Years</b>
                 </div>
                 <div className="uni_bottom_square_box">
-                  <p className="ltc">Nationalities</p>
-                  <b> 42 </b>
+                  <p className="ltc">Annual Fee</p>
+                  <b> $23300</b>
                 </div>
                 <div className="uni_bottom_square_box">
-                  <p className="ltc">Total programs</p>
-                  <b>140</b>
+                  <p className="ltc">Language Taught in</p>
+                  <b>English</b>
+                </div>
+                <div className="uni_bottom_square_box" style={{width:'100%'}}>
+                  <p className="ltc">Start Date</p>
+                  <b>February, May, September</b>
                 </div>
               </div>
             </div>
@@ -66,4 +73,5 @@ const SelectedUniHero = () => {
     </>
   );
 };
-export default SelectedUniHero;
+
+export default ProgramDetailHero;
