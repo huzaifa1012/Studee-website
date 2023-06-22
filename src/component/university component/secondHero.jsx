@@ -12,8 +12,8 @@ const SecondHero = () => {
             Get a free 48 hour fast-track assessment (worth $185*) to maximize
             your chance of getting admitted
           </p>
-          <div className="universities_hero_left_btn_wrap">
-            <button className="universities_hero_left_btn">
+          <div className="universities_hero_left_btn_wrap sec_hero_uniBtn_wrap">
+            <button className="universities_hero_left_btn ">
               How study can help
             </button>
           </div>

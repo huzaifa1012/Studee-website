@@ -1,12 +1,15 @@
-body {
-    margin: 0;
-  }
+.main-visaRequirmentCard_Ultra_wrap {
+  display: flex;
+  width:' 100%';
+justify-content: center;
+align-items: center;
+}
   .main-visaRequirmentCard_wrap {
     font-family: "Inter", sans-serif;
-    width: 100%;
+    width: 90%;
     display: flex;
-    justify-content: center;
-    background-image: url("https://images.studee.com/images/content/content__search--hero.svg");
+    justify-content: flex-start;
+    /* background-image: url("https://images.studee.com/images/content/content__search--hero.svg"); */
     background-position: right;
     background-size: cover;
     background-position-x: right;
@@ -14,10 +17,10 @@ body {
   }
   .visaRequirmentCard_container {
     margin-top: 30px;
-    width: 95%;
+    width: 85%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    /* justify-content: ; */
   }
   
   .visaRequirmentCard_left_div {
@@ -28,12 +31,13 @@ body {
     align-items: center;
     padding: 0px 20px;
   }
+  
   .visaRequirmentCard_left_div h1 {
     font-family: "Inter", sans-serif;
   }
   .visaRequirmentCard_left_div p {
     font-family: "Inter", sans-serif;
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
   
   .visaRequirmentCard_right_div {
@@ -42,7 +46,7 @@ body {
     flex-wrap: wrap;
     align-items: center;
     padding: 20px;
-    width: 50%;
+    width: 30%;
   }
   .visaRequirmentCard_right_div_section_body {
     box-shadow: 0px 2px 9px #160b2421;
@@ -51,7 +55,7 @@ body {
     text-align: center;
     padding: 20px;
     border-radius: 10px;
-    background-color: white;
+    /* background-color: white; */
     margin-bottom: 20px;
   }
   .visaRequirmentCard_right_div_section_body h2 {
@@ -105,8 +109,10 @@ body {
   
   .universities_hero_left_btn {
     font-family: "Inter", sans-serif;
-    color: #603392;
-    background-color: white;
+    color:  white;
+    /* background-color: white; */
+    background-color: #603392;
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -123,8 +129,8 @@ body {
   }
   
   .universities_hero_left_btn:hover {
-    color: white;
-    background-color: #603392;
+    color: #603392;
+    background-color: white;
   }
   
   .universities_hero_left_btn:hover .heroBtnIcon {
@@ -145,7 +151,7 @@ body {
     }
   
     .visaRequirmentCard_left_div h1 {
-      font-size: 2.05rem;
+      font-size: 1.5rem;
       line-height: 1.28;
     }
   

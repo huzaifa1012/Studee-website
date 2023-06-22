@@ -12,6 +12,7 @@ import ForgePassword from "../screens/Authentication Screens/forget password";
 import Register from "../screens/Authentication Screens/signup";
 import Selected_subject from "../screens/selected subject";
 import ProgramDetails from "../screens/program details";
+import GuideDetailPage from "../screens/guideDetailPage.jsx";
 const Routing = () => (
   <Routes>
     <Route path="/" element={<Home />} />
@@ -26,6 +27,8 @@ const Routing = () => (
     <Route path="/guide" element={<Guides />} />
     <Route path="/selected-subject" element={<Selected_subject />} />
     <Route path="/program-details" element={<ProgramDetails/>} />
+    <Route path="/guide-detail-page" element={<GuideDetailPage/>} />
+    <Route path="/*" element={<h1>Wrong Routes</h1>} />
   </Routes>
 );
 

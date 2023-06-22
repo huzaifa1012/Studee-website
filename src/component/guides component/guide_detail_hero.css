@@ -1,0 +1,31 @@
+.GuideDetailHero_Wrap{
+
+}
+.GuideDetailHero_Main{
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 90vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.GuideDetailHero_Main h1{
+    color: white;
+    font-weight: 600;
+    font-size: 2rem;
+    padding-left: 5%;
+}
+
+@media (max-width: 425px) {
+    .GuideDetailHero_Main{
+        height: 40vh;
+    }
+    
+    .GuideDetailHero_Main h1{
+    padding: 0px 10px;
+    font-size: 1.5rem;
+    }
+
+}
