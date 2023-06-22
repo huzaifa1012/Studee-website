@@ -119,8 +119,8 @@ const GuideDetailPage = () => {
           </div>
         }
       />
-      <hr/>
-      <Whystudee/>
+      <hr />
+      <Whystudee />
     </>
   );
 };

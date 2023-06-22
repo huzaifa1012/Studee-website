@@ -16,6 +16,7 @@ import {
   PlayCircleIcon,
 } from "@heroicons/react/20/solid";
 import logo from "../../assets/studee_short_logo.png";
+import {AiOutlineUser} from 'react-icons/ai'
 import { FiSearch } from "react-icons/fi";
 import { Link } from "react-router-dom";
 const products = [
@@ -198,9 +199,9 @@ export function Navbar() {
 
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
          <Link to="/login">
-          <span className="text-sm font-semibold leading-6 text-gray-900">
-            Log in <span aria-hidden="true">&rarr;</span>
-          </span>
+          <button style={{backgroundColor:'#f7f8f9',padding:"5px 10px",borderRadius:'8px', display:'flex',flexDirection:'row',alignItems:'center'}} className="text-sm font-semibold leading-6 text-gray-900">
+          <span aria-hidden="true" style={{marginRight:'2px'}}><AiOutlineUser size={22} fill="#603392" /></span> Sign In
+          </button>
          </Link>
         </div>
       </nav>
