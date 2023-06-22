@@ -4,14 +4,14 @@ import SelectedSubjectHero from "../component/Subjects Component/selectedSubject
 import DetalilsWithImage from "../component/detalilsWithImage detalilsWithImage";
 import Uni_FindAndApplyCard from "../component/Selected University/Uni_FindAndApplyCard";
 import Whystudee from "../component/home component/whystudee";
-import PopularSubjects from "../component/home component/PopularSubjects"
+import PopularSubjects from "../component/home component/PopularSubjects";
 import TreeProjectComponent from "../component/home component/treesProject";
+import KeyFacts from "../component/Reusable components/Key Facts";
 const SelectedCountry = () => {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const countryName = queryParams.get("Cname");
   const backgroundImage = queryParams.get("backgroundImage");
-  
 
   const theseAllNestedSubjects = [
     {
@@ -42,7 +42,7 @@ const SelectedCountry = () => {
     { subject: "Art Sculpture", image: "" },
   ];
   return (
-    <div>
+    <>
       <SelectedSubjectHero
         subjectName={countryName}
         BGImage={backgroundImage}
@@ -79,12 +79,18 @@ const SelectedCountry = () => {
         allSubjects={theseAllNestedSubjects}
         length={6}
       />
-      <TreeProjectComponent heading={`What is the cost of studying in ${countryName}?`} imageUrl={"https://images.studee.com/illustrations/illustration__feature--cost-to-study.png?ixlib=js-2.3.2&auto=format&fit=crop&q=40&w=460&h=345"}
+      <TreeProjectComponent
+        heading={`What is the cost of studying in ${countryName}?`}
+        imageUrl={
+          "https://images.studee.com/illustrations/illustration__feature--cost-to-study.png?ixlib=js-2.3.2&auto=format&fit=crop&q=40&w=460&h=345"
+        }
         paragraph={`Fees in Australia can be around $30,000 per year for a bachelor’s program.
 
 On top of the fees, Australian living costs can also be high. This is especially the case in popular cities like Sydney and Melbourne where you may need around $15,000 a year for living expenses. case in popular cities like Sydney and Melbourne where you may need around $15,000 a year for living expenses. `}
       />
-    </div>
+
+      <KeyFacts />
+    </>
   );
 };
 export default SelectedCountry;
