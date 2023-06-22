@@ -1,7 +1,8 @@
-import React from 'react';
-import './BrowseByCountry.css';
+import React from "react";
+import "./BrowseByCountry.css";
+import { Link } from "react-router-dom";
 
-const BrowseByCountry = ({ heading,countries }) => {
+const BrowseByCountry = ({ heading, countries }) => {
   return (
     <div className="browseByCountry_wrap">
       <div className="browseByCountry_main">
@@ -10,19 +11,20 @@ const BrowseByCountry = ({ heading,countries }) => {
         </div>
         <div className="browseByCountry_body">
           {countries.map((country, index) => (
-            <div
-              key={index}
+            <Link to={`/selected-country?Cname=${encodeURIComponent(country.name)}&backgroundImage=${encodeURIComponent(country.image)}`}
+
               className="browseByCountry_card"
+              key={index}
               style={{
                 backgroundImage: `url(${country.image})`,
-                backgroundRepeat: 'no-repeat',
-                backgroundSize: 'cover',
-                backgroundBlendMode: 'multiply',
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "cover",
+                backgroundBlendMode: "multiply",
                 blendAlpha: 80,
               }}
             >
               <h2>{country.name}</h2>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

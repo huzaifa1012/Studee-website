@@ -12,7 +12,7 @@ const SelectedUniversity = () => {
       <SelectedUniHero />
       <Whystudee />
       <Uni_details_And_Logo />
-      <Uni_FindAndApplyCard />
+      <Uni_FindAndApplyCard/>
       <br />
       <br />
       <VerticalizeTreeProjectComponent

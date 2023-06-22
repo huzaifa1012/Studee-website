@@ -46,7 +46,6 @@ const PopularSubjects = ({heading,allSubjects,length}) => {
           </div>
           <div className={`populer_subject_body ${showAll ? "fade-in" : ""}`}>
             {subjects.map((item,index) => {
-              console.log("item: " + item.subject);
               return (
                 <Link
                   key={index}
