@@ -12,7 +12,7 @@ const AllOptionsOfGuide = () => {
         </div>
         </div>
           <div className="guide_head">
-            <h1 className="mtc">1. Deciding to study abroad</h1>
+            <h1 className="mtc">1.  Abc Deciding to study abroad</h1>
           </div>
           <div className="guide_body">
             <div className="guide_card">

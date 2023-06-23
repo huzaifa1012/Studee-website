@@ -1,10 +1,13 @@
 import React from "react";
-import "./detailsWithImage.css";
+// import "../guides component";
 
-function DetalilsWithImage({ imageUrl, heading,subHeading, body, linkText, linkUrl }) {
+function DetalilsWithLeftImage({ imageUrl, heading, body, linkText, linkUrl }) {
   return (
     <div className="detailsWith_image-section">
       <div className="detailsWith_image-content">
+      <div className="detailsWith_image-image">
+          <img src={imageUrl} alt="Hero" />
+        </div>
         <div className="detailsWith_image-text">
           <h1 className="detailsWith_image-heading">{heading}</h1>
           <div className="detailsWith_image-body_subHeading">
@@ -16,14 +19,10 @@ function DetalilsWithImage({ imageUrl, heading,subHeading, body, linkText, linkU
             {linkText}
           </a>
         </div>
-        <div className="detailsWith_image-image">
-          <img src={imageUrl} alt="Hero" />
-        </div>
+        
       </div>
     </div>
   );
 }
 
-export default DetalilsWithImage;
-
-// export default treesProject;
+export default DetalilsWithLeftImage;
