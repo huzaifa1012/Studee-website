@@ -1,6 +1,7 @@
 import { Fragment, useState } from "react";
 import { Dialog, Disclosure, Popover, Transition } from "@headlessui/react";
 import "./header.css";
+import IEOLogo from "../../assets/IEO.png";
 import {
   ArrowPathIcon,
   Bars3Icon,
@@ -16,7 +17,7 @@ import {
   PlayCircleIcon,
 } from "@heroicons/react/20/solid";
 import logo from "../../assets/studee_short_logo.png";
-import {AiOutlineUser} from 'react-icons/ai'
+import { AiOutlineUser } from "react-icons/ai";
 import { FiSearch } from "react-icons/fi";
 import { Link } from "react-router-dom";
 const products = [
@@ -72,15 +73,9 @@ export function Navbar() {
           {/* <a href="#" className="-m-1.5 p-1.5"> */}
           <Link to="/">
             <div className="flex">
-              <img
-                className="h-8 w-auto"
-                src={
-                  "https://images.studee.com/logos/logo__horizontal--full-colour.svg"
-                }
-                alt=""
-              />
+              <img className="h-10 w-auto" src={IEOLogo} />
             </div>
-</Link>
+          </Link>
           {/* </a> */}
         </div>
         <div className="relative">
@@ -106,12 +101,12 @@ export function Navbar() {
             <Bars3Icon className="h-6 w-6" aria-hidden="true" />
           </button>
         </div>
+
         <Popover.Group className="hidden lg:flex lg:gap-x-12">
+          <br />
           <Popover className="relative">
             <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
-              <Link to="programs">
-              Programs
-              </Link>
+              <Link to="programs">Programs</Link>
               <ChevronDownIcon
                 className="h-5 w-5 flex-none text-gray-400"
                 aria-hidden="true"
@@ -173,15 +168,14 @@ export function Navbar() {
           </Popover>
 
           <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-            <Link to="universities">Universities</Link>
+            <Link to="/universities">Universities</Link>
           </a>
           <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-            <Link to="guide">Guides</Link>
-            
+            <Link to="/guide">Guides</Link>
           </a>
-          <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
+          {/* <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
             Company
-          </a>
+          </a> */}
         </Popover.Group>
 
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
@@ -198,11 +192,24 @@ export function Navbar() {
         </div>
 
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-         <Link to="/login">
-          <button style={{backgroundColor:'#f7f8f9',padding:"5px 10px",borderRadius:'8px', display:'flex',flexDirection:'row',alignItems:'center'}} className="text-sm font-semibold leading-6 text-gray-900">
-          <span aria-hidden="true" style={{marginRight:'2px'}}><AiOutlineUser size={22} fill="#603392" /></span> Sign In
-          </button>
-         </Link>
+          <Link to="/login">
+            <button
+              style={{
+                backgroundColor: "#f7f8f9",
+                padding: "5px 10px",
+                borderRadius: "8px",
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+              }}
+              className="text-sm font-semibold leading-6 text-gray-900"
+            >
+              <span aria-hidden="true" style={{ marginRight: "2px" }}>
+                <AiOutlineUser size={22} fill="#603392" />
+              </span>{" "}
+              Sign In
+            </button>
+          </Link>
         </div>
       </nav>
 
@@ -216,18 +223,14 @@ export function Navbar() {
         <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           {/* Mobile menu content */}
           <div className="flex items-center justify-between">
-              <span className="sr-only">Your Company</span>
-               
-              <img 
-                className="h-8 w-auto"
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                alt=""
-                />
+            <span className="sr-only">IEO</span>
+
+            <img className="h-8 w-auto" src={IEOLogo} alt="" />
             <button
               type="button"
               className="-m-2.5 rounded-md p-2.5 text-gray-700"
               onClick={() => setMobileMenuOpen(false)}
-              >
+            >
               <span className="sr-only">Close menu</span>
               <XMarkIcon className="h-6 w-6" aria-hidden="true" />
             </button>
@@ -239,7 +242,7 @@ export function Navbar() {
                   {({ open }) => (
                     <>
                       <Disclosure.Button className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
-                        Product
+                        <Link to="/programs">Programs</Link>
                         <ChevronDownIcon
                           className={classNames(
                             open ? "rotate-180" : "",
@@ -267,27 +270,27 @@ export function Navbar() {
                   href="#"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
-                  Features
+            <Link to="/universities">Universities</Link>
                 </a>
                 <a
                   href="#"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
-                  Marketplace
+                <Link to="/guide">Guide</Link>
                 </a>
-                <a
+                {/* <a
                   href="#"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
                   Company
-                </a>
+                </a> */}
               </div>
               <div className="py-6">
                 <a
                   href="#"
                   className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
-                  Log in
+                <Link to="/login">  Log in</Link>
                 </a>
               </div>
             </div>
