@@ -26,7 +26,7 @@ const Home = () => {
   ];
   const countries = [
     {
-      name: 'USA',
+      name: 'France',
       image: 'https://images.studee.com/images/country/country__uk.jpg?ixlib=js-2.3.2&auto=format&fit=crop&q=35&w=580&h=350&blend=%2Ftreatments%2Ftreatment__split-tone-with-overlay.jpg&blend-size=inherit&blend-mode=multiply&blend-alpha=80',
     },
     {

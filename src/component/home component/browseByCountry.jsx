@@ -12,7 +12,6 @@ const BrowseByCountry = ({ heading, countries }) => {
         <div className="browseByCountry_body">
           {countries.map((country, index) => (
             <Link to={`/selected-country?Cname=${encodeURIComponent(country.name)}&backgroundImage=${encodeURIComponent(country.image)}`}
-
               className="browseByCountry_card"
               key={index}
               style={{

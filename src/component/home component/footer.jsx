@@ -1,4 +1,5 @@
 import React from 'react'
+import IEOLogo from "../../assets/IEO.png"
 import "./footerStyle.css"
 import { BsFacebook, BsInstagram, BsYoutube,BsTwitter } from 'react-icons/bs'
 export default function Footer() {
@@ -9,7 +10,7 @@ export default function Footer() {
             {/* Main container div: holds the entire content of the footer, including four sections (Tailwind Elements, Products, Useful links, and Contact), with responsive styling and appropriate padding/margins. */}
             <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
                 <div style={{ width: '90%', margin: '50px 0px 00px 0px' }}>
-                    <img style={{ width: '130px' }} src='https://images.studee.com/logos/logo__horizontal--full-colour.svg' className='w-40' />
+                    <img style={{ width: '130px' }} src={IEOLogo} className='w-40' />
                 </div>
             </div>
             <div style={{ width: '100%', display: 'flex', justifyContent: 'center', }}>
@@ -117,7 +118,7 @@ export default function Footer() {
               <div className='footer_bottom_bar_main'>
                 <div className='footer_bottom_bar_left'>
                     <p>
-                        © Studee Ltd 2023. A UK registered company. All rights reserved by cloud lab web.</p>
+                        © IEO Ltd 2023. A UK Registered Company. Design & Developed By Cloud Lab Pvt Ltd .</p>
 
                 </div>
                 <div className='footer_bottom_bar_right'>

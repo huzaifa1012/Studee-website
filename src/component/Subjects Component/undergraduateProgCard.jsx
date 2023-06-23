@@ -44,7 +44,7 @@ const UndergraduateProgCard = ()=>{
               Start Application{" "}
             </button>
             <button className="underGraduatePrograms_card_right_btn2 ">
-              underGraduateProgram Details
+              Program Details
             </button>
           </div>
         </div>
