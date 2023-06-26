@@ -28,6 +28,7 @@ const Routing = () => (
     <Route path="/guide" element={<Guides />} />
     <Route path="/selected-subject" element={<Selected_subject />} />
     <Route path="/program-details" element={<ProgramDetails/>} />
+    {/* <Route path="/program-details" element={</>} /> */}
     <Route path="/guide-detail-page" element={<GuideDetailPage/>} />
     <Route path="/selected-country" element={<SelectedCountry/>} />
     <Route path="/*" element={<h1>Wrong Routes</h1>} />

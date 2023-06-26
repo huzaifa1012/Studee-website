@@ -1,10 +1,18 @@
 import React from "react";
 import "./ProgramCard.css";
+import "./FilterSection.css";
+
 import { Link } from "react-router-dom";
 const ProgramCard = () => {
   return (
     <>
       <div className="Program_card_wrap">
+        <div className="Filters_sectioan_wrap">
+        <div className="Filters_sectioan_main">
+        <h2>Applied Filter :</h2>
+        
+        </div>
+        </div>
         <div className="Program_card_main">
           <div className="Program_card_left">
             <div className="Program_card_left_top">
