@@ -71,7 +71,7 @@ export function Navbar() {
       >
         <div className="flex lg:flex-1">
           {/* <a href="#" className="-m-1.5 p-1.5"> */}
-          <Link to="/">
+          <Link  to="/">
             <div className="flex">
               <img className="h-10 w-auto" src={IEOLogo} />
             </div>
@@ -106,7 +106,7 @@ export function Navbar() {
           <br />
           <Popover className="relative">
             <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
-              <Link to="programs">Programs</Link>
+              <Link className="My_navLink" to="/programs">Programs</Link>
               <ChevronDownIcon
                 className="h-5 w-5 flex-none text-gray-400"
                 aria-hidden="true"
@@ -168,10 +168,10 @@ export function Navbar() {
           </Popover>
 
           <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-            <Link to="/universities">Universities</Link>
+            <Link  className="My_navLink" to="/universities">Universities</Link>
           </a>
           <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-            <Link to="/guide">Guides</Link>
+            <Link  className="My_navLink" to="/guide">Guides</Link>
           </a>
           {/* <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
             Company
@@ -192,7 +192,7 @@ export function Navbar() {
         </div>
 
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <Link to="/login">
+          <Link  to="/login">
             <button
               style={{
                 backgroundColor: "#f7f8f9",
@@ -242,7 +242,7 @@ export function Navbar() {
                   {({ open }) => (
                     <>
                       <Disclosure.Button className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
-                        <Link to="/programs">Programs</Link>
+                        <Link  to="/programs">Programs</Link>
                         <ChevronDownIcon
                           className={classNames(
                             open ? "rotate-180" : "",
@@ -270,13 +270,13 @@ export function Navbar() {
                   href="#"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
-            <Link to="/universities">Universities</Link>
+            <Link  to="/universities">Universities</Link>
                 </a>
                 <a
                   href="#"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
-                <Link to="/guide">Guide</Link>
+                <Link  to="/guide">Guide</Link>
                 </a>
                 {/* <a
                   href="#"
@@ -290,7 +290,7 @@ export function Navbar() {
                   href="#"
                   className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
-                <Link to="/login">  Log in</Link>
+                <Link  to="/login">  Log in</Link>
                 </a>
               </div>
             </div>

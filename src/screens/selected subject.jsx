@@ -9,6 +9,7 @@ import { BiRightArrowAlt } from "react-icons/bi";
 import PopularSubjects from "../component/home component/PopularSubjects.jsx";
 import BrowseByCountry from "../component/home component/browseByCountry.jsx";
 import Undergraduate_programs from "../component/Subjects Component/Undergraduate_programs.jsx";
+import Agent from "../component/Selected University/agent/agent.jsx";
 const Selected_subject = () => {
   const location = useLocation();
 
@@ -100,9 +101,9 @@ const Selected_subject = () => {
   return (
     <>
       <SelectedSubjectHero subjectName={subjectNames} BGImage={BGImages} />
-    
+
       <FindProgramAbroadbox />
-    
+
       <VerticalizeTreeProjectComponent
         imageUrl="https://images.studee.com/illustrations/illustration__feature--how-to-study.png?ixlib=js-2.3.2&auto=format&fit=crop&q=40&w=460&h=345"
         heading="Art degrees abroad"
@@ -149,6 +150,9 @@ const Selected_subject = () => {
         }
       />
       <Whystudee />
+
+      <Agent name={"sdasd"} />
+
       <TreeProjectComponent
         imageUrl="https://images.studee.com/illustrations/illustration__feature--programs.png?ixlib=js-2.3.2&auto=format&fit=crop&q=40&w=460&h=345"
         heading="Art program structure"
@@ -175,17 +179,22 @@ const Selected_subject = () => {
         countries={universities}
       />
 
-      <Undergraduate_programs/>      
-    
-      <VerticalizeTreeProjectComponent heading={"Future finance careers"} paragraph={`Graduating with a finance degree means there are many career opportunities available to you. You are not limited to working in the country you studied in, and every country has a financial industry.
+      <Undergraduate_programs />
+
+      <VerticalizeTreeProjectComponent
+        heading={"Future finance careers"}
+        paragraph={`Graduating with a finance degree means there are many career opportunities available to you. You are not limited to working in the country you studied in, and every country has a financial industry.
 
 Some of the jobs international students with finance qualifications go on to do include:
 
 Actuary
 Accountant
 Analyst
-CFO`} imageUrl={"https://images.studee.com/illustrations/illustration__feature--why-study-at-uni.png?ixlib=js-2.3.2&auto=format&fit=crop&q=40&w=460&h=345"}/>      
-    
+          CFO`}
+        imageUrl={
+          "https://images.studee.com/illustrations/illustration__feature--why-study-at-uni.png?ixlib=js-2.3.2&auto=format&fit=crop&q=40&w=460&h=345"
+        }
+      />
     </>
   );
 };

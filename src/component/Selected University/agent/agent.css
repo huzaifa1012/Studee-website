@@ -1,0 +1,74 @@
+.co-founders-wrap {
+  padding: 30px 0px;
+  margin: 15px 0px;
+}
+.co-founders {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.founder {
+  text-align: center;
+  cursor: pointer;
+}
+.founder:hover .agent_h4 {
+  border-bottom: 3px solid #603392;
+  transition: 0.5s;
+}
+.founder:hover .agenImage {
+box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.418);
+}
+
+.center {
+  text-align: center;
+}
+.co-founders-wrap h3 {
+  font-size: 2rem;
+  font-weight: bold;
+  font-family: "Inter", sans-serif;
+}
+.founder h4 {
+  border-bottom: 3px solid transparent;
+  font-family: "Inter", sans-serif;
+  margin-bottom: 0px;
+  font-size: 22px;
+}
+.founder img {
+  width: 160px;
+  height: 160px;
+  border-radius: 180px;
+}
+.boldisnga {
+  color: #0d77ee;
+  /* font-weight: 700; */
+  /* font-size: 1.3rem; */
+}
+
+@media (min-width: 10px) and (max-width: 768px) {
+  .co-founders {
+    flex-wrap: wrap;
+  }
+  .founder {
+    margin: 0px 20px;
+  }
+  .abt-box {
+    text-align: left;
+    padding: 10px;
+    padding-bottom: 0px;
+    padding-right: 10px;
+  }
+  .founder h4 {
+    font-family: light-pop;
+    margin-bottom: 0px;
+    font-size: 16px;
+  }
+  .founder p {
+    font-size: 12px;
+    font-family: light-pop;
+    margin-top: 3px !important;
+  }
+  .founder img {
+    height: 140px;
+    width: 140px;
+  }
+}
