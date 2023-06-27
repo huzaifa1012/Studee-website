@@ -169,10 +169,6 @@
 }
 
 /* Register Sidebox */
-.Register_side_box_wrap {
-  /* border-top: 2px solid #603392; */
-  
-}
 .Register_individual_side_box  {
   margin: 20px 0px;
   display: flex;

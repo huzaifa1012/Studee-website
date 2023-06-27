@@ -1,17 +1,86 @@
 import React from "react";
 import "./ProgramCard.css";
 import "./FilterSection.css";
-
+import { BsFilterRight } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import { Modal } from "antd";
+import { useState } from "react";
+import VerticalTabs from "../Reusable components/modalContent.jsx";
 const ProgramCard = () => {
+  const [modal2Open, setModal2Open] = useState(false);
+
+  const countries = [
+    { code: "AF", name: "Afghanistan" },
+    { code: "AL", name: "Albania" },
+    { code: "DZ", name: "Algeria" },
+    { code: "AD", name: "Andorra" },
+    { code: "AO", name: "Angola" },
+  ];
+
   return (
     <>
       <div className="Program_card_wrap">
+        <Modal
+        width={'50%'}
+          title="Apply Filters To Find Best Program"
+          centered
+          open={modal2Open}
+          okButtonProps={{
+            style: {
+              backgroundColor: "#603392",
+              padding: "0px 40px 0px 40px",
+              fontSize: "20px",
+              height: "50px",
+            },
+          }}
+          cancelButtonProps={{
+            style: {
+              //  backgroundColor: "#603392",
+              padding: "0px 30px 0px 30px",
+              fontSize: "20px",
+              height: "50px",
+            },
+          }}
+          okText={"Apply"}
+          onOk={() => setModal2Open(false)}
+          onCancel={() => setModal2Open(false)}
+        >
+          <div className="filter_modal_wrap">
+            <div className="filter_modal_main">
+              <div className="filter_modal_main_title">
+                <VerticalTabs />
+              </div>
+            </div>
+          </div>
+        </Modal>
         <div className="Filters_sectioan_wrap">
-        <div className="Filters_sectioan_main">
-        <h2>Applied Filter :</h2>
-        
+          <div className="Filters_sectioan_main">
+            <h2>Applied Filter :</h2>
+          </div>
         </div>
+        <div className="Filters_sectioan_wrap">
+          <div className="Filters_sectioan_main2">
+            <div className="Filters_sectioan_main2_left">
+              <button
+                className="Filters_sectioan_main2_btn focus:outline-blue-500"
+                onClick={() => setModal2Open(true)}
+              >
+                <BsFilterRight size={28} /> Filter
+              </button>
+            </div>
+            <div className="Filters_sectioan_main2_right">
+              <button className="mr-2">Sort by : </button>
+              <select id="country" className="Filters_sectioan_main2_btn">
+                {/* Sort by : */}
+                <option value="">Select a country</option>
+                {countries.map((country) => (
+                  <option key={country.code} value={country.code}>
+                    {country.name}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
         </div>
         <div className="Program_card_main">
           <div className="Program_card_left">
@@ -58,9 +127,7 @@ const ProgramCard = () => {
               Start Application{" "}
             </button>
             <Link to="/program-details" className="programs_card_right_btn2">
-              <button >
-                Program Details
-              </button>
+              <button>Program Details</button>
             </Link>
           </div>
         </div>
@@ -109,9 +176,7 @@ const ProgramCard = () => {
               Start Application{" "}
             </button>
             <Link to="/program-details" className="programs_card_right_btn2">
-              <button >
-                Program Details
-              </button>
+              <button>Program Details</button>
             </Link>
           </div>
         </div>
@@ -160,9 +225,7 @@ const ProgramCard = () => {
               Start Application{" "}
             </button>
             <Link to="/program-details" className="programs_card_right_btn2">
-              <button >
-                Program Details
-              </button>
+              <button>Program Details</button>
             </Link>
           </div>
         </div>
@@ -211,9 +274,7 @@ const ProgramCard = () => {
               Start Application{" "}
             </button>
             <Link to="/program-details" className="programs_card_right_btn2">
-              <button >
-                Program Details
-              </button>
+              <button>Program Details</button>
             </Link>
           </div>
         </div>
@@ -262,9 +323,7 @@ const ProgramCard = () => {
               Start Application{" "}
             </button>
             <Link to="/program-details" className="programs_card_right_btn2">
-              <button >
-                Program Details
-              </button>
+              <button>Program Details</button>
             </Link>
           </div>
         </div>

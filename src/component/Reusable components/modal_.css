@@ -1,0 +1,51 @@
+.each-tab-panel {
+  width: 70%;
+  overflow: scroll;
+  height: 300;
+}
+.each-tab-panel::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+.form__legend {
+  margin-top: 15px;
+  /* border-bottom: 1px solid #48484879; */
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+.modal_All_checkBox_wrap {
+  /* padding:10px 0px !important; */
+  border-radius: 12px;
+}
+.modal_checkBox_wrap {
+  cursor: pointer;
+  width: 100%;
+  border-radius: 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.modal_checkBox_wrap:hover {
+  background-color: #f1e4ff90;
+}
+.modal_checkBox_body {
+  width: 100%;
+
+  padding: 5px 10px;
+  margin: 10px 0px;
+  font-weight: bold;
+}
+.modal_checkBox_inp {
+  border: 1px solid;
+  width: 1.2rem;
+  height: 1.2rem;
+  color: #603392;
+}
+.modal_checkBox_inp {
+  /* border: 3px solid red; */
+}
+.m-checkbox-text {
+  margin-left: 10px;
+  font-size: 18px;
+}
