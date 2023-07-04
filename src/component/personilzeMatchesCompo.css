@@ -52,5 +52,9 @@
         margin: 5px 10px;
         padding: 5px;
     }
+    .StepContent01_body {
+        min-height: 300px;
+        padding: 10px;
+    }
     
 }
