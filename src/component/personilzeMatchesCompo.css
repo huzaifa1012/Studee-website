@@ -1,0 +1,56 @@
+.modal_data_body {
+    border: 1px solid #e1e1e1;
+    padding: 10px;
+    margin: 10px 0px;
+    border-radius: 10px;
+}
+
+
+.StepContent01_wrap {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.StepContent01_Main {
+    width: 97%;
+}
+
+.StepContent01_head h1 {
+    font-size: 1.5rem;
+    margin: 30px 0px;
+}
+.StepContent01_body_wrap {
+    box-shadow: 0px 2px 10px rgba(128, 128, 128, 0.274);
+
+    border-radius: 10px;
+    margin: 2px;
+    min-height: 300px;
+}
+.StepContent01_body {
+    border-radius: 10px;
+    background-color: white;
+    min-height: 300px;
+    padding: 20px;
+}
+.StepContent_Body_data {
+    min-width: 300px;
+    width: 300px;
+    border-radius: 10px;
+    margin: 5px 10px;
+    padding: 5px;
+}
+
+
+@media (max-width: 550px) {
+    .StepContent_Body_data {
+        min-width:0px;
+        width: inherit;
+        border-radius: 10px;
+        margin: 5px 10px;
+        padding: 5px;
+    }
+    
+}

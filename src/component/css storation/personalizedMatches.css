@@ -1,0 +1,71 @@
+.PersonalizeMatched_wrap {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  background-color: #f4f5f7 ;
+
+}
+.PersonalizeMatched_main {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.PersonalizeMatched_main_left {
+  width: 60%;
+  padding: 0px 30px;
+
+}
+.Personalize_NextBtn {
+  background-color: #603392 !important;
+  color: white !important;
+  padding: 10px 50px !important;
+}
+.PersonalizeMatched_main-right {
+  width: 40%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.PersonalizeMatched_main-right_uder {
+margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;  
+  padding:0px 40px;
+  height: 50%;
+
+}
+.PersonalizeMatched_main-right_uder_text_content {
+  text-align: left;
+}
+.PersonalizeMatched_main-right_uder_text_content h1 {
+  font-size: 1.6rem;
+}
+.PersonalizeMatched_main-right_uder p {
+  text-align: left;
+  line-height: 1.5rem;
+}
+
+@media (max-width: 550px) {
+  .PersonalizeMatched_main-right {
+    display: none;
+  }
+  .StepContent01_bod {
+    width: 100%;
+  }
+  .PersonalizeMatched_main_left {
+    width: 100%;
+    padding: 0px 10px;
+  
+  }
+  .css-m5vj9m-MuiStepper-root {
+    /* display: none !important; */
+  }
+  .css-1vyamtt-MuiStepLabel-labelContainer {
+    display: none;
+  }
+}

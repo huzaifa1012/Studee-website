@@ -56,7 +56,7 @@ export default function VerticalTabs() {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-
+  
   return (
     <Box
       sx={{

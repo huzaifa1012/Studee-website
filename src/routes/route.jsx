@@ -14,6 +14,7 @@ import Selected_subject from "../screens/selected subject";
 import ProgramDetails from "../screens/program details";
 import GuideDetailPage from "../screens/guideDetailPage.jsx";
 import SelectedCountry from "../screens/selectedCountry";
+import PersonalizedMatches from "../screens/PersonalizedMatches.jsx";
 const Routing = () => (
   <Routes>
     <Route path="/" element={<Home />} />
@@ -31,6 +32,7 @@ const Routing = () => (
     {/* <Route path="/program-details" element={</>} /> */}
     <Route path="/guide-detail-page" element={<GuideDetailPage/>} />
     <Route path="/selected-country" element={<SelectedCountry/>} />
+    <Route path="/personalized-matches" element={<PersonalizedMatches/>} />
     <Route path="/*" element={<h1>Wrong Routes</h1>} />
   </Routes>    
 );

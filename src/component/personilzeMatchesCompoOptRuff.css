@@ -1,0 +1,38 @@
+
+  .personalizeM_form__legend {
+    margin-top: 15px;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  .personalizeM_modal_checkBox_wrap {
+    cursor: pointer;
+    width: 100%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+  }
+  .personalizeM_modal_checkBox_wrap:hover {
+    background-color: #f1e4ff90;
+  }
+  .personalizeM_modal_checkBox_body {
+    width: 100%;
+    padding: 5px 10px;
+    margin: 10px 0px;
+    font-weight: bold;
+  }
+  .personalizeM_modal_checkBox_inp {
+    border: 1px solid;
+    width: 1.2rem;
+    height: 1.2rem;
+    color: #603392;
+  }
+  
+  .m-checkbox-text {
+    margin-left: 10px;
+    font-size: 18px;
+  }
+  

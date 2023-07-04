@@ -19,7 +19,6 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-  /* text-align: left; */
 }
 
 .selectedSubHero_left_div {
@@ -84,7 +83,7 @@ body {
   justify-content: center;
   align-items: center;
   width: fit-content;
-  font-size: 1rem;
+  font-size: 0.9rem;
   letter-spacing: 0.2px;
   font-weight: 500;
   transition: 0.3s;
@@ -141,7 +140,58 @@ body {
   color: #603392;
   transition: 0.3s;
 }
+/* Basic Modal  Starts here */
 
+.custom-modal .ant-modal-title {
+  font-size: 1.5rem !important;
+}
+.modalContainer {
+  width: '100%';
+}
+.modal_Wrap p {
+font-size: 1.1rem;
+}
+.modal_bigBtn {
+  background-color: #603392;
+  color: white;
+  padding: 10px;
+  padding-right: 4;
+  padding-left: 4;
+  font-size: 1rem;
+  border-radius: 6px;
+}
+.modal_top{
+  padding: 10px;
+  border-radius: 6px;
+  background-color: #5f339236;
+}
+.modal_top p{
+  font-size: 1rem;
+}
+.modal-bottom {
+  margin: 8px 0px;
+  border-width: 1px;
+  padding: 10px;
+  border-radius: 6px;
+}
+.modal-bottom  h3 {
+  font-size: 1rem;
+}
+.modal-bottom-btn-wrap {
+  display: flex;
+  flex-direction: row;
+}
+.modal-bottom-btn-wrap button {
+  background-color: transparent;
+  border:2px solid #603392;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #603392;
+  font-weight: bold;
+  
+}
+/* Basic Modal  ends here */
 @media (max-width: 555px) {
   .main-selectedSubHero_wrap {
     height: fit-content;
@@ -185,6 +235,17 @@ body {
 .universities_hero_left_btn_trp {
     margin-left: 0px;
   }
+/* modal */
+.custom-modal .ant-modal-title {
+font-size: 1.1rem !important;
+}
+.modal_bigBtn {
+  background-color: #603392;
+  color: white;
+  padding: 10px 5px ;
+  font-size: 1rem;
+  border-radius: 6px;
+}
 }
 
 @media (min-width: 40em) {
