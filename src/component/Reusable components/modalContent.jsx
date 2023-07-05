@@ -107,7 +107,7 @@ export default function VerticalTabs() {
           {...a11yProps(5)}
         />
         <Tab
-          style={{ display: "flex", alignItems: "flex-start" }}
+          style={{ display: "flex", alignItems: "flex-start" , fontSize:"2%" }}
           label="Budget"
           {...a11yProps(6)}
         />

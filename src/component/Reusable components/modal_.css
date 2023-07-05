@@ -1,7 +1,7 @@
 .each-tab-panel {
   width: 70%;
   overflow: scroll;
-  height: 300;
+  height: 300px;
 }
 .each-tab-panel::-webkit-scrollbar {
   width: 0;

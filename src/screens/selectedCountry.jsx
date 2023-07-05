@@ -82,7 +82,7 @@ const SelectedCountry = () => {
         subjectName={countryName}
         BGImage={backgroundImage}
       />
-
+      
       <DetalilsWithImage
         imageUrl={
           "https://images.studee.com/illustrations/illustration__feature--country-australia.png?ixlib=js-2.3.2&auto=format&fit=crop&q=40&w=460&h=345"

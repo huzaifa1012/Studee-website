@@ -1,6 +1,6 @@
 import React from "react";
 import "./ProgramCard.css";
-import "./FilterSection.css";
+import  "./FilterSection.css";
 import { BsFilterRight } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { Modal } from "antd";
@@ -8,7 +8,7 @@ import { useState } from "react";
 import VerticalTabs from "../Reusable components/modalContent.jsx";
 const ProgramCard = () => {
   const [modal2Open, setModal2Open] = useState(false);
-
+  
   const countries = [
     { code: "AF", name: "Afghanistan" },
     { code: "AL", name: "Albania" },
@@ -21,7 +21,7 @@ const ProgramCard = () => {
     <>
       <div className="Program_card_wrap">
         <Modal
-        width={'50%'}
+       className="Program_card_wrap_mainModal"  
           title="Apply Filters To Find Best Program"
           centered
           open={modal2Open}
@@ -35,7 +35,6 @@ const ProgramCard = () => {
           }}
           cancelButtonProps={{
             style: {
-              //  backgroundColor: "#603392",
               padding: "0px 30px 0px 30px",
               fontSize: "20px",
               height: "50px",
@@ -69,10 +68,10 @@ const ProgramCard = () => {
               </button>
             </div>
             <div className="Filters_sectioan_main2_right">
-              <button className="mr-2">Sort by : </button>
+              {/* <button className="mr-2">Sort by : </button> */}
               <select id="country" className="Filters_sectioan_main2_btn">
                 {/* Sort by : */}
-                <option value="">Select a country</option>
+                <option value="">Sort by country</option>
                 {countries.map((country) => (
                   <option key={country.code} value={country.code}>
                     {country.name}
