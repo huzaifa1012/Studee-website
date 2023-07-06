@@ -1,7 +1,11 @@
 import React from "react";
 import { Modal } from "antd";
 import { Link } from "react-router-dom";
+import { animateScroll } from "react-scroll";
 
+const handleNavigation = () => {
+  animateScroll.scrollToTop();
+};
 const ViewProgMod = ({ isModalOpen, onClose }) => {
   return (
     <>
@@ -25,7 +29,7 @@ const ViewProgMod = ({ isModalOpen, onClose }) => {
               Answer a few extra questions on your background and study plans to
               get a more accurate list of program matches.
             </p>
-            <Link to="/personalized-matches">
+            <Link to="/personalized-matches" onClick={handleNavigation}>
               <button className="mb-5 modal_bigBtn">
                 Get your personalized matched
               </button>
@@ -47,7 +51,7 @@ const ViewProgMod = ({ isModalOpen, onClose }) => {
               See a list of programs based on your current searches
             </p>
             <div className="modal-bottom-btn-wrap">
-              <Link to="/programs">
+              <Link to="/programs" onClick={handleNavigation}>
                 <button>View Programs</button>
               </Link>
             </div>

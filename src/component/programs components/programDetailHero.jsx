@@ -1,8 +1,12 @@
 import React from "react";
 import { Link as ScrollLink } from "react-scroll";
 import { Link } from "react-router-dom";
+import { animateScroll } from "react-scroll";
 
 const ProgramDetailHero = () => {
+  const handleNavigation = () => {
+    animateScroll.scrollToTop();
+  };
   return (
     <>
       <div className="main-selected_uni_wrap">
@@ -22,10 +26,10 @@ const ProgramDetailHero = () => {
             <div className="universities_hero_left_btn_wrap">
               <label htmlFor="universities_hero_left_btn  universities_hero_left_btn_main_label">
                 <p className="selected_uni_left_labels"> Ready to apply</p>
-                <Link to='/personalized-matches'>
-                <button className="universities_hero_left_btn1">
-                  Start Application
-                </button>
+                <Link to="/personalized-matches" onClick={handleNavigation} >
+                  <button className="universities_hero_left_btn1">
+                    Start Application
+                  </button>
                 </Link>
               </label>
 
@@ -33,10 +37,10 @@ const ProgramDetailHero = () => {
                 <p className="selected_uni_left_labels selected_uni_left_label2">
                   Why apply via Studee?{" "}
                 </p>
-                <ScrollLink to="whyStudee" smooth={true} duration={500}> 
-                <button className="universities_hero_left_btn2">
-                  Boost your admission chances
-                </button>
+                <ScrollLink to="whyStudee" smooth={true} duration={500}>
+                  <button className="universities_hero_left_btn2">
+                    Boost your admission chances
+                  </button>
                 </ScrollLink>
               </label>
             </div>
@@ -68,7 +72,10 @@ const ProgramDetailHero = () => {
                   <p className="ltc">Language Taught in</p>
                   <b>English</b>
                 </div>
-                <div className="uni_bottom_square_box" style={{width:'100%'}}>
+                <div
+                  className="uni_bottom_square_box"
+                  style={{ width: "100%" }}
+                >
                   <p className="ltc">Start Date</p>
                   <b>February, May, September</b>
                 </div>

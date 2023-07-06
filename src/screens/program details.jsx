@@ -24,18 +24,6 @@ Software Programs we'll provide:`}
         }
       />
       <br />
-      {/* <TreeProjectComponent
-        heading={"Admission Requirements"}
-        paragraph={`What AIT Academy of Interactive Technology says about their program:
-"AIT is the only higher educat animation, discovering how to draw, design and animate characters, environments and stories in multiple styles, using professional equipment, contemporary software, and processes used by industry experts. You will develop skills in storyboarding, colour styling, bio-mechanics, movement, rigging, light and colour theory, and the principles of animation.
-Delivered in our 2D animation studio, you will be working side by side with like-minded creatives on the latest animation software and hardware, just like in a professional studio.
-
-
-Software Programs we'll provide:`}
-        imageUrl={
-          "https://images.studee.com/illustrations/illustration__for-students--what-is-studee.png?ixlib=js-2.3.2&auto=format&fit=crop&q=40&w=460&h=345"
-        }
-      /> */}
       <div style={{ backgroundColor: "#f7f8f9" }}>
         <DetalilsWithImage
           heading={"Admission Requirements"}

@@ -6,9 +6,16 @@ import { Link } from "react-router-dom";
 import { Modal } from "antd";
 import { useState } from "react";
 import VerticalTabs from "../Reusable components/modalContent.jsx";
+import { animateScroll } from "react-scroll";
+
+
 const ProgramCard = () => {
   const [modal2Open, setModal2Open] = useState(false);
-  
+
+  const handleNavigation = () => {
+    animateScroll.scrollToTop();
+  };
+
   const countries = [
     { code: "AF", name: "Afghanistan" },
     { code: "AL", name: "Albania" },
@@ -125,7 +132,7 @@ const ProgramCard = () => {
             <button className="programs_card_right_btn1">
               Start Application{" "}
             </button>
-            <Link to="/program-details" className="programs_card_right_btn2">
+            <Link to="/program-details" onClick={handleNavigation} className="programs_card_right_btn2">
               <button>Program Details</button>
             </Link>
           </div>
@@ -174,7 +181,7 @@ const ProgramCard = () => {
             <button className="programs_card_right_btn1">
               Start Application{" "}
             </button>
-            <Link to="/program-details" className="programs_card_right_btn2">
+            <Link to="/program-details" onClick={handleNavigation} className="programs_card_right_btn2">
               <button>Program Details</button>
             </Link>
           </div>
@@ -223,7 +230,7 @@ const ProgramCard = () => {
             <button className="programs_card_right_btn1">
               Start Application{" "}
             </button>
-            <Link to="/program-details" className="programs_card_right_btn2">
+            <Link to="/program-details" onClick={handleNavigation} className="programs_card_right_btn2">
               <button>Program Details</button>
             </Link>
           </div>
@@ -272,7 +279,7 @@ const ProgramCard = () => {
             <button className="programs_card_right_btn1">
               Start Application{" "}
             </button>
-            <Link to="/program-details" className="programs_card_right_btn2">
+            <Link to="/program-details" onClick={handleNavigation} className="programs_card_right_btn2">
               <button>Program Details</button>
             </Link>
           </div>
@@ -321,7 +328,7 @@ const ProgramCard = () => {
             <button className="programs_card_right_btn1">
               Start Application{" "}
             </button>
-            <Link to="/program-details" className="programs_card_right_btn2">
+            <Link to="/program-details" onClick={handleNavigation} className="programs_card_right_btn2">
               <button>Program Details</button>
             </Link>
           </div>
