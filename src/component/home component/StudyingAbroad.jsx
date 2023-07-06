@@ -1,5 +1,6 @@
 import React from "react";
 import "./studyingAbroad.css";
+import { Link } from "react-router-dom";
 const StudyingAbroad = () => {
   return (
     <>
@@ -46,10 +47,12 @@ const StudyingAbroad = () => {
               </div>
             </div>
           </div>
-          <div className="studying_abroad_bottom">
+          
+            <Link to="/guide" className="studying_abroad_bottom">
             <p>See all guides</p>
+            </Link>
+          
           </div>
-        </div>
       </div>
     </>
   );

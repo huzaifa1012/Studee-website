@@ -108,8 +108,8 @@ body {
 
 .universities_hero_left_btn {
   font-family: "Inter", sans-serif;
-  color: #603392;
-  background-color: white;
+  background-color: white !important ;
+  color: #603392 !important;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -126,8 +126,8 @@ body {
 }
 
 .universities_hero_left_btn:hover {
-  color: white;
-  background-color: #603392;
+  color: white !important;
+  background-color:#603392 !important ;  
 }
 
 .universities_hero_left_btn:hover .heroBtnIcon {

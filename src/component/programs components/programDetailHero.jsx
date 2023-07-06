@@ -1,4 +1,7 @@
 import React from "react";
+import { Link as ScrollLink } from "react-scroll";
+import { Link } from "react-router-dom";
+
 const ProgramDetailHero = () => {
   return (
     <>
@@ -19,18 +22,22 @@ const ProgramDetailHero = () => {
             <div className="universities_hero_left_btn_wrap">
               <label htmlFor="universities_hero_left_btn  universities_hero_left_btn_main_label">
                 <p className="selected_uni_left_labels"> Ready to apply</p>
+                <Link to='/personalized-matches'>
                 <button className="universities_hero_left_btn1">
                   Start Application
                 </button>
+                </Link>
               </label>
 
               <label htmlFor="universities_hero_left_btn universities_hero_left_btn_main_label">
                 <p className="selected_uni_left_labels selected_uni_left_label2">
                   Why apply via Studee?{" "}
                 </p>
+                <ScrollLink to="whyStudee" smooth={true} duration={500}> 
                 <button className="universities_hero_left_btn2">
                   Boost your admission chances
                 </button>
+                </ScrollLink>
               </label>
             </div>
           </div>

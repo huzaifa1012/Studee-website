@@ -1,9 +1,21 @@
-import React from "react";
+import React, {useState} from "react";
 import "./hero.css";
 import heroImage from "../../assets/illustration__feature--homepage-hero.avif";
 import { BiRightArrowAlt } from "react-icons/bi";
+import ViewProgMod from "../Reusable components/program_Modal";
 
 const Hero = () => {
+    // modal code starts here
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const showModal = () => {
+      setIsModalOpen(true);
+    };
+    const handleCancel = () => {
+      setIsModalOpen(false);
+    };
+    // modal code ends
+  
   return (
     <div className="main-hero_wrap">
       <div className="hero_container">
@@ -46,7 +58,7 @@ const Hero = () => {
             />
           </div>
           <div className="heroBtnCover">
-            <button name="" id="" className="hero_btn">
+            <button name="" id="" className="hero_btn" onClick={()=>setIsModalOpen(true)}>
               Find Your Perfect Program
               <BiRightArrowAlt className="heroBtnIcon" size={25} />
             </button>
@@ -58,6 +70,8 @@ const Hero = () => {
           </p>
         </div>
       </div>
+      <ViewProgMod isModalOpen={isModalOpen} onClose={handleCancel} />
+
     </div>
   );
 };

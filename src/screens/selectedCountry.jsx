@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useRef } from "react";
 import { useLocation } from "react-router-dom";
 import SelectedSubjectHero from "../component/Subjects Component/selectedSubjectHero";
 import DetalilsWithImage from "../component/detalilsWithImage";
@@ -10,6 +10,7 @@ import KeyFacts from "../component/Reusable components/Key Facts";
 import BoxesAndData from "../component/Reusable components/boxesAndData";
 import DetalilsWithLeftImage from "../component/Reusable components/DetailsWithLeftImage";
 const SelectedCountry = () => {
+  const component2Ref = useRef(null);
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const countryName = queryParams.get("Cname");
@@ -76,13 +77,18 @@ const SelectedCountry = () => {
     },
     // Add more country objects as needed
   ];
+
+
+  const scrollToComponent2 = () => {
+    component2Ref.current.scrollIntoView({ behavior: "smooth" });
+  };
   return (
     <>
       <SelectedSubjectHero
+       scrollToComponent2={scrollToComponent2}
         subjectName={countryName}
         BGImage={backgroundImage}
       />
-      
       <DetalilsWithImage
         imageUrl={
           "https://images.studee.com/illustrations/illustration__feature--country-australia.png?ixlib=js-2.3.2&auto=format&fit=crop&q=40&w=460&h=345"
@@ -107,8 +113,12 @@ const SelectedCountry = () => {
           </>
         }
       />
+
       <Uni_FindAndApplyCard />
-      <Whystudee />
+
+
+      <Whystudee  scrollToComponent2={scrollToComponent2} />
+
       <PopularSubjects
         heading={`Popular subjects to study in ${countryName}`}
         allSubjects={theseAllNestedSubjects}
@@ -214,7 +224,6 @@ const SelectedCountry = () => {
         }
       />
       <BoxesAndData
-
         countries={countries}
         heading={`Alternative countries to consider`}
       />

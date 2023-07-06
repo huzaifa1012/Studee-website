@@ -1,6 +1,8 @@
 import React from "react";
 import "./secondhero.css";
 import { BiRightArrowAlt } from "react-icons/bi";
+import { Link as ScrollLink } from "react-scroll";
+import { Link } from "react-router-dom";
 
 const SecondHero = () => {
   return (
@@ -13,9 +15,11 @@ const SecondHero = () => {
             your chance of getting admitted
           </p>
           <div className="universities_hero_left_btn_wrap sec_hero_uniBtn_wrap">
-            <button className="universities_hero_left_btn ">
-              How study can help
-            </button>
+            <ScrollLink to="whyStudee" smooth={true} duration={1000}>
+              <button className="universities_hero_left_btn ">
+                How study can help
+              </button>
+            </ScrollLink>
           </div>
         </div>
 
@@ -27,7 +31,12 @@ const SecondHero = () => {
               programs that best match your needs
             </p>
             <div className="universities_hero_right_btn_wrap">
-            <button className="universities_hero_right_btn">Get Started <BiRightArrowAlt className="heroBtnIcon" size={25} /></button>
+          <Link to="/personalized-matches">
+              <button className="universities_hero_right_btn">
+                Get Started{" "}
+                <BiRightArrowAlt className="heroBtnIcon" size={25} />
+              </button>
+          </Link>
             </div>
           </div>
         </div>

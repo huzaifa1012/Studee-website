@@ -56,7 +56,6 @@
 .ant-modal {
   width: 50% !important ;  
 } 
-
 @media (max-width:768px) {
 .ant-modal {
   width: 100% !important  ;
@@ -68,7 +67,6 @@
    text-align: left !important;
    padding-left: 5px !important;
 }
-
 .ant-modal-content {
 padding: 10px 10px !important;
 }

@@ -1,11 +1,27 @@
-import React from 'react'
+import React, { useState, useRef  } from 'react'
 import "./whystudy.css"
 import { BiRightArrowAlt } from 'react-icons/bi'
+import ViewProgMod from '../Reusable components/program_Modal'
 
-const Whystudee = () => {
+
+const Whystudee = ({ scrollToComponent2 }) => {
+  
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const component2Ref = useRef(null);
+
+  
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
+  
   return (
     <div>
-      <div className='why_use_main_wrap'>
+      <ViewProgMod isModalOpen={isModalOpen} onClose={handleCancel} />
+
+      <div className='why_use_main_wrap'  id='whyStudee'  ref={component2Ref}>
         <div className='why_use_head'>
           <h2 className='mtc'>Why use Studee?</h2>
           <p className='mtc'>We maximise your chance of being admitted with our free, <b> 48 hour fast-track </b> assessment (worth $185*)</p>
@@ -40,7 +56,8 @@ const Whystudee = () => {
             <p className='why_bottom_p2'><b>  All our services are 100% free </b>  as we're funded by universities. You pay deposits & tuition fees directly to the university.</p>
             <p className='why_bottom_p3'>* Price based on similar application assessment services from other providers</p>
 
-            <button className='why_use_bottom_btn'>Find your perfect programs <BiRightArrowAlt className="heroBtnIcon" size={25} /> </button>
+            <button onClick={()=>showModal(true)} className='why_use_bottom_btn'>Find your perfect programs <BiRightArrowAlt className="heroBtnIcon" size={25} /> </button>
+
           </div>
         </div>
       </div>
