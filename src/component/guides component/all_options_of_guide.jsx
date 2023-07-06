@@ -1,8 +1,13 @@
 import React from "react";
 import "./guides.css";
 import { Link } from "react-router-dom";
+import { animateScroll } from "react-scroll";
+
 
 const AllOptionsOfGuide = () => {
+  const handleNavigation = () => {
+    animateScroll.scrollToTop();
+  };
   return (
     <>
       <div className="guide_wrap">
@@ -16,7 +21,7 @@ const AllOptionsOfGuide = () => {
             <h1 className="mtc">1. Deciding to study abroad</h1>
           </div>
           <div className="guide_body">
-            <Link to="/guide-detail-page" className="guide_card">
+            <Link to="/guide-detail-page" onClick={handleNavigation} className="guide_card">
               <img
                 src="https://images.studee.com/images/guide/guides__8-studying-abroad-myths-to-ignore.jpg?ixlib=js-2.3.2&auto=format&fit=crop&q=25&h=450&w=666&blend=%2Ftreatments%2Ftreatment__split-tone.jpg&blend-size=inherit&blend-mode=overlay&blend-alpha=20"
                 alt=""
@@ -29,7 +34,7 @@ const AllOptionsOfGuide = () => {
               </div>
             </Link>
 
-            <Link to="/guide-detail-page" className="guide_card">
+            <Link to="/guide-detail-page" onClick={handleNavigation} className="guide_card">
               <img
                 src="https://images.studee.com/images/guide/guides__culture-shock-for-international-students.jpg?ixlib=js-2.3.2&auto=format&fit=crop&q=25&h=450&w=666&blend=%2Ftreatments%2Ftreatment__split-tone.jpg&blend-size=inherit&blend-mode=overlay&blend-alpha=20"
                 alt=""
@@ -42,7 +47,7 @@ const AllOptionsOfGuide = () => {
               </div>
             </Link>
 
-            <Link to="/guide-detail-page" className="guide_card">
+            <Link to="/guide-detail-page" onClick={handleNavigation} className="guide_card">
               <img
                 src="https://images.studee.com/images/guide/guides__how-to-look-after-your-mental-health-as-an-international-student.jpg?ixlib=js-2.3.2&auto=format&fit=crop&q=25&h=450&w=666&blend=%2Ftreatments%2Ftreatment__split-tone.jpg&blend-size=inherit&blend-mode=overlay&blend-alpha=20"
                 alt=""
@@ -59,7 +64,7 @@ const AllOptionsOfGuide = () => {
               </div>
             </Link>
 
-            <Link to="/guide-detail-page" className="guide_card">
+            <Link to="/guide-detail-page" onClick={handleNavigation} className="guide_card">
               <img
                 src="https://images.studee.com/images/guide/guides__reasons-to-study-abroad-as-a-graduate.jpg?ixlib=js-2.3.2&auto=format&fit=crop&q=25&h=450&w=666&blend=%2Ftreatments%2Ftreatment__split-tone.jpg&blend-size=inherit&blend-mode=overlay&blend-alpha=20"
                 alt=""
@@ -73,7 +78,7 @@ const AllOptionsOfGuide = () => {
               </div>
             </Link>
 
-            <Link to="/guide-detail-page" className="guide_card">
+            <Link to="/guide-detail-page" onClick={handleNavigation} className="guide_card">
               <img
                 src="https://images.studee.com/images/guide/guides__the-benefits-of-studying-abroad.jpg?ixlib=js-2.3.2&auto=format&fit=crop&q=25&h=450&w=666&blend=%2Ftreatments%2Ftreatment__split-tone.jpg&blend-size=inherit&blend-mode=overlay&blend-alpha=20"
                 alt=""
@@ -87,7 +92,7 @@ const AllOptionsOfGuide = () => {
               </div>
             </Link>
 
-            <Link to="/guide-detail-page" className="guide_card">
+            <Link to="/guide-detail-page" onClick={handleNavigation} className="guide_card">
               <img
                 src="https://images.studee.com/images/guide/guides__why-the-usa-is-the-most-popular-study-abroad-country.jpg?ixlib=js-2.3.2&auto=format&fit=crop&q=25&h=450&w=666&blend=%2Ftreatments%2Ftreatment__split-tone.jpg&blend-size=inherit&blend-mode=overlay&blend-alpha=20"
                 alt=""
@@ -104,7 +109,7 @@ const AllOptionsOfGuide = () => {
               <h1 className="mtc">2. Choosing a university</h1>
             </div>
 
-            <Link to="/guide-detail-page" className="guide_card">
+            <Link to="/guide-detail-page" onClick={handleNavigation} className="guide_card">
               <img
                 src="https://images.studee.com/images/guide/guides__why-the-usa-is-the-most-popular-study-abroad-country.jpg?ixlib=js-2.3.2&auto=format&fit=crop&q=25&h=450&w=666&blend=%2Ftreatments%2Ftreatment__split-tone.jpg&blend-size=inherit&blend-mode=overlay&blend-alpha=20"
                 alt=""
@@ -118,7 +123,7 @@ const AllOptionsOfGuide = () => {
               </div>
             </Link>
 
-            <Link to="/guide-detail-page" className="guide_card">
+            <Link to="/guide-detail-page" onClick={handleNavigation} className="guide_card">
               <img
                 src="https://images.studee.com/images/guide/guides__why-you-should-study-abroad-in-2022.jpg?ixlib=js-2.3.2&auto=format&fit=crop&q=25&h=450&w=666&blend=%2Ftreatments%2Ftreatment__split-tone.jpg&blend-size=inherit&blend-mode=overlay&blend-alpha=20"
                 alt=""
@@ -132,7 +137,7 @@ const AllOptionsOfGuide = () => {
               </div>
             </Link>
 
-            <Link to="/guide-detail-page" className="guide_card">
+            <Link to="/guide-detail-page" onClick={handleNavigation} className="guide_card">
               <img
                 src="https://images.studee.com/images/guide/guides__toefl-vs-ielts-for-study-abroad.jpg?ixlib=js-2.3.2&auto=format&fit=crop&q=25&h=450&w=666&blend=%2Ftreatments%2Ftreatment__split-tone.jpg&blend-size=inherit&blend-mode=overlay&blend-alpha=20"
                 alt=""
@@ -151,7 +156,7 @@ const AllOptionsOfGuide = () => {
             <h1 className="mtc">2. Choosing a program</h1>
           </div>
           <div className="guide_body">
-            <Link to="/guide-detail-page" className="guide_card">
+            <Link to="/guide-detail-page" onClick={handleNavigation} className="guide_card">
               <img
                 src="https://images.studee.com/images/guide/guides__10-reasons-you-should-study-a-postgrad.jpg?ixlib=js-2.3.2&auto=format&fit=crop&q=25&h=450&w=666&blend=%2Ftreatments%2Ftreatment__split-tone.jpg&blend-size=inherit&blend-mode=overlay&blend-alpha=20"
                 alt=""
@@ -165,7 +170,7 @@ const AllOptionsOfGuide = () => {
               </div>
             </Link>
 
-            <Link to="/guide-detail-page" className="guide_card">
+            <Link to="/guide-detail-page" onClick={handleNavigation} className="guide_card">
               <img
                 src="https://images.studee.com/images/guide/guides__how-to-choose-what-to-study-abroad.jpg?ixlib=js-2.3.2&auto=format&fit=crop&q=25&h=450&w=666&blend=%2Ftreatments%2Ftreatment__split-tone.jpg&blend-size=inherit&blend-mode=overlay&blend-alpha=20"
                 alt=""
@@ -179,7 +184,7 @@ const AllOptionsOfGuide = () => {
               </div>
             </Link>
 
-            <Link to="/guide-detail-page" className="guide_card">
+            <Link to="/guide-detail-page" onClick={handleNavigation} className="guide_card">
               <img
                 src="https://images.studee.com/images/guide/guides__how-to-improve-your-language-skills.jpg?ixlib=js-2.3.2&auto=format&fit=crop&q=25&h=450&w=666&blend=%2Ftreatments%2Ftreatment__split-tone.jpg&blend-size=inherit&blend-mode=overlay&blend-alpha=20"
                 alt=""
@@ -193,7 +198,7 @@ const AllOptionsOfGuide = () => {
               </div>
             </Link>
 
-            <Link to="/guide-detail-page" className="guide_card">
+            <Link to="/guide-detail-page" onClick={handleNavigation} className="guide_card">
               <img
                 src="https://images.studee.com/images/guide/guides__most-popular-subjects-for-international-students.jpg?ixlib=js-2.3.2&auto=format&fit=crop&q=25&h=450&w=666&blend=%2Ftreatments%2Ftreatment__split-tone.jpg&blend-size=inherit&blend-mode=overlay&blend-alpha=20"
                 alt=""
@@ -207,7 +212,7 @@ const AllOptionsOfGuide = () => {
               </div>
             </Link>
 
-            <Link to="/guide-detail-page" className="guide_card">
+            <Link to="/guide-detail-page" onClick={handleNavigation} className="guide_card">
               <img
                 src="https://images.studee.com/images/guide/guides__online-vs-on-campus-study-which-is-right-for-you.jpg?ixlib=js-2.3.2&auto=format&fit=crop&q=25&h=450&w=666&blend=%2Ftreatments%2Ftreatment__split-tone.jpg&blend-size=inherit&blend-mode=overlay&blend-alpha=20"
                 alt=""
@@ -221,7 +226,7 @@ const AllOptionsOfGuide = () => {
               </div>
             </Link>
 
-            <Link to="/guide-detail-page" className="guide_card">
+            <Link to="/guide-detail-page" onClick={handleNavigation} className="guide_card">
               <img
                 src="https://images.studee.com/images/guide/guides__taught-v-research-which-masters-will-you-choose.jpg?ixlib=js-2.3.2&auto=format&fit=crop&q=25&h=450&w=666&blend=%2Ftreatments%2Ftreatment__split-tone.jpg&blend-size=inherit&blend-mode=overlay&blend-alpha=20"
                 alt=""
@@ -235,7 +240,7 @@ const AllOptionsOfGuide = () => {
               </div>
             </Link>
 
-            <Link to="/guide-detail-page" className="guide_card">
+            <Link to="/guide-detail-page" onClick={handleNavigation} className="guide_card">
               <img
                 src="https://images.studee.com/images/guide/guides__the-most-popular-subjects-for-indian-students-to-study-abroad.jpg?ixlib=js-2.3.2&auto=format&fit=crop&q=25&h=450&w=666&blend=%2Ftreatments%2Ftreatment__split-tone.jpg&blend-size=inherit&blend-mode=overlay&blend-alpha=20"
                 alt=""
@@ -249,7 +254,7 @@ const AllOptionsOfGuide = () => {
               </div>
             </Link>
 
-            <Link to="/guide-detail-page" className="guide_card">
+            <Link to="/guide-detail-page" onClick={handleNavigation} className="guide_card">
               <img
                 src="https://images.studee.com/images/guide/guides__types-of-postgraduate-degrees.jpg?ixlib=js-2.3.2&auto=format&fit=crop&q=25&h=450&w=666&blend=%2Ftreatments%2Ftreatment__split-tone.jpg&blend-size=inherit&blend-mode=overlay&blend-alpha=20"
                 alt=""
@@ -263,7 +268,7 @@ const AllOptionsOfGuide = () => {
               </div>
             </Link>
 
-            <Link to="/guide-detail-page" className="guide_card">
+            <Link to="/guide-detail-page" onClick={handleNavigation} className="guide_card">
               <img
                 src="https://images.studee.com/images/guide/guides__types-of-undergraduate-degrees.jpg?ixlib=js-2.3.2&auto=format&fit=crop&q=25&h=450&w=666&blend=%2Ftreatments%2Ftreatment__split-tone.jpg&blend-size=inherit&blend-mode=overlay&blend-alpha=20"
                 alt=""
@@ -282,7 +287,7 @@ const AllOptionsOfGuide = () => {
             <h1 className="mtc">4. Application process</h1>
           </div>
           <div className="guide_body">
-            <Link to="/guide-detail-page" className="guide_card">
+            <Link to="/guide-detail-page" onClick={handleNavigation} className="guide_card">
               <img
                 src="https://images.studee.com/images/guide/guides__6-university-application-mistakes-to-avoid.jpg?ixlib=js-2.3.2&auto=format&fit=crop&q=25&h=450&w=666&blend=%2Ftreatments%2Ftreatment__split-tone.jpg&blend-size=inherit&blend-mode=overlay&blend-alpha=20"
                 alt=""
@@ -296,7 +301,7 @@ const AllOptionsOfGuide = () => {
               </div>
             </Link>
 
-            <Link to="/guide-detail-page" className="guide_card">
+            <Link to="/guide-detail-page" onClick={handleNavigation} className="guide_card">
               <img
                 src="https://images.studee.com/images/guide/guides__how-to-study-abroad.jpg?ixlib=js-2.3.2&auto=format&fit=crop&q=25&h=450&w=666&blend=%2Ftreatments%2Ftreatment__split-tone.jpg&blend-size=inherit&blend-mode=overlay&blend-alpha=20"
                 alt=""
@@ -310,7 +315,7 @@ const AllOptionsOfGuide = () => {
               </div>
             </Link>
 
-            <Link to="/guide-detail-page" className="guide_card">
+            <Link to="/guide-detail-page" onClick={handleNavigation} className="guide_card">
               <img
                 src="https://images.studee.com/images/guide/guides__how-to-study-abroad-with-studee.jpg?ixlib=js-2.3.2&auto=format&fit=crop&q=25&h=450&w=666&blend=%2Ftreatments%2Ftreatment__split-tone.jpg&blend-size=inherit&blend-mode=overlay&blend-alpha=20"
                 alt=""
@@ -324,7 +329,7 @@ const AllOptionsOfGuide = () => {
               </div>
             </Link>
 
-            <Link to="/guide-detail-page" className="guide_card">
+            <Link to="/guide-detail-page" onClick={handleNavigation} className="guide_card">
               <img
                 src="https://images.studee.com/images/guide/guides__how-to-write-a-personal-statement-as-an-international-student.jpg?ixlib=js-2.3.2&auto=format&fit=crop&q=25&h=450&w=666&blend=%2Ftreatments%2Ftreatment__split-tone.jpg&blend-size=inherit&blend-mode=overlay&blend-alpha=20"
                 alt=""
@@ -338,7 +343,7 @@ const AllOptionsOfGuide = () => {
               </div>
             </Link>
 
-            <Link to="/guide-detail-page" className="guide_card">
+            <Link to="/guide-detail-page" onClick={handleNavigation} className="guide_card">
               <img
                 src="https://images.studee.com/images/guide/guides__top-tips-for-a-successful-international-university-application.jpg?ixlib=js-2.3.2&auto=format&fit=crop&q=25&h=450&w=666&blend=%2Ftreatments%2Ftreatment__split-tone.jpg&blend-size=inherit&blend-mode=overlay&blend-alpha=20"
                 alt=""
@@ -352,7 +357,7 @@ const AllOptionsOfGuide = () => {
               </div>
             </Link>
 
-            <Link to="/guide-detail-page" className="guide_card">
+            <Link to="/guide-detail-page" onClick={handleNavigation} className="guide_card">
               <img
                 src="https://images.studee.com/images/guide/guides__grants-for-international-students-studying-in-the-us.jpg?ixlib=js-2.3.2&auto=format&fit=crop&q=25&h=450&w=666&blend=%2Ftreatments%2Ftreatment__split-tone.jpg&blend-size=inherit&blend-mode=overlay&blend-alpha=20"
                 alt=""
@@ -366,7 +371,7 @@ const AllOptionsOfGuide = () => {
               </div>
             </Link>
 
-            <Link to="/guide-detail-page" className="guide_card">
+            <Link to="/guide-detail-page" onClick={handleNavigation} className="guide_card">
               <img
                 src="https://images.studee.com/images/guide/guides__6-university-application-mistakes-to-avoid.jpg?ixlib=js-2.3.2&auto=format&fit=crop&q=25&h=450&w=666&blend=%2Ftreatments%2Ftreatment__split-tone.jpg&blend-size=inherit&blend-mode=overlay&blend-alpha=20"
                 alt=""
@@ -380,7 +385,7 @@ const AllOptionsOfGuide = () => {
               </div>
             </Link>
 
-            <Link to="/guide-detail-page" className="guide_card">
+            <Link to="/guide-detail-page" onClick={handleNavigation} className="guide_card">
               <img
                 src="https://images.studee.com/images/guide/guides__how-to-study-abroad.jpg?ixlib=js-2.3.2&auto=format&fit=crop&q=25&h=450&w=666&blend=%2Ftreatments%2Ftreatment__split-tone.jpg&blend-size=inherit&blend-mode=overlay&blend-alpha=20"
                 alt=""
@@ -394,7 +399,7 @@ const AllOptionsOfGuide = () => {
               </div>
             </Link>
 
-            <Link to="/guide-detail-page" className="guide_card">
+            <Link to="/guide-detail-page" onClick={handleNavigation} className="guide_card">
               <img
                 src="https://images.studee.com/images/guide/guides__top-tips-for-university-interviews.jpg?ixlib=js-2.3.2&auto=format&fit=crop&q=25&h=450&w=666&blend=%2Ftreatments%2Ftreatment__split-tone.jpg&blend-size=inherit&blend-mode=overlay&blend-alpha=20"
                 alt=""

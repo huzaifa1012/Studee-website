@@ -1,8 +1,12 @@
 import React from "react";
 import "./BrowseByCountry.css";
 import { Link } from "react-router-dom";
+import { animateScroll } from "react-scroll";
 
 const BrowseByCountry = ({ heading, countries }) => {
+  const handleNavigation = () => {
+    animateScroll.scrollToTop();
+  };
   return (
     <div className="browseByCountry_wrap">
       <div className="browseByCountry_main">
@@ -11,7 +15,7 @@ const BrowseByCountry = ({ heading, countries }) => {
         </div>
         <div className="browseByCountry_body">
           {countries.map((country, index) => (
-            <Link to={`/selected-country?Cname=${encodeURIComponent(country.name)}&backgroundImage=${encodeURIComponent(country.image)}`}
+            <Link onClick={handleNavigation} to={`/selected-country?Cname=${encodeURIComponent(country.name)}&backgroundImage=${encodeURIComponent(country.image)}`}
               className="browseByCountry_card"
               key={index}
               style={{

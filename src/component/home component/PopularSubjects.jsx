@@ -5,6 +5,7 @@ import {
   BsFillArrowUpCircleFill,
 } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import { animateScroll } from "react-scroll";
 
 const allSubjects = [
   {subject: "Accounting",image:"https://images.studee.com/images/program/programs__creative-arts-design.jpg?ixlib=js-2.3.2&auto=format&fit=crop&q=35&fallback=true&w=1920&h=640&blend=%2Ftreatments%2Ftreatment__split-tone-with-overlay.jpg&blend-size=inherit&blend-mode=multiply&blend-alpha=80",},
@@ -36,7 +37,9 @@ const PopularSubjects = ({heading,allSubjects,length}) => {
     }
     setShowAll(!showAll);
   };
-
+  const handleNavigation = () => {
+    animateScroll.scrollToTop();
+  };
   return (
     <>
       <div className="populer_subject_wrap">
@@ -50,6 +53,7 @@ const PopularSubjects = ({heading,allSubjects,length}) => {
                 <Link
                   key={index}
                   to={`/selected-subject?subject=${encodeURIComponent(item.subject)}&backgroundImage=${encodeURIComponent(item.image)}`}
+                  onClick={handleNavigation}
                   className="populer_subject_card"
                 >
                   <div key={index}>

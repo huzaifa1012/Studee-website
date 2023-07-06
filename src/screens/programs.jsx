@@ -7,7 +7,7 @@ const Programs = () => {
     <>
       <SecondHero />
       <ProgramCard />
-      <Whystudee/>
+      <Whystudee />
     </>
   );
 };
