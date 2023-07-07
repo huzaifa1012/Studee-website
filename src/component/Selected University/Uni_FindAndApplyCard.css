@@ -25,8 +25,7 @@
   width: 100%;
   background-color: white;
   margin-top: -10px;
-  /* border-left: 4px solid #2b2d4a; */
-}
+ }
 
 .theUniFindAndApply_label {
   justify-content: flex-start;
@@ -50,7 +49,7 @@
   border-radius: 10px;
   width: 100%;
   font-size: 17px;
-  border: 2px solid #2b2d4ae4;
+  border: 2px solid var(--text-color);
 }
 .UniFindAndApply_inpbox-style::placeholder {
   font-size: 17px;
@@ -68,7 +67,7 @@
   font-family: "Inter", sans-serif;
   letter-spacing: 1px;
   color: white;
-  background-color: #f26822;
+  background-color: var(--secondary-color);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -85,19 +84,19 @@
 }
 .UniFindAndApply_btn:hover {
   letter-spacing: 1px;
-  color: #f26822;
+  color: var(--secondary-color);
   background-color: #ffece3;
 }
 .UniFindAndApplyBtnIcon {
   color: white;
 }
 .UniFindAndApply_btn:hover .UniFindAndApplyBtnIcon {
-  color: #f26822;
+  color: var(--secondary-color);
   transition: 0.3s;
 }
 
 .UniFindAndApply_inpbox-style:focus {
-  border-color: #f26822;
+  border-color: var(--secondary-color);
   border-width: 2px;
 }
 
@@ -129,7 +128,7 @@
     border-radius: 10px;
     width: 100%;
     font-size: 17px;
-    border: 2px solid #2b2d4ae4;
+    border: 2px solid var(--text-color);
   }
   .UniFindAndApplyBtnCover {
     height: 80px;

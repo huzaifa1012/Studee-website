@@ -16,7 +16,7 @@ body {
 }
 
 .world_map_head h1 {
-  color: #2b2d4a;
+  color: var(--text-color);
   font-size: 36px;
   width: 80%;
   margin-left: auto;

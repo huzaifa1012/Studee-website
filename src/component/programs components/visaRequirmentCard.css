@@ -77,7 +77,7 @@ align-items: center;
     font-family: "Inter", sans-serif;
     letter-spacing: 1px;
     color: white;
-    background-color: #603392;
+    background-color: var(--primary-color);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -90,16 +90,16 @@ align-items: center;
     padding: 10px 30px;
     margin: 30px 0px 0px 0px;
     border-radius: 8px;
-    border: 3px solid #603392;
+    border: 3px solid var(--primary-color);
   }
   
   .universities_hero_right_btn:hover {
-    color: #603392;
+    color: var(--primary-color);
     background-color: white;
   }
   
   .universities_hero_right_btn:hover .heroBtnIcon {
-    color: #603392;
+    color: var(--primary-color);
     transition: 0.3s;
   }
   
@@ -111,7 +111,7 @@ align-items: center;
     font-family: "Inter", sans-serif;
     color:  white;
     /* background-color: white; */
-    background-color: #603392;
+    background-color: var(--primary-color);
 
     display: flex;
     justify-content: center;
@@ -125,16 +125,16 @@ align-items: center;
     padding: 10px 30px;
     margin: 30px 0px;
     border-radius: 8px;
-    border: 3px solid #603392;
+    border: 3px solid var(--primary-color);
   }
   
   .universities_hero_left_btn:hover {
-    color: #603392;
+    color: var(--primary-color);
     background-color: white;
   }
   
   .universities_hero_left_btn:hover .heroBtnIcon {
-    color: #603392;
+    color: var(--primary-color);
     transition: 0.3s;
   }
   

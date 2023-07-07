@@ -16,7 +16,7 @@
 
 }
 .Personalize_NextBtn {
-  background-color: #603392 !important;
+  background-color:  var(--primary-accent) !important;
   color: white !important;
   padding: 10px 50px !important;
 }
@@ -62,9 +62,7 @@ margin-top: 60px;
     padding: 0px 5px;
   
   }
-  .css-m5vj9m-MuiStepper-root {
-    /* display: none !important; */
-  }
+  
   .css-1vyamtt-MuiStepLabel-labelContainer {
     display: none;
   }

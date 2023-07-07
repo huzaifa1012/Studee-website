@@ -6,7 +6,8 @@ body {
   width: 100%;
   display: flex;
   justify-content: center;
-  background-color: #efeaf4;
+  background-color: #F2F8F6;
+  /* background-color: var(--primary-accent); */
 }
 .hero_container {
   margin-top: 40px;
@@ -30,8 +31,10 @@ body {
   justify-content: center;
   flex-wrap: wrap;
   align-items: center;
-  padding: 20px;
+  padding: 0px;
   width: 50%;
+  max-height: 100%;
+  max-width: 100%;
 }
 
 .hero_left_div h1 {
@@ -51,9 +54,8 @@ body {
   margin-bottom: 40px;
 }
 .hero_right_div img {
-  /* padding-right: 50px; */
   width: 100%;
-  height: auto;
+  height: 100%;
   max-width: 566px;
 }
 .hero_user-input-section {
@@ -64,7 +66,7 @@ body {
   width: 96%;
   background-color: white;
   margin-top: -10px;
-  border-left: 4px solid #2b2d4a;
+  border-left: 4px solid var(--text-color);
 }
 .theHero_label {
   justify-content: flex-start;
@@ -87,7 +89,7 @@ body {
   border-radius: 10px;
   width: 100%;
   font-size: 17px;
-  border: 2px solid #2b2d4ae4;
+  border: 2px solid var(--text-color);
 }
 .hero_inpbox-style::placeholder {
   font-size: 17px;
@@ -98,7 +100,7 @@ body {
   font-family: "Inter", sans-serif;
   letter-spacing: 1px;
   color: white;
-  background-color: #f26822;
+  background-color: var(--secondary-color);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -115,7 +117,7 @@ body {
 }
 .hero_btn:hover {
   letter-spacing: 1px;
-  color: #f26822;
+  color: var(--secondary-color);
   background-color: #ffece3;
 }
 .heroBtnCover {
@@ -129,12 +131,12 @@ body {
   color: white;
 }
 .hero_btn:hover .heroBtnIcon {
-  color: #f26822;
+  color: var(--secondary-color);
   transition: 0.3s;
 }
 
 .hero_inpbox-style:focus {
-  border-color: #f26822;
+  border-color: var(--secondary-color);
   border-width: 2px;
 }
 .studee_home_hero_bottom {
@@ -204,7 +206,7 @@ body {
     border-radius: 10px;
     width: 100%;
     font-size: 17px;
-    border: 2px solid #2b2d4ae4;
+    border: 2px solid var(--text-color);
   }
   .heroBtnCover {
     height: 80px;

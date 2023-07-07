@@ -6,7 +6,7 @@ body {
   width: 100%;
   display: flex;
   justify-content: center;
-  background-image: url("https://images.studee.com/images/content/content__search--hero.svg");
+  background-image: url("../../assets/program-hero-background.svg");
   background-position: right;
   background-size: cover;
   background-position-x: right;
@@ -72,7 +72,7 @@ body {
   font-family: "Inter", sans-serif;
   letter-spacing: 1px;
   color: white;
-  background-color: #603392;
+  background-color: var(--primary-color);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -86,16 +86,16 @@ body {
   margin: 30px 0px 0px 0px;
   border-radius: 8px;
   width: fit-content;
-  border: 3px solid #603392;
+  border: 3px solid var(--primary-color);
 }
 
 .universities_hero_right_btn:hover {
-  color: #603392;
+  color: var(--primary-color);
   background-color: white;
 }
 
 .universities_hero_right_btn:hover .heroBtnIcon {
-  color: #603392;
+  color: var(--primary-color);
   transition: 0.3s;
 }
 
@@ -109,7 +109,7 @@ body {
 .universities_hero_left_btn {
   font-family: "Inter", sans-serif;
   background-color: white !important ;
-  color: #603392 !important;
+  color: var(--primary-color) !important;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -122,16 +122,16 @@ body {
   padding: 10px 30px;
   margin: 30px 0px;
   border-radius: 8px;
-  border: 3px solid #603392;
+  border: 3px solid var(--primary-color);
 }
 
 .universities_hero_left_btn:hover {
   color: white !important;
-  background-color:#603392 !important ;  
+  background-color:var(--primary-color) !important ;  
 }
 
 .universities_hero_left_btn:hover .heroBtnIcon {
-  color: #603392;
+  color: var(--primary-color);
   transition: 0.3s;
 }
 

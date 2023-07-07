@@ -12,7 +12,7 @@
   cursor: pointer;
 }
 .founder:hover .agent_h4 {
-  border-bottom: 3px solid #603392;
+  border-bottom: 3px solid var(--primary-color);
   transition: 0.5s;
 }
 .founder:hover .agenImage {

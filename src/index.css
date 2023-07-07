@@ -16,19 +16,19 @@ a:hover {
 }
 /* Color Palette */
 .orgC{
-  color: #f26822  !important;
+  color: var(--secondary-color)  !important;
 }
 .orgCB{
-  background-color: #f26822  !important;
+  background-color: var(--secondary-color)  !important;
 }
 .ltc{
   color: #5a5a72 !important;
 }
 .mtc{
-  color: #2b2d4a !important;
+  color: var(--text-color) !important;
 }
 .dtc{
-  color: #603392 !important;
+  color: var(--primary-color) !important;
 } 
 .whIcon {
   color: white;

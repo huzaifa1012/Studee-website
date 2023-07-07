@@ -75,7 +75,7 @@
   }
   
   .boxesAndData_bottom p {
-    color: #603392;
+    color: var(--primary-color);
     font-weight: 600;
     width: 97%;
     margin: 20px 0px;

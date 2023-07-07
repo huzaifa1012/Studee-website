@@ -1,4 +1,5 @@
 import React from 'react'
+import worldMapImg from "../../assets/world-map.avif"  
 import "./world_map.css"
 function worldMap() {
     return (
@@ -10,7 +11,7 @@ function worldMap() {
                 <h2>Over 400 universities in 30 countries</h2>
             </div>
             <div className='world_map_body'>
-                <img src='https://images.studee.com/images/content/content__home--map.png?w=1184&auto=format&q=30&fit=crop' />
+                <img src={worldMapImg} />
             </div>
         </div>
         <div className="world_map_brands_wrap">

@@ -34,7 +34,7 @@ const ProgramCard = () => {
           open={modal2Open}
           okButtonProps={{
             style: {
-              backgroundColor: "#603392",
+              backgroundColor: "var(--primary-color)",
               padding: "0px 40px 0px 40px",
               fontSize: "20px",
               height: "50px",

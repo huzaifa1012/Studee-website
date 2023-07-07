@@ -54,13 +54,13 @@
   margin: 20px;
 }
 .guide_card_bottom h2 {
-  color: #603392;
+  color:  var(--primary-accent);
   font-size: 20px;
   font-weight: 600;
   margin-bottom: 5px;
 }
 .guide_card_bottom h2:hover {
-  color: #603392;
+  color:  var(--primary-accent);
   text-decoration: underline;
 }
 .guide_bottom {
@@ -70,7 +70,7 @@
 }
 
 .guide_bottom p {
-  color: #603392;
+  color:  var(--primary-accent);
   font-weight: 600;
   width: 97%;
   margin: 20px 0px;

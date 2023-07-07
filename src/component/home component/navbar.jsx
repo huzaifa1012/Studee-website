@@ -205,7 +205,7 @@ export function Navbar() {
               className="text-sm font-semibold leading-6 text-gray-900"
             >
               <span aria-hidden="true" style={{ marginRight: "2px" }}>
-                <AiOutlineUser size={22} fill="#603392" />
+              <AiOutlineUser size={22} style={{ fill: 'var(--primary-color)' }} />
               </span>{" "}
               Sign In
             </button>

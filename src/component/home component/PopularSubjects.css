@@ -46,10 +46,10 @@
     text-align: center;
     font-weight: 700;
     font-size: large;
-    color: #603392;
+    color: var(--primary-color);
 }
 .populer_subject_bottom p {
-    color: #603392;
+    color: var(--primary-color);
   font-weight: 600;
   width: 97%;
   margin: 20px 0px;

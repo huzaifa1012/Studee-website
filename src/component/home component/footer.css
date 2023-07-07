@@ -46,7 +46,7 @@
   }
   
   .footer-link:hover {
-    color: #000000;
+    color: var(--text-color);
   }
   
   .footer-partnership-logos {
@@ -76,6 +76,6 @@
   }
   
   .footer-bottom-link:hover {
-    color: #000000;
+    color: var(--text-color);
   }
   

@@ -38,7 +38,7 @@
   margin: 20px;
 }
 .studying_abroad_card_bottom h2 {
-  color: #603392;
+  color: var(--primary-color);
   font-size: 20px;
   font-weight: 600;
   margin-bottom: 5px;
@@ -50,7 +50,7 @@
 }
 
 .studying_abroad_bottom p {
-    color: #603392;
+    color: var(--primary-color);
     font-weight: 600;
     width: 97%;
     margin: 20px 0px;

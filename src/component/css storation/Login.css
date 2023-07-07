@@ -52,7 +52,7 @@
 .login_input:focus,
 .login_input:active {
   outline: none;
-  border: 2px solid #f26822;
+  border: 2px solid var(--secondary-color);
   /* border-color:  Change this to the desired border color */
 }
 .login_card_bottom {
@@ -69,7 +69,7 @@
   max-width: fit-content;
   padding: 13px 10px;
   font-size: 1.1rem;
-  background-color: #f26822;
+  background-color: var(--secondary-color);
   border: none;
   font-weight: 500;
   border-radius: 8px;
@@ -79,7 +79,7 @@
 
 .login_button:hover {
   background-color: #ffdbc9;
-  color: #f26822;
+  color: var(--secondary-color);
   transition: 0.1s;
 }
 .login_register_box {
@@ -144,9 +144,11 @@
 .login_register_button {
   padding: 12px 20px;
   background-color: #fff;
-  border: 2px solid #603392;
+  border: 2px solid var(--primary-accent);
+  ;
   border-radius: 8px;
-  color: #603392;
+  color: var(--primary-accent);
+  ;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-weight: 800;
   font-size: 1.3rem;
@@ -154,7 +156,7 @@
 }
 
 .login_register_button:hover {
-  background-color: #603392;
+  background-color:  var(--primary-accent);
   transition: 0.1s;
   color: #fff;
 }

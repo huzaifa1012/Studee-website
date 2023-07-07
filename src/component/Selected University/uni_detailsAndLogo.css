@@ -35,7 +35,7 @@
   line-height: 2.6rem;
   margin-bottom: 20px;
   font-size: 32px;
-  color: #2b2d4a;
+  color: var(--text-color);
   font-family: "Inter", sans-serif;
 }
 

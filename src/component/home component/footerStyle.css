@@ -17,7 +17,7 @@
     
 }
 .footer_bottombar_icons:hover {
-fill: #603392;
+fill:  var(--primary-accent);
 cursor: pointer;
 transition: 0.1s;
 /* display: none; */

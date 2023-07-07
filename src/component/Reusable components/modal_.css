@@ -40,7 +40,7 @@
   border: 1px solid;
   width: 1.2rem;
   height: 1.2rem;
-  color: #603392;
+  color: var(--primary-color);
 }
 .modal_checkBox_inp {
   /* border: 3px solid red; */
