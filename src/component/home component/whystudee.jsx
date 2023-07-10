@@ -2,7 +2,10 @@ import React, { useState, useRef  } from 'react'
 import "./whystudy.css"
 import { BiRightArrowAlt } from 'react-icons/bi'
 import ViewProgMod from '../Reusable components/program_Modal'
-import whyStudyImg01 from "../../assets/whystudee-icons/icon-1.svg"
+import whyStudyImg01 from "../../assets/whystudee-icons/icon-1.png"
+import whyStudyImg02 from "../../assets/whystudee-icons/icon-2.png"
+import whyStudyImg03 from "../../assets/whystudee-icons/icon-3.png"
+import whyStudyImg04 from "../../assets/whystudee-icons/icon-4.png"
 
 const Whystudee = ({ scrollToComponent2 }) => {
   
@@ -34,17 +37,18 @@ const Whystudee = ({ scrollToComponent2 }) => {
               <p className='ltc'>Filter <b> 10,000s of programs </b> down to a shortlist perfect for you, where you have a strong chance of getting admitted</p>
             </div>
             <div className='Why_Use_studee_box'>
-              <img src='https://images.studee.com/illustrations/illustration__spot--save-details.png?ixlib=js-2.3.2&auto=format&fit=crop&q=45&w=128' />
+              <img src={whyStudyImg02} width={100} />
               <h2 className='mtc' >Apply online via Studee </h2>
               <p className='ltc'>Complete our application form and enjoy <b> reduced application fees </b> & access to unique Studee scholarships for many universities</p>
             </div>
             <div className='Why_Use_studee_box'>
-              <img src='https://images.studee.com/illustrations/illustration__spot--blended-learning.png?ixlib=js-2.3.2&auto=format&fit=crop&q=45&w=128' />
+            <img src={whyStudyImg03} width={100} />
+              
               <h2 className='mtc' >We assess within 48hrs </h2>
               <p className='ltc'>We complete an 85-point assessment within <b>2 business days,</b> help you with improvements then submit to your university</p>
             </div>
             <div className='Why_Use_studee_box'>
-              <img src='https://images.studee.com/illustrations/illustration__spot--advice-center.png?ixlib=js-2.3.2&auto=format&fit=crop&q=45&w=128' />
+            <img src={whyStudyImg04} width={100} />
               <h2 className='mtc' >University offer in 2-4 weeks </h2>
               <p className='ltc'>We chase the university for your admission decision and keep you updated. We all <b> celebrate your admission!</b></p>
             </div>
