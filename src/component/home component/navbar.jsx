@@ -64,7 +64,7 @@ export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="bg-white the_main_header_wrap">
+    <header style={{background:'#f7f8f9'}} className=" the_main_header_wrap">
       <nav
         className="mx-auto flex max-w-7xl items-center justify-between p-3 lg:px-8"
         aria-label="Global"
@@ -242,7 +242,7 @@ export function Navbar() {
                   {({ open }) => (
                     <>
                       <Disclosure.Button className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
-                        <Link  to="/programs">Programs</Link>
+                        <Link  to="/programs" onClick={()=>setMobileMenuOpen(false)}>Programs</Link>
                         <ChevronDownIcon
                           className={classNames(
                             open ? "rotate-180" : "",
@@ -270,13 +270,13 @@ export function Navbar() {
                   href="#"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
-            <Link  to="/universities">Universities</Link>
+            <Link  to="/universities" onClick={()=>setMobileMenuOpen(false)}>Universities</Link>
                 </a>
                 <a
                   href="#"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
-                <Link  to="/guide">Guide</Link>
+                <Link  to="/guide" onClick={()=>setMobileMenuOpen(false)}>Guide</Link>
                 </a>
                 {/* <a
                   href="#"

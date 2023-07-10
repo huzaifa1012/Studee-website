@@ -165,6 +165,7 @@ body {
 
   .hero_right_div {
     width: 90%;
+  margin: 0px auto;
   }
 
   .hero_left_div h1 {

@@ -2,7 +2,7 @@ import React, { useState, useRef  } from 'react'
 import "./whystudy.css"
 import { BiRightArrowAlt } from 'react-icons/bi'
 import ViewProgMod from '../Reusable components/program_Modal'
-
+import whyStudyImg01 from "../../assets/whystudee-icons/icon-1.svg"
 
 const Whystudee = ({ scrollToComponent2 }) => {
   
@@ -29,7 +29,7 @@ const Whystudee = ({ scrollToComponent2 }) => {
         <div className='Why_Use_studee_wrap'>
           <div className='Why_Use_studee_body'>
             <div className='Why_Use_studee_box'>
-              <img src='https://images.studee.com/illustrations/illustration__spot--program-matching.png?ixlib=js-2.3.2&auto=format&fit=crop&q=45&w=128' />
+              <img src={whyStudyImg01} width={100} />
               <h2 className='mtc' >Find your ideal program </h2>
               <p className='ltc'>Filter <b> 10,000s of programs </b> down to a shortlist perfect for you, where you have a strong chance of getting admitted</p>
             </div>
