@@ -49,7 +49,7 @@ const Whystudee = ({ scrollToComponent2 }) => {
             </div>
             <div className='Why_Use_studee_box'>
             <img src={whyStudyImg04} width={110} />
-              <h2 className='mtc' >University offer in 2-4 weeks </h2>
+              <h2 className='mtc' >Offers in 2-4 weeks </h2>
               <p className='ltc'>We chase the university for your admission decision and keep you updated. We all <b> celebrate your admission!</b></p>
             </div>
           </div>

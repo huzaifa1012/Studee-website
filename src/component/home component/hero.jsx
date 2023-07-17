@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import "./hero.css";
 
 import heroImage2 from "../../assets/new-project.png";
+import heroImage3 from "../../assets/heroimge3.png";
 import heroImage from "../../assets/illustration__feature--homepage-hero.avif";
 import clgStude from "../../assets/college-students-pana.png";
 import { BiRightArrowAlt } from "react-icons/bi";
@@ -35,7 +36,7 @@ const Hero = () => {
         </div>
 
         <div className="hero_right_div">
-          <img src={heroImage2} alt="" className="hero-right-img" />
+          <img src={heroImage3} alt="" className="hero-right-img" />
         </div>
 
         <div className="hero_user-input-section">

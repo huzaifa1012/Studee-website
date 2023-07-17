@@ -10,7 +10,7 @@ body {
   /* background-color: var(--primary-accent); */
 }
 .hero_container {
-  margin-top: 40px;
+  margin-top: 20px;
   width: 90%;
   display: flex;
   flex-wrap: wrap;
@@ -153,6 +153,7 @@ body {
 
 @media (max-width: 555px) {
   .hero_container {
+margin-top: 15px;
     flex-direction: column;
     text-align: center;
   }
@@ -165,6 +166,7 @@ body {
 
   .hero_right_div {
     width: 90%;
+    padding: 0px;
   margin: 0px auto;
   }
 
@@ -175,6 +177,7 @@ body {
 
   .hero_left_div p {
     font-size: 20px;
+    margin-bottom: 5px;
   }
   .hero_right_div img {
     padding-right: 0px;

@@ -43,8 +43,7 @@ const PersonalizedMatches = () => {
   const handleNext = () => {
     const newActiveStep =
       isLastStep() && !allStepsCompleted()
-        ?
-          steps.findIndex((step, i) => !(i in completed))
+        ? steps.findIndex((step, i) => !(i in completed))
         : activeStep + 1;
     setActiveStep(newActiveStep);
   };
@@ -75,7 +74,7 @@ const PersonalizedMatches = () => {
         <div className="PersonalizeMatched_main">
           <div className="PersonalizeMatched_main_left">
             <Box sx={{ width: "100%" }} className="mt-10">
-              <Stepper  nonLinear activeStep={activeStep}>
+              <Stepper nonLinear activeStep={activeStep}>
                 {steps.map((label, index) => (
                   <Step key={label} completed={completed[index]}>
                     <StepButton color="inherit" onClick={handleStep(index)}>
@@ -104,7 +103,14 @@ const PersonalizedMatches = () => {
                       {activeStep == 3 && <StepContent04 />}
                     </>
 
-                    <Box sx={{ display: "flex", flexDirection: "row", pt: 2 , mb:2 }}>
+                    <Box
+                      sx={{
+                        display: "flex",
+                        flexDirection: "row",
+                        pt: 2,
+                        mb: 2,
+                      }}
+                    >
                       <Button
                         color="inherit"
                         disabled={activeStep === 0}
@@ -114,7 +120,11 @@ const PersonalizedMatches = () => {
                         Back
                       </Button>
                       <Box sx={{ flex: "1 1 auto" }} />
-                      <Button className="Personalize_NextBtn" onClick={handleNext} sx={{ mr: 1 }}>
+                      <Button
+                        className="Personalize_NextBtn"
+                        onClick={handleNext}
+                        sx={{ mr: 1 }}
+                      >
                         Next
                       </Button>
                       {activeStep !== steps.length &&
@@ -125,9 +135,9 @@ const PersonalizedMatches = () => {
                           >
                             Step {activeStep + 1} already completed
                           </Typography>
-                        ) :
-                        ""
-                        )}
+                        ) : (
+                          ""
+                        ))}
                     </Box>
                   </React.Fragment>
                 )}
@@ -144,10 +154,11 @@ const PersonalizedMatches = () => {
               <div className="PersonalizeMatched_main-right_uder_text_content">
                 <h1>Not Sure ?</h1>
                 <p className="ltc">
-                  Lorem ipsum dolor sit amet, consectetur adip sit amet fugiat
-                  nulla pariatur amet eiusmod tempor incididunt ut labore et
-                  dolore magna eu fugiat nulla pari veniam pariatur ex ea
-                  commodo consequat
+                  Not sure what to chose ? Choose Them All! Leave your doubts behind and select
+                  all the options to discover a diverse range of study abroad
+                  programs tailored to your preferences. Embrace the freedom of
+                  exploring various possibilities and uncover the perfect
+                  opportunity that awaits you.
                 </p>
               </div>
             </div>

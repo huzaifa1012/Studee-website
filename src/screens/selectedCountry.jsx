@@ -1,4 +1,4 @@
-import React, {useRef } from "react";
+import React, { useRef } from "react";
 import { useLocation } from "react-router-dom";
 import SelectedSubjectHero from "../component/Subjects Component/selectedSubjectHero";
 import DetalilsWithImage from "../component/detalilsWithImage";
@@ -9,6 +9,11 @@ import TreeProjectComponent from "../component/home component/treesProject";
 import KeyFacts from "../component/Reusable components/Key Facts";
 import BoxesAndData from "../component/Reusable components/boxesAndData";
 import DetalilsWithLeftImage from "../component/Reusable components/DetailsWithLeftImage";
+import AustriaKangaroImage from "../assets/Australlia country/australlia/Why study in Australia.png";
+import costOfStudyingImage from "../assets/Australlia country/australlia/What is the cost of studying in Australia.png";
+import whatAreRequirmenets from "../assets/Australlia country/australlia/What are the requirements to study in Australia.png";
+import StudentVisa from "../assets/Australlia country/australlia/What are the requirements to study in Australia.png";
+import howStudyinAus from "../assets/Australlia country/australlia/How to study in Australia.png"
 const SelectedCountry = () => {
   const component2Ref = useRef(null);
   const location = useLocation();
@@ -78,21 +83,25 @@ const SelectedCountry = () => {
     // Add more country objects as needed
   ];
 
-
   const scrollToComponent2 = () => {
     component2Ref.current.scrollIntoView({ behavior: "smooth" });
   };
   return (
     <>
       <SelectedSubjectHero
-       scrollToComponent2={scrollToComponent2}
+        scrollToComponent2={scrollToComponent2}
         subjectName={countryName}
-        BGImage={backgroundImage}
+        // here uncommit the "BGImage={backgroundImage}" and get rid from this hardcoded Background image
+        // BGImage={backgroundImage}
+        BGImage={
+          "https://images.studee.com/images/country/country__australia.jpg?ixlib=js-2.3.2&auto=format&fit=crop&q=35&fallback=true&w=1920&h=640&blend=%2Ftreatments%2Ftreatment__split-tone-with-overlay.jpg&blend-size=inherit&blend-mode=multiply&blend-alpha=80"
+        }
       />
       <DetalilsWithImage
-        imageUrl={
-          "https://images.studee.com/illustrations/illustration__feature--country-australia.png?ixlib=js-2.3.2&auto=format&fit=crop&q=40&w=460&h=345"
-        }
+        // imageUrl={
+        //   "https://images.studee.com/illustrations/illustration__feature--country-australia.png?ixlib=js-2.3.2&auto=format&fit=crop&q=40&w=460&h=345"
+        // }
+        imageUrl={AustriaKangaroImage}
         body={
           <>
             <h1>Why study in {countryName}?</h1>
@@ -116,8 +125,7 @@ const SelectedCountry = () => {
 
       <Uni_FindAndApplyCard />
 
-
-      <Whystudee  scrollToComponent2={scrollToComponent2} />
+      <Whystudee scrollToComponent2={scrollToComponent2} />
 
       <PopularSubjects
         heading={`Popular subjects to study in ${countryName}`}
@@ -127,7 +135,8 @@ const SelectedCountry = () => {
       <TreeProjectComponent
         heading={`What is the cost of studying in ${countryName}?`}
         imageUrl={
-          "https://images.studee.com/illustrations/illustration__feature--cost-to-study.png?ixlib=js-2.3.2&auto=format&fit=crop&q=40&w=460&h=345"
+          // "https://images.studee.com/illustrations/illustration__feature--cost-to-study.png?ixlib=js-2.3.2&auto=format&fit=crop&q=40&w=460&h=345"
+          costOfStudyingImage
         }
         paragraph={`Fees in Australia can be around $30,000 per year for a bachelor’s program.
         On top of the fees, Australian living costs can also be high. This is especially the case in popular cities like Sydney and Melbourne where you may need around $15,000 a year for living expenses. case in popular cities like Sydney and Melbourne where you may need around $15,000 a year for living expenses. `}
@@ -174,35 +183,33 @@ const SelectedCountry = () => {
           </>
         }
         heading={`What are the requirements to study in ${countryName}?`}
-        imageUrl={
-          "https://images.studee.com/illustrations/illustration__feature--admission-requirements.png?ixlib=js-2.3.2&auto=format&fit=crop&q=40&w=460&h=345"
-        }
+        imageUrl={whatAreRequirmenets}
       />
-      <div style={{backgroundColor:'##f7f8f9'}}>
-      <DetalilsWithLeftImage 
-        imageUrl={
-          "https://images.studee.com/illustrations/illustration__feature--student-visa.png?ixlib=js-2.3.2&auto=format&fit=crop&q=40&w=460&h=345"
-        }
-        body={
-          <>
-            <h1>{countryName} student visa?</h1>
-            <p>
-              EU students wishing to stay in Austria for more than six months
-              will need to apply for a residence permit. An application for this
-              should be filed and approved before going to Austria.
-              <br /> <br />
-              All applicants must submit biometric data (10 fingerprints). You
-              need to schedule an appointment at the Austrian Embassy in your
-              country in order to do this.
-            </p>
+      <div style={{ backgroundColor: "##f7f8f9" }}>
+        <DetalilsWithLeftImage
+          imageUrl={StudentVisa}
+          body={
+            <>
+              <h1>{countryName} student visa?</h1>
+              <p>
+                EU students wishing to stay in Austria for more than six months
+                will need to apply for a residence permit. An application for
+                this should be filed and approved before going to Austria.
+                <br /> <br />
+                All applicants must submit biometric data (10 fingerprints). You
+                need to schedule an appointment at the Austrian Embassy in your
+                country in order to do this.
+              </p>
 
-            <button className="why_use_bottom_btn">
-              {countryName} student visa requirement
-            </button>
-          </>
-        }/></div>
-           
-           <DetalilsWithImage
+              <button className="why_use_bottom_btn">
+                {countryName} student visa requirement
+              </button>
+            </>
+          }
+        />
+      </div>
+
+      <DetalilsWithImage
         body={
           <>
             <br />
@@ -219,9 +226,7 @@ const SelectedCountry = () => {
           </>
         }
         heading={`How to study in ${countryName}?`}
-        imageUrl={
-          "https://images.studee.com/illustrations/illustration__feature--admission-requirements.png?ixlib=js-2.3.2&auto=format&fit=crop&q=40&w=460&h=345"
-        }
+        imageUrl={howStudyinAus}
       />
       <BoxesAndData
         countries={countries}

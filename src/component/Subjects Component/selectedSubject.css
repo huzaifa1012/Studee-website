@@ -8,10 +8,10 @@ body {
   height: 100vh;
   justify-content: center;
   background-image: url("https://images.studee.com/images/content/content__search--hero.svg");
-  background-position: right;
+  background-position: center;
   background-size: cover;
-  background-position-x: right;
-  background-repeat: no-repeat;
+  /* background-position-x: right; */
+  background-repeat: no-repeat; 
 }
 .selectedSubHero_container {
   margin-top: 30px;

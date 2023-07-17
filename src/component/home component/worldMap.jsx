@@ -1,5 +1,5 @@
 import React from 'react'
-import worldMapImg from "../../assets/world-map.avif"  
+import worldMapImg from "../../assets/green-map.png"  
 import "./world_map.css"
 function worldMap() {
     return (

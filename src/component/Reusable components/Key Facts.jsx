@@ -1,31 +1,31 @@
 import React from "react";
 import "./keyFact.css";
+import australlianDollar from "../../assets/KeyFacs Icon/australlian-dollar.png"
+import studednts from "../../assets/KeyFacs Icon/student-population.png"
+import englsihHello from "../../assets/KeyFacs Icon/english-language.png"
+import universities from "../../assets/KeyFacs Icon/universities.png"
 const KeyFacts = () => {
   const keyFactsData = [
     {
       title: "Australian Dollar $",
       details: "Currency",
-      image:
-        "https://images.studee.com/illustrations/illustration__badge--currency.png?ixlib=js-2.3.2&auto=format&fit=crop&q=45&w=132",
+      image:australlianDollar
     },
     {
       title: "1 million",
       details: "Students",
-      image:
-        "https://images.studee.com/illustrations/illustration__badge--student-population.png?ixlib=js-2.3.2&auto=format&fit=crop&q=45&w=132",
+      image:studednts,
     },
     {
       title: "English",
       details: "Language",
-      image:
-        "https://images.studee.com/illustrations/illustration__badge--language.png?ixlib=js-2.3.2&auto=format&fit=crop&q=45&w=132",
+      image:englsihHello
     },
     {
       title: "English",
       details: "Language",
-      image:
-        "https://images.studee.com/illustrations/illustration__badge--language.png?ixlib=js-2.3.2&auto=format&fit=crop&q=45&w=132",
-    },
+      image:universities
+     },
   ];
   return (
     <div className="keyFacts_wrap">
