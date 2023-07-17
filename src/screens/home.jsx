@@ -6,7 +6,7 @@ import Testimonial from "../component/home component/Testimonial.jsx";
 import StudyingAbroad from "../component/home component/StudyingAbroad.jsx";
 import BrowseByCountry from "../component/home component/browseByCountry.jsx";
 import TreeProjectComponent from "../component/home component/treesProject.jsx";
-import tresImg from "../assets/trees image.png"
+import tresImg from "../assets/TREES-FOR-PROJECT.png"
 import PopularSubjects from "../component/home component/PopularSubjects";
 const Home = () => {
   const allSubjects = [

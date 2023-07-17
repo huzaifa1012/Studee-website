@@ -16,6 +16,7 @@ import GuideDetailPage from "../screens/guideDetailPage.jsx";
 import SelectedCountry from "../screens/selectedCountry";
 import PersonalizedMatches from "../screens/PersonalizedMatches.jsx";
 import Account from "../screens/account";
+import YourApplications from "../screens/YourApplications";
 const Routing = () => (
   <Routes>
     <Route path="/" element={<Home />} />
@@ -34,6 +35,7 @@ const Routing = () => (
     <Route path="/selected-country" element={<SelectedCountry/>} />
     <Route path="/personalized-matches" element={<PersonalizedMatches/>} />
     <Route path="/account" element={<Account/>} />
+    <Route path="/your-applications" element={<YourApplications/>} />
     <Route path="/*" element={<h1>Wrong Routes</h1>} />
   </Routes>    
 );

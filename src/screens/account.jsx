@@ -1,11 +1,14 @@
 import React from "react";
 import "../component/Account/account.css";
+import { Link } from "react-router-dom";
 const Account = () => {
   return (
     <>
       <div className="account_containerWrap">
         <div className="acc_container">
           <h1 className="acc_heading">Your Account</h1>
+          <hr />
+          <br />
           <div className="acc_box_wrap">
             <div className="acc_box">
               <img
@@ -19,7 +22,7 @@ const Account = () => {
               </div>
             </div>
 
-            <div className="acc_box">
+              <Link to="/your-applications" className="acc_box">
               <img
                 className="box_img"
                 src="https://images.studee.com/illustrations/illustration__spot--application.png?ixlib=js-2.3.2&auto=format&w=85&h=64&q=45"
@@ -31,7 +34,7 @@ const Account = () => {
                 </p>
                 {/* <button className="acc_sign_out">Logout</button> */}
               </div>
-            </div>
+              </Link>
             <br />
 
             <div className="acc_box">

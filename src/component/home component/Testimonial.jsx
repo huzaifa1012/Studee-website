@@ -1,5 +1,8 @@
 import React from "react";
 import "./Testimonial.css";
+import female1 from "../../assets/testomonial images/female1.png"
+import female2 from "../../assets/testomonial images/female2.png"
+import male1 from "../../assets/testomonial images/male1.png"
 const Testimonial = () => {
   return (
     <>
@@ -15,8 +18,10 @@ const Testimonial = () => {
             <div className="testimonial_card">
               <div className="testimonial_head">
                 <img
-                  src="https://images.studee.com/images/testimonial/testimonial__calebina-espinoza.jpg?ixlib=js-2.3.2&auto=format&w=88&h=88&q=45&fit=crop&crop=faces,entropy"
+                  src={female1}
                   alt=""
+                  title="Ex studet of studee from Honduras"
+
                 />
                 <div>
                   <h2>Calebina Espinoza</h2>
@@ -44,8 +49,10 @@ const Testimonial = () => {
             <div className="testimonial_card">
               <div className="testimonial_head">
                 <img
-                  src="https://images.studee.com/images/testimonial/testimonial__jovana-andjelkovic.jpg?ixlib=js-2.3.2&auto=format&w=88&h=88&q=45&fit=crop&crop=faces,entropy"
+                  src={female2}
                   alt=""
+                  title="Ex studet of studee from serbia"
+
                 />
                 <div>
                   <h2>Jovana Andjelkovic</h2>
@@ -77,8 +84,9 @@ const Testimonial = () => {
             <div className="testimonial_card">
               <div className="testimonial_head">
                 <img
-                  src="https://images.studee.com/images/testimonial/testimonial__corey-tate.jpg?ixlib=js-2.3.2&auto=format&w=88&h=88&q=45&fit=crop&crop=faces,entropy"
+                  src={male1}
                   alt=""
+                  title="Ex studet of studee from USA"
                 />
                 <div>
                   <h2>Corey Tate</h2>

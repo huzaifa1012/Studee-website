@@ -32,23 +32,23 @@ const Whystudee = ({ scrollToComponent2 }) => {
         <div className='Why_Use_studee_wrap'>
           <div className='Why_Use_studee_body'>
             <div className='Why_Use_studee_box'>
-              <img src={whyStudyImg01} width={100} />
+              <img src={whyStudyImg01} width={110} />
               <h2 className='mtc' >Find your ideal program </h2>
               <p className='ltc'>Filter <b> 10,000s of programs </b> down to a shortlist perfect for you, where you have a strong chance of getting admitted</p>
             </div>
             <div className='Why_Use_studee_box'>
-              <img src={whyStudyImg02} width={100} />
+              <img src={whyStudyImg02} width={110} />
               <h2 className='mtc' >Apply online via Studee </h2>
               <p className='ltc'>Complete our application form and enjoy <b> reduced application fees </b> & access to unique Studee scholarships for many universities</p>
             </div>
             <div className='Why_Use_studee_box'>
-            <img src={whyStudyImg03} width={100} />
+            <img src={whyStudyImg03} width={110} />
               
               <h2 className='mtc' >We assess within 48hrs </h2>
               <p className='ltc'>We complete an 85-point assessment within <b>2 business days,</b> help you with improvements then submit to your university</p>
             </div>
             <div className='Why_Use_studee_box'>
-            <img src={whyStudyImg04} width={100} />
+            <img src={whyStudyImg04} width={110} />
               <h2 className='mtc' >University offer in 2-4 weeks </h2>
               <p className='ltc'>We chase the university for your admission decision and keep you updated. We all <b> celebrate your admission!</b></p>
             </div>
