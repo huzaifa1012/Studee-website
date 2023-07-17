@@ -26,7 +26,7 @@ const Whystudee = ({ scrollToComponent2 }) => {
 
       <div className='why_use_main_wrap'  id='whyStudee'  ref={component2Ref}>
         <div className='why_use_head'>
-          <h2 className='mtc'>Why use Studee?</h2>
+          <h2 className='mtc'>Why use IEO?</h2>
           <p className='mtc'>We maximise your chance of being admitted with our free, <b> 48 hour fast-track </b> assessment (worth $185*)</p>
         </div>
         <div className='Why_Use_studee_wrap'>
@@ -38,7 +38,7 @@ const Whystudee = ({ scrollToComponent2 }) => {
             </div>
             <div className='Why_Use_studee_box'>
               <img src={whyStudyImg02} width={110} />
-              <h2 className='mtc' >Apply online via Studee </h2>
+              <h2 className='mtc' >Apply online via IEO </h2>
               <p className='ltc'>Complete our application form and enjoy <b> reduced application fees </b> & access to unique Studee scholarships for many universities</p>
             </div>
             <div className='Why_Use_studee_box'>
