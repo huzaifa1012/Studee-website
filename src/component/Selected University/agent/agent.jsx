@@ -1,6 +1,6 @@
 import React from "react";
 import "./agent.css";
-const Agent = ({ name }) => {
+const Agent = () => {
   return (
     <div>
       {/* <h2>{name}</h2> */}

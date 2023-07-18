@@ -5,11 +5,12 @@ import VerticalizeTreeProjectComponent from "../component/home component/Vertica
 import FindProgramAbroadbox from "../component/Subjects Component/findProgAbroadBox.jsx";
 import TreeProjectComponent from "../component/home component/treesProject.jsx";
 import { useLocation } from "react-router-dom";
-import { BiRightArrowAlt } from "react-icons/bi";
 import PopularSubjects from "../component/home component/PopularSubjects.jsx";
 import BrowseByCountry from "../component/home component/browseByCountry.jsx";
 import Undergraduate_programs from "../component/Subjects Component/Undergraduate_programs.jsx";
 import Agent from "../component/Selected University/agent/agent.jsx";
+import accountingProgramStructure from "../assets/Australlia country/accounting/accounting-program-structure.png";
+import futureAccountingCareer from "../assets/Australlia country/accounting/future-accounting-career.png";
 const Selected_subject = () => {
   const location = useLocation();
 
@@ -105,7 +106,7 @@ const Selected_subject = () => {
       <FindProgramAbroadbox />
 
       <VerticalizeTreeProjectComponent
-        imageUrl="https://images.studee.com/illustrations/illustration__feature--how-to-study.png?ixlib=js-2.3.2&auto=format&fit=crop&q=40&w=460&h=345"
+        imageUrl={futureAccountingCareer}
         heading="Art degrees abroad"
         paragraph={
           <ol>
@@ -151,10 +152,10 @@ const Selected_subject = () => {
       />
       <Whystudee />
 
-      <Agent name={"sdasd"} />
+      <Agent/>
 
       <TreeProjectComponent
-        imageUrl="https://images.studee.com/illustrations/illustration__feature--programs.png?ixlib=js-2.3.2&auto=format&fit=crop&q=40&w=460&h=345"
+        imageUrl={accountingProgramStructure}
         heading="Art program structure"
         paragraph={`There are a wide range of specific art programs you can choose to study, so think carefully about which area you’re most interested in and look for the degree that best matches your interests and skills.
 
