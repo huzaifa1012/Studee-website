@@ -24,10 +24,10 @@ function worldMap() {
             <span className='world_map_brands_image_row2' >
             <img className='world_map_brand_image' src={Logo1} alt="" />
             <img className='world_map_brand_image' src={Logo2} alt="" />
-            <img className='world_map_brand_image' src={Logo3} alt="" />
-            <img className='world_map_brand_image' src={Logo4} alt="" />
             </span>
             <span className='world_map_brands_image_row1' >
+            <img className='world_map_brand_image' src={Logo3} alt="" />
+            <img className='world_map_brand_image' src={Logo4} alt="" />
             <img className='world_map_brand_image' src={Logo5} alt="" />
             {/* <img className='world_map_brand_image' src={Logo6} alt="" /> */}
             {/* <img className='world_map_brand_image' src=https://images.studee.com/images/university/university__central-queensland-university--logo.svg" alt="" /> */}

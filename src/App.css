@@ -1,7 +1,9 @@
 :root {
   --primary-color: #002F5F;
   --primary-accent: black;
-  --secondary-color: #00A878;
+  --secondary-color: #008761;
+  --primary-accent-real: #21588e4a;
+  --secondary-accent: #afffe884;
   --text-color: #2b2d4a;
 }
 

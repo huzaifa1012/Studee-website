@@ -57,11 +57,14 @@ body {
 }
 .world_map_brands img {
   max-width: 30%;
+
+margin: 10px 22px;
 }
 .world_map_brands_image_row1 {
   width: 70%;
   justify-content: space-around;
   display: flex;
+  height: auto;
   flex-wrap: wrap;
 }
 .world_map_brands_image_row2 {

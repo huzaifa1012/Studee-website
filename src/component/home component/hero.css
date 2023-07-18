@@ -118,7 +118,8 @@ body {
 .hero_btn:hover {
   letter-spacing: 1px;
   color: var(--secondary-color);
-  background-color: #ffece3;
+  
+  background-color:var(--secondary-accent);
 }
 .heroBtnCover {
   height: 114px;

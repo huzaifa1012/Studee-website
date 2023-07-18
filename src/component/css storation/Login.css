@@ -78,7 +78,7 @@
 }
 
 .login_button:hover {
-  background-color: #ffdbc9;
+  background-color: var(--secondary-accent);
   color: var(--secondary-color);
   transition: 0.1s;
 }

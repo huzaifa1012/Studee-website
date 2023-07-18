@@ -134,9 +134,9 @@
 }
 
 .universities_hero_left_btn1:hover {
-  border: 2px solid #ffece3;
+  border: 2px solid white;
   color: var(--secondary-color);
-  background-color: #ffece3;
+  background-color: white;
 }
 .selected_uni_left_labels {
   font-size: 17px !important ;

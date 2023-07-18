@@ -95,7 +95,7 @@
 .unicard_btn_orange:hover {
   /* letter-spacing: 1px; */
   color: var(--secondary-color);
-  background-color: #ffece3;
+  background-color: var(--secondary-accent);
 }
 
 .unicard_btn_orange:hover .heroBtnIcon {

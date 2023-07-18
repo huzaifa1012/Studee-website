@@ -11,6 +11,7 @@ import Undergraduate_programs from "../component/Subjects Component/Undergraduat
 import Agent from "../component/Selected University/agent/agent.jsx";
 import accountingProgramStructure from "../assets/Australlia country/accounting/accounting-program-structure.png";
 import futureAccountingCareer from "../assets/Australlia country/accounting/future-accounting-career.png";
+import FutureFinance from "../assets/Australlia country/accounting/Future-finance.png";
 const Selected_subject = () => {
   const location = useLocation();
 
@@ -193,7 +194,7 @@ Accountant
 Analyst
           CFO`}
         imageUrl={
-          "https://images.studee.com/illustrations/illustration__feature--why-study-at-uni.png?ixlib=js-2.3.2&auto=format&fit=crop&q=40&w=460&h=345"
+          FutureFinance
         }
       />
     </>

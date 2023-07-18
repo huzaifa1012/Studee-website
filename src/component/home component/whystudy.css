@@ -121,7 +121,7 @@
 .why_use_bottom_btn:hover {
     letter-spacing: 1px;
     color: var(--primary-color);
-    background-color: #e2c6ff;
+    background-color: var(--primary-accent-real);
 }
 
 .why_use_bottom_btn:hover .heroBtnIcon {
