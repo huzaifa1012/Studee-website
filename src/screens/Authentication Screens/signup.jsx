@@ -1,6 +1,9 @@
 import React from "react";
 import "../../component/css storation/Login.css";
 import { Link } from "react-router-dom";
+import image1 from "../../assets/sign in/your own dedicated advisor.png";
+import image2 from "../../assets/sign in/In-depth-review-your-application.png";
+import image3 from "../../assets/sign in/essential-guidance-and-reminders.png";
 const Register = () => {
   const countries = [
     { code: "AF", name: "Afghanistan" },
@@ -392,7 +395,7 @@ const Register = () => {
             <div className="Register_side_box_wrap">
               <div className="Register_individual_side_box">
                 <img
-                  src="https://images.studee.com/illustrations/illustration__spot--advice-center.png?ixlib=js-2.3.2&auto=format&w=640&crop=fit&q=30"
+                  src={image1}
                   alt=""
                 />
                 <div>
@@ -404,7 +407,7 @@ const Register = () => {
               </div>
               <div className="Register_individual_side_box">
                 <img
-                  src="https://images.studee.com/illustrations/illustration__spot--save-details.png?ixlib=js-2.3.2&auto=format&w=640&crop=fit&q=30"
+                  src={image2}
                   alt=""
                 />
                 <div>
@@ -417,7 +420,7 @@ const Register = () => {
               </div>
               <div className="Register_individual_side_box">
                 <img
-                  src="https://images.studee.com/illustrations/illustration__spot--email.png?ixlib=js-2.3.2&auto=format&w=640&crop=fit&q=30"
+                  src={image3}
                   alt=""
                 />
                 <div>

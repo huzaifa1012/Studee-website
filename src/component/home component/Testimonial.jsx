@@ -11,7 +11,7 @@ const Testimonial = () => {
           <div className="testimonial_left">
             <h1>
               180,000 international students started their journey through
-              Studee
+              IEO
             </h1>
           </div>
           <div className="testimonial_right">
@@ -20,7 +20,7 @@ const Testimonial = () => {
                 <img
                   src={female1}
                   alt=""
-                  title="Ex studet of studee from Honduras"
+                  title="Ex studet of IEO from Honduras"
 
                 />
                 <div>
@@ -51,7 +51,7 @@ const Testimonial = () => {
                 <img
                   src={female2}
                   alt=""
-                  title="Ex studet of studee from serbia"
+                  title="Ex studet of IEO from serbia"
 
                 />
                 <div>
@@ -64,7 +64,7 @@ const Testimonial = () => {
                 <p className="ltc">
                   <br />
                   <q>
-                    I have an excellent experience with Studee especially with
+                    I have an excellent experience with IEO especially with
                     my coordinators Cecilia Piedra and Michael Galarza. They
                     were there for me from the being till the end during the
                     whole process even when I was applying for my visa! They
@@ -86,7 +86,7 @@ const Testimonial = () => {
                 <img
                   src={male1}
                   alt=""
-                  title="Ex studet of studee from USA"
+                  title="Ex studet of IEO from USA"
                 />
                 <div>
                   <h2>Corey Tate</h2>
@@ -98,7 +98,7 @@ const Testimonial = () => {
                 <p className="ltc">
                   <br />
                   <q>
-                    I recall checking the Studee website in my search for a post
+                    I recall checking the IEO website in my search for a post
                     graduate degree to study and like any other form, filling my
                     contact details, what really surprised me was the level of
                     commitment from the staff to ensuring that I was on the

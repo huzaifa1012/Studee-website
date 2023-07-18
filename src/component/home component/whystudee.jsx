@@ -39,7 +39,7 @@ const Whystudee = ({ scrollToComponent2 }) => {
             <div className='Why_Use_studee_box'>
               <img src={whyStudyImg02} width={110} />
               <h2 className='mtc' >Apply online via IEO </h2>
-              <p className='ltc'>Complete our application form and enjoy <b> reduced application fees </b> & access to unique Studee scholarships for many universities</p>
+              <p className='ltc'>Complete our application form and enjoy <b> reduced application fees </b> & access to unique IEO scholarships for many universities</p>
             </div>
             <div className='Why_Use_studee_box'>
             <img src={whyStudyImg03} width={110} />

@@ -25,7 +25,7 @@ export default function Footer() {
 
                             <p className="mb-4">
                                 <a href="#!" className="text-neutral-600 dark:text-neutral-200">
-                                    About Studee
+                                    About IEO
                                 </a>
                             </p>
                             <p className="mb-4">

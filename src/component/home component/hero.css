@@ -83,17 +83,17 @@ body {
   font-weight: bold;
 }
 .hero_inpbox-style {
-  height: 59px;
-  padding: 10px;
-  outline: none;
-  border-radius: 10px;
-  width: 100%;
-  font-size: 17px;
-  border: 2px solid var(--text-color);
+  height: 59px !important;
+  padding: 10px !important;
+  outline: none !important;
+  border-radius: 10px !important;
+  width: 100% !important;
+  font-size: 17px !important;
+  border: 2px solid var(--text-color) !important;
 }
 .hero_inpbox-style::placeholder {
-  font-size: 17px;
-  font-family: "Inter", sans-serif;
+  font-size: 17px !important;
+  font-family: "Inter", sans-serif !important;
 }
 
 .hero_btn {
@@ -136,8 +136,8 @@ body {
 }
 
 .hero_inpbox-style:focus {
-  border-color: var(--secondary-color);
-  border-width: 2px;
+  border-color: var(--secondary-color) !important;
+  border-width: 2px !important;
 }
 .studee_home_hero_bottom {
   display: flex;
@@ -204,13 +204,13 @@ margin-top: 15px;
     text-align: left;
   }
   .hero_inpbox-style {
-    height: 59px;
-    padding: 10px;
-    outline: none;
-    border-radius: 10px;
-    width: 100%;
-    font-size: 17px;
-    border: 2px solid var(--text-color);
+    height: 59px !important;
+    padding: 10px !important;
+    outline: none !important;
+    border-radius: 10px !important;
+    width: 100% !important;
+    font-size: 17px !important;
+    border: 2px solid var(--text-color) !important;
   }
   .heroBtnCover {
     height: 80px;

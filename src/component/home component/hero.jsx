@@ -45,8 +45,8 @@ const Hero = () => {
             <p className="mtc hero_labelP"> Location</p>
             <input
               type="text"
-              name=""
-              id="location"
+              // name=""
+              // id="location"
               placeholder="Enter country or city"
               className="hero_inpbox-style"
             />
@@ -55,8 +55,8 @@ const Hero = () => {
             <p className="mtc hero_labelP">Subject</p>
             <input
               type="text"
-              name=""
-              id="subject"
+              // name=""
+              // id="subject"
               placeholder="Enter a subject"
               className="hero_inpbox-style"
             />

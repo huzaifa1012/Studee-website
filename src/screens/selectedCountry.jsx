@@ -221,7 +221,7 @@ const SelectedCountry = () => {
               not always needed.
             </p>
             <button className="why_use_bottom_btn">
-              How to studee abroad with studee
+              How to study abroad with IEO
             </button>
           </>
         }
