@@ -153,7 +153,7 @@ const Selected_subject = () => {
       />
       <Whystudee />
 
-      <Agent/>
+      <Agent />
 
       <TreeProjectComponent
         imageUrl={accountingProgramStructure}
@@ -193,9 +193,7 @@ Actuary
 Accountant
 Analyst
           CFO`}
-        imageUrl={
-          FutureFinance
-        }
+        imageUrl={FutureFinance}
       />
     </>
   );

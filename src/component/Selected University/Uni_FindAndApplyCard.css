@@ -14,10 +14,7 @@
   margin: 20px 0px 5px 0px;
   font-size: 2.2rem;
 }
-.UniFindAndApply_Main_wrap p {
-}
 .UniFindAndApply_user-input-section {
-  /* border: 2px solid red; */
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -43,17 +40,17 @@
 }
 
 .UniFindAndApply_inpbox-style {
-  height: 59px;
-  padding: 10px;
-  outline: none;
-  border-radius: 10px;
-  width: 100%;
-  font-size: 17px;
-  border: 2px solid var(--text-color);
+  height: 59px !important;
+  padding: 10px !important;
+  outline: none !important;
+  border-radius: 10px !important;
+  width: 100% !important;
+  font-size: 17px !important;
+  border: 2px solid var(--text-color) !important;
 }
 .UniFindAndApply_inpbox-style::placeholder {
-  font-size: 17px;
-  font-family: "Inter", sans-serif;
+  font-size: 17px !important;
+  font-family: "Inter", sans-serif !important;
 }
 
 .UniFindAndApplyBtnCover {

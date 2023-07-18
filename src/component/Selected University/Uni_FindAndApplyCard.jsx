@@ -17,7 +17,6 @@ const Uni_FindAndApplyCard = () => {
               Find programs you love that match your needs & aspirations, where
               you stand a high chance of acceptance.
             </p>
-
             <div className="UniFindAndApply_user-input-section">
               <div className="theUniFindAndApply_label">
                 <p className="mtc UniFindAndApply_labelP">Subject</p>

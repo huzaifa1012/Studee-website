@@ -277,14 +277,14 @@ const Register = () => {
               <label htmlFor="password" className="lable_in_signup_screen">
                 Last name *
               </label>
-              <input type="password" id="password" className="login_input" />
+              <input type="text" id="password"  className="login_input" />
             </div>
             {/* <br /> */}
             <div className="login_input_group">
               <label htmlFor="password" className="lable_in_signup_screen">
                 Email address *
               </label>
-              <input type="password" id="password" className="login_input" />
+              <input type="text" id="password" className="login_input" name="email" />
               <br />
               <span className="ltc">
                 We'll send you an activation code to your email.

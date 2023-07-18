@@ -44,15 +44,15 @@
 }
 
 .login_input {
-  width: 90%;
-  padding: 15px 10px;
-  border: 2px solid #ccc;
-  border-radius: 8px;
+  width: 90% !important;
+  padding: 15px 10px !important;
+  border: 2px solid #ccc !important;
+  border-radius: 8px !important;
 }
 .login_input:focus,
 .login_input:active {
-  outline: none;
-  border: 2px solid var(--secondary-color);
+  outline: none !important;
+  border: 2px solid var(--secondary-color) !important;
   /* border-color:  Change this to the desired border color */
 }
 .login_card_bottom {
