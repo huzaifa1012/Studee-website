@@ -65,22 +65,22 @@
 }
 
 .login_button {
-  min-width: 60%;
-  max-width: fit-content;
-  padding: 13px 10px;
-  font-size: 1.1rem;
-  background-color: var(--secondary-color);
-  border: none;
-  font-weight: 500;
-  border-radius: 8px;
-  color: #fff;
-  cursor: pointer;
+  min-width: 60% !important;
+  max-width: fit-content !important;
+  padding: 13px 10px !important;
+  font-size: 1.1rem !important;
+  background-color: var(--secondary-color) !important;
+  border: none !important;
+  font-weight: 500 !important;
+  border-radius: 8px !important;
+  color: #fff !important;
+  cursor: pointer !important;
 }
 
 .login_button:hover {
-  background-color: var(--secondary-accent);
-  color: var(--secondary-color);
-  transition: 0.1s;
+  background-color: var(--secondary-accent) !important;
+  color: var(--secondary-color) !important;
+  transition: 0.1s !important;
 }
 .login_register_box {
   width: 47%;
@@ -142,23 +142,21 @@
 }
 
 .login_register_button {
-  padding: 12px 20px;
-  background-color: #fff;
-  border: 2px solid var(--primary-accent);
-  ;
-  border-radius: 8px;
-  color: var(--primary-accent);
-  ;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  font-weight: 800;
-  font-size: 1.3rem;
-  cursor: pointer;
+  padding: 12px 20px !important; 
+  background-color: #fff !important;
+  border: 2px solid var(--primary-accent) !important;
+  border-radius: 8px !important;
+  color: var(--primary-accent) !important;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif !important;
+  font-weight: 800 !important;
+  font-size: 1.3rem !important;
+  cursor: pointer !important;
 }
 
 .login_register_button:hover {
-  background-color:  var(--primary-accent);
-  transition: 0.1s;
-  color: #fff;
+  background-color:  var(--primary-accent) !important;
+  transition: 0.1s !important;
+  color: #fff !important;
 }
 
 

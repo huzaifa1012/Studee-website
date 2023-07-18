@@ -302,8 +302,7 @@ const Register = () => {
               </label>
               <select
                 id="gender"
-                className="login_input signup_countries_dropdown"
-              >
+                className="login_input signup_countries_dropdown">
                 <option value="">Select Gender</option>
                 {gender.map((data) => (
                   <option key={data.name} value={data.name}>

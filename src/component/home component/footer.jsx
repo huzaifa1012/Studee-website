@@ -2,6 +2,10 @@ import React from 'react'
 import IEOLogo from "../../assets/IEO.png"
 import "./footerStyle.css"
 import { BsFacebook, BsInstagram, BsYoutube,BsTwitter } from 'react-icons/bs'
+import partner1 from "../../assets/University logos/logo1.png"
+import partner2 from "../../assets/University logos/logo2.png"
+import partner3 from "../../assets/University logos/logo3.png"
+import partner4 from "../../assets/University logos/logo4.png"
 export default function Footer() {
     return (
 
@@ -100,11 +104,11 @@ export default function Footer() {
                             <h6 style={{ color: '#5a5a72' }} className="mb-4 flex font-semibold   md:justify-start">
                                 Our partnerships
                             </h6>
-                            <div className='className="mb-4 flex items-center justify-center md:justify-start"' style={{ maxWidth: '70%', display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
-                                <img style={{ width: '40%', marginLeft: '0%' }} src='https://images.studee.com/images/content/content__airc-logo.png?ixlib=js-2.3.2&auto=format&q=60&w=74' />
-                                <img style={{ width: '40%', marginLeft: '10%' }} src='https://images.studee.com/images/content/content__nafsa-badge--large.png?ixlib=js-2.3.2&auto=format&q=60&w=74' />
-                                <img style={{ width: '40%', marginLeft: '0%' }} src='https://images.studee.com/images/content/content__icef-badge--large.png?ixlib=js-2.3.2&auto=format&q=60&w=74' />
-                                <img style={{ width: '40%', marginLeft: '10%' }} src='https://images.studee.com/images/content/content__bcorp-logo--positive.png?ixlib=js-2.3.2&auto=format&q=60&w=60' />
+                            <div className='className="mb-4 flex items-center justify-center md:justify-start"' style={{ maxWidth: '70%', display: 'flex', justifyContent: 'flex-start', alignItems: 'center', flexWrap: 'wrap' }}>
+                                <img style={{ width: '35%', marginRight: '5%' }} src={partner1} />
+                                <img style={{ width: '35%', marginLeft: '5%' }} src={partner2} />
+                                <img style={{ width: '35%', marginRight: '5%'}} src={partner3} />
+                                <img style={{ width: '35%', marginLeft: '5%' }} src={partner4} />
 
                             </div>
 
