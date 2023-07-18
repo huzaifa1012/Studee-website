@@ -32,7 +32,6 @@ function worldMap() {
             <img className='world_map_brand_image' src={Logo5} alt="" />
             <img className='world_map_brand_image' src={Logo6} alt="" />
             </span>
-
         </div>
         </div>
         </>

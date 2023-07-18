@@ -91,7 +91,7 @@
   .underGraduatePrograms_card_right_btn1:hover {
     letter-spacing: 1px;
     color: var(--primary-color);
-    background-color: #e2c6ff;
+    background-color: var(--primary-accent-real);
   }
   
   .underGraduatePrograms_card_right_btn1:hover .heroBtnIcon {
@@ -121,7 +121,7 @@
   .underGraduatePrograms_card_right_btn2:hover {
     letter-spacing: 1px;
     color: var(--secondary-color);
-    background-color: #ffece3;
+    background-color: var(--secondary-accent);
   }
   
   .underGraduatePrograms_card_right_btn2:hover .heroBtnIcon {

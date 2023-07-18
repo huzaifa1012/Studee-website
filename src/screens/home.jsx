@@ -69,7 +69,6 @@ const Home = () => {
       <StudyingAbroad />
       <BrowseByCountry heading={"Browse by country"} countries={countries}/>
       <PopularSubjects heading={"Popular Subjects"} allSubjects={allSubjects} length={9}  />
-
     </>
   );
 };

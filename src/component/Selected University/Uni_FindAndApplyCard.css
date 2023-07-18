@@ -85,7 +85,7 @@
 .UniFindAndApply_btn:hover {
   letter-spacing: 1px;
   color: var(--secondary-color);
-  background-color: #ffece3;
+  background-color: var(--secondary-accent);
 }
 .UniFindAndApplyBtnIcon {
   color: white;

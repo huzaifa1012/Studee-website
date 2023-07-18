@@ -97,8 +97,8 @@ body {
 
 .universities_hero_left_btn_org:hover {
   color: var(--secondary-color);
-  border-color: #ffece3;
-  background-color: #ffece3;
+  border-color: white;
+  background-color: white;
 }
 
 .universities_hero_right_btn:hover .heroBtnIcon {
