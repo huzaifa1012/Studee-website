@@ -1,71 +1,89 @@
-import React, { useState, useRef  } from 'react'
-import "./whystudy.css"
-import { BiRightArrowAlt } from 'react-icons/bi'
-import ViewProgMod from '../Reusable components/program_Modal'
-import whyStudyImg01 from "../../assets/whystudee-icons/icon-1.png"
-import whyStudyImg02 from "../../assets/whystudee-icons/icon-2.png"
-import whyStudyImg03 from "../../assets/whystudee-icons/icon-3.png"
-import whyStudyImg04 from "../../assets/whystudee-icons/icon-4.png"
+import React, { useState, useRef, useEffect } from "react";
+import "./whystudy.css";
+import { BiRightArrowAlt } from "react-icons/bi";
+import ViewProgMod from "../Reusable components/program_Modal";
+import whyStudyImg01 from "../../assets/whystudee-icons/icon-1.png";
+import whyStudyImg02 from "../../assets/whystudee-icons/icon-2.png";
+import whyStudyImg03 from "../../assets/whystudee-icons/icon-3.png";
+import whyStudyImg04 from "../../assets/whystudee-icons/icon-4.png";
+import axios from "axios";
+import parse from "html-react-parser";
 
 const Whystudee = ({ scrollToComponent2 }) => {
-  
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const component2Ref = useRef(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [data, setData] = useState([]);
 
-  
+  useEffect(() => {
+    fetchData();
+  }, []);
+  const fetchData = async () => {
+    try {
+      let response = await axios.get(
+        "https://ieodkvapi-548f8ac2251a.herokuapp.com/content/page/why-use-studee"
+      );
+      // console.log(":DATA", response.data);
+      setData(response.data);
+    } catch (error) {
+      console.log("error", error);
+    }
+  };
+
   const showModal = () => {
     setIsModalOpen(true);
   };
   const handleCancel = () => {
     setIsModalOpen(false);
   };
-  
+  // console.log(data.heading)
+
   return (
     <div>
       <ViewProgMod isModalOpen={isModalOpen} onClose={handleCancel} />
 
-      <div className='why_use_main_wrap'  id='whyStudee'  ref={component2Ref}>
-        <div className='why_use_head'>
-          <h2 className='mtc'>Why use IEO?</h2>
-          <p className='mtc'>We maximise your chance of being admitted with our free, <b> 48 hour fast-track </b> assessment (worth $185*)</p>
+      <div className="why_use_main_wrap" id="whyStudee" ref={component2Ref}>
+        <div className="why_use_head">
+          <h1 className="mtc">{data.name && data.name}</h1>
+          {data.description && parse(data.description)}
+
+        
         </div>
-        <div className='Why_Use_studee_wrap'>
-          <div className='Why_Use_studee_body'>
-            <div className='Why_Use_studee_box'>
-              <img src={whyStudyImg01} width={110} />
-              <h2 className='mtc' >Find your ideal program </h2>
-              <p className='ltc'>Filter <b> 10,000s of programs </b> down to a shortlist perfect for you, where you have a strong chance of getting admitted</p>
-            </div>
-            <div className='Why_Use_studee_box'>
-              <img src={whyStudyImg02} width={110} />
-              <h2 className='mtc' >Apply online via IEO </h2>
-              <p className='ltc'>Complete our application form and enjoy <b> reduced application fees </b> & access to unique IEO scholarships for many universities</p>
-            </div>
-            <div className='Why_Use_studee_box'>
-            <img src={whyStudyImg03} width={110} />
-              
-              <h2 className='mtc' >We assess within 48hrs </h2>
-              <p className='ltc'>We complete an 85-point assessment within <b>2 business days,</b> help you with improvements then submit to your university</p>
-            </div>
-            <div className='Why_Use_studee_box'>
-            <img src={whyStudyImg04} width={110} />
-              <h2 className='mtc' >Offers in 2-4 weeks </h2>
-              <p className='ltc'>We chase the university for your admission decision and keep you updated. We all <b> celebrate your admission!</b></p>
-            </div>
+        <div className="Why_Use_studee_wrap">
+          <div className="Why_Use_studee_body">
+            {data.heading?.map((item, index) => {
+              return (
+                <div className="Why_Use_studee_box" key={item._id}>
+                  <img
+                    src={`https://ieodkvapi-548f8ac2251a.herokuapp.com/content/images/${item.image}`}
+                    width={110}
+                  />
+                  <span className="mtc headingOfWhyStudee">{parse(item.headingName)}</span>
+                  <span className="ltc" style={{ textAlign: "left" }}>
+                    {parse(item.contentText)}
+                  </span>
+                </div>
+              );
+            })}
+    
           </div>
         </div>
-        <div className='why_use_bottom_wrap'>
-          <div className='why_use_bottom'>
-            <p className='why_bottom_p1'> <b> Carbon compensation </b> - We'll plant trees in your name to compensate for the carbon generated by all your flights to and from university.</p>
-            <p className='why_bottom_p2'><b>  All our services are 100% free </b>  as we're funded by universities. You pay deposits & tuition fees directly to the university.</p>
-            <p className='why_bottom_p3'>* Price based on similar application assessment services from other providers</p>
+        <div className="why_use_bottom_wrap">
+          <div className="why_use_bottom">
+          <span>
+              {data.more && parse(data.more)}
 
-            <button onClick={()=>showModal(true)} className='why_use_bottom_btn'>Find your perfect programs <BiRightArrowAlt className="heroBtnIcon" size={25} /> </button>
-
+          </span>
+            <button
+              onClick={() => showModal(true)}
+              className="why_use_bottom_btn"
+            >
+              Find your perfect programs{" "}
+              <BiRightArrowAlt className="heroBtnIcon" size={25} />{" "}
+            </button>
           </div>
         </div>
       </div>
     </div>
-  )
-}
-export default Whystudee
+  );
+};
+export default Whystudee;

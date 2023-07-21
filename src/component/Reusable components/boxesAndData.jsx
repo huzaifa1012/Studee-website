@@ -29,8 +29,8 @@ const BoxesAndData = ({ heading,  body, countries, heading2,}) => {
           ))}
         </div>
         <br/>
-        <div className="boxesAndData_head">
-          <h2 className="mtc">{heading2}</h2>
+        {/* <div className="boxesAndData_head">
+          <h2 className="mtc">{"heading2"}</h2>
         <br/>
 
           <p>{body}</p>
@@ -51,7 +51,7 @@ const BoxesAndData = ({ heading,  body, countries, heading2,}) => {
               <h2>{country.name}</h2>
             </Link>
           ))}
-        </div>
+        </div> */}
             </div>
     </div>
   );

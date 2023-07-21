@@ -13,10 +13,14 @@ import AustriaKangaroImage from "../assets/Australlia country/australlia/Why stu
 import costOfStudyingImage from "../assets/Australlia country/australlia/What is the cost of studying in Australia.png";
 import whatAreRequirmenets from "../assets/Australlia country/australlia/What are the requirements to study in Australia.png";
 import StudentVisa from "../assets/Australlia country/australlia/What are the requirements to study in Australia.png";
-import howStudyinAus from "../assets/Australlia country/australlia/How to study in Australia.png"
+import howStudyinAus from "../assets/Australlia country/australlia/How to study in Australia.png";
+import parse from "html-react-parser";
+
 const SelectedCountry = () => {
   const component2Ref = useRef(null);
   const location = useLocation();
+  const data = location.state.data;
+  console.log(data);
   const queryParams = new URLSearchParams(location.search);
   const countryName = queryParams.get("Cname");
   const backgroundImage = queryParams.get("backgroundImage");
@@ -90,7 +94,7 @@ const SelectedCountry = () => {
     <>
       <SelectedSubjectHero
         scrollToComponent2={scrollToComponent2}
-        subjectName={countryName}
+        subjectName={data.name}
         // here uncommit the "BGImage={backgroundImage}" and get rid from this hardcoded Background image
         // BGImage={backgroundImage}
         BGImage={
@@ -98,23 +102,11 @@ const SelectedCountry = () => {
         }
       />
       <DetalilsWithImage
-        // imageUrl={
-        //   "https://images.studee.com/illustrations/illustration__feature--country-australia.png?ixlib=js-2.3.2&auto=format&fit=crop&q=40&w=460&h=345"
-        // }
         imageUrl={AustriaKangaroImage}
         body={
           <>
-            <h1>Why study in {countryName}?</h1>
-            <p>
-              Australia is a modern and multicultural country, making it a
-              popular choice for international students. There are different
-              cultures, food, languages and religious backgrounds to be found
-              throughout the country’s six states and their cities. Australian
-              universities offer a high quality education on par with many UK
-              and US institutions. <br /> <br /> English is the official
-              language of Australia, however there are many words and phrases
-              that are specific to Australian English.
-            </p>
+            <h1>Why study in {data.name}?</h1>
+            {parse(data.whyStudyHere)}
 
             <button className="why_use_bottom_btn">
               Search for a university
@@ -123,66 +115,46 @@ const SelectedCountry = () => {
         }
       />
 
-      <Uni_FindAndApplyCard />
+      <div style={{ backgroundColor: "#f0f0f0" }}>
+        <DetalilsWithImage
+          imageUrl={AustriaKangaroImage}
+          body={
+            <>
+              <h1>What are the best programs in the {data.name}?</h1>
+              {parse(data.bestPrograms)}
+            </>
+          }
+        />
+      </div>
+
+      <Uni_FindAndApplyCard name={data.name} />
 
       <Whystudee scrollToComponent2={scrollToComponent2} />
 
       <PopularSubjects
-        heading={`Popular subjects to study in ${countryName}`}
+        heading={`Popular subjects to study in ${data.name}`}
         allSubjects={theseAllNestedSubjects}
         length={6}
       />
       <TreeProjectComponent
-        heading={`What is the cost of studying in ${countryName}?`}
+        heading={`What is the cost of studying in ${data.name}?`}
         imageUrl={
           // "https://images.studee.com/illustrations/illustration__feature--cost-to-study.png?ixlib=js-2.3.2&auto=format&fit=crop&q=40&w=460&h=345"
           costOfStudyingImage
         }
-        paragraph={`Fees in Australia can be around $30,000 per year for a bachelor’s program.
-        On top of the fees, Australian living costs can also be high. This is especially the case in popular cities like Sydney and Melbourne where you may need around $15,000 a year for living expenses. case in popular cities like Sydney and Melbourne where you may need around $15,000 a year for living expenses. `}
+        paragraph={parse(data.costOfStudy)}
       />
 
-      <KeyFacts />
+      <KeyFacts KeyFactsDatas={data.keyFacts} />
       <BoxesAndData
         countries={countries}
-        heading={`Where can you study in ${countryName}?`}
+        heading={`Where can you study in ${data.name}?`}
         heading2={`Universities In ${countryName}`}
-        body={
-          <>
-            <p>
-              The UK is home to many cities that are a popular choice for
-              studying abroad. London is regarded as the international hub of
-              the UK and home to a large number of highly ranked universities.
-              <br />
-              <br />
-              Northern cities of the UK such as Manchester and Edinburgh are
-              steeped in history and culture much like London, but with cheaper
-              living costs.
-            </p>
-          </>
-        }
+        body={<>{parse(data.whereCanYouStudy)}</>}
       />
       <DetalilsWithImage
-        body={
-          <>
-            <br />
-            <h3>Qualification</h3>
-            <p>
-              Applicants must have a qualification that is viewed as equivalent
-              to an Austrian Matura examination certification. Sometimes this is
-              decided on by the university themselves.
-            </p>
-            <h3>English language tests</h3>
-            <p>
-              If you are studying as an international student in English, then
-              the IELTS academic test is most commonly used in Austria. In
-              situations where students have previously studied with English as
-              the language of instruction an English language certification is
-              not always needed.
-            </p>
-          </>
-        }
-        heading={`What are the requirements to study in ${countryName}?`}
+        heading={`What are the requirements to study in ${data.name}?`}
+        body={parse(data.requirements.qualifications)}
         imageUrl={whatAreRequirmenets}
       />
       <div style={{ backgroundColor: "##f7f8f9" }}>
@@ -190,16 +162,8 @@ const SelectedCountry = () => {
           imageUrl={StudentVisa}
           body={
             <>
-              <h1>{countryName} student visa?</h1>
-              <p>
-                EU students wishing to stay in Austria for more than six months
-                will need to apply for a residence permit. An application for
-                this should be filed and approved before going to Austria.
-                <br /> <br />
-                All applicants must submit biometric data (10 fingerprints). You
-                need to schedule an appointment at the Austrian Embassy in your
-                country in order to do this.
-              </p>
+              <h1>{data.name} student visa?</h1>
+              {parse(data.studentVisa)}
 
               <button className="why_use_bottom_btn">
                 {countryName} student visa requirement
@@ -210,6 +174,7 @@ const SelectedCountry = () => {
       </div>
 
       <DetalilsWithImage
+        heading={`How to study in ${data.name}?`}
         body={
           <>
             <br />
@@ -225,7 +190,6 @@ const SelectedCountry = () => {
             </button>
           </>
         }
-        heading={`How to study in ${countryName}?`}
         imageUrl={howStudyinAus}
       />
       <BoxesAndData

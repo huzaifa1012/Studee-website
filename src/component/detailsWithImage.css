@@ -50,6 +50,7 @@
 }
 .detailsWith_image-heading {
   line-height: 2.5rem;
+  margin: 15px 0px;
   /* margin-bottom: 25px; */
   font-size: 32px;
   color: var(--text-color);

@@ -20,7 +20,7 @@ const GuideDetailPage = () => {
       const response = await axios.get(
         `https://ieodkvapi-548f8ac2251a.herokuapp.com/guides/guide1/${name}`
       );
-      console.log("Selected Guide ", response.data);
+      // console.log("Selected Guide ", response.data);
       setGuideData(response.data);
     } catch (error) {
       console.error("Error fetching guides data :", error);
@@ -37,13 +37,13 @@ const GuideDetailPage = () => {
         body={
           <div className="guide_detail_bodySection">
             {guideData.heading && guideData.heading.map((data, index) => {
-              console.log(data)
+              {/* console.log(data) */}
 
         return(
-          <>
+          <div key={index}>
             <h1>{parse(data.headingName)}</h1>
             <p>{parse(data.content)}</p>
-          </>
+          </div>
         )      
             })}
           </div>

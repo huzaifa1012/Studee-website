@@ -8,7 +8,7 @@
     font-family: "Inter", "sans-serif";
 }
 
-.why_use_head h2 {
+.why_use_head h1 {
     font-size: 32px;
 }
 
@@ -42,13 +42,13 @@
     margin-bottom: 20px;
 }
 
-.Why_Use_studee_box h2 {
+.Why_Use_studee_box .headingOfWhyStudee {
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 5px;
 }
 
-.Why_Use_studee_box p {
+.Why_Use_studee_box .headingOfWhyStudee {
     font-size: 16px;
     line-height: 1.5rem;
 }
@@ -71,11 +71,11 @@
     margin: 10px 0;
 }
 
-.why_bottom_p1 {
-    color: #4a9878;
+.why_use_bottom span {
+    /* color: #4a9878; */
     background-color: #f3f8f6;
     font-size: 17px;
-    padding: 10px 10px;
+    padding: 3px 10px;
     border-radius: 7px;
     margin: 15px 0px;
     display: inline-block;
@@ -135,7 +135,7 @@
         margin: 30px 0;
     }
 
-    .why_use_head h2 {
+    .why_use_head h1 {
         margin: 0px 30px;
         text-align: left;
         font-size: 24px;
@@ -202,7 +202,7 @@
         margin: 40px 0;
     }
 
-    .why_use_head h2 {
+    .why_use_head h1 {
         font-size: 28px;
     }
 

@@ -7,21 +7,6 @@ import {
 import { Link } from "react-router-dom";
 import { animateScroll } from "react-scroll";
 
-const allSubjects = [
-  {subject: "Accounting",image:"https://images.studee.com/images/program/programs__creative-arts-design.jpg?ixlib=js-2.3.2&auto=format&fit=crop&q=35&fallback=true&w=1920&h=640&blend=%2Ftreatments%2Ftreatment__split-tone-with-overlay.jpg&blend-size=inherit&blend-mode=multiply&blend-alpha=80",},
-  {subject: "Agriculture",image: "https://images.studee.com/images/program/programs__agriculture-food-animal-sciences.jpg?ixlib=js-2.3.2&auto=format&fit=crop&q=35&fallback=true&w=1920&h=640&blend=%2Ftreatments%2Ftreatment__split-tone-with-overlay.jpg&blend-size=inherit&blend-mode=multiply&blend-alpha=80",},
-  // ["Economics"],
-  {subject:"Art",image:'https://images.studee.com/images/program/programs__creative-arts-design.jpg?ixlib=js-2.3.2&auto=format&fit=crop&q=35&fallback=true&w=1920&h=640&blend=%2Ftreatments%2Ftreatment__split-tone-with-overlay.jpg&blend-size=inherit&blend-mode=multiply&blend-alpha=80'},
-  {subject:"Biology",image:"https://images.studee.com/images/program/programs__life-sciences-medicine-health.jpg?ixlib=js-2.3.2&auto=format&fit=crop&q=35&fallback=true&w=1920&h=640&blend=%2Ftreatments%2Ftreatment__split-tone-with-overlay.jpg&blend-size=inherit&blend-mode=multiply&blend-alpha=80"},
-  {subject:"Communication",image:"https://images.studee.com/images/program/programs__business-management-studies.jpg?ixlib=js-2.3.2&auto=format&fit=crop&q=35&fallback=true&w=1920&h=640&blend=%2Ftreatments%2Ftreatment__split-tone-with-overlay.jpg&blend-size=inherit&blend-mode=multiply&blend-alpha=80"},
-  {subject:"History",image:""},
-  {subject:"Economics",image:""},
-  {subject:"Business",image:"https://images.studee.com/images/program/programs__business-management-studies.jpg?ixlib=js-2.3.2&auto=format&fit=crop&q=35&fallback=true&w=1920&h=640&blend=%2Ftreatments%2Ftreatment__split-tone-with-overlay.jpg&blend-size=inherit&blend-mode=multiply&blend-alpha=80"},
-  {subject:"Engineering",image:""},
-  {subject:"Agriculture",image:""},
-  {subject:"History",image:""},
-  {subject:"LAW",image:""},
-];
 const PopularSubjects = ({heading,allSubjects,length}) => {
 
   const [subjects, setVisibleSubjects] = useState(
@@ -48,7 +33,8 @@ const PopularSubjects = ({heading,allSubjects,length}) => {
             <h1 className="mtc">{heading}</h1>
           </div>
           <div className={`populer_subject_body ${showAll ? "fade-in" : ""}`}>
-            {subjects.map((item,index) => {
+            {allSubjects.map((item,index) => {
+              {/* console.log("item",item) */}
               return (
                 <Link
                   key={index}
@@ -57,7 +43,7 @@ const PopularSubjects = ({heading,allSubjects,length}) => {
                   className="populer_subject_card"
                 >
                   <div key={index}>
-                    <h2>{item.subject}</h2>
+                    <h2>{item.name}</h2>
                   </div>
                 </Link>
               );
