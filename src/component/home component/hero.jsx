@@ -1,5 +1,6 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import "./hero.css";
+import parse from "html-react-parser";
 
 import heroImage2 from "../../assets/new-project.png";
 import heroImage3 from "../../assets/heroimge3.png";
@@ -8,35 +9,47 @@ import clgStude from "../../assets/college-students-pana.png";
 import { BiRightArrowAlt } from "react-icons/bi";
 import ViewProgMod from "../Reusable components/program_Modal";
 
-const Hero = () => {
-    // modal code starts here
-    const [isModalOpen, setIsModalOpen] = useState(false);
+const Hero = ({ data }) => {
+  // modal code starts here
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-    const showModal = () => {
-      setIsModalOpen(true);
-    };
-    const handleCancel = () => {
-      setIsModalOpen(false);
-    };
-    // modal code ends
-  
+  // console.log("data", data);
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
+  // modal code ends
+
   return (
     <div className="main-hero_wrap">
       <div className="hero_container">
         <div className="hero_left_div">
-          <h1 className="mtc">
+          {parse(`
+  ${data.headingName}
+  `)}
+          {/* <h1 className="mtc">
             We maximize your chance of getting admitted to your chosen
             universities
-          </h1>
+          </h1> 
           <p className="ltc">
             The smart alternative to applying direct for a degree abroad and the
             easy way to find programs that match your eligibility and
             aspirations
-          </p>
+          </p> */}
+          {parse(`
+  ${data.contentText}
+  `)}
         </div>
 
         <div className="hero_right_div">
-          <img src={heroImage3} alt="" className="hero-right-img" />
+          <img
+            src={`https://ieodkvapi-548f8ac2251a.herokuapp.com/content/images/${data.image}`}
+            alt=""
+            className="hero-right-img"
+          />
+          {/* <img src={heroImage3} alt="" className="hero-right-img" /> */}
         </div>
 
         <div className="hero_user-input-section">
@@ -45,8 +58,7 @@ const Hero = () => {
             <p className="mtc hero_labelP"> Location</p>
             <input
               type="text"
-              // name=""
-              // id="location"
+              // name=""x
               placeholder="Enter country or city"
               className="hero_inpbox-style"
             />
@@ -55,14 +67,17 @@ const Hero = () => {
             <p className="mtc hero_labelP">Subject</p>
             <input
               type="text"
-              // name=""
-              // id="subject"
               placeholder="Enter a subject"
               className="hero_inpbox-style"
             />
           </div>
           <div className="heroBtnCover">
-            <button name="" id="" className="hero_btn" onClick={()=>setIsModalOpen(true)}>
+            <button
+              name=""
+              id=""
+              className="hero_btn"
+              onClick={() => setIsModalOpen(true)}
+            >
               Find Your Perfect Program
               <BiRightArrowAlt className="heroBtnIcon" size={25} />
             </button>
@@ -75,7 +90,6 @@ const Hero = () => {
         </div>
       </div>
       <ViewProgMod isModalOpen={isModalOpen} onClose={handleCancel} />
-
     </div>
   );
 };

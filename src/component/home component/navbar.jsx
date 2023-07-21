@@ -171,7 +171,7 @@ export function Navbar() {
             <Link  className="My_navLink" to="/universities">Universities</Link>
           </a>
           <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-            <Link  className="My_navLink" to="/guide">Guides</Link>
+            <Link  className="My_navLink" to="/guides">Guides</Link>
           </a>
           {/* <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
             Company
@@ -276,7 +276,7 @@ export function Navbar() {
                   href="#"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
-                <Link  to="/guide" onClick={()=>setMobileMenuOpen(false)}>Guide</Link>
+                <Link  to="/guides" onClick={()=>setMobileMenuOpen(false)}>Guide</Link>
                 </a>
                 {/* <a
                   href="#"

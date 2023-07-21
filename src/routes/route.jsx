@@ -28,10 +28,10 @@ const Routing = () => (
     <Route path="/programs" element={<Programs />} />
     <Route path="/universities" element={<Universities />} />
     <Route path="/selected-universities" element={<SelectedUniversity />} />
-    <Route path="/guide" element={<Guides />} />
+    <Route path="/guides" element={<Guides />} />
+    <Route path="/guide1/:name" element={<GuideDetailPage/>} />
     <Route path="/selected-subject" element={<Selected_subject />} />
     <Route path="/program-details" element={<ProgramDetails/>} />
-    <Route path="/guide-detail-page" element={<GuideDetailPage/>} />
     <Route path="/selected-country" element={<SelectedCountry/>} />
     <Route path="/personalized-matches" element={<PersonalizedMatches/>} />
     <Route path="/account" element={<Account/>} />
