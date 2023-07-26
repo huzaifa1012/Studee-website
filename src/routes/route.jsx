@@ -17,6 +17,7 @@ import SelectedCountry from "../screens/selectedCountry";
 import PersonalizedMatches from "../screens/PersonalizedMatches.jsx";
 import Account from "../screens/account";
 import YourApplications from "../screens/YourApplications";
+import VisaRequirements from "../screens/visa requirement";
 const Routing = () => (
   <Routes>
     <Route path="/" element={<Home />} />
@@ -30,9 +31,10 @@ const Routing = () => (
     <Route path="/selected-universities" element={<SelectedUniversity />} />
     <Route path="/guides" element={<Guides />} />
     <Route path="/guide1/:name" element={<GuideDetailPage/>} />
+    <Route path="/visas-&-travel/:name" element={<VisaRequirements />}/>
     <Route path="/selected-subject" element={<Selected_subject />} />
     <Route path="/program-details" element={<ProgramDetails/>} />
-    <Route path="/selected-country" element={<SelectedCountry/>} />
+    <Route path="/countries/:name" element={<SelectedCountry/>} />
     <Route path="/personalized-matches" element={<PersonalizedMatches/>} />
     <Route path="/account" element={<Account/>} />
     <Route path="/your-applications" element={<YourApplications/>} />

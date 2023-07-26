@@ -1,5 +1,5 @@
-import React, { useRef } from "react";
-import { useLocation } from "react-router-dom";
+import React, { useEffect, useRef, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import SelectedSubjectHero from "../component/Subjects Component/selectedSubjectHero";
 import DetalilsWithImage from "../component/detalilsWithImage";
 import Uni_FindAndApplyCard from "../component/Selected University/Uni_FindAndApplyCard";
@@ -15,15 +15,23 @@ import whatAreRequirmenets from "../assets/Australlia country/australlia/What ar
 import StudentVisa from "../assets/Australlia country/australlia/What are the requirements to study in Australia.png";
 import howStudyinAus from "../assets/Australlia country/australlia/How to study in Australia.png";
 import parse from "html-react-parser";
+import axios from "axios";
+import PopularSubjectsSelectedCountry from "../component/home component/PopularSubjectsSelectedCountry";
+import { useParams } from "react-router-dom";
 
 const SelectedCountry = () => {
+
+  const [subject, setSubjects] = useState("");
+  const [countryData, setCountryData] = useState("");
+
+  const params = useParams();
+  
   const component2Ref = useRef(null);
   const location = useLocation();
-  const data = location.state.data;
-  console.log(data);
-  const queryParams = new URLSearchParams(location.search);
-  const countryName = queryParams.get("Cname");
-  const backgroundImage = queryParams.get("backgroundImage");
+  // const data = location.state.data;
+  // const queryParams = new URLSearchParams(location.search);
+  // const countryName = queryParams.get("Cname");
+  // const backgroundImage = queryParams.get("backgroundImage");
 
   const theseAllNestedSubjects = [
     {
@@ -86,7 +94,38 @@ const SelectedCountry = () => {
     },
     // Add more country objects as needed
   ];
+  useEffect(() => {
+    fetchPopularSubjectForTheCountry();
+    fetchSelectedCountryData()
+  }, []);
 
+  const fetchSelectedCountryData = async () => {
+    try {
+      const response = await axios.get(
+        `https://ieodkvapi-548f8ac2251a.herokuapp.com/countries/${params.name}`
+      );
+      setCountryData(response.data);   
+      console.log("specific",countryData) 
+    } catch (error) {
+      console.error(
+        "Error fetching popular subjec for selected country:",
+        error
+      );
+    }
+  };
+  const fetchPopularSubjectForTheCountry = async () => {
+    try {
+      const response = await axios.get(
+        `https://ieodkvapi-548f8ac2251a.herokuapp.com/popular/country/${params.name}`
+      );
+      setSubjects(response.data);    
+    } catch (error) {
+      console.error(
+        "Error fetching popular subjec for selected country:",
+        error
+      );
+    }
+  };
   const scrollToComponent2 = () => {
     component2Ref.current.scrollIntoView({ behavior: "smooth" });
   };
@@ -94,19 +133,17 @@ const SelectedCountry = () => {
     <>
       <SelectedSubjectHero
         scrollToComponent2={scrollToComponent2}
-        subjectName={data.name}
+        subjectName={params.name}
         // here uncommit the "BGImage={backgroundImage}" and get rid from this hardcoded Background image
-        // BGImage={backgroundImage}
-        BGImage={
-          "https://images.studee.com/images/country/country__australia.jpg?ixlib=js-2.3.2&auto=format&fit=crop&q=35&fallback=true&w=1920&h=640&blend=%2Ftreatments%2Ftreatment__split-tone-with-overlay.jpg&blend-size=inherit&blend-mode=multiply&blend-alpha=80"
-        }
+        BGImage={`https://ieodkvapi-548f8ac2251a.herokuapp.com/countries/images/${countryData.countryImage}`}
+
       />
       <DetalilsWithImage
         imageUrl={AustriaKangaroImage}
         body={
           <>
-            <h1>Why study in {data.name}?</h1>
-            {parse(data.whyStudyHere)}
+            <h1>Why study in {params.name}?</h1>
+            {parse(countryData && countryData.whyStudyHere)}
 
             <button className="why_use_bottom_btn">
               Search for a university
@@ -120,61 +157,60 @@ const SelectedCountry = () => {
           imageUrl={AustriaKangaroImage}
           body={
             <>
-              <h1>What are the best programs in the {data.name}?</h1>
-              {parse(data.bestPrograms)}
+              <h1>What are the best programs in the {countryData.name}?</h1>
+              {parse(countryData && countryData.bestPrograms)}
             </>
           }
         />
       </div>
 
-      <Uni_FindAndApplyCard name={data.name} />
+      <Uni_FindAndApplyCard name={countryData && countryData.name } />
 
       <Whystudee scrollToComponent2={scrollToComponent2} />
 
-      <PopularSubjects
-        heading={`Popular subjects to study in ${data.name}`}
+      <PopularSubjectsSelectedCountry
+        heading={`Popular subjects to study in ${countryData && countryData?.name}`}
         allSubjects={theseAllNestedSubjects}
-        length={6}
+        length={theseAllNestedSubjects.length}
       />
       <TreeProjectComponent
-        heading={`What is the cost of studying in ${data.name}?`}
-        imageUrl={
-          // "https://images.studee.com/illustrations/illustration__feature--cost-to-study.png?ixlib=js-2.3.2&auto=format&fit=crop&q=40&w=460&h=345"
-          costOfStudyingImage
-        }
-        paragraph={parse(data.costOfStudy)}
+        heading={`What is the cost of studying in ${countryData && countryData?.name}?`}
+        imageUrl={costOfStudyingImage}
+        paragraph={parse(countryData && countryData.costOfStudy)}
       />
 
-      <KeyFacts KeyFactsDatas={data.keyFacts} />
+      <KeyFacts KeyFactsDatas={countryData && countryData.keyFacts} />
       <BoxesAndData
         countries={countries}
-        heading={`Where can you study in ${data.name}?`}
-        heading2={`Universities In ${countryName}`}
-        body={<>{parse(data.whereCanYouStudy)}</>}
+        heading={`Where can you study in ${countryData && countryData?.name}?`}
+        body={<>{parse(countryData && countryData.whereCanYouStudy)}</>}
       />
       <DetalilsWithImage
-        heading={`What are the requirements to study in ${data.name}?`}
-        body={parse(data.requirements.qualifications)}
+        heading={`What are the requirements to study in ${countryData && countryData.name}?`}
+        body={parse( countryData && countryData.requirements.qualifications)}
         imageUrl={whatAreRequirmenets}
+        paragraph2={parse( countryData && countryData.requirements.englishLanguageTest)}
       />
       <div style={{ backgroundColor: "##f7f8f9" }}>
         <DetalilsWithLeftImage
           imageUrl={StudentVisa}
           body={
             <>
-              <h1>{data.name} student visa?</h1>
-              {parse(data.studentVisa)}
+              <h1>{countryData && countryData.name} student visa?</h1>
+              {parse(countryData && countryData.studentVisa)}
 
-              <button className="why_use_bottom_btn">
-                {countryName} student visa requirement
-              </button>
+              <Link to={`/visas-&-travel/${params.name}`}>
+                <button className="universities_hero_left_btn fsinm">
+                  {countryData && countryData.name} Visa Requirements
+                </button>
+              </Link>
             </>
           }
         />
       </div>
 
       <DetalilsWithImage
-        heading={`How to study in ${data.name}?`}
+        heading={`How to study in ${params.name}?`}
         body={
           <>
             <br />

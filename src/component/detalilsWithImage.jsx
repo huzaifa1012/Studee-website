@@ -1,7 +1,7 @@
 import React from "react";
 import "./detailsWithImage.css";
 
-function DetalilsWithImage({ imageUrl, heading, body, linkText, linkUrl }) {
+function DetalilsWithImage({ imageUrl, heading, body, linkText, linkUrl, paragraph2 }) {
   return (
     <div className="detailsWith_image-section">
       <div className="detailsWith_image-content">
@@ -9,6 +9,8 @@ function DetalilsWithImage({ imageUrl, heading, body, linkText, linkUrl }) {
           <h1 className="detailsWith_image-heading">{heading}</h1>
           <div className="detailsWith_image-body_subHeading">
           {body}
+          <br />
+            {paragraph2 && paragraph2}
           </div>
           <br />
           <br />

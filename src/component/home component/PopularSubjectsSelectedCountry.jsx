@@ -7,7 +7,7 @@ import {
 import { Link } from "react-router-dom";
 import { animateScroll } from "react-scroll";
 
-const PopularSubjects = ({heading,allSubjects,length}) => {
+const PopularSubjectsSelectedCountry = ({heading,allSubjects,length}) => {
 
   const [subjects, setVisibleSubjects] = useState(
     allSubjects.slice(0,length)
@@ -34,16 +34,15 @@ const PopularSubjects = ({heading,allSubjects,length}) => {
             <h1 className="mtc">{heading}</h1>
           </div>
           <div className={`populer_subject_body ${showAll ? "fade-in" : ""}`}>
-            {allSubjects.map((item,index) => {
+            {allSubjects?.map((item,index) => {
               return (
                 <Link
                   key={index}
-                  // to={`/selected-subject?subject=${encodeURIComponent(item.subject)}&backgroundImage=${encodeURIComponent(item.image)}`}
                   onClick={handleNavigation}
                   className="populer_subject_card"
                 >
                   <div key={index}>
-                    <h2>{item.name}</h2>
+                    <h2>{item.subject}</h2>
                   </div>
                 </Link>
               );
@@ -84,4 +83,4 @@ const PopularSubjects = ({heading,allSubjects,length}) => {
   );
 };
 
-export default PopularSubjects;
+export default PopularSubjectsSelectedCountry;

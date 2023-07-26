@@ -8,10 +8,11 @@ const BrowseByCountry = ({ heading, countries }) => {
   const navigate = useNavigate()
   const handleNavigation = (country) => {
     animateScroll.scrollToTop();
-    navigate('/selected-country',{state:{data:country}})
+    
+    navigate(`/countries/${country.urlName}`)
   };
   
-  // console.log("countries", countries);
+  
   return (
     <div className="browseByCountry_wrap">
       <div className="browseByCountry_main">

@@ -35,7 +35,8 @@
   width: 49%;
 }
 .UniFindAndApply_labelP {
-  margin-top: 30px;
+  margin-top: 20px;
+  margin-bottom: 5px;
   font-family: "Inter", sans-serif;
   font-weight: bold;
 }

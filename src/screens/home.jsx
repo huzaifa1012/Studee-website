@@ -16,7 +16,6 @@ const Home = () => {
   const [countries, setCountries] = useState([]);
   const [subjects, setSubjects] = useState([]);
 
-  
   const allSubjects = [
     {subject: "Accounting",image:"https://images.studee.com/images/program/programs__creative-arts-design.jpg?ixlib=js-2.3.2&auto=format&fit=crop&q=35&fallback=true&w=1920&h=640&blend=%2Ftreatments%2Ftreatment__split-tone-with-overlay.jpg&blend-size=inherit&blend-mode=multiply&blend-alpha=80",},
     {subject: "Agriculture",image: "https://images.studee.com/images/program/programs__agriculture-food-animal-sciences.jpg?ixlib=js-2.3.2&auto=format&fit=crop&q=35&fallback=true&w=1920&h=640&blend=%2Ftreatments%2Ftreatment__split-tone-with-overlay.jpg&blend-size=inherit&blend-mode=multiply&blend-alpha=80",},
@@ -67,7 +66,6 @@ const Home = () => {
     fetchSubjects();
   }, []);
 
-  
   const fetchHeroData = async () => {
     try {
       const response = await axios.get(
@@ -82,10 +80,10 @@ const Home = () => {
   const fetchCountries = async () => {
     try {
       const response = await axios.get(
-        "https://ieodkvapi-548f8ac2251a.herokuapp.com/countries"
+        "https://ieodkvapi-548f8ac2251a.herokuapp.com/countries/"
       );
       setCountries(response.data);
-      console.log(response.data);
+      // console.log("/countries",response.data);
 
     } catch (error) {
       console.error("Error in Browse Countries:", error);
@@ -107,7 +105,6 @@ const Home = () => {
       const response = await axios.get(
         "https://ieodkvapi-548f8ac2251a.herokuapp.com/popular/popularForHome"
       );
-      console.log(response.data)
       setSubjects(response.data)
     } catch (error) {
       console.error("Error fetching Subjects  data:", error);
