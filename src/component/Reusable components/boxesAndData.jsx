@@ -2,7 +2,7 @@ import React from "react";
 import "./boxesAndData.css";
 import { Link } from "react-router-dom";
 
-const BoxesAndData = ({ heading,  body, countries}) => {
+const BoxesAndData = ({ heading, heading2, body, countries}) => {
   return (
     <div className="boxesAndData_wrap">
       <div className="boxesAndData_main">

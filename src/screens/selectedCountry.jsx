@@ -18,6 +18,7 @@ import parse from "html-react-parser";
 import axios from "axios";
 import PopularSubjectsSelectedCountry from "../component/home component/PopularSubjectsSelectedCountry";
 import { useParams } from "react-router-dom";
+import CitiesAndUniForSelectedCountry from "../component/selectedCountry/Cities and Uni for selected country";
 
 const SelectedCountry = () => {
 
@@ -25,78 +26,12 @@ const SelectedCountry = () => {
   const [countryData, setCountryData] = useState("");
 
   const params = useParams();
-  
-  const component2Ref = useRef(null);
-  const location = useLocation();
-  // const data = location.state.data;
-  // const queryParams = new URLSearchParams(location.search);
-  // const countryName = queryParams.get("Cname");
-  // const backgroundImage = queryParams.get("backgroundImage");
 
-  const theseAllNestedSubjects = [
-    {
-      subject: "Art Drawing",
-      image:
-        "https://images.studee.com/images/program/programs__creative-arts-design.jpg?ixlib=js-2.3.2&auto=format&fit=crop&q=35&fallback=true&w=1920&h=640&blend=%2Ftreatments%2Ftreatment__split-tone-with-overlay.jpg&blend-size=inherit&blend-mode=multiply&blend-alpha=80",
-    },
-    {
-      subject: "Art Design",
-      image:
-        "https://images.studee.com/images/program/programs__agriculture-food-animal-sciences.jpg?ixlib=js-2.3.2&auto=format&fit=crop&q=35&fallback=true&w=1920&h=640&blend=%2Ftreatments%2Ftreatment__split-tone-with-overlay.jpg&blend-size=inherit&blend-mode=multiply&blend-alpha=80",
-    },
-    {
-      subject: "Art",
-      image:
-        "https://images.studee.com/images/program/programs__creative-arts-design.jpg?ixlib=js-2.3.2&auto=format&fit=crop&q=35&fallback=true&w=1920&h=640&blend=%2Ftreatments%2Ftreatment__split-tone-with-overlay.jpg&blend-size=inherit&blend-mode=multiply&blend-alpha=80",
-    },
-    {
-      subject: "Art Communication",
-      image:
-        "https://images.studee.com/images/program/programs__life-sciences-medicine-health.jpg?ixlib=js-2.3.2&auto=format&fit=crop&q=35&fallback=true&w=1920&h=640&blend=%2Ftreatments%2Ftreatment__split-tone-with-overlay.jpg&blend-size=inherit&blend-mode=multiply&blend-alpha=80",
-    },
-    {
-      subject: "Art Creation",
-      image:
-        "https://images.studee.com/images/program/programs__business-management-studies.jpg?ixlib=js-2.3.2&auto=format&fit=crop&q=35&fallback=true&w=1920&h=640&blend=%2Ftreatments%2Ftreatment__split-tone-with-overlay.jpg&blend-size=inherit&blend-mode=multiply&blend-alpha=80",
-    },
-    { subject: "Art Sculpture", image: "" },
-  ];
-  const countries = [
-    {
-      name: "USA",
-      image:
-        "https://images.studee.com/images/country/country__uk.jpg?ixlib=js-2.3.2&auto=format&fit=crop&q=35&w=580&h=350&blend=%2Ftreatments%2Ftreatment__split-tone-with-overlay.jpg&blend-size=inherit&blend-mode=multiply&blend-alpha=80",
-    },
-    {
-      name: "Canada",
-      image:
-        "https://images.studee.com/images/country/country__australia.jpg?ixlib=js-2.3.2&auto=format&fit=crop&q=35&w=340&h=296&blend=%2Ftreatments%2Ftreatment__split-tone-with-overlay.jpg&blend-size=inherit&blend-mode=multiply&blend-alpha=80",
-    },
-    {
-      name: "UAE",
-      image:
-        "https://images.studee.com/images/country/country__belgium.jpg?ixlib=js-2.3.2&auto=format&fit=crop&q=35&w=340&h=296&blend=%2Ftreatments%2Ftreatment__split-tone-with-overlay.jpg&blend-size=inherit&blend-mode=multiply&blend-alpha=80",
-    },
-    {
-      name: "Cyprus",
-      image:
-        "https://images.studee.com/images/country/country__cyprus.jpg?ixlib=js-2.3.2&auto=format&fit=crop&q=35&w=340&h=296&blend=%2Ftreatments%2Ftreatment__split-tone-with-overlay.jpg&blend-size=inherit&blend-mode=multiply&blend-alpha=80",
-    },
-    {
-      name: "Austria",
-      image:
-        "https://images.studee.com/images/country/country__canada.jpg?ixlib=js-2.3.2&auto=format&fit=crop&q=35&w=340&h=296&blend=%2Ftreatments%2Ftreatment__split-tone-with-overlay.jpg&blend-size=inherit&blend-mode=multiply&blend-alpha=80",
-    },
-    {
-      name: "UK",
-      image:
-        "https://images.studee.com/images/country/country__cyprus.jpg?ixlib=js-2.3.2&auto=format&fit=crop&q=35&w=340&h=296&blend=%2Ftreatments%2Ftreatment__split-tone-with-overlay.jpg&blend-size=inherit&blend-mode=multiply&blend-alpha=80",
-    },
-    // Add more country objects as needed
-  ];
+  const component2Ref = useRef(null);
+
   useEffect(() => {
-    fetchPopularSubjectForTheCountry();
     fetchSelectedCountryData()
+    fetchPopularSubjectForTheCountry();
   }, []);
 
   const fetchSelectedCountryData = async () => {
@@ -104,8 +39,7 @@ const SelectedCountry = () => {
       const response = await axios.get(
         `https://ieodkvapi-548f8ac2251a.herokuapp.com/countries/${params.name}`
       );
-      setCountryData(response.data);   
-      console.log("specific",countryData) 
+      setCountryData(response.data);
     } catch (error) {
       console.error(
         "Error fetching popular subjec for selected country:",
@@ -118,7 +52,7 @@ const SelectedCountry = () => {
       const response = await axios.get(
         `https://ieodkvapi-548f8ac2251a.herokuapp.com/popular/country/${params.name}`
       );
-      setSubjects(response.data);    
+      setSubjects(response.data);
     } catch (error) {
       console.error(
         "Error fetching popular subjec for selected country:",
@@ -134,7 +68,6 @@ const SelectedCountry = () => {
       <SelectedSubjectHero
         scrollToComponent2={scrollToComponent2}
         subjectName={params.name}
-        // here uncommit the "BGImage={backgroundImage}" and get rid from this hardcoded Background image
         BGImage={`https://ieodkvapi-548f8ac2251a.herokuapp.com/countries/images/${countryData.countryImage}`}
 
       />
@@ -151,7 +84,6 @@ const SelectedCountry = () => {
           </>
         }
       />
-
       <div style={{ backgroundColor: "#f0f0f0" }}>
         <DetalilsWithImage
           imageUrl={AustriaKangaroImage}
@@ -164,15 +96,17 @@ const SelectedCountry = () => {
         />
       </div>
 
-      <Uni_FindAndApplyCard name={countryData && countryData.name } />
+      <Uni_FindAndApplyCard name={countryData && countryData.name} />
 
       <Whystudee scrollToComponent2={scrollToComponent2} />
-
-      <PopularSubjectsSelectedCountry
-        heading={`Popular subjects to study in ${countryData && countryData?.name}`}
-        allSubjects={theseAllNestedSubjects}
-        length={theseAllNestedSubjects.length}
-      />
+     
+      {subject &&
+        <PopularSubjectsSelectedCountry
+          heading={`Popular subjects to study in ${countryData && countryData?.name}`}
+          allSubjects={subject}
+          length={subject.length}
+        />
+      }
       <TreeProjectComponent
         heading={`What is the cost of studying in ${countryData && countryData?.name}?`}
         imageUrl={costOfStudyingImage}
@@ -180,16 +114,19 @@ const SelectedCountry = () => {
       />
 
       <KeyFacts KeyFactsDatas={countryData && countryData.keyFacts} />
-      <BoxesAndData
-        countries={countries}
+{countryData && 
+      <CitiesAndUniForSelectedCountry      
+        countryId={countryData._id}
         heading={`Where can you study in ${countryData && countryData?.name}?`}
         body={<>{parse(countryData && countryData.whereCanYouStudy)}</>}
+        heading2={`Universities in ${countryData && countryData?.name}?`}
       />
+}
       <DetalilsWithImage
         heading={`What are the requirements to study in ${countryData && countryData.name}?`}
-        body={parse( countryData && countryData.requirements.qualifications)}
+        body={parse(countryData && countryData.requirements.qualifications)}
         imageUrl={whatAreRequirmenets}
-        paragraph2={parse( countryData && countryData.requirements.englishLanguageTest)}
+        paragraph2={parse(countryData && countryData.requirements.englishLanguageTest)}
       />
       <div style={{ backgroundColor: "##f7f8f9" }}>
         <DetalilsWithLeftImage
@@ -228,10 +165,10 @@ const SelectedCountry = () => {
         }
         imageUrl={howStudyinAus}
       />
-      <BoxesAndData
+      {/* <BoxesAndData
         countries={countries}
         heading={`Alternative countries to consider`}
-      />
+      /> */}
     </>
   );
 };

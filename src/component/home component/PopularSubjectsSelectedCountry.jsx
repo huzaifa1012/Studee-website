@@ -42,7 +42,7 @@ const PopularSubjectsSelectedCountry = ({heading,allSubjects,length}) => {
                   className="populer_subject_card"
                 >
                   <div key={index}>
-                    <h2>{item.subject}</h2>
+                    <h2>{item.name}</h2>
                   </div>
                 </Link>
               );
