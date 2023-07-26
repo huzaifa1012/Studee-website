@@ -12,14 +12,21 @@ import Agent from "../component/Selected University/agent/agent.jsx";
 import accountingProgramStructure from "../assets/Australlia country/accounting/accounting-program-structure.png";
 import futureAccountingCareer from "../assets/Australlia country/accounting/future-accounting-career.png";
 import FutureFinance from "../assets/Australlia country/accounting/Future-finance.png";
+import { useParams } from "react-router-dom";
 const Selected_subject = () => {
+
+  const params = useParams();
+
   const location = useLocation();
 
   const searchParams = new URLSearchParams(location.search);
 
   const subjectNames = searchParams.get("subject");
+  
   const BGImages = searchParams.get("backgroundImage");
-
+  
+  console.log(params.name)
+  
   const theseAllNestedSubjects = [
     {
       subject: "Art Drawing",

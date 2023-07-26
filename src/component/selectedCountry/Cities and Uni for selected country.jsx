@@ -1,10 +1,12 @@
 import axios from "axios";
 import React, { useEffect } from "react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+
+import { useNavigate } from "react-router-dom";
 
 const CitiesAndUniForSelectedCountry = ({ heading, heading2, body, countryId }) => {
-
+  
+  const navigate = useNavigate()
   const [cities, setCities] = useState([])
   const [universities, setUniversities] = useState([])
 
@@ -27,14 +29,12 @@ const CitiesAndUniForSelectedCountry = ({ heading, heading2, body, countryId }) 
       );
     }
   };
-
   const fetchUniofThesCountry = async () => {
     try {
       const response = await axios.get(
         `https://ieodkvapi-548f8ac2251a.herokuapp.com/countries/university/${countryId}`
       );
       setUniversities(response.data);
-      console.log("Universities", response.data);
     } catch (error) {
       console.error(
         "Error fetching cities for selected country:",
@@ -43,31 +43,39 @@ const CitiesAndUniForSelectedCountry = ({ heading, heading2, body, countryId }) 
     }
   };
 
+  const handleCityClick = (city) => {
+    
+    navigate(`/city1/${city.name}`)
+
+  }
+
   return (
     <div className="boxesAndData_wrap">
       <div className="boxesAndData_main">
-        <div className="boxesAndData_head">
-          <h1 className="mtc">{heading}</h1>
-
-          <p>{body}</p>
-        </div>
-        <div className="boxesAndData_body">
-          {cities.map((city, index) => (
-            <div
-              className="boxesAndData_card"
-              key={index}
-              style={{
-                backgroundImage: `url(https://ieodkvapi-548f8ac2251a.herokuapp.com/cities/images/${city.image})`,
-                backgroundRepeat: "no-repeat",
-                backgroundSize: "cover",
-                backgroundBlendMode: "multiply",
-                blendAlpha: 80,
-              }}
-            >
-              <h2>{city.name}</h2>
+        {heading &&
+          <div className="boxesAndData_head">
+            <h1 className="mtc">{heading}</h1>
+            <p>{body}</p>
+            <div className="boxesAndData_body">
+              {cities.map((city, index) => (
+                <div
+                  onClick={()=>handleCityClick(city)}
+                  className="boxesAndData_card"
+                  key={index}
+                  style={{
+                    backgroundImage: `url(https://ieodkvapi-548f8ac2251a.herokuapp.com/cities/images/${city.image})`,
+                    backgroundRepeat: "no-repeat",
+                    backgroundSize: "cover",
+                    backgroundBlendMode: "multiply",
+                    blendAlpha: 80,
+                  }}
+                >
+                  <h2>{city.name}</h2>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
+          </div>
+        }
         <br />
         {heading2 &&
           <div className="boxesAndData_head">
