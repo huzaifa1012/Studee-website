@@ -6,13 +6,14 @@ import {
 } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { animateScroll } from "react-scroll";
+import { useNavigate } from "react-router-dom";
 
-const PopularSubjectsSelectedCountry = ({heading,allSubjects,length}) => {
+const PopularSubjectsSelectedCountry = ({heading,allSubjects,length,countryUrl}) => {
 
-  const [subjects, setVisibleSubjects] = useState(
-    allSubjects.slice(0,length)
-  );
+  const [subjects, setVisibleSubjects] = useState(allSubjects.slice(0,length));
   const [showAll, setShowAll] = useState(false);
+  
+  const navigate = useNavigate()
 
   const handleSeeAllSubjects = () => {
     if (showAll) {
@@ -26,6 +27,9 @@ const PopularSubjectsSelectedCountry = ({heading,allSubjects,length}) => {
   const handleNavigation = () => {
     animateScroll.scrollToTop();
   };
+  const handle_subject_click = (item) => {
+    navigate(`/subjects/country/${countryUrl}/subject/${item.urlName}`)
+  };
   return (
     <>
       <div className="populer_subject_wrap">
@@ -36,15 +40,15 @@ const PopularSubjectsSelectedCountry = ({heading,allSubjects,length}) => {
           <div className={`populer_subject_body ${showAll ? "fade-in" : ""}`}>
             {allSubjects?.map((item,index) => {
               return (
-                <Link
+                <div
                   key={index}
-                  onClick={handleNavigation}
+                  onClick={()=>handle_subject_click(item)}
                   className="populer_subject_card"
                 >
                   <div key={index}>
                     <h2>{item.name}</h2>
                   </div>
-                </Link>
+                </div>
               );
             })}
           </div>

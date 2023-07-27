@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import SelectedSubjectHero from "../component/Subjects Component/selectedSubjectHero.jsx";
 import Whystudee from "../component/home component/whystudee.jsx";
 import VerticalizeTreeProjectComponent from "../component/home component/Verticalize layout treeProject.jsx";
@@ -13,6 +13,7 @@ import accountingProgramStructure from "../assets/Australlia country/accounting/
 import futureAccountingCareer from "../assets/Australlia country/accounting/future-accounting-career.png";
 import FutureFinance from "../assets/Australlia country/accounting/Future-finance.png";
 import { useParams } from "react-router-dom";
+import axios from "axios";
 const Selected_subject = () => {
 
   const params = useParams();
@@ -106,7 +107,6 @@ const Selected_subject = () => {
 
     // Add more country objects as needed
   ];
-
   return (
     <>
       <SelectedSubjectHero subjectName={subjectNames} BGImage={BGImages} />

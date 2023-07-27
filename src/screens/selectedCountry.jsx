@@ -105,6 +105,7 @@ const SelectedCountry = () => {
           heading={`Popular subjects to study in ${countryData && countryData?.name}`}
           allSubjects={subject}
           length={subject.length}
+          countryUrl={params.name}
         />
       }
       <TreeProjectComponent

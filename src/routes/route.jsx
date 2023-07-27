@@ -18,6 +18,7 @@ import PersonalizedMatches from "../screens/PersonalizedMatches.jsx";
 import Account from "../screens/account";
 import YourApplications from "../screens/YourApplications";
 import VisaRequirements from "../screens/visa requirement";
+import Selected_subject_from_selected_country from "../component/selectedCountry/Selected subject from selected country";
 const Routing = () => (
   <Routes>
     <Route path="/" element={<Home />} />
@@ -32,7 +33,8 @@ const Routing = () => (
     <Route path="/guides" element={<Guides />} />
     <Route path="/guide1/:name" element={<GuideDetailPage/>} />
     <Route path="/visas-&-travel/:name" element={<VisaRequirements />}/>
-    <Route path="/city1/:name" element={<Selected_subject />} />
+    <Route path="/selected-subject" element={<Selected_subject />} />
+    <Route path="/subjects/country/:countryUrl/subject/:subjectUrl" element={<Selected_subject_from_selected_country/>} />
     <Route path="/program-details" element={<ProgramDetails/>} />
     <Route path="/countries/:name" element={<SelectedCountry/>} />
     <Route path="/personalized-matches" element={<PersonalizedMatches/>} />

@@ -4,8 +4,7 @@ import { BiRightArrowAlt } from "react-icons/bi";
 import ViewProgMod from "../Reusable components/program_Modal";
 import { Link } from "react-scroll";
 
-const SelectedSubjectHero = ({ subjectName, BGImage , scrollToComponent2 }) => {
-  
+const SelectedSubjectHero = ({ subjectName, BGImage , scrollToComponent2,countryName }) => {
   const component1Ref = useRef(null);
 
   const handleButtonClick = () => {
@@ -24,6 +23,7 @@ const SelectedSubjectHero = ({ subjectName, BGImage , scrollToComponent2 }) => {
 
   // modal code ends
 
+
   
   
   return (
@@ -39,7 +39,14 @@ const SelectedSubjectHero = ({ subjectName, BGImage , scrollToComponent2 }) => {
       >
         <div className="selectedSubHero_container">
           <div className="selectedSubHero_left_div">
-            <h1 className=" pb-5">Study {subjectName} Abroad</h1>
+            
+            {countryName ? 
+              <h1 className=" pb-5">StudyA {subjectName} In {countryName} </h1>
+            
+            :
+            <h1 className=" pb-5">StudyB {subjectName} Abroad</h1>
+            
+            }
             <p>
               Find & apply to programs that match your eligibility and
               aspirations. We maximise your chance of getting admitted to your

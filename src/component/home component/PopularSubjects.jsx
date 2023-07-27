@@ -38,8 +38,8 @@ const PopularSubjects = ({heading,allSubjects,length}) => {
               return (
                 <Link
                   key={index}
-                  // to={`/selected-subject?subject=${encodeURIComponent(item.subject)}&backgroundImage=${encodeURIComponent(item.image)}`}
-                  onClick={handleNavigation}
+                  to={`/selected-subject?subject=${encodeURIComponent(item.subject)}&backgroundImage=${encodeURIComponent(item.image)}`}
+                  // onClick={handleNavigation}
                   className="populer_subject_card"
                 >
                   <div key={index}>
