@@ -1,10 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import SelectedSubjectHero from "../component/Subjects Component/selectedSubjectHero.jsx";
 import Whystudee from "../component/home component/whystudee.jsx";
 import VerticalizeTreeProjectComponent from "../component/home component/Verticalize layout treeProject.jsx";
 import FindProgramAbroadbox from "../component/Subjects Component/findProgAbroadBox.jsx";
 import TreeProjectComponent from "../component/home component/treesProject.jsx";
-import { useLocation } from "react-router-dom";
 import PopularSubjects from "../component/home component/PopularSubjects.jsx";
 import BrowseByCountry from "../component/home component/browseByCountry.jsx";
 import Undergraduate_programs from "../component/Subjects Component/Undergraduate_programs.jsx";
@@ -15,19 +14,15 @@ import FutureFinance from "../assets/Australlia country/accounting/Future-financ
 import { useParams } from "react-router-dom";
 import axios from "axios";
 const Selected_subject = () => {
-
+  
+  const [data, setData] = useState("");
+  
   const params = useParams();
 
-  const location = useLocation();
-
-  const searchParams = new URLSearchParams(location.search);
-
-  const subjectNames = searchParams.get("subject");
   
-  const BGImages = searchParams.get("backgroundImage");
-  
-  console.log(params.name)
-  
+  useEffect(()=>{
+    fetchSelectedSubjectData()
+  },[])
   const theseAllNestedSubjects = [
     {
       subject: "Art Drawing",
@@ -107,59 +102,36 @@ const Selected_subject = () => {
 
     // Add more country objects as needed
   ];
+  const fetchSelectedSubjectData = async () => {
+    try {
+      const response = await axios.get(
+        `https://ieodkvapi-548f8ac2251a.herokuapp.com/subjects/subject1/${params.name}`
+      );
+      setData(response.data);
+      console.log("subject",response.data);
+
+    } catch (error) {
+      console.error("Error in selected subject (Home):", error);
+    }
+  };
+
   return (
     <>
-      <SelectedSubjectHero subjectName={subjectNames} BGImage={BGImages} />
+      <SelectedSubjectHero subjectName={params.name} BGImage={`https://ieodkvapi-548f8ac2251a.herokuapp.com/subjects/images/${data && data.image}`} />
 
-      <FindProgramAbroadbox />
+          <FindProgramAbroadbox subjectName={data.name} degree={data.degree} />
 
       <VerticalizeTreeProjectComponent
         imageUrl={futureAccountingCareer}
-        heading="Art degrees abroad"
+        heading={`${data.name} degrees abroad`}
+
         paragraph={
-          <ol>
-            <br />
-            <b>
-              <li className="mtc">Conscioos campos</li>
-            </b>
-            <p className="ltc">
-              Art is a varied subject which covers many different areas and
-              specializations. Studying an art degree at a university is a great
-              option if you’re a passionate artist who wants to improve their
-              skills and pursue a career in the arts after graduation. You can
-              study a general art degree, or specialize in something like fine
-              art or sculpture.
-            </p>
-            <br />
-            <b>
-              <li className="mtc">Fine art</li>
-            </b>
-
-            <br />
-            <b>
-              <li className="mtc">Graphic design</li>
-            </b>
-
-            <br />
-            <b>
-              <li className="mtc">Photography</li>
-            </b>
-            <b>
-              <br />
-              <li className="mtc">Painting</li>
-            </b>
-            <br />
-            <b>
-              <li className="mtc">Sculpture</li>
-            </b>
-
-            <br />
-            <br />
-          </ol>
+      data.abroad
         }
       />
-      <Whystudee />
 
+      <Whystudee />
+      
       <Agent />
 
       <TreeProjectComponent
@@ -173,19 +145,19 @@ const Selected_subject = () => {
       />
 
       <PopularSubjects
-        heading={`Types of ${subjectNames} Subjects`}
+        // heading={`Types of ${subjectNames} Subjects`}
         allSubjects={theseAllNestedSubjects}
         length={9}
       />
 
       <BrowseByCountry
-        heading={`Best countries to study ${subjectNames}`}
+        // heading={`Best countries to study ${subjectNames}`}
         countries={countries}
       />
 
       <BrowseByCountry
-        heading={`Best university to study ${subjectNames}`}
-        countries={universities}
+        // heading={`Best university to study ${subjectNames}`}
+        // countries={universities}
       />
 
       <Undergraduate_programs />

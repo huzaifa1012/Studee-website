@@ -8,6 +8,7 @@ import find3Img from "../../assets/Australlia country/accounting/PHd-program-in-
 const FindProgramAbroadbox = ({degree,subjectName}) => {
   return (
     <div>
+    {subjectName &&   
       <div className="findProgBox_main_wrap">
         <div className="findProgBox_head">
           <h2 className="mtc">Bachelor's programs in {subjectName.toLowerCase()}</h2>
@@ -46,6 +47,7 @@ const FindProgramAbroadbox = ({degree,subjectName}) => {
           </div>
         </div>
       </div>
+};
     </div>
   );
 };

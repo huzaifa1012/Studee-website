@@ -4,16 +4,21 @@ import {
   BsFillArrowDownCircleFill,
   BsFillArrowUpCircleFill,
 } from "react-icons/bs";
-import { Link } from "react-router-dom";
 import { animateScroll } from "react-scroll";
+import { useNavigate } from "react-router-dom";
 
 const PopularSubjects = ({heading,allSubjects,length}) => {
 
+  const navigate = useNavigate()
+  
   const [subjects, setVisibleSubjects] = useState(
     allSubjects.slice(0,length)
   );
   const [showAll, setShowAll] = useState(false);
 
+  const handleSelectSubject = (item) => {
+    navigate(`/subjects/${item.urlName}`)
+  }
   const handleSeeAllSubjects = () => {
     if (showAll) {
       setVisibleSubjects(allSubjects.slice(0, 9));
@@ -36,16 +41,15 @@ const PopularSubjects = ({heading,allSubjects,length}) => {
           <div className={`populer_subject_body ${showAll ? "fade-in" : ""}`}>
             {allSubjects.map((item,index) => {
               return (
-                <Link
+                <div
                   key={index}
-                  to={`/selected-subject?subject=${encodeURIComponent(item.subject)}&backgroundImage=${encodeURIComponent(item.image)}`}
-                  // onClick={handleNavigation}
+                  onClick={()=>handleSelectSubject(item)}
                   className="populer_subject_card"
                 >
                   <div key={index}>
                     <h2>{item.name}</h2>
                   </div>
-                </Link>
+                </div>
               );
             })}
           </div>

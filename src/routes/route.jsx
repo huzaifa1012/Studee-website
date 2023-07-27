@@ -33,7 +33,7 @@ const Routing = () => (
     <Route path="/guides" element={<Guides />} />
     <Route path="/guide1/:name" element={<GuideDetailPage/>} />
     <Route path="/visas-&-travel/:name" element={<VisaRequirements />}/>
-    <Route path="/selected-subject" element={<Selected_subject />} />
+    <Route path="/subjects/:name" element={<Selected_subject />} />
     <Route path="/subjects/country/:countryUrl/subject/:subjectUrl" element={<Selected_subject_from_selected_country/>} />
     <Route path="/program-details" element={<ProgramDetails/>} />
     <Route path="/countries/:name" element={<SelectedCountry/>} />

@@ -124,7 +124,6 @@ const Selected_subject_from_selected_country = () => {
       );
       setSubjectData(response.data);
       console.log("Main page SubjectData data", response.data);
-
     } catch (error) {
       console.error(
         "Error fetching data of popular subject for selected country:",
@@ -137,8 +136,6 @@ const Selected_subject_from_selected_country = () => {
       const response = await axios.get(
         `https://ieodkvapi-548f8ac2251a.herokuapp.com/countries/${params.countryUrl}`);
       setCountryData(response.data);
-      // console.log("countryData",response.data);
-
     } catch (error) {
       console.error(
         "Error fetching data of country where fetching data of popular subject for selected country:",
