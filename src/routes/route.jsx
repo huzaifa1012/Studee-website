@@ -19,6 +19,7 @@ import Account from "../screens/account";
 import YourApplications from "../screens/YourApplications";
 import VisaRequirements from "../screens/visa requirement";
 import Selected_subject_from_selected_country from "../component/selectedCountry/Selected subject from selected country";
+import SelectedCityFromCountry from "../screens/SelectedCityFromCountry";
 const Routing = () => (
   <Routes>
     <Route path="/" element={<Home />} />
@@ -37,6 +38,7 @@ const Routing = () => (
     <Route path="/subjects/country/:countryUrl/subject/:subjectUrl" element={<Selected_subject_from_selected_country/>} />
     <Route path="/program-details" element={<ProgramDetails/>} />
     <Route path="/countries/:name" element={<SelectedCountry/>} />
+    <Route path="/countries/:name/:city" element={<SelectedCityFromCountry/>} />
     <Route path="/personalized-matches" element={<PersonalizedMatches/>} />
     <Route path="/account" element={<Account/>} />
     <Route path="/your-applications" element={<YourApplications/>} />

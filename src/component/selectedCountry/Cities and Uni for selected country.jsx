@@ -4,14 +4,14 @@ import { useState } from "react";
 
 import { useNavigate } from "react-router-dom";
 
-const CitiesAndUniForSelectedCountry = ({ heading, heading2, body, countryId }) => {
+const CitiesAndUniForSelectedCountry = ({ heading, heading2, body, countryId, countryUrl }) => {
   
   const navigate = useNavigate()
   const [cities, setCities] = useState([])
   const [universities, setUniversities] = useState([])
 
-
   useEffect(() => {
+    console.log(countryUrl)
     fetchCitiesCountry()
     fetchUniofThesCountry()
   }, [countryId])
@@ -45,7 +45,8 @@ const CitiesAndUniForSelectedCountry = ({ heading, heading2, body, countryId }) 
 
   const handleCityClick = (city) => {
     
-    navigate(`/city1/${city.name}`)
+    // navigate(`/city1/${city.name}`)
+    navigate(`/countries/${countryUrl}/${city.urlName}`)
 
   }
 

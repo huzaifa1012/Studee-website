@@ -13,16 +13,18 @@ import futureAccountingCareer from "../assets/Australlia country/accounting/futu
 import FutureFinance from "../assets/Australlia country/accounting/Future-finance.png";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import parse from "html-react-parser";
+
 const Selected_subject = () => {
-  
+
   const [data, setData] = useState("");
-  
+
   const params = useParams();
 
-  
-  useEffect(()=>{
+
+  useEffect(() => {
     fetchSelectedSubjectData()
-  },[])
+  }, [])
   const theseAllNestedSubjects = [
     {
       subject: "Art Drawing",
@@ -108,7 +110,7 @@ const Selected_subject = () => {
         `https://ieodkvapi-548f8ac2251a.herokuapp.com/subjects/subject1/${params.name}`
       );
       setData(response.data);
-      console.log("subject",response.data);
+      console.log("subject", response.data);
 
     } catch (error) {
       console.error("Error in selected subject (Home):", error);
@@ -119,30 +121,31 @@ const Selected_subject = () => {
     <>
       <SelectedSubjectHero subjectName={params.name} BGImage={`https://ieodkvapi-548f8ac2251a.herokuapp.com/subjects/images/${data && data.image}`} />
 
-          <FindProgramAbroadbox subjectName={data.name} degree={data.degree} />
+      <FindProgramAbroadbox subjectName={data.name} degree={data.degree} />
 
       <VerticalizeTreeProjectComponent
         imageUrl={futureAccountingCareer}
         heading={`${data.name} degrees abroad`}
-
+        // paragraph={parse(data && data.abroad
         paragraph={
-      data.abroad
-        }
+        <div 
+  dangerouslySetInnerHTML={{ __html: data.abroad }}></div>}
       />
 
       <Whystudee />
-      
+
       <Agent />
 
       <TreeProjectComponent
         imageUrl={accountingProgramStructure}
         heading="Art program structure"
-        paragraph={`There are a wide range of specific art programs you can choose to study, so think carefully about which area you’re most interested in and look for the degree that best matches your interests and skills.
+        paragraph={
+          // parse(data && data.programStructure)
+          <div
+  dangerouslySetInnerHTML={{ __html: data.programStructure }}></div>}
 
-        You can study a degree in art as a BA at undergraduate level for three or four years, depending on your country of study. At master’s level you can get an MA over one or two years, or a doctorate as a PhD, MPhil or DFA (Doctorate in Fine Arts).
-        Most arts programs are very practical in nature, and you will spend a lot of your time working on projects on your own or in a group. You will be assessed through examples of your work, and some written coursework and exams. 
-        The program structure and content of an art program will vary massively depending on the course you choose. It is possible to study a general art degree, but most of these programs require you to choose a specialism in your second year of study.`}
-      />
+
+        />
 
       <PopularSubjects
         // heading={`Types of ${subjectNames} Subjects`}
@@ -156,8 +159,8 @@ const Selected_subject = () => {
       />
 
       <BrowseByCountry
-        // heading={`Best university to study ${subjectNames}`}
-        // countries={universities}
+      // heading={`Best university to study ${subjectNames}`}
+      // countries={universities}
       />
 
       <Undergraduate_programs />

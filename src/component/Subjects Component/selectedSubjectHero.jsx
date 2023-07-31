@@ -39,7 +39,6 @@ const SelectedSubjectHero = ({ subjectName, BGImage , scrollToComponent2,country
       >
         <div className="selectedSubHero_container">
           <div className="selectedSubHero_left_div">
-            
             {countryName ? 
               <h1 className=" pb-5">StudyA {subjectName} In {countryName} </h1>
             

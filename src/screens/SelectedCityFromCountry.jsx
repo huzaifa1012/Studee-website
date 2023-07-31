@@ -20,29 +20,30 @@ import PopularSubjectsSelectedCountry from "../component/home component/PopularS
 import { useParams } from "react-router-dom";
 import CitiesAndUniForSelectedCountry from "../component/selectedCountry/Cities and Uni for selected country";
 
-const SelectedCountry = () => {
+const SelectedCityFromCountry = () => {
 
   const [subject, setSubjects] = useState("");
-  const [countryData, setCountryData] = useState("");
+  const [cityData, setCityData] = useState("");
 
   const params = useParams();
 
   const component2Ref = useRef(null);
 
   useEffect(() => {
-    fetchSelectedCountryData()
+    fetchSelectedCityData()
     fetchPopularSubjectForTheCountry();
   }, []);
 
-  const fetchSelectedCountryData = async () => {
+  const fetchSelectedCityData = async () => {
     try {
       const response = await axios.get(
-        `https://ieodkvapi-548f8ac2251a.herokuapp.com/countries/${params.name}`
+        `https://ieodkvapi-548f8ac2251a.herokuapp.com/cities/city1/${params.city}`
       );
-      setCountryData(response.data);
+      setCityData(response.data);
+      console.log("response.data",response.data)
     } catch (error) {
       console.error(
-        "Error fetching popular subjec for selected country:",
+        "Error fetching fromt selected city from selected country :",
         error
       );
     }
@@ -67,16 +68,15 @@ const SelectedCountry = () => {
     <>
       <SelectedSubjectHero
         scrollToComponent2={scrollToComponent2}
-        subjectName={params.name}
-        BGImage={`https://ieodkvapi-548f8ac2251a.herokuapp.com/countries/images/${countryData.countryImage}`}
-
+        subjectName={cityData && cityData.name}
+        BGImage={`https://ieodkvapi-548f8ac2251a.herokuapp.com/cities/images/${cityData.image}`}
       />
-      <DetalilsWithImage
+       <DetalilsWithImage
         imageUrl={AustriaKangaroImage}
         body={
           <>
-            <h1>Why study in {params.name}?</h1>
-            {parse(countryData && countryData.whyStudyHere)}
+            <h1>Why study in {cityData && cityData.name}?</h1>
+            {parse(cityData && cityData.whyStudyHere)}
 
             <button className="why_use_bottom_btn">
               Search for a university
@@ -84,63 +84,62 @@ const SelectedCountry = () => {
           </>
         }
       />
-      <div style={{ backgroundColor: "#f0f0f0" }}>
+     {/* <div style={{ backgroundColor: "#f0f0f0" }}>
         <DetalilsWithImage
           imageUrl={AustriaKangaroImage}
           body={
             <>
-              <h1>What are the best programs in the {countryData.name}?</h1>
-              {parse(countryData && countryData.bestPrograms)}
+              <h1>What are the best programs in the {cityData.name}?</h1>
+              {parse(cityData && cityData.bestPrograms)}
             </>
           }
         />
       </div>
 
-      <Uni_FindAndApplyCard name={countryData && countryData.name} />
+      <Uni_FindAndApplyCard name={cityData && cityData.name} />
 
       <Whystudee scrollToComponent2={scrollToComponent2} />
      
       {subject &&
         <PopularSubjectsSelectedCountry
-          heading={`Popular subjects to study in ${countryData && countryData?.name}`}
+          heading={`Popular subjects to study in ${cityData && cityData?.name}`}
           allSubjects={subject}
           length={subject.length}
           countryUrl={params.name}
         />
       }
       <TreeProjectComponent
-        heading={`What is the cost of studying in ${countryData && countryData?.name}?`}
+        heading={`What is the cost of studying in ${cityData && cityData?.name}?`}
         imageUrl={costOfStudyingImage}
-        paragraph={parse(countryData && countryData.costOfStudy)}
+        paragraph={parse(cityData && cityData.costOfStudy)}
       />
 
-      <KeyFacts KeyFactsDatas={countryData && countryData.keyFacts} />
-{countryData && 
-      <CitiesAndUniForSelectedCountry
-        countryUrl={countryData.urlName}
-        countryId={countryData._id}
-        heading={`Where can you study in ${countryData && countryData?.name}?`}
-        body={<>{parse(countryData && countryData.whereCanYouStudy)}</>}
-        heading2={`Universities in ${countryData && countryData?.name}?`}
+      <KeyFacts KeyFactsDatas={cityData && cityData.keyFacts} />
+{cityData && 
+      <CitiesAndUniForSelectedCountry      
+        countryId={cityData._id}
+        heading={`Where can you study in ${cityData && cityData?.name}?`}
+        body={<>{parse(cityData && cityData.whereCanYouStudy)}</>}
+        heading2={`Universities in ${cityData && cityData?.name}?`}
       />
 }
       <DetalilsWithImage
-        heading={`What are the requirements to study in ${countryData && countryData.name}?`}
-        body={parse(countryData && countryData.requirements.qualifications)}
+        heading={`What are the requirements to study in ${cityData && cityData.name}?`}
+        body={parse(cityData && cityData.requirements.qualifications)}
         imageUrl={whatAreRequirmenets}
-        paragraph2={parse(countryData && countryData.requirements.englishLanguageTest)}
+        paragraph2={parse(cityData && cityData.requirements.englishLanguageTest)}
       />
       <div style={{ backgroundColor: "##f7f8f9" }}>
         <DetalilsWithLeftImage
           imageUrl={StudentVisa}
           body={
             <>
-              <h1>{countryData && countryData.name} student visa?</h1>
-              {parse(countryData && countryData.studentVisa)}
+              <h1>{cityData && cityData.name} student visa?</h1>
+              {parse(cityData && cityData.studentVisa)}
 
               <Link to={`/visas-&-travel/${params.name}`}>
                 <button className="universities_hero_left_btn fsinm">
-                  {countryData && countryData.name} Visa Requirements
+                  {cityData && cityData.name} Visa Requirements
                 </button>
               </Link>
             </>
@@ -166,12 +165,8 @@ const SelectedCountry = () => {
           </>
         }
         imageUrl={howStudyinAus}
-      />
-      {/* <BoxesAndData
-        countries={countries}
-        heading={`Alternative countries to consider`}
       /> */}
     </>
   );
 };
-export default SelectedCountry;
+export default SelectedCityFromCountry;
