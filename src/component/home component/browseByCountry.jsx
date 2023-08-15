@@ -5,14 +5,13 @@ import { animateScroll } from "react-scroll";
 import { useNavigate } from "react-router-dom";
 
 const BrowseByCountry = ({ heading, countries }) => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const handleNavigation = (country) => {
     animateScroll.scrollToTop();
-    
-    navigate(`/countries/${country.urlName}`)
+
+    navigate(`/${country.urlName}`);
   };
-  
-  
+
   return (
     <div className="browseByCountry_wrap">
       <div className="browseByCountry_main">
@@ -22,11 +21,11 @@ const BrowseByCountry = ({ heading, countries }) => {
         <div className="browseByCountry_body">
           {countries?.map((country, index) => (
             <div
-              onClick={()=> handleNavigation(country)}
+              onClick={() => handleNavigation(country)}
               className="browseByCountry_card"
               key={index}
               style={{
-                backgroundImage: `url(https://ieodkvapi-548f8ac2251a.herokuapp.com/countries/images/${country.countryImage})`,
+                backgroundImage: `url(https://studyapi.ieodkv.com/countries/images/${country.countryImage})`,
                 backgroundRepeat: "no-repeat",
                 backgroundSize: "cover",
                 backgroundBlendMode: "multiply",

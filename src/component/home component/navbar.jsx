@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { Dialog, Disclosure, Popover, Transition } from "@headlessui/react";
 import "./header.css";
 import IEOLogo from "../../assets/IEO.png";
@@ -20,6 +20,12 @@ import logo from "../../assets/studee_short_logo.png";
 import { AiOutlineUser } from "react-icons/ai";
 import { FiSearch } from "react-icons/fi";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { setSearchKeyword } from "../../store/searchKeywordSlice";
+import SearchResults from "./searchResult";
+import axios from "axios";
+
 const products = [
   {
     name: "Analytics",
@@ -62,15 +68,33 @@ function classNames(...classes) {
 }
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [locationData, setLocationData] = useState([]);
 
+  const id = useSelector((state) => state.userId);
+  const dispatch = useDispatch();
+  const searchItem = useSelector((state) => state.searchKeyword);
+
+  useEffect(() => {
+    axios
+      .get(`https://studyapi.ieodkv.com/popular/locations`)
+      .then((response) => {
+        setLocationData(response.data);
+      })
+      .catch((error) => console.log(error));
+  }, []);
+
+  const handleSearchChange = (e) => {
+    const newSearchKeyword = e.target.value;
+    dispatch(setSearchKeyword(newSearchKeyword));
+  };
   return (
-    <header style={{background:'#f7f8f9'}} className=" the_main_header_wrap">
+    <header style={{ background: "#f7f8f9" }} className=" the_main_header_wrap">
       <nav
         className="mx-auto flex max-w-7xl items-center justify-between p-3 lg:px-8"
         aria-label="Global"
       >
         <div className="flex lg:flex-1">
-          <Link  to="/">
+          <Link to="/">
             <div className="flex">
               <img className="h-10 w-auto" src={IEOLogo} />
             </div>
@@ -83,7 +107,9 @@ export function Navbar() {
             className="header_custom_searchbar block w-full bg-white border border-gray-300 rounded-md py-2 pr-10 pl-3 text-sm placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
             placeholder="Find a university"
             type="search"
+            onChange={handleSearchChange}
           />
+          <SearchResults searchQuery={searchItem} data={locationData} />
           <div className="_header_search_iconDiv absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
             <FiSearch />
           </div>
@@ -104,7 +130,9 @@ export function Navbar() {
           <br />
           <Popover className="relative">
             <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
-              <Link className="My_navLink" to="/programs">Programs</Link>
+              <Link className="My_navLink" to="/programs">
+                Programs
+              </Link>
               <ChevronDownIcon
                 className="h-5 w-5 flex-none text-gray-400"
                 aria-hidden="true"
@@ -119,17 +147,23 @@ export function Navbar() {
               leave="transition ease-in duration-150"
               leaveFrom="opacity-100 translate-y-0"
               leaveTo="opacity-0 translate-y-1"
-            >
-           
-            </Transition>
+            ></Transition>
           </Popover>
 
-          
-            <Link  className="My_navLink text-sm font-semibold leading-6 text-gray-900" to="/universities">Universities</Link>
-          
-            <Link  className="My_navLink text-sm font-semibold leading-6 text-gray-900" to="/guides">Guides</Link>
-          
-                  </Popover.Group>
+          <Link
+            className="My_navLink text-sm font-semibold leading-6 text-gray-900"
+            to="/universities"
+          >
+            Universities
+          </Link>
+
+          <Link
+            className="My_navLink text-sm font-semibold leading-6 text-gray-900"
+            to="/guides"
+          >
+            Guides
+          </Link>
+        </Popover.Group>
 
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <div className="relative w-full text-gray-400 focus-within:text-gray-600">
@@ -137,14 +171,13 @@ export function Navbar() {
               Search
             </label>
             <div className="relative">
-              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-              </div>
+              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"></div>
             </div>
           </div>
         </div>
 
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <Link  to="/login">
+          <Link to={id ? "/account" : "/login"}>
             <button
               style={{
                 backgroundColor: "#f7f8f9",
@@ -157,9 +190,12 @@ export function Navbar() {
               className="text-sm font-semibold leading-6 text-gray-900"
             >
               <span aria-hidden="true" style={{ marginRight: "2px" }}>
-              <AiOutlineUser size={22} style={{ fill: 'var(--primary-color)' }} />
+                <AiOutlineUser
+                  size={22}
+                  style={{ fill: "var(--primary-color)" }}
+                />
               </span>{" "}
-              Sign In
+              {id ? "Account" : "Sign In"}
             </button>
           </Link>
         </div>
@@ -194,7 +230,12 @@ export function Navbar() {
                   {({ open }) => (
                     <>
                       <Disclosure.Button className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
-                        <Link  to="/programs" onClick={()=>setMobileMenuOpen(false)}>Programs</Link>
+                        <Link
+                          to="/programs"
+                          onClick={() => setMobileMenuOpen(false)}
+                        >
+                          Programs
+                        </Link>
                         <ChevronDownIcon
                           className={classNames(
                             open ? "rotate-180" : "",
@@ -218,18 +259,31 @@ export function Navbar() {
                     </>
                   )}
                 </Disclosure>
-                
-                
-            <Link  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50" to="/universities" onClick={()=>setMobileMenuOpen(false)}>Universities</Link>
-                
-                  
-                <Link  to="/guides" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"  onClick={()=>setMobileMenuOpen(false)}>Guide</Link>
 
+                <Link
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                  to="/universities"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Universities
+                </Link>
+
+                <Link
+                  to="/guides"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Guide
+                </Link>
               </div>
               <div className="py-6">
-                <Link  
+                <Link
                   className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                  to="/login">  Log in</Link>
+                  to="/login"
+                >
+                  {" "}
+                  Log in
+                </Link>
               </div>
             </div>
           </div>

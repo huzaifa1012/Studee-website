@@ -1,5 +1,5 @@
 :root {
-  --primary-color: #002F5F;
+  --primary-color: #002f5f;
   --primary-accent: black;
   --secondary-color: #008761;
   --primary-accent-real: #21588e4a;
@@ -7,3 +7,22 @@
   --text-color: #2b2d4a;
 }
 
+.custom-shader {
+  background-color: aliceblue;
+  min-height: 800px;
+}
+.my-custom-spinner-wrap {
+  min-width: 100vw;
+  min-height: 100%;
+  background-color: #f0f0f0;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.my-custom-spinner {
+  width: 50px;
+  height: 50px;
+  color: var(--secondary-color);
+  margin: 0px auto;
+}

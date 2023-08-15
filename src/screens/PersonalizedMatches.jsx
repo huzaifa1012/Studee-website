@@ -10,8 +10,9 @@ import {
   StepContent02,
   StepContent03,
   StepContent04,
-} from "../component/personalizeMatchescomponent.jsx";
+} from "../component/RealpersonalizeMatchescomponent.jsx";
 import "../component/css storation/personalizedMatches.css";
+import { animateScroll } from "react-scroll";
 
 const steps = [
   "What to study",
@@ -39,6 +40,7 @@ const PersonalizedMatches = () => {
   const allStepsCompleted = () => {
     return completedSteps() === totalSteps();
   };
+  animateScroll.scrollToTop();
 
   const handleNext = () => {
     const newActiveStep =
@@ -154,11 +156,11 @@ const PersonalizedMatches = () => {
               <div className="PersonalizeMatched_main-right_uder_text_content">
                 <h1>Not Sure ?</h1>
                 <p className="ltc">
-                  Not sure what to chose ? Choose Them All! Leave your doubts behind and select
-                  all the options to discover a diverse range of study abroad
-                  programs tailored to your preferences. Embrace the freedom of
-                  exploring various possibilities and uncover the perfect
-                  opportunity that awaits you.
+                  Not sure what to chose ? Choose Them All! Leave your doubts
+                  behind and select all the options to discover a diverse range
+                  of study abroad programs tailored to your preferences. Embrace
+                  the freedom of exploring various possibilities and uncover the
+                  perfect opportunity that awaits you.
                 </p>
               </div>
             </div>

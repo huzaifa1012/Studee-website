@@ -19,9 +19,9 @@ import axios from "axios";
 import PopularSubjectsSelectedCountry from "../component/home component/PopularSubjectsSelectedCountry";
 import { useParams } from "react-router-dom";
 import CitiesAndUniForSelectedCountry from "../component/selectedCountry/Cities and Uni for selected country";
+import { animateScroll } from "react-scroll";
 
 const SelectedCountry = () => {
-
   const [subject, setSubjects] = useState("");
   const [countryData, setCountryData] = useState("");
 
@@ -30,14 +30,16 @@ const SelectedCountry = () => {
   const component2Ref = useRef(null);
 
   useEffect(() => {
-    fetchSelectedCountryData()
+    animateScroll.scrollToTop();
+
+    fetchSelectedCountryData();
     fetchPopularSubjectForTheCountry();
   }, []);
 
   const fetchSelectedCountryData = async () => {
     try {
       const response = await axios.get(
-        `https://ieodkvapi-548f8ac2251a.herokuapp.com/countries/${params.name}`
+        `https://studyapi.ieodkv.com/countries/${params.name}`
       );
       setCountryData(response.data);
     } catch (error) {
@@ -50,9 +52,10 @@ const SelectedCountry = () => {
   const fetchPopularSubjectForTheCountry = async () => {
     try {
       const response = await axios.get(
-        `https://ieodkvapi-548f8ac2251a.herokuapp.com/popular/country/${params.name}`
+        `https://studyapi.ieodkv.com/popular/country/${params.name}`
       );
       setSubjects(response.data);
+      console.log("countryImage", countryData.countryImage);
     } catch (error) {
       console.error(
         "Error fetching popular subjec for selected country:",
@@ -67,15 +70,14 @@ const SelectedCountry = () => {
     <>
       <SelectedSubjectHero
         scrollToComponent2={scrollToComponent2}
-        subjectName={params.name}
-        BGImage={`https://ieodkvapi-548f8ac2251a.herokuapp.com/countries/images/${countryData.countryImage}`}
-
+        subjectName={countryData.name}
+        BGImage={`https://studyapi.ieodkv.com/countries/images/${countryData.countryImage}`}
       />
       <DetalilsWithImage
         imageUrl={AustriaKangaroImage}
         body={
           <>
-            <h1>Why study in {params.name}?</h1>
+            <h1>Why study in {countryData.name}?</h1>
             {parse(countryData && countryData.whyStudyHere)}
 
             <button className="why_use_bottom_btn">
@@ -99,36 +101,46 @@ const SelectedCountry = () => {
       <Uni_FindAndApplyCard name={countryData && countryData.name} />
 
       <Whystudee scrollToComponent2={scrollToComponent2} />
-     
-      {subject &&
+
+      {subject && (
         <PopularSubjectsSelectedCountry
-          heading={`Popular subjects to study in ${countryData && countryData?.name}`}
+          heading={`Popular subjects to study in ${
+            countryData && countryData?.name
+          }`}
           allSubjects={subject}
           length={subject.length}
           countryUrl={params.name}
         />
-      }
+      )}
       <TreeProjectComponent
-        heading={`What is the cost of studying in ${countryData && countryData?.name}?`}
+        heading={`What is the cost of studying in ${
+          countryData && countryData?.name
+        }?`}
         imageUrl={costOfStudyingImage}
         paragraph={parse(countryData && countryData.costOfStudy)}
       />
 
       <KeyFacts KeyFactsDatas={countryData && countryData.keyFacts} />
-{countryData && 
-      <CitiesAndUniForSelectedCountry
-        countryUrl={countryData.urlName}
-        countryId={countryData._id}
-        heading={`Where can you study in ${countryData && countryData?.name}?`}
-        body={<>{parse(countryData && countryData.whereCanYouStudy)}</>}
-        heading2={`Universities in ${countryData && countryData?.name}?`}
-      />
-}
+      {countryData && (
+        <CitiesAndUniForSelectedCountry
+          countryUrl={countryData.urlName}
+          countryId={countryData._id}
+          heading={`Where can you study in ${
+            countryData && countryData?.name
+          }?`}
+          body={<>{parse(countryData && countryData.whereCanYouStudy)}</>}
+          heading2={`Universities in ${countryData && countryData?.name}?`}
+        />
+      )}
       <DetalilsWithImage
-        heading={`What are the requirements to study in ${countryData && countryData.name}?`}
+        heading={`What are the requirements to study in ${
+          countryData && countryData.name
+        }?`}
         body={parse(countryData && countryData.requirements.qualifications)}
         imageUrl={whatAreRequirmenets}
-        paragraph2={parse(countryData && countryData.requirements.englishLanguageTest)}
+        paragraph2={parse(
+          countryData && countryData.requirements.englishLanguageTest
+        )}
       />
       <div style={{ backgroundColor: "##f7f8f9" }}>
         <DetalilsWithLeftImage
@@ -167,10 +179,6 @@ const SelectedCountry = () => {
         }
         imageUrl={howStudyinAus}
       />
-      {/* <BoxesAndData
-        countries={countries}
-        heading={`Alternative countries to consider`}
-      /> */}
     </>
   );
 };

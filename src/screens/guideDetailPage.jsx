@@ -6,20 +6,21 @@ import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
 import parse from "html-react-parser";
-
+import { animateScroll } from "react-scroll";
 
 const GuideDetailPage = () => {
   const [guideData, setGuideData] = useState([]);
   const { name } = useParams();
 
   useEffect(() => {
-    console.log("guideData.name",guideData)
+    animateScroll.scrollToTop();
+    console.log("guideData.name", guideData);
     fetchGuideDetails();
   }, []);
   const fetchGuideDetails = async () => {
     try {
       const response = await axios.get(
-        `https://ieodkvapi-548f8ac2251a.herokuapp.com/guides/guide1/${name}`
+        `https://studyapi.ieodkv.com/guides/guide1/${name}`
       );
       // console.log("Selected Guide ", response.data);
       setGuideData(response.data);
@@ -30,24 +31,27 @@ const GuideDetailPage = () => {
   return (
     <>
       <GuideDetailHero
-        background={`https://ieodkvapi-548f8ac2251a.herokuapp.com/guides/${guideData.image}`}
+        background={`https://studyapi.ieodkv.com/guides/${guideData.image}`}
         heading={guideData.guideName}
       />
-      <GuideDetailBody    
+      <GuideDetailBody
         desciption={guideData.description}
         VisaRequirementLink={guideData.name}
-    body={
+        body={
           <div className="guide_detail_bodySection">
-            {guideData.heading && guideData.heading.map((data, index) => {
-              {/* console.log(data) */}
+            {guideData.heading &&
+              guideData.heading.map((data, index) => {
+                {
+                  /* console.log(data) */
+                }
 
-        return(
-          <div key={index}>
-            <h1>{parse(data.headingName)}</h1>
-            <p>{parse(data.content)}</p>
-          </div>
-        )      
-            })}
+                return (
+                  <div key={index}>
+                    <h1>{parse(data.headingName)}</h1>
+                    <p>{parse(data.content)}</p>
+                  </div>
+                );
+              })}
           </div>
         }
       />

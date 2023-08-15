@@ -20,7 +20,7 @@ const Whystudee = ({ scrollToComponent2 }) => {
   const fetchData = async () => {
     try {
       let response = await axios.get(
-        "https://ieodkvapi-548f8ac2251a.herokuapp.com/content/page/why-use-studee"
+        "https://studyapi.ieodkv.com/content/page/why-use-studee"
       );
       // console.log(":DATA", response.data);
       setData(response.data);
@@ -45,8 +45,6 @@ const Whystudee = ({ scrollToComponent2 }) => {
         <div className="why_use_head">
           <h1 className="mtc">{data.name && data.name}</h1>
           {data.description && parse(data.description)}
-
-        
         </div>
         <div className="Why_Use_studee_wrap">
           <div className="Why_Use_studee_body">
@@ -54,25 +52,23 @@ const Whystudee = ({ scrollToComponent2 }) => {
               return (
                 <div className="Why_Use_studee_box" key={item._id}>
                   <img
-                    src={`https://ieodkvapi-548f8ac2251a.herokuapp.com/content/images/${item.image}`}
+                    src={`https://studyapi.ieodkv.com/content/images/${item.image}`}
                     width={110}
                   />
-                  <span className="mtc headingOfWhyStudee">{parse(item.headingName)}</span>
+                  <span className="mtc headingOfWhyStudee">
+                    {parse(item.headingName)}
+                  </span>
                   <span className="ltc" style={{ textAlign: "left" }}>
                     {parse(item.contentText)}
                   </span>
                 </div>
               );
             })}
-    
           </div>
         </div>
         <div className="why_use_bottom_wrap">
           <div className="why_use_bottom">
-          <span>
-              {data.more && parse(data.more)}
-
-          </span>
+            <span>{data.more && parse(data.more)}</span>
             <button
               onClick={() => showModal(true)}
               className="why_use_bottom_btn"

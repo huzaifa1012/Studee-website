@@ -1,0 +1,90 @@
+/* Input Button styling starts */
+.custom_document_wrap {
+  /* border: 1px solid; */
+  position: relative;
+}
+
+.custom-file-btn {
+  background-color: var(--secondary-color);
+  color: #ffffff;
+  padding: 50px 16px;
+  border-radius: 90px;
+  cursor: pointer;
+  transition: 0.3s;
+  border: 2px solid var(--secondary-color);
+  display: inline-block;
+}
+.custom-file-btn:hover {
+  background-color: var(--secondary-accent);
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+}
+
+.file-input {
+  display: none;
+}
+.my-file-icon-under-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#selectedFileName {
+  display: block;
+  margin-top: 10px;
+}
+.selected-doc-filename {
+  font-size: 1.2rem;
+  display: flex;
+  text-align: center;
+}
+/* Input Button styling ends*/
+
+.documents-ultra-wrap {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap-reverse;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.documents-ultra-wrap div {
+  /* width: 50%; */
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* flex-direction: column; */
+}
+
+.documents-section-right {
+  /* border: 1px solid; */
+  width: 50%;
+}
+.documents-section-left {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.upload_doc_btn {
+  width: 60%;
+  padding: 10px;
+  padding: 10px 0px;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 10px;
+  transition: 0.2s;
+}
+.upload_doc_btn:hover {
+  background-color: #103f6e;
+}
+
+@media (max-width: 550px) {
+  .documents-section-left {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .documents-section-right {
+    width: 100%;
+  }
+}

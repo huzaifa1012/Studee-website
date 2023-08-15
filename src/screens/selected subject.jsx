@@ -14,17 +14,18 @@ import FutureFinance from "../assets/Australlia country/accounting/Future-financ
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import parse from "html-react-parser";
+import { animateScroll } from "react-scroll";
 
 const Selected_subject = () => {
-
   const [data, setData] = useState("");
 
   const params = useParams();
 
-
   useEffect(() => {
-    fetchSelectedSubjectData()
-  }, [])
+    animateScroll.scrollToTop();
+
+    fetchSelectedSubjectData();
+  }, []);
   const theseAllNestedSubjects = [
     {
       subject: "Art Drawing",
@@ -79,39 +80,13 @@ const Selected_subject = () => {
     // Add more country objects as needed
   ];
 
-  const universities = [
-    {
-      name: "Liver Hope University",
-      image:
-        "https://images.studee.com/images/university/university__liverpool-hope-university.jpg?ixlib=js-2.3.2&auto=format&fit=crop&q=35&w=340&h=296&blend=%2Ftreatments%2Ftreatment__text-overlay.jpg&blend-size=inherit&blend-mode=normal&blend-alpha=80",
-    },
-    {
-      name: "University Of Portsmouth",
-      image:
-        "https://images.studee.com/images/university/university__university-of-portsmouth.jpg?ixlib=js-2.3.2&auto=format&fit=crop&q=35&w=340&h=296&blend=%2Ftreatments%2Ftreatment__text-overlay.jpg&blend-size=inherit&blend-mode=normal&blend-alpha=80",
-    },
-    {
-      name: "MIU University Miami",
-      image:
-        "https://images.studee.com/images/university/university__miu-city-university-miami.jpg?ixlib=js-2.3.2&auto=format&fit=crop&q=35&w=340&h=296&blend=%2Ftreatments%2Ftreatment__text-overlay.jpg&blend-size=inherit&blend-mode=normal&blend-alpha=80",
-    },
-
-    {
-      name: "Aberty University",
-      image:
-        "https://images.studee.com/images/university/university__abertay-university.jpg?ixlib=js-2.3.2&auto=format&fit=crop&q=35&w=340&h=296&blend=%2Ftreatments%2Ftreatment__text-overlay.jpg&blend-size=inherit&blend-mode=normal&blend-alpha=80",
-    },
-
-    // Add more country objects as needed
-  ];
   const fetchSelectedSubjectData = async () => {
     try {
       const response = await axios.get(
-        `https://ieodkvapi-548f8ac2251a.herokuapp.com/subjects/subject1/${params.name}`
+        `https://studyapi.ieodkv.com/subjects/subject1/${params.name}`
       );
       setData(response.data);
       console.log("subject", response.data);
-
     } catch (error) {
       console.error("Error in selected subject (Home):", error);
     }
@@ -119,7 +94,12 @@ const Selected_subject = () => {
 
   return (
     <>
-      <SelectedSubjectHero subjectName={params.name} BGImage={`https://ieodkvapi-548f8ac2251a.herokuapp.com/subjects/images/${data && data.image}`} />
+      <SelectedSubjectHero
+        subjectName={params.name}
+        BGImage={`https://studyapi.ieodkv.com/subjects/images/${
+          data && data.image
+        }`}
+      />
 
       <FindProgramAbroadbox subjectName={data.name} degree={data.degree} />
 
@@ -128,8 +108,8 @@ const Selected_subject = () => {
         heading={`${data.name} degrees abroad`}
         // paragraph={parse(data && data.abroad
         paragraph={
-        <div 
-  dangerouslySetInnerHTML={{ __html: data.abroad }}></div>}
+          <div dangerouslySetInnerHTML={{ __html: data.abroad }}></div>
+        }
       />
 
       <Whystudee />
@@ -142,10 +122,10 @@ const Selected_subject = () => {
         paragraph={
           // parse(data && data.programStructure)
           <div
-  dangerouslySetInnerHTML={{ __html: data.programStructure }}></div>}
-
-
-        />
+            dangerouslySetInnerHTML={{ __html: data.programStructure }}
+          ></div>
+        }
+      />
 
       <PopularSubjects
         // heading={`Types of ${subjectNames} Subjects`}

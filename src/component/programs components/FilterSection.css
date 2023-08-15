@@ -11,6 +11,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
+  align-items: center;
   font-size: 18px;
   width: 93%;
   font-weight: bold;
@@ -32,8 +33,8 @@
   width: 50%;
 }
 .Filters_sectioan_main2_btn {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   padding: 15px 30px 15px 30px;
@@ -41,52 +42,74 @@
   border: none;
   background-color: #fff;
   box-shadow: 0px 2px 5px #cacaca70;
-
 }
 .Filters_sectioan_main2_btn:hover {
-  
 }
 
-
+.eachFilterBoxWrap {
+  margin: -5px 5px;
+  display: flex;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--secondary-accent);
+  padding: 0px 10px;
+}
+.Filter-text {
+  margin: 15px;
+}
 .filter_modal_wrap {
-    height: 300px;
-
+  height: 300px;
 }
 
 .ant-modal {
-  width: 50% !important ;  
-} 
-@media (max-width:768px) {
-.ant-modal {
-  width: 100% !important  ;
-}  
-.css-1h9z7r5-MuiButtonBase-root-MuiTab-root {
-   width: 30px;
-   max-width: 50px !important;
-   font-size: 0.675rem !important;
-   text-align: left !important;
-   padding-left: 5px !important;
+  width: 50% !important ;
 }
-.ant-modal-content {
-padding: 10px 10px !important;
+@media (max-width: 768px) {
+  .ant-modal {
+    width: 100% !important  ;
+  }
+  .css-1h9z7r5-MuiButtonBase-root-MuiTab-root {
+    width: 30px;
+    max-width: 50px !important;
+    font-size: 0.675rem !important;
+    text-align: left !important;
+    padding-left: 5px !important;
+  }
+  .ant-modal-content {
+    padding: 10px 10px !important;
+  }
+  .Program_card_wrap_mainModal .css-19kzrtu {
+    padding: 5px 5px 5px 15px !important;
+  }
+  .Program_card_wrap_mainModal .m-checkbox-text {
+    font-size: 12px;
+  }
+  .each-tab-panel {
+    width: 90% !important;
+  }
+  .css-35zqo5-MuiTabs-root {
+    max-height: 300px;
+  }
+  .Program_card_wrap_mainModal .ant-modal-close-x {
+    display: none !important;
+  }
 }
-.Program_card_wrap_mainModal .css-19kzrtu {
-  padding: 5px 5px 5px 15px !important;
+.Filters_sectioan_main2_btn {
+  padding: 12px;
 }
-.Program_card_wrap_mainModal  .m-checkbox-text {
-font-size: 12px;
-}
-.each-tab-panel {
-  width: 90% !important;
-}
-.css-35zqo5-MuiTabs-root {
-max-height: 300px;
-}
-.Program_card_wrap_mainModal .ant-modal-close-x {
-  display: none  !important;
-  
-}
-} 
-.Filters_sectioan_main2_btn  {
- padding: 12px ; 
+
+@media (max-width: 555px) {
+  .Filter-text {
+    margin: 5px;
+    font-size: 10px;
+  }
+  .eachFilterBoxWrap {
+    margin: 3px 3px;
+    padding: 0px 4px;
+    display: flex;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: space-between;
+  }
 }

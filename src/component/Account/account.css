@@ -1,100 +1,145 @@
 .account_containerWrap {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .acc_container {
-margin: 30px 0px;
-    width: 90%;
-    min-height: 8vh;
-  }
-  
-  .acc_heading {
-    font-size: 3em;
-  }
-  
-  .acc_box_wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.acc_container {
+  margin: 30px 0px;
+  width: 90%;
+  min-height: 8vh;
+}
+
+.acc_heading {
+  font-size: 3em;
+  display: flex;
+  display: inline;
+}
+.make-inline {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.acc_box_wrap {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.acc_box {
+  width: 29%;
+  height: 240px;
+  border-radius: 10px;
+  margin: 15px;
+  box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.224);
+  border: 1px solid gray;
+}
+
+.acc_prof_box_img {
+  margin: 20px;
+  max-width: 60px;
+  border-radius: 9000px;
+}
+
+.box_img {
+  margin: 20px;
+  max-width: 100px;
+  border-radius: 9000px;
+}
+
+.acc_prof_box_h1 {
+  font-size: 22px;
+  margin: 20px;
+  font-weight: bold;
+  margin-bottom: 0px;
+}
+
+.acc_box_h1 {
+  font-size: 18px;
+  margin: 20px;
+  font-weight: bold;
+  margin-bottom: 0px;
+}
+
+.acc_box_p {
+  margin: 20px;
+  margin-top: 1px;
+}
+
+.acc_sign_out {
+  border: 1px solid black;
+  padding: 3px 10px;
+  border-radius: 5px;
+  margin: 20px;
+  margin-top: 0px;
+}
+/* Profile CSS  */
+.profile-details-wrap-ultra {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.profile-details-wrap {
+  width: 50%;
+  padding: 10px;
+}
+
+.profile-details-wrap span {
+  opacity: 0.6;
+}
+.profile-details-wrap h1 {
+  font-size: 1.2em;
+}
+.half-input-profile-wrap input {
+  font-size: 1.2em;
+}
+.editable-input:focus {
+  border: 2px solid var(--secondary-color);
+}
+.editable-input {
+  min-width: 90px;
+  font-size: 1.2em;
+  display: block;
+  padding: 5px;
+  border-radius: 10px;
+  border: 2px solid var(--primary-color);
+}
+.half-input-profile-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 480px) {
+  /* profile */
+  .profile-details-wrap {
     width: 100%;
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: row;
-    flex-wrap: wrap;
+    padding: 10px;
   }
-  
+  .acc_heading {
+    font-size: 30px;
+  }
+
   .acc_box {
-    width: 29%;
+    width: 100%;
     height: 240px;
     border-radius: 10px;
     margin: 15px;
-    box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.224);
-    border: 1px solid gray;
-  }
-  
-  .acc_prof_box_img {
-    margin: 20px;
-    max-width: 60px;
-    border-radius: 9000px;
-  }
-  
-  .box_img {
-    margin: 20px;
-    max-width: 100px;
-    border-radius: 9000px;
-  }
-  
-  .acc_prof_box_h1 {
-    font-size: 22px;
-    margin: 20px;
-    font-weight: bold;
-    margin-bottom: 0px;
-  }
-  
-  .acc_box_h1 {
-    font-size: 18px;
-    margin: 20px;
-    font-weight: bold;
-    margin-bottom: 0px;
-  }
-  
-  .acc_box_p {
-    margin: 20px;
-    margin-top: 1px;
-  }
-  
-  .acc_sign_out {
+    box-shadow: 0px 3px 2px black;
     border: 1px solid black;
-    padding: 3px 10px;
-    border-radius: 5px;
-    margin: 20px;
-    margin-top: 0px;
   }
-  
-
-  @media (max-width: 480px) {
-      .acc_heading {
-          font-size: 30px;
 }
-
-    .acc_box {
-        width: 100%;
-        height: 240px;
-        border-radius: 10px;
-        margin: 15px;
-        box-shadow: 0px 3px 2px black;
-        border: 1px solid black;
-      }
-      
-      
-    }
-    @media (min-width: 480px)and (max-width:768px) {
-              .acc_box {
-                  width: 40%;
-                  height: 240px;
-                  border-radius: 10px;
-                  margin: 15px;
-                  box-shadow: 0px 3px 2px black;
-                  border: 1px solid black;
-                }
-
-          }
+@media (min-width: 480px) and (max-width: 768px) {
+  .acc_box {
+    width: 40%;
+    height: 240px;
+    border-radius: 10px;
+    margin: 15px;
+    box-shadow: 0px 3px 2px black;
+    border: 1px solid black;
+  }
+}

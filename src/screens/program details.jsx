@@ -4,7 +4,10 @@ import Whystudee from "../component/home component/whystudee.jsx";
 import VerticalizeTreeProjectComponent from "../component/home component/Verticalize layout treeProject.jsx";
 import VisaRequirementCard from "../component/programs components/visaRequirementCard.jsx";
 import DetalilsWithImage from "../component/detalilsWithImage.jsx";
+import { animateScroll } from "react-scroll";
 const ProgramDetails = () => {
+  animateScroll.scrollToTop();
+
   return (
     <>
       <ProgramDetailHero />

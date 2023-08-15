@@ -6,12 +6,13 @@ body {
   width: 100%;
   display: flex;
   justify-content: center;
-  background-color: #F2F8F6;
+  background-color: #f2f8f6;
   /* background-color: var(--primary-accent); */
 }
 .hero_container {
   margin-top: 20px;
   width: 90%;
+  min-height: 580px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -24,6 +25,15 @@ body {
   justify-content: center;
   align-items: center;
   padding: 0px 20px;
+  color: var(--text-color);
+}
+.hero_left_div p:first-child {
+  font-size: 2.2rem;
+  color: var(--text-color);
+  font-weight: 400 !important;
+  font-family: "Inter", sans-serif !important;
+  text-align: left !important;
+  margin-bottom: 10px !important;
 }
 
 .hero_right_div {
@@ -37,14 +47,6 @@ body {
   max-width: 100%;
 }
 
-.hero_left_div h1 {
-  font-size: 2.7rem;
-  font-weight: 400;
-  font-family: "Inter", sans-serif;
-  text-align: left;
-  margin-bottom: 10px;
-}
-
 .hero_left_div p {
   font-size: 1.225rem;
   line-height: 1.27;
@@ -55,7 +57,7 @@ body {
 }
 .hero_right_div img {
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
   max-width: 566px;
 }
 .hero_user-input-section {
@@ -95,7 +97,9 @@ body {
   font-size: 17px !important;
   font-family: "Inter", sans-serif !important;
 }
-
+.main_hero_option_box {
+  max-width: 200px;
+}
 .hero_btn {
   font-family: "Inter", sans-serif;
   letter-spacing: 1px;
@@ -118,8 +122,8 @@ body {
 .hero_btn:hover {
   letter-spacing: 1px;
   color: var(--secondary-color);
-  
-  background-color:var(--secondary-accent);
+
+  background-color: var(--secondary-accent);
 }
 .heroBtnCover {
   height: 114px;
@@ -154,7 +158,7 @@ body {
 
 @media (max-width: 555px) {
   .hero_container {
-margin-top: 15px;
+    margin-top: 15px;
     flex-direction: column;
     text-align: center;
   }
@@ -168,7 +172,7 @@ margin-top: 15px;
   .hero_right_div {
     width: 90%;
     padding: 0px;
-  margin: 0px auto;
+    margin: 0px auto;
   }
 
   .hero_left_div h1 {

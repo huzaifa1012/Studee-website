@@ -1,31 +1,31 @@
 import React from "react";
 import "./keyFact.css";
-import australlianDollar from "../../assets/KeyFacs Icon/australlian-dollar.png"
-import studednts from "../../assets/KeyFacs Icon/student-population.png"
-import englsihHello from "../../assets/KeyFacs Icon/english-language.png"
-import universities from "../../assets/KeyFacs Icon/universities.png"
-const KeyFacts = ({KeyFactsDatas}) => {
+import australlianDollar from "../../assets/KeyFacs Icon/australlian-dollar.png";
+import studednts from "../../assets/KeyFacs Icon/student-population.png";
+import englsihHello from "../../assets/KeyFacs Icon/english-language.png";
+import universities from "../../assets/KeyFacs Icon/universities.png";
+const KeyFacts = ({ KeyFactsDatas }) => {
   const keyFactsData = [
     {
       title: "Australian Dollar $",
       details: "Currency",
-      image:australlianDollar
+      image: australlianDollar,
     },
     {
       title: "1 million",
       details: "Students",
-      image:studednts,
+      image: studednts,
     },
     {
       title: "English",
       details: "Language",
-      image:englsihHello
+      image: englsihHello,
     },
     {
       title: "English",
       details: "Language",
-      image:universities
-     },
+      image: universities,
+    },
   ];
   return (
     <div className="keyFacts_wrap">
@@ -34,34 +34,51 @@ const KeyFacts = ({KeyFactsDatas}) => {
           <h1>Key facts</h1>
         </div>
         <div className="keyFacts_box_wrap">
-              <div className="keyFacts_box">
+          {KeyFactsDatas.currency && (
+            <div className="keyFacts_box">
               <div className="keyFacts_box_imgWrap">
                 <img src={australlianDollar} />
               </div>
-                <h1>{KeyFactsDatas.currency}</h1>
-                <h2>Currency</h2>
-              </div>
-              <div className="keyFacts_box">
-              <div className="keyFacts_box_imgWrap">
-                <img src={studednts} />
-              </div>
-                <h1>{KeyFactsDatas.studentPopulation}</h1>
-                <h2>Students Population</h2>
-              </div>
-              <div className="keyFacts_box">
-              <div className="keyFacts_box_imgWrap">
-                <img src={universities} />
-              </div>
-                <h1>{KeyFactsDatas.universities}</h1>
-                <h2>Universities</h2>
-              </div>
-              <div className="keyFacts_box">
+              <h1>{KeyFactsDatas.currency}</h1>
+              <h2>Currency</h2>
+            </div>
+          )}
+          {KeyFactsDatas.temperature && (
+            <div className="keyFacts_box">
               <div className="keyFacts_box_imgWrap">
                 <img src={englsihHello} />
               </div>
-                <h1>{KeyFactsDatas.languages}</h1>
-                <h2>Languagesy</h2>
+              <h1>{KeyFactsDatas.temperature}</h1>
+              <h2>Temprature</h2>
+            </div>
+          )}
+          {KeyFactsDatas.population && (
+            <div className="keyFacts_box">
+              <div className="keyFacts_box_imgWrap">
+                <img src={studednts} />
               </div>
+              <h1>{KeyFactsDatas.studentPopulation}</h1>
+              <h2>Students Population</h2>
+            </div>
+          )}
+          {KeyFactsDatas.universities && (
+            <div className="keyFacts_box">
+              <div className="keyFacts_box_imgWrap">
+                <img src={universities} />
+              </div>
+              <h1>{KeyFactsDatas.universities}</h1>
+              <h2>Universities</h2>
+            </div>
+          )}
+          {keyFactsData.languages && (
+            <div className="keyFacts_box">
+              <div className="keyFacts_box_imgWrap">
+                <img src={englsihHello} />
+              </div>
+              <h1>{KeyFactsDatas.languages}</h1>
+              <h2>Languagesy</h2>
+            </div>
+          )}
         </div>
       </div>
     </div>

@@ -15,23 +15,20 @@ import FutureFinance from "../../assets/Australlia country/accounting/Future-fin
 import { useParams } from "react-router-dom";
 import parse from "html-react-parser";
 import axios from "axios";
+import { animateScroll } from "react-scroll";
 const Selected_subject_from_selected_country = () => {
-
-
-  const [subjectData, setSubjectData] = useState([])
-  const [countryData, setCountryData] = useState([])
+  const [subjectData, setSubjectData] = useState([]);
+  const [countryData, setCountryData] = useState([]);
 
   const params = useParams();
+
+  animateScroll.scrollToTop();
 
   const location = useLocation();
 
   const searchParams = new URLSearchParams(location.search);
 
   const subjectNames = searchParams.get("subject");
-
-
-
-
 
   const theseAllNestedSubjects = [
     {
@@ -113,14 +110,13 @@ const Selected_subject_from_selected_country = () => {
     // Add more country objects as needed
   ];
   useEffect(() => {
-    fetchDataForSelectedCountryAndSuject()
-    fetchCountryData()
-
-  }, [])
+    fetchDataForSelectedCountryAndSuject();
+    fetchCountryData();
+  }, [params]);
   const fetchDataForSelectedCountryAndSuject = async () => {
     try {
       const response = await axios.get(
-        `https://ieodkvapi-548f8ac2251a.herokuapp.com/subjects/country/${params.countryUrl}/subject/${params.subjectUrl}`
+        `https://studyapi.ieodkv.com/subjects/country/${params.countryUrl}/subject/${params.subjectUrl}`
       );
       setSubjectData(response.data);
       console.log("Main page SubjectData data", response.data);
@@ -134,7 +130,8 @@ const Selected_subject_from_selected_country = () => {
   const fetchCountryData = async () => {
     try {
       const response = await axios.get(
-        `https://ieodkvapi-548f8ac2251a.herokuapp.com/countries/${params.countryUrl}`);
+        `https://studyapi.ieodkv.com/countries/${params.countryUrl}`
+      );
       setCountryData(response.data);
     } catch (error) {
       console.error(
@@ -150,12 +147,15 @@ const Selected_subject_from_selected_country = () => {
           <SelectedSubjectHero
             subjectName={subjectData[0].name}
             countryName={countryData.name}
-            BGImage={`https://ieodkvapi-548f8ac2251a.herokuapp.com/countries/images/${countryData.countryImage}`}
+            BGImage={`https://studyapi.ieodkv.com/countries/images/${countryData.countryImage}`}
           />
 
           {/* Render the rest of your components using the fetched data */}
 
-          <FindProgramAbroadbox subjectName={subjectData[0].name} degree={subjectData[0].degree} />
+          <FindProgramAbroadbox
+            subjectName={subjectData[0].name}
+            degree={subjectData[0].degree}
+          />
 
           <VerticalizeTreeProjectComponent
             imageUrl={futureAccountingCareer}
@@ -198,9 +198,15 @@ const Selected_subject_from_selected_country = () => {
           {/* ... Other components */}
         </>
       ) : (
-        <div>Loading...</div>
+        <>
+          <div className="my-custom-spinner-wrap">
+            <div
+              className="my-custom-spinner  inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] text-success motion-reduce:animate-[spin_1.5s_linear_infinite]"
+              role="status"
+            ></div>
+          </div>
+        </>
       )}
-
     </>
   );
 };

@@ -1,326 +1,64 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./personilzeMatchesCompo.css";
 import "./personilzeMatchesCompoOptRuff.css";
 import { GrFormClose } from "react-icons/gr";
+import LoginSmall from "../screens/Authentication Screens/loginSmall.jsx";
+import axios from "axios";
+import { useSelector } from "react-redux";
 
-const dummyData = [
-  "Apple",
-  "Banana",
-  "Cherry",
-  "Durian",
-  "Elderberry",
-  "Fig",
-  "Grape",
-  "Honeydew",
-  "Ivy gourd",
-  "Jackfruit",
-  "Kiwi",
-  "Lemon",
-  "Mango",
-  "Nectarine",
-  "Orange",
-  "Papayas",
-  "Quince",
-  "Raspberry",
-  "Strawberry",
-  "Tangerine",
-  "Ugli fruit",
-  "Vanilla",
-  "Watermelon",
-  "Xigua",
-  "Yellow passionfruit",
-  "Zucchini",
-];
-const dummySubject = [
-  "Commerce",
-  "Computer Science",
-  "Engineering",
-  "Medical",
-  "Artsy",
-  "Business",
-  "Communication",
-];
-const dummyCountries = [
-  "China",
-  "India",
-  "United States",
-  "Indonesia",
-  "Pakistan",
-  "Brazil",
-  "Nigeria",
-  "Bangladesh",
-  "Russia",
-  "Mexico",
-  "Japan",
-  "Ethiopia",
-  "Philippines",
-  "Egypt",
-  "Vietnam",
-  "DR Congo",
-  "Turkey",
-  "Iran",
-  "Germany",
-  "Thailand",
-  "United Kingdom",
-  "France",
-  "Italy",
-  "Tanzania",
-  "South Africa",
-  "Myanmar",
-  "Kenya",
-  "South Korea",
-  "Colombia",
-  "Spain",
-  "Uganda",
-  "Argentina",
-  "Algeria",
-  "Sudan",
-  "Ukraine",
-  "Iraq",
-  "Afghanistan",
-  "Poland",
-  "Canada",
-  "Morocco",
-  "Saudi Arabia",
-  "Uzbekistan",
-  "Peru",
-  "Angola",
-  "Malaysia",
-  "Mozambique",
-  "Ghana",
-  "Yemen",
-  "Nepal",
-  "Venezuela",
-  "Madagascar",
-];
+const StepContent01 = ({ data }) => {
+  const [confirmartion, setConfirmation] = useState([]);
 
-
-
-const handleSearchTextChange = (e) => {
-  setSearchText(e.target.value);
-};
-
-const handleTagClick = (tag) => {
-  setSelectedTags((prevTags) => [...prevTags, tag]);
-};
-const StepContent01 = () => {
-  const [searchText, setSearchText] = useState("");
-  const [selectedTags, setSelectedTags] = useState([]);
-  const [searchResults, setSearchResults] = useState([]);
-  const [hoveredTag, setHoveredTag] = useState(null);
-
-  const handleSearchTextChange = (e) => {
-    const searchText = e.target.value;
-    setSearchText(searchText);
-
-    const filteredResults = dummySubject.filter((tag) =>
-      tag.toLowerCase().includes(searchText.toLowerCase())
-    );
-    setSearchResults(filteredResults);
-  };
-
-  const handleTagClick = (tag) => {
-    setSelectedTags((prevTags) => [...prevTags, tag]);
-    setSearchText("");
-    setSearchResults([]);
-  };
-
-  const removeTag = (tag) => {
-    setSelectedTags((prevTags) => prevTags.filter((t) => t !== tag));
-  };
-
+  useEffect(() => {
+    axios
+      .get(
+        "https://studyapi.ieodkv.com/content/headings/application/application-1"
+      )
+      .then((response) => {
+        setConfirmation(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
   return (
     <>
       <div className="StepContent01_wrap">
         <div className="StepContent01_Main">
-          <div className="StepContent01_head">
-            <h1>What type of program do you want to study?</h1>
+          <div className="StepContent01_head ">
+            <h1>
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: confirmartion.headingName,
+                }}
+              ></div>{" "}
+            </h1>
           </div>
           <div className="StepContent01_body_wrap">
             <div className="StepContent01_body">
-              <div className="StepContent_Body_data ">
-                <span className="personalizeM_form__legend">Subject</span>
-                <div className="StepContent_Body_data  "></div>
+              <div className="StepContent_Body_data_for_program">
+                {/* <span className="personalizeM_form__legend">Eligibilty</span> */}
+                <div className="StepContent_Body_data_for_program"></div>
                 <div style={{ position: "relative" }}>
-                  <input
-                    type="text"
-                    className="hero_inpbox-style"
-                    value={searchText}
-                    onChange={handleSearchTextChange}
-                    placeholder="Search for subjects"
-                  />
-                  {searchResults.length > 0 && (
-                    <div
-                      style={{
-                        position: "absolute",
-                        top: "100%",
-                        left: "0",
-                        width: "100%",
-                        maxHeight: "160px",
-                        overflow: "auto",
-                        border: "1px solid #ccc",
-                        backgroundColor: "#fff",
-                        borderRadius: "10px",
-                        boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.2)",
-                      }}
-                    >
-                      <ul
-                        style={{ listStyle: "none", padding: "0", margin: "0" }}
-                      >
-                        {searchResults.map((tag) => (
-                          <li
-                            key={tag}
-                            onClick={() => handleTagClick(tag)}
-                            style={{
-                              cursor: "pointer",
-                              padding: "5px",
-                              backgroundColor:
-                                hoveredTag === tag ? "#f1e4ff90" : "initial",
-                            }}
-                            onMouseEnter={() => setHoveredTag(tag)}
-                            onMouseLeave={() => setHoveredTag(null)}
-                          >
-                            {tag}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-                  <div>
-                    <h4 className="mt-2 ">
-                      {selectedTags.length > 0 && <b> Selected subjects </b>}
-                    </h4>
-                    <ul
-                      style={{
-                        display: "flex",
-                        flexWrap: "wrap",
-                        flexDirection: "row",
-                      }}
-                    >
-                      {selectedTags.map((tag) => (
-                        <li
-                          key={tag}
-                          style={{
-                            backgroundColor: "#f0f0f0",
-                            width: "auto",
-                            margin: "10px 5px",
-                            padding: "10px",
-                            borderRadius: "5px",
-                            display: "flex",
-                            alignItems: "center",
-                          }}
-                        >
-                          {tag}
-                          <GrFormClose
-                            style={{ marginLeft: "5px", cursor: "pointer" }}
-                            onClick={() => removeTag(tag)}
-                          />
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                  {/* <h1>Please Make sure you meet the eligibility criteria</h1> */}
+                  <p style={{ fontSize: 25 }} className="mb-2">
+                    {data?.data.name}
+                  </p>
+                  <p style={{ fontSize: 20 }} className="mb-2">
+                    {data?.data.university.universityName}
+                  </p>
+                  <p className="mt-3 mb-3">
+                    Make sure you’re eligible for this program before you start
+                    your application.
+                  </p>
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: confirmartion.contentText,
+                    }}
+                  ></div>
                 </div>
                 <br />
                 <br />
-
-                <span className="personalizeM_form__legend">Undergraduate</span>
-                <div className="modal_data_body">
-                  <label>
-                    <div class="personalizeM_modal_checkBox_wrap">
-                      <div class="personalizeM_modal_checkBox_body">
-                        <input
-                          type="checkbox"
-                          name="undergraduate"
-                          className="modal_checkBox_inp"
-                        />{" "}
-                        <span className="m-checkbox-text ">Bachelors </span>
-                      </div>
-                    </div>
-                  </label>
-                  <label></label>
-                  <label>
-                    <div className="modal_checkBox_wrap">
-                      <div class="personalizeM_modal_checkBox_body">
-                        <input
-                          type="checkbox"
-                          name="undergraduate"
-                          className="personalizeM_modal_checkBox_inp"
-                        />{" "}
-                        <span className="m-checkbox-text">Associates</span>
-                      </div>
-                    </div>
-                  </label>
-                  <label>
-                    <div class="modal_checkBox_wrap">
-                      <div class="personalizeM_modal_checkBox_body">
-                        <input
-                          type="checkbox"
-                          className="modal_checkBox_inp"
-                          name="undergraduate"
-                        />
-                        <span className="m-checkbox-text">
-                          Undergraduate Diploma
-                        </span>
-                      </div>
-                    </div>
-                  </label>
-                  <label>
-                    <div class="modal_checkBox_wrap">
-                      <div class="personalizeM_modal_checkBox_body">
-                        <input
-                          type="checkbox"
-                          className="modal_checkBox_inp"
-                          name="undergraduate"
-                        />
-                        <span className="m-checkbox-text">
-                          Undergraduate Pathway
-                        </span>
-                      </div>
-                    </div>
-                  </label>
-                </div>
-
-                <span className="form__legend">Postgraduate</span>
-                <div className="modal_data_body">
-                  <label>
-                    <div class="modal_checkBox_wrap">
-                      <div class="personalizeM_modal_checkBox_body">
-                        <input
-                          type="checkbox"
-                          name="undergraduate"
-                          className="modal_checkBox_inp"
-                        />{" "}
-                        <span className="m-checkbox-text">Masters</span>
-                      </div>
-                    </div>
-                  </label>
-                  <label>
-                    <div class="modal_checkBox_wrap">
-                      <div class="personalizeM_modal_checkBox_body">
-                        <input
-                          type="checkbox"
-                          name="undergraduate"
-                          className="modal_checkBox_inp"
-                        />{" "}
-                        <span className="m-checkbox-text">Doctorate</span>
-                      </div>
-                    </div>
-                  </label>
-                  <label>
-                    <div class="modal_checkBox_wrap">
-                      <div class="personalizeM_modal_checkBox_body">
-                        <input
-                          type="checkbox"
-                          className="modal_checkBox_inp"
-                          name="undergraduate"
-                        />{" "}
-                        <span className="m-checkbox-text">
-                          Postgraduate Diploma
-                        </span>
-                      </div>
-                    </div>
-                  </label>
-                </div>
               </div>
             </div>
           </div>
@@ -330,117 +68,77 @@ const StepContent01 = () => {
   );
 };
 
-const StepContent02 = () => {
+const StepContent02 = ({ data }) => {
   const [searchText, setSearchText] = useState("");
-  const [selectedTags, setSelectedTags] = useState([]);
-  const [searchResults, setSearchResults] = useState([]);
-  const [hoveredTag, setHoveredTag] = useState(null);
+  const [selectedOption, setSelectedOption] = useState("");
 
-  const handleSearchTextChange = (e) => {
-    const searchText = e.target.value;
-    setSearchText(searchText);
+  const myData = data.data;
+  console.log("data 02 ", myData);
 
-    const filteredResults = dummyCountries.filter((tag) =>
-      tag.toLowerCase().includes(searchText.toLowerCase())
-    );
-    setSearchResults(filteredResults);
-  };
-
-  const handleTagClick = (tag) => {
-    setSelectedTags((prevTags) => [...prevTags, tag]);
-    setSearchText("");
-    setSearchResults([]);
-  };
-
-  const removeTag = (tag) => {
-    setSelectedTags((prevTags) => prevTags.filter((t) => t !== tag));
+  const handleOptionChange = (startDate, startMonth, startYear) => {
+    // Handle the selected option with the provided values
+    setSelectedOption(startDate);
+    localStorage.setItem("startDate", startDate);
+    localStorage.setItem("startMonth", startMonth);
+    localStorage.setItem("startYear", startYear);
+    // Additional logic with startMonth and startYear
   };
 
   return (
     <div className="StepContent01_wrap">
       <div className="StepContent01_Main">
         <div className="StepContent01_head">
-          <h1>Select country where you want to study?</h1>
+          <h1>When do you want to start your program?</h1>
         </div>
         <div className="StepContent01_body_wrap">
           <div className="StepContent01_body">
-            <div className="StepContent_Body_data "></div>
-            <div style={{ position: "relative", margin:"0px 15px " }}>
-              <input
-                type="text"
-                className="hero_inpbox-style"
-                value={searchText}
-                onChange={handleSearchTextChange}
-                placeholder="Search for a country"
-              />
-              {searchResults.length > 0 && (
-                <div
-                  style={{
-                    position: "absolute",
-                    top: "100%",
-                    left: "0",
-                    width: "100%",
-                    maxHeight: "160px",
-                    overflow: "auto",
-                    border: "1px solid #ccc",
-                    backgroundColor: "#fff",
-                    borderRadius: "10px",
-                    boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.2)",
-                  }}
-                >
-                  <ul style={{ listStyle: "none", padding: "0", margin: "0" }}>
-                    {searchResults.map((tag) => (
-                      <li
-                        key={tag}
-                        onClick={() => handleTagClick(tag)}
-                        style={{
-                          cursor: "pointer",
-                          padding: "5px",
-                          backgroundColor:
-                            hoveredTag === tag ? "#f1e4ff90" : "initial",
-                        }}
-                        onMouseEnter={() => setHoveredTag(tag)}
-                        onMouseLeave={() => setHoveredTag(null)}
-                      >
-                        {tag}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-              <div>
-                <h4 className="mt-2 ">
-                  <b> Selected Countries </b>:
-                </h4>
-                <ul
-                  style={{
-                    display: "flex",
-                    flexWrap: "wrap",
-                    flexDirection: "row",
-                  }}
-                >
-                  {selectedTags.map((tag) => (
-                    <li
-                      key={tag}
+            <div className="StepContent_Body_data_for_program_for_program"></div>
+            <div style={{ position: "relative", margin: "0px 15px " }}>
+              <h3>Which intake do you want to apply for?</h3>
+              <div
+                style={{ display: "flex", flexDirection: "column", margin: 20 }}
+              >
+                {myData.startData.map((row) => (
+                  <label
+                    className="container"
+                    style={{
+                      display: "flex",
+                      justifyContent: "flex-start",
+                      alignItems: "center",
+                      marginBottom: "25px",
+                    }}
+                    key={row.startAt}
+                  >
+                    <input
+                      type="radio"
                       style={{
-                        backgroundColor: "#f0f0f0",
-                        width: "auto",
-                        margin: "10px 5px",
-                        padding: "10px",
-                        borderRadius: "5px",
-                        display: "flex",
-                        alignItems: "center",
+                        width: "25px",
+                        height: "25px",
+                        marginRight: "10px",
                       }}
-                    >
-                      {tag}
-                      <GrFormClose
-                        style={{ marginLeft: "5px", cursor: "pointer" }}
-                        onClick={() => removeTag(tag)}
-                      />
-                    </li>
-                  ))}
-                </ul>
+                      value={row.startDate}
+                      checked={selectedOption === row.startDate}
+                      onChange={(e) => {
+                        const { startDate, startMonth, startYear } = row;
+                        handleOptionChange(startDate, startMonth, startYear);
+                      }}
+                    />
+                    <span style={{ display: "flex", flexDirection: "column" }}>
+                      <span>
+                        {row.startDate} {row.startMonth} {row.startYear}
+                      </span>
+                      <span style={{ fontSize: "20px" }}>
+                        Apply by {row.deadlineDate} {row.deadlineMonth}
+                        {row.deadlineYear}
+                      </span>
+                    </span>
+
+                    <span className="checkmark"></span>
+                  </label>
+                ))}
               </div>
+
+              <div></div>
             </div>
           </div>
         </div>
@@ -449,64 +147,151 @@ const StepContent02 = () => {
   );
 };
 const StepContent03 = () => {
+  const id = useSelector((state) => state.userId);
+
+  const [apply, setApply] = useState([]);
+  const [studentAge, setStudentAge] = useState(false);
+  const [parent, setParent] = useState(false);
+
+  useEffect(() => {
+    axios
+      .get(
+        "https://studyapi.ieodkv.com/content/headings/application/application-2"
+      )
+      .then((response) => {
+        setApply(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
   return (
     <>
-      <div className="StepContent01_wrap">
-        <div className="StepContent01_Main">
-          <div className="StepContent01_head">
-          
-            <h1>How do you want your program to be delivered?</h1>
-          </div>
-          <div className="StepContent01_body_wrap">
-            <div className="StepContent01_body">
-              <div className="StepContent_Body_data ">
-                <div className="modal_data_body">
-                  <span className="personalizeM_form__legend">
-                    Delivery Method
-                  </span>
-
-                  <label>
-                    <div class="personalizeM_modal_checkBox_wrap">
-                      <div class="personalizeM_modal_checkBox_body">
-                        <input
-                          type="checkbox"
-                          name="undergraduate"
-                          className="modal_checkBox_inp"
-                        />{" "}
-                        <span className="m-checkbox-text ">On Campus </span>
-                      </div>
-                    </div>
-                  </label>
-                  <label>
-                    <div className="modal_checkBox_wrap">
-                      <div class="personalizeM_modal_checkBox_body">
-                        <input
-                          type="checkbox"
-                          name="undergraduate"
-                          className="personalizeM_modal_checkBox_inp"
-                        />{" "}
-                        <span className="m-checkbox-text">Online</span>
-                      </div>
-                    </div>
-                  </label>
-                  <label>
-                    <div className="modal_checkBox_wrap">
-                      <div class="personalizeM_modal_checkBox_body">
-                        <input
-                          type="checkbox"
-                          name="undergraduate"
-                          className="personalizeM_modal_checkBox_inp"
-                        />{" "}
-                        <span className="m-checkbox-text">Home Tution</span>
-                      </div>
-                    </div>
-                  </label>
+      {!id ? (
+        <>
+          {" "}
+          <div className="StepContent01_wrap">
+            <div className="StepContent01_Main">
+              <div className="StepContent01_head">
+                <h1>Before Applying You Need To Sign In With Your Account</h1>
+              </div>
+              <div className="StepContent01_body_wrap">
+                <div className="StepContent01_body">
+                  <LoginSmall />
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
+        </>
+      ) : (
+        <>
+          <div className="StepContent01_wrap">
+            <div className="StepContent01_Main">
+              <div className="StepContent01_head">
+                <h1>
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: apply.headingName,
+                    }}
+                  ></div>
+                </h1>
+              </div>
+              <div className="StepContent01_body_wrap">
+                <div className="StepContent01_body">
+                  <div style={{ position: "relative", margin: "0px 15px " }}>
+                    <h3>
+                      {" "}
+                      <div
+                        dangerouslySetInnerHTML={{
+                          __html: apply.contentText,
+                        }}
+                      ></div>
+                    </h3>
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        margin: 20,
+                      }}
+                    >
+                      {/* Age start */}
+                      <h3 className="text-xl font-bold">Age Verification</h3>
+                      <div className="flex items-start">
+                        <input
+                          type="checkbox"
+                          id="studentAgeCheckbox"
+                          className="mr-2 mt-1.5"
+                          checked={studentAge}
+                          onChange={() => {
+                            setStudentAge(!studentAge),
+                              localStorage.setItem("studentAge", !studentAge);
+                          }}
+                        />
+                        <label
+                          htmlFor="studentAgeCheckbox"
+                          className=" "
+                          style={{ fontSize: 20 }}
+                        >
+                          I am currently under the age of 18
+                        </label>
+                      </div>
+                      <p className="mt-2 mb-2">
+                        If you are under 18, we can provide additional support
+                        and require consent from a parent or guardian.
+                      </p>
+                      {/* Age ends */}
+                      {/* parents start */}
+                      <h3 className="text-xl font-bold">
+                        Parental communication:
+                      </h3>
+                      <div className="flex items-start">
+                        <input
+                          type="checkbox"
+                          id="parentCheckbox"
+                          className="mr-2 mt-1.5"
+                          checked={parent}
+                          onChange={() => setParent(!parent)}
+                        />
+                        <label
+                          htmlFor="parentCheckbox"
+                          className=" "
+                          style={{ fontSize: 20 }}
+                        >
+                          I would like my parent or guardian to be copied into
+                          all emails between myself and the university or Studee
+                          {parent && (
+                            <input
+                              type="text"
+                              className="rounded"
+                              placeholder="Guardians Email"
+                              onChange={(e) => {
+                                localStorage.setItem(
+                                  "guardianEmail",
+                                  e.target.value
+                                );
+                              }}
+                            />
+                          )}
+                        </label>
+                      </div>
+                      <p className="mt-2 mb-2">
+                        We can copy a parent or guardian into the emails you
+                        receive from Studee and the University you're applying
+                        to so they can stay up-to-date with your application.
+                      </p>
+
+                      {/* parents ends */}
+                    </div>
+                  </div>
+                  <div className="StepContent_Body_data_for_program ">
+                    {/* <div className="modal_data_body"></div> */}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </>
+      )}
     </>
   );
 };
@@ -522,7 +307,7 @@ const StepContent04 = () => {
           </div>
           <div className="StepContent01_body_wrap">
             <div className="StepContent01_body">
-              <div className="StepContent_Body_data ">
+              <div className="StepContent_Body_data_for_program ">
                 <span className="personalizeM_form__legend">Budget</span>
                 <div className="modal_data_body">
                   <label>

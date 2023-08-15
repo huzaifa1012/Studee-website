@@ -13,6 +13,7 @@
 
 .browseByCountry_head {
   display: flex;
+  flex-direction: column;
   width: 100%;
   justify-content: center;
 }
@@ -20,6 +21,11 @@
   font-size: 36px;
   width: 97%;
   margin-bottom: 0px;
+}
+.browseByCountry_desc {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 .browseByCountry_body {
   display: flex;
@@ -64,7 +70,7 @@
 }
 
 .browseByCountry_bottom p {
-  color:  var(--primary-accent);
+  color: var(--primary-accent);
   font-weight: 600;
   width: 97%;
   margin: 20px 0px;
@@ -88,7 +94,6 @@
 }
 
 @media (min-width: 600px) {
-  
   .browseByCountry_card {
     margin: 27px 10px;
   }

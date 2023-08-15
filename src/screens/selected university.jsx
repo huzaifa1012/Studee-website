@@ -9,10 +9,10 @@ import StudentLifeGalleryAndHeading from "../component/university component/stud
 const SelectedUniversity = () => {
   return (
     <>
-      <SelectedUniHero />
+      <SelectedUniHero uniName={"ABC"} />
       <Whystudee />
       <Uni_details_And_Logo />
-      <Uni_FindAndApplyCard/>
+      <Uni_FindAndApplyCard />
       <br />
       <br />
       <VerticalizeTreeProjectComponent
@@ -91,7 +91,8 @@ const SelectedUniversity = () => {
             <br />
             <br />
           </ol>
-        }      />
+        }
+      />
     </>
   );
 };

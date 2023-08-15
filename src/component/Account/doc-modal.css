@@ -1,0 +1,29 @@
+.modal {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  align-items: center;
+  background-color: rgba(68, 61, 61, 0.418);
+  z-index: 1;
+}
+
+.modalInner {
+  z-index: 1;
+  width: 50%;
+  height: 80vh;
+  padding: 50px;
+  position: relative;
+  border: 1px solid #603392;
+  background-color: white;
+  border-radius: 10px;
+}
+.closeModal {
+  font-size: 20px;
+  cursor: pointer;
+  color: #603392;
+  font-weight: bold;
+}
