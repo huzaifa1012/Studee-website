@@ -38,12 +38,10 @@ const SelectedCityFromCountry = () => {
   const fetchSelectedCityData = async () => {
     try {
       const response = await axios.get(
-        `https://studyapi.ieodkv.com/cities/city1/${
-          params.city
+        `https://studyapi.ieodkv.com/cities/city1/${params.city
         }?${Math.random()}`
       );
       setCityData(response.data);
-      console.log("response.data", response.data);
     } catch (error) {
       console.error(
         "Error fetching from selected city from selected country:",
@@ -60,6 +58,8 @@ const SelectedCityFromCountry = () => {
       {cityData ? (
         <>
           <SelectedSubjectHero
+            dataToAddProgram={cityData}
+            paramsFeild={"city"}
             scrollToComponent2={scrollToComponent2}
             subjectName={cityData.name}
             BGImage={`https://studyapi.ieodkv.com/cities/images/${cityData.image}`}

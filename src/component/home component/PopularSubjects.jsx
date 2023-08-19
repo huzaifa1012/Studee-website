@@ -7,17 +7,18 @@ import {
 import { animateScroll } from "react-scroll";
 import { useNavigate } from "react-router-dom";
 
-const PopularSubjects = ({heading,allSubjects,length}) => {
+const PopularSubjects = ({ heading, paragraph, allSubjects, length }) => {
 
   const navigate = useNavigate()
-  
+
   const [subjects, setVisibleSubjects] = useState(
-    allSubjects.slice(0,length)
+    allSubjects.slice(0, length)
   );
   const [showAll, setShowAll] = useState(false);
 
   const handleSelectSubject = (item) => {
     navigate(`/subjects/${item.urlName}`)
+
   }
   const handleSeeAllSubjects = () => {
     if (showAll) {
@@ -33,21 +34,24 @@ const PopularSubjects = ({heading,allSubjects,length}) => {
   };
   return (
     <>
-      <div className="populer_subject_wrap">
-        <div className="populer_subject_main">
+      <div className="populer_subject_wrap" style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
+        <div className="populer_subject_main" style={{ width: '90%' }}>
           <div className="populer_subject_head">
             <h1 className="mtc">{heading}</h1>
+            <br />
+            <p>{paragraph && paragraph}</p>
+            <br />
           </div>
           <div className={`populer_subject_body ${showAll ? "fade-in" : ""}`}>
-            {allSubjects.map((item,index) => {
+            {allSubjects.map((item, index) => {
               return (
                 <div
                   key={index}
-                  onClick={()=>handleSelectSubject(item)}
+                  onClick={() => handleSelectSubject(item)}
                   className="populer_subject_card"
                 >
-                  <div key={index}>
-                    <h2>{item.name}</h2>
+                  <div>
+                    <h2>{item.name ? item.name : item}</h2>
                   </div>
                 </div>
               );

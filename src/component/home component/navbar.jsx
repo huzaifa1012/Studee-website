@@ -66,7 +66,7 @@ const callsToAction = [
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
-export function Navbar() {
+export function Navbar({ profileData }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [locationData, setLocationData] = useState([]);
 
@@ -105,7 +105,7 @@ export function Navbar() {
             id="search"
             name="search"
             className="header_custom_searchbar block w-full bg-white border border-gray-300 rounded-md py-2 pr-10 pl-3 text-sm placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-            placeholder="Find a university"
+            placeholder="Find a country, city or university"
             type="search"
             onChange={handleSearchChange}
           />
@@ -133,10 +133,6 @@ export function Navbar() {
               <Link className="My_navLink" to="/programs">
                 Programs
               </Link>
-              <ChevronDownIcon
-                className="h-5 w-5 flex-none text-gray-400"
-                aria-hidden="true"
-              />
             </Popover.Button>
 
             <Transition
@@ -181,21 +177,21 @@ export function Navbar() {
             <button
               style={{
                 backgroundColor: "#f7f8f9",
-                padding: "5px 10px",
+                // padding: "5px 10px",
                 borderRadius: "8px",
                 display: "flex",
                 flexDirection: "row",
+                fontSize: "12px",
                 alignItems: "center",
               }}
-              className="text-sm font-semibold leading-6 text-gray-900"
+              className=" text-sm font-semibold leading-6 text-gray-900"
             >
-              <span aria-hidden="true" style={{ marginRight: "2px" }}>
-                <AiOutlineUser
-                  size={22}
-                  style={{ fill: "var(--primary-color)" }}
-                />
-              </span>{" "}
-              {id ? "Account" : "Sign In"}
+              <AiOutlineUser
+                size={22}
+                style={{ fill: "var(--primary-color)" }}
+              />
+              <span aria-hidden="true" style={{ marginRight: "2px" }}></span>{" "}
+              {id ? `Welcome ${profileData.firstname}` : "Sign In"}
             </button>
           </Link>
         </div>
@@ -278,11 +274,31 @@ export function Navbar() {
               </div>
               <div className="py-6">
                 <Link
-                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                  to="/login"
+                  to={id ? "/account" : "/login"}
+                  onClick={() => setMobileMenuOpen(false)}
                 >
-                  {" "}
-                  Log in
+                  <button
+                    style={{
+                      backgroundColor: "#f7f8f9",
+                      // padding: "5px 10px",
+                      borderRadius: "8px",
+                      display: "flex",
+                      flexDirection: "row",
+                      fontSize: "12px",
+                      alignItems: "center",
+                    }}
+                    className="text-sm font-semibold leading-6 text-gray-900"
+                  >
+                    <AiOutlineUser
+                      size={22}
+                      style={{ fill: "var(--primary-color)" }}
+                    />
+                    <span
+                      aria-hidden="true"
+                      style={{ marginRight: "2px" }}
+                    ></span>{" "}
+                    {id ? `Welcome ${profileData.firstname}` : "Sign In"}
+                  </button>
                 </Link>
               </div>
             </div>

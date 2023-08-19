@@ -42,6 +42,7 @@ const SelectedCountry = () => {
         `https://studyapi.ieodkv.com/countries/${params.name}`
       );
       setCountryData(response.data);
+      console.log(response.data);
     } catch (error) {
       console.error(
         "Error fetching popular subjec for selected country:",
@@ -69,6 +70,8 @@ const SelectedCountry = () => {
   return (
     <>
       <SelectedSubjectHero
+        paramsFeild={"country"}
+        dataToAddProgram={countryData}
         scrollToComponent2={scrollToComponent2}
         subjectName={countryData.name}
         BGImage={`https://studyapi.ieodkv.com/countries/images/${countryData.countryImage}`}
@@ -80,9 +83,11 @@ const SelectedCountry = () => {
             <h1>Why study in {countryData.name}?</h1>
             {parse(countryData && countryData.whyStudyHere)}
 
-            <button className="why_use_bottom_btn">
-              Search for a university
-            </button>
+            <Link to="/universities">
+              <button className="why_use_bottom_btn">
+                Search for a university
+              </button>
+            </Link>
           </>
         }
       />
@@ -104,18 +109,16 @@ const SelectedCountry = () => {
 
       {subject && (
         <PopularSubjectsSelectedCountry
-          heading={`Popular subjects to study in ${
-            countryData && countryData?.name
-          }`}
+          heading={`Popular subjects to study in ${countryData && countryData?.name
+            }`}
           allSubjects={subject}
           length={subject.length}
           countryUrl={params.name}
         />
       )}
       <TreeProjectComponent
-        heading={`What is the cost of studying in ${
-          countryData && countryData?.name
-        }?`}
+        heading={`What is the cost of studying in ${countryData && countryData?.name
+          }?`}
         imageUrl={costOfStudyingImage}
         paragraph={parse(countryData && countryData.costOfStudy)}
       />
@@ -125,17 +128,15 @@ const SelectedCountry = () => {
         <CitiesAndUniForSelectedCountry
           countryUrl={countryData.urlName}
           countryId={countryData._id}
-          heading={`Where can you study in ${
-            countryData && countryData?.name
-          }?`}
+          heading={`Where can you study in ${countryData && countryData?.name
+            }?`}
           body={<>{parse(countryData && countryData.whereCanYouStudy)}</>}
           heading2={`Universities in ${countryData && countryData?.name}?`}
         />
       )}
       <DetalilsWithImage
-        heading={`What are the requirements to study in ${
-          countryData && countryData.name
-        }?`}
+        heading={`What are the requirements to study in ${countryData && countryData.name
+          }?`}
         body={parse(countryData && countryData.requirements.qualifications)}
         imageUrl={whatAreRequirmenets}
         paragraph2={parse(
@@ -150,7 +151,7 @@ const SelectedCountry = () => {
               <h1>{countryData && countryData.name} student visa?</h1>
               {parse(countryData && countryData.studentVisa)}
 
-              <Link to={`/visas-&-travel/${params.name}`}>
+              <Link to={`/guide1/how-to-apply-for-a-uk-student-visa`}>
                 <button className="universities_hero_left_btn fsinm">
                   {countryData && countryData.name} Visa Requirements
                 </button>
@@ -160,25 +161,6 @@ const SelectedCountry = () => {
         />
       </div>
 
-      <DetalilsWithImage
-        heading={`How to study in ${params.name}?`}
-        body={
-          <>
-            <br />
-            <p>
-              If you are studying as an international student in English, then
-              the IELTS academic test is most commonly used in Austria. In
-              situations where students have previously studied with English as
-              the language of instruction an English language certification is
-              not always needed.
-            </p>
-            <button className="why_use_bottom_btn">
-              How to study abroad with IEO
-            </button>
-          </>
-        }
-        imageUrl={howStudyinAus}
-      />
     </>
   );
 };

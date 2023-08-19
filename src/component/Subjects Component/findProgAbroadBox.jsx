@@ -6,7 +6,7 @@ import find1Img from "../../assets/Australlia country/accounting/bachelors-progr
 import find2Img from "../../assets/Australlia country/accounting/masters-program-in-australlia.png" 
 import find3Img from "../../assets/Australlia country/accounting/PHd-program-in-australia.png" 
 const FindProgramAbroadbox = ({degree,subjectName}) => {
-  return (
+    return (
     <div>
     {subjectName &&   
       <div className="findProgBox_main_wrap">

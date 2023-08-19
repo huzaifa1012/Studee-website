@@ -35,7 +35,15 @@ const GuideDetailPage = () => {
         heading={guideData.guideName}
       />
       <GuideDetailBody
-        desciption={guideData.description}
+
+        desciption={
+          <div
+            dangerouslySetInnerHTML={{
+              __html: guideData.description,
+            }}
+          ></div>
+        }
+
         VisaRequirementLink={guideData.name}
         body={
           <div className="guide_detail_bodySection">

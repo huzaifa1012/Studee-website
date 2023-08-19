@@ -11,15 +11,25 @@
 }
 
 .acc_heading {
-  font-size: 3em;
+  font-size: 2em;
   display: flex;
   display: inline;
 }
 .make-inline {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.account_head_left {
+  display: flex;
   justify-content: flex-start;
   align-items: center;
+  width: 60%;
+}
+.account_head_right {
+  width: 35%;
+  text-align: right;
 }
 .acc_box_wrap {
   width: 100%;
@@ -40,6 +50,7 @@
 
 .acc_prof_box_img {
   margin: 20px;
+
   max-width: 60px;
   border-radius: 9000px;
 }
@@ -114,6 +125,24 @@
   flex-wrap: wrap;
 }
 
+/* Profile CSS  */
+.edi_btn {
+  cursor: pointer;
+  background-color: transparent;
+  color: var(--primary-color);
+  border: 1.5px solid var(--primary-color);
+  padding: 3px 5px;
+  border-radius: 6px;
+}
+.update_btn {
+  margin: 5px;
+  cursor: pointer;
+  background-color: var(--secondary-color);
+  color: white;
+  border: 1.5px solid var(--secondary-color);
+  padding: 3px 5px;
+  border-radius: 6px;
+}
 @media (max-width: 480px) {
   /* profile */
   .profile-details-wrap {
@@ -132,6 +161,11 @@
     box-shadow: 0px 3px 2px black;
     border: 1px solid black;
   }
+  .acc_prof_box_img {
+    margin: 5px;
+    max-width: 30px !important;
+    border-radius: 9000px;
+  }
 }
 @media (min-width: 480px) and (max-width: 768px) {
   .acc_box {
@@ -141,5 +175,13 @@
     margin: 15px;
     box-shadow: 0px 3px 2px black;
     border: 1px solid black;
+  }
+}
+@media (min-width: 100px) and (max-width: 500px) {
+  .acc_heading {
+    font-size: 1.5em;
+  }
+  .account_head_right {
+    text-align: center;
   }
 }

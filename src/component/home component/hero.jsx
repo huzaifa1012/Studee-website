@@ -54,6 +54,7 @@ const Hero = ({ data }) => {
     const searchParameters = [];
     let url = "/search-programs/";
     if (locationFor) {
+      console.log(locationFor);
       searchParameters.push(locationFor);
     }
     if (subject) {
@@ -182,7 +183,7 @@ const Hero = ({ data }) => {
                   });
                 }}
               >
-                <option value="">Choose Location</option>
+                <option value="">Choose country, city or university</option>
                 {locationData.map((row) => (
                   <option
                     className="main_hero_option_box"

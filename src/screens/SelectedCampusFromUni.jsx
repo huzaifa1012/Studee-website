@@ -87,6 +87,8 @@ const SelectedCampusFromUni = () => {
       ) : (
         <>
           <SelectedUniHero
+            paramsFeild={"campus"}
+            dataToAddProgram={campusData}
             scrollToComponent2={scrollToComponent2}
             uniName={campusData && campusData.name}
             data={campusData}
@@ -95,9 +97,8 @@ const SelectedCampusFromUni = () => {
 
           <Whystudee />
           <DetalilsWithImage
-            imageUrl={`https://studyapi.ieodkv.com/universities/images/${
-              campusData && campusData.university.logoImage
-            }`}
+            imageUrl={`https://studyapi.ieodkv.com/universities/images/${campusData && campusData.university.logoImage
+              }`}
             body={
               <>
                 <h1>Study abroad at {campusData && campusData.name}?</h1>
@@ -129,7 +130,7 @@ const SelectedCampusFromUni = () => {
                   <h1>Life as an international student</h1>
                   {parse(
                     campusData &&
-                      campusData.university.lifeOfInternationalStudents
+                    campusData.university.lifeOfInternationalStudents
                   )}
                 </>
               }

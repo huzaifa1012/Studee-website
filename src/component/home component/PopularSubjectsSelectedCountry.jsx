@@ -8,11 +8,11 @@ import { Link } from "react-router-dom";
 import { animateScroll } from "react-scroll";
 import { useNavigate } from "react-router-dom";
 
-const PopularSubjectsSelectedCountry = ({heading,allSubjects,length,countryUrl}) => {
+const PopularSubjectsSelectedCountry = ({ heading, allSubjects, length, countryUrl }) => {
 
-  const [subjects, setVisibleSubjects] = useState(allSubjects.slice(0,length));
+  const [subjects, setVisibleSubjects] = useState(allSubjects.slice(0, length));
   const [showAll, setShowAll] = useState(false);
-  
+
   const navigate = useNavigate()
 
   const handleSeeAllSubjects = () => {
@@ -28,7 +28,9 @@ const PopularSubjectsSelectedCountry = ({heading,allSubjects,length,countryUrl})
     animateScroll.scrollToTop();
   };
   const handle_subject_click = (item) => {
-    navigate(`/subjects/country/${countryUrl}/subject/${item.urlName}`)
+
+    // navigate(`/subjects/country/${countryUrl}/subject/${item.urlName}`)
+    navigate(`/subjects/${item.urlName}`)
   };
   return (
     <>
@@ -38,11 +40,11 @@ const PopularSubjectsSelectedCountry = ({heading,allSubjects,length,countryUrl})
             <h1 className="mtc">{heading}</h1>
           </div>
           <div className={`populer_subject_body ${showAll ? "fade-in" : ""}`}>
-            {allSubjects?.map((item,index) => {
+            {allSubjects?.map((item, index) => {
               return (
                 <div
                   key={index}
-                  onClick={()=>handle_subject_click(item)}
+                  onClick={() => handle_subject_click(item)}
                   className="populer_subject_card"
                 >
                   <div key={index}>

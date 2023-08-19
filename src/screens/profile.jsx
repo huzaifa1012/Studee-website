@@ -60,7 +60,7 @@ const Profile = () => {
 
   const handleCancel = () => {
     setEdiable(false);
-    fetchData();
+    // fetchData();
   };
   const handleSave = async () => {
     try {
@@ -131,35 +131,46 @@ const Profile = () => {
         <div className="account_containerWrap">
           <div className="acc_container">
             <div className="make-inline">
-              <img
-                className="acc_prof_box_img"
-                src="https://yt3.googleusercontent.com/ytc/AGIKgqMPsGpJrtJwiljcI3r7SP-oI2pR5WkSbFoVtQ=s900-c-k-c0x00ffffff-no-rj"
-              />{" "}
-              <h1 className="acc_heading"> Your Profile</h1>
-            </div>
-            {ediable ? (
-              <div>
-                <button
-                  onClick={() => {
-                    handleSave(false);
-                  }}
-                >
-                  Update
-                </button>
-
-                <button
-                  onClick={() => {
-                    handleCancel();
-                  }}
-                >
-                  Cancel To Save
-                </button>
+              <div className="account_head_left">
+                <img
+                  className="acc_prof_box_img"
+                  src="https://yt3.googleusercontent.com/ytc/AGIKgqMPsGpJrtJwiljcI3r7SP-oI2pR5WkSbFoVtQ=s900-c-k-c0x00ffffff-no-rj"
+                />{" "}
+                <h1 className="acc_heading"> Your Profile</h1>
               </div>
-            ) : (
-              <>
-                <button onClick={() => setEdiable(true)}>Edit Info</button>
-              </>
-            )}
+              <div className="account_head_right">
+                {ediable ? (
+                  <div>
+                    <button
+                      className="update_btn"
+                      onClick={() => {
+                        handleSave(false);
+                      }}
+                    >
+                      Update
+                    </button>
+
+                    <button
+                      onClick={() => {
+                        handleCancel();
+                      }}
+                    >
+                      Cancel
+                    </button>
+                  </div>
+                ) : (
+                  <>
+                    <button
+                      className="edi_btn"
+                      onClick={() => setEdiable(true)}
+                    >
+                      Edit Info
+                    </button>
+                  </>
+                )}
+              </div>
+            </div>
+
             <hr />
             <br />
             <div className="profile-details-wrap-ultra">
@@ -322,7 +333,28 @@ const Profile = () => {
                 )}
 
                 {/*  */}
+
+              </div>
+
+              <div className="profile-details-wrap">
                 <br />
+                {/* <span>Main reasosn to study abroad</span>
+                {ediable ? (
+                  <>
+                    <input
+                      type="text"
+                      className="editable-input"
+                      placeholder={data.reasonToStudyAbroad}
+                      name=""
+                      onChange={(e) => {
+                        setReasonToStudyAbroad(e.target.value);
+                      }}
+                      id=""
+                    />
+                  </>
+                ) : (
+                  <h1>{data.reasonToStudyAbroad}</h1>
+                )} */}
                 <span>Last institution</span>
                 {ediable ? (
                   <>
@@ -341,7 +373,6 @@ const Profile = () => {
                 ) : (
                   <h1>{data.lastInstitution}</h1>
                 )}
-                {/*  */}
 
                 <br />
                 <span>Last Education Country</span>
@@ -363,42 +394,9 @@ const Profile = () => {
                   <h1>{data.lastEducationCountry}</h1>
                 )}
 
-                {/*  */}
                 <br />
-                <span>last Qualification degree</span>
-                <h1>
-                  {data.lastQualification} {}
-                </h1>
-              </div>
-
-              <div className="profile-details-wrap">
-                {/*  */}
-                <br />
-                <span>Main reason to study abroad</span>
-                {ediable ? (
-                  <>
-                    <input
-                      type="text"
-                      className="editable-input"
-                      placeholder={data.reasonToStudyAbroad}
-                      name=""
-                      onChange={(e) => {
-                        setReasonToStudyAbroad(e.target.value);
-                      }}
-                      id=""
-                    />
-                  </>
-                ) : (
-                  <h1>{data.reasonToStudyAbroad}</h1>
-                )}
-                {/*  */}
-                <br />
-                <span>Where are you in your study abroad journey</span>
-                <h1>{data.email}</h1>
-                {/*  */}
-                <br />
-                <span>When are you looking to apply</span>
-                <h1>{data.phoneNo}</h1>
+                <span>Your gender</span>
+                <h1>{data.gender}</h1>
                 {/*  */}
                 <br />
                 <span>Country of nationality</span>

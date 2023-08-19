@@ -7,14 +7,11 @@ import { Link } from "react-scroll";
 const SelectedSubjectHero = ({
   subjectName,
   BGImage,
-  scrollToComponent2,
   countryName,
+  paramsFeild,
+  dataToAddProgram,
 }) => {
   const component1Ref = useRef(null);
-
-  const handleButtonClick = () => {
-    scrollToComponent2();
-  };
 
   // modal code starts here
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -25,12 +22,21 @@ const SelectedSubjectHero = ({
   const handleCancel = () => {
     setIsModalOpen(false);
   };
-
   // modal code ends
+  // console.log("dataToAddProgram", dataToAddProgram);
 
   return (
     <>
-      <ViewProgMod isModalOpen={isModalOpen} onClose={handleCancel} />
+      <ViewProgMod
+        isModalOpen={isModalOpen}
+        paramsFeild={paramsFeild}
+        programQuery={
+          dataToAddProgram.universityName
+            ? dataToAddProgram.universityName
+            : dataToAddProgram.name
+        }
+        onClose={handleCancel}
+      />
       <div className="modalContainer"></div>
       <div
         className="main-selectedSubHero_wrap"
@@ -57,11 +63,11 @@ const SelectedSubjectHero = ({
                 className="universities_hero_left_btn_org"
                 onClick={showModal}
               >
-                Find Your Perfect Program
+                Start Application
                 <BiRightArrowAlt className="heroBtnIcon" size={25} />
               </button>
 
-              <Link to="whyStudee" smooth={true} duration={1500}>
+              <Link to="whyStudee" smooth={true} duration={1000}>
                 <button className="universities_hero_left_btn_trp">
                   How study can help
                 </button>

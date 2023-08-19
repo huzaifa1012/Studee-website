@@ -16,8 +16,9 @@ const ProgramCard = ({ data }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  console.log(data);
+  // console.log(data);
   const handleNavigation = async (data) => {
+    console.log(data)
     try {
       dispatch(setSelectedProgram({ data }));
 
@@ -25,7 +26,7 @@ const ProgramCard = ({ data }) => {
       localStorage.setItem("programId", data._id);
 
       navigate("/apply/program/eligibility");
-    } catch (error) {}
+    } catch (error) { }
   };
 
   const countries = [
@@ -91,12 +92,15 @@ const ProgramCard = ({ data }) => {
                     >
                       <button>Start Application </button>
                     </div>
-                    <Link
-                      to="/program-details"
+                    <div
+
+                      onClick={() => {
+                        navigate(`/selected-program-detail/${item.urlName}`)
+                      }}
                       className="programs_card_right_btn2"
                     >
                       <button>Program Details</button>
-                    </Link>
+                    </div>
                   </div>
                 </div>
               </>

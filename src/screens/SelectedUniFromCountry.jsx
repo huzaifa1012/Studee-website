@@ -23,6 +23,7 @@ import Campuses from "../component/Selected University/campuses";
 import student_life_image from "../../src/assets/images/student-life.avif";
 import StudentLifeGalleryAndHeading from "../component/university component/studentLife(heading/Image)";
 import { animateScroll } from "react-scroll";
+import Agent from "../component/Selected University/agent/agent";
 
 const SelectedUniFromCountry = () => {
   const [loading, setLoading] = useState(true);
@@ -48,7 +49,7 @@ const SelectedUniFromCountry = () => {
       );
       setUniData(response.data);
       setLoading(false); // Set loading to false after data is fetched
-      console.log("response.data", response.data);
+      console.log(uniData);
     } catch (error) {
       setLoading(false); // Set loading to false in case of error as well
       console.error(
@@ -62,6 +63,8 @@ const SelectedUniFromCountry = () => {
       const response = await axios.get(
         `https://studyapi.ieodkv.com/popular/country/${params.name}`
       );
+      cosnole.log("respo", response.data);
+      cosnole.log("respo");
       setSubjects(response.data);
     } catch (error) {
       console.error(
@@ -88,6 +91,8 @@ const SelectedUniFromCountry = () => {
       ) : (
         <>
           <SelectedSubjectHero
+            paramsFeild={"universityName"}
+            dataToAddProgram={uniData}
             scrollToComponent2={scrollToComponent2}
             subjectName={uniData && uniData.universityName}
             BGImage={`https://studyapi.ieodkv.com/universities/images/${uniData.banner}`}
@@ -115,6 +120,9 @@ const SelectedUniFromCountry = () => {
               }
             />
           </div>
+
+
+          <Agent />
 
           <div style={{ backgroundColor: "##f7f8f9" }}>
             <DetalilsWithLeftImage
@@ -159,7 +167,7 @@ const SelectedUniFromCountry = () => {
                   <h1>{uniData && uniData.country.name} student visa?</h1>
                   {parse(uniData && uniData.studentVisa)}
 
-                  <Link to={`/visas-&-travel/${params.name}`}>
+                  <Link to={`/guide1/how-to-apply-for-a-uk-student-visa`}>
                     <button className="universities_hero_left_btn fsinm">
                       {uniData && uniData.name} Visa Requirements
                     </button>

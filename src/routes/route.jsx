@@ -46,7 +46,7 @@ const Routing = () => (
       path="/subjects/country/:countryUrl/subject/:subjectUrl"
       element={<Selected_subject_from_selected_country />}
     />
-    <Route path="/program-details" element={<ProgramDetails />} />
+    <Route path="/selected-program-detail/:name" element={<ProgramDetails />} />
     <Route path="/:name" element={<SelectedCountry />} />
     <Route path="/:name/:city" element={<SelectedCityFromCountry />} />
     {/* <Route path="/:name/:university" element={<SelectedUniFromCountry />} /> */}
@@ -64,9 +64,7 @@ const Routing = () => (
     <Route path="/profile" element={<Profile />} />
     <Route path="/documents" element={<Documents />} />
     <Route path="/*" element={<h1>Wrong Routes</h1>} />
-
     {/* Apply programs */}
-
     <Route path="/apply/program/eligibility" element={<ApplyPrograms />} />
   </Routes>
 );

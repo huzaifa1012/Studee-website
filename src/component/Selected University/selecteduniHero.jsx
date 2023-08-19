@@ -1,8 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import "./selecteduni.css";
-const SelectedUniHero = ({ uniName, BGImage, data }) => {
+import { Link } from "react-scroll";
+import ViewProgMod from "../Reusable components/program_Modal";
+const SelectedUniHero = ({ uniName, BGImage, data, paramsFeild, dataToAddProgram, }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
+  console.log("dataToAddProgram", dataToAddProgram)
+
   return (
     <>
+      <ViewProgMod
+        isModalOpen={isModalOpen}
+        paramsFeild={paramsFeild}
+        programQuery={
+          dataToAddProgram.universityName
+            ? dataToAddProgram.universityName
+            : dataToAddProgram.name
+        }
+        onClose={handleCancel} />
+
+
       <div
         className="main-selected_uni_wrap"
         style={{
@@ -23,7 +46,10 @@ const SelectedUniHero = ({ uniName, BGImage, data }) => {
             <div className="universities_hero_left_btn_wrap">
               <label htmlFor="universities_hero_left_btn  universities_hero_left_btn_main_label">
                 <p className="selected_uni_left_labels"> Ready to apply</p>
-                <button className="universities_hero_left_btn1">
+                <button
+                  className="universities_hero_left_btn1"
+                  onClick={showModal}
+                >
                   Start Application
                 </button>
               </label>
@@ -32,12 +58,16 @@ const SelectedUniHero = ({ uniName, BGImage, data }) => {
                 <p className="selected_uni_left_labels selected_uni_left_label2">
                   Why apply via Studee?{" "}
                 </p>
-                <button className="universities_hero_left_btn2">
-                  Boost your admission chances
-                </button>
+                <Link to="whyStudee" smooth={true} duration={1000}>
+                  <button className="universities_hero_left_btn2">
+                    Boost your admission chances
+                  </button>
+                </Link>
               </label>
             </div>
           </div>
+
+          {/* ruffly becuase it's not apearing everywhere */}
 
           <div className="selected_uni_right_div">
             <div className="selected_uni_right_div_section_body">

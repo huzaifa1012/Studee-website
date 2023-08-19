@@ -32,8 +32,8 @@ const ApplyPrograms = () => {
 
   {
     id
-      ? (steps = ["Eligibility", "Start date", "Confirm", "Your Profile"])
-      : (steps = ["Eligibility", "Start date", "Account", "Your Profile"]);
+      ? (steps = ["Eligibility", "Start date", "Confirm",])
+      : (steps = ["Eligibility", "Start date", "Account",]);
   }
 
   const selectedProgram = useSelector((state) => state.selectedProgram);
@@ -106,6 +106,14 @@ const ApplyPrograms = () => {
         startMonth: startMonth,
         startYear: startYear,
       };
+      if (!studentId) {
+        Swal.fire(
+          "You are not logged in!",
+          "Before applying in program you need to sign in!",
+          "warning"
+        );
+        return
+      }
 
       const response = await axios.post(
         "https://studyapi.ieodkv.com/applications",
@@ -122,13 +130,19 @@ const ApplyPrograms = () => {
         localStorage.removeItem("startYear");
         localStorage.removeItem("guardianEmail");
         localStorage.removeItem("studentAge");
+        Swal.fire("Good job!", "You've Successfully Applied !", "success");
+        navigate("/programs");
       }
-      Swal.fire("Good job!", "You've Successfully Applied !", "success");
-      navigate("/");
     } catch (error) {
       console.log(error);
       if (error.response.data) {
         console.log(error.response.data);
+        Swal.fire(
+          "Choose Another Program!",
+          "You've Already Applied For This Program !",
+          "warning"
+        );
+        navigate("/programs");
       }
     }
   };

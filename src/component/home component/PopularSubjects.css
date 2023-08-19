@@ -12,6 +12,7 @@
 
 .populer_subject_head {
   display: flex;
+  flex-direction: column;
   width: 100%;
   justify-content: center;
 }

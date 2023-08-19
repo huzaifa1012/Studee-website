@@ -42,10 +42,11 @@ const CitiesAndUniForSelectedCountry = ({
   };
 
   const handleCityClick = (city) => {
-    navigate(`/countries/${countryUrl}/${city.urlName}`);
+    navigate(`/${countryUrl}/${city.urlName}`);
   };
   const handleUniClick = (uni) => {
-    navigate(`/${countryUrl}/${city.urlName}/${uni.urlName}`);
+    console.log("UNI", uni);
+    navigate(`/${countryUrl}/${uni.city.urlName}/${uni.urlName}`);
   };
 
   return (

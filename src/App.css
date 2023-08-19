@@ -26,3 +26,30 @@
   color: var(--secondary-color);
   margin: 0px auto;
 }
+
+/* Filter modal styles */
+.modalSizingMineCustom {
+  position: "absolute";
+  top: "50%";
+  left: "50%";
+  transform: "translate(-50%; -50%)";
+  width: 700px;
+  border-radius: 10px;
+  box-shadow: 24px;
+  padding: 20px;
+}
+
+@media (max-width: 320px) {
+  .modalSizingMineCustom {
+    padding: 10px;
+
+    width: 300px;
+  }
+}
+@media (min-width: 320px) and (max-width: 555px) {
+  .modalSizingMineCustom {
+    padding: 10px;
+
+    width: 90% !important;
+  }
+}

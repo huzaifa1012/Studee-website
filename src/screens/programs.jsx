@@ -5,10 +5,19 @@ import Whystudee from "../component/home component/whystudee";
 import axios from "axios";
 import "../app.css";
 import { AiOutlineClose } from "react-icons/ai";
+import { FcEmptyFilter } from "react-icons/fc";
 
-import { CircularProgress, Modal } from "@mui/material";
 import { BsFilterRight } from "react-icons/bs";
 import VerticalTabs from "../component/Reusable components/modalContent";
+
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import Modal from "@mui/material/Modal";
+import { useDispatch, useSelector } from "react-redux";
+import { addCheckboxData } from "../store/checkboxDataSlice";
+import { useNavigate } from "react-router-dom";
+
 const Programs = () => {
   // const [programs, setPrograms] = useState("");
 
@@ -24,26 +33,19 @@ const Programs = () => {
   const degreeValue = localStorage.getItem("degree");
   const [loading, setLoading] = useState([]);
   const [modal2Open, setModal2Open] = useState(false);
+  const [data, setData] = useState([]);
 
-  const id = localStorage.getItem("id");
+  const navigate = useNavigate()
 
-  const countries = [
-    { code: "AF", name: "Afghanistan" },
-    { code: "AL", name: "Albania" },
-    { code: "DZ", name: "Algeria" },
-    { code: "AD", name: "Andorra" },
-    { code: "AO", name: "Angola" },
-    { code: "UK", name: "United kingdom" },
-  ];
-  const [selectedCountry, setSelectedCountry] = useState("");
+  const checkboxData = useSelector((state) => state.checkboxData.checkboxData);
+  const id = useSelector((state) => state.userId);
 
-  const handleCountryChange = (event) => {
-    const selectedValue = event.target.value;
-    setSelectedCountry(selectedValue);
-    localStorage.setItem("country", selectedValue);
-    console.log(selectedValue);
-    window.location.reload();
-  };
+  const [locationData, setLocationData] = useState([]);
+  const [location, setLocation] = useState();
+
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   var updatedExistingValues;
   const handleDeleteSearch = (index, name, field) => {
@@ -51,8 +53,7 @@ const Programs = () => {
       setLoading(true);
       axios
         .patch(
-          `https://studyapi.ieodkv.com/students/${id}/search-params/${
-            index - 1
+          `https://studyapi.ieodkv.com/students/${id}/search-params/${index - 1
           }`
         )
         .then((response) => {
@@ -61,6 +62,8 @@ const Programs = () => {
 
           // window.location.reload();
           setLoading(false);
+          fetchPrograms();
+          fetchStudentData();
         })
         .catch((error) => console.log(error));
     } else {
@@ -70,10 +73,13 @@ const Programs = () => {
 
       localStorage.removeItem(`${field}`, name);
       setExistingValues(updatedExistingValues);
+      setExistingValues(updatedExistingValues);
       fetchPrograms();
 
-      //
       window.location.reload();
+
+      //
+      // window.location.reload();
       // localStorage.removeItem(`${field}`, name);
       // setExistingValues(updatedExistingValues);
       // }
@@ -82,6 +88,7 @@ const Programs = () => {
   };
 
   useEffect(() => {
+    fetchData();
     fetchPrograms();
     fetchStudentData();
   }, [
@@ -90,12 +97,22 @@ const Programs = () => {
     setParamtersCount,
     setExistingValues,
     updatedExistingValues,
+    location,
+    locationData,
   ]);
 
   useEffect(() => {
     fetchPrograms();
     fetchStudentData();
-  }, [programs.length, id, updatedExistingValues]);
+  }, [
+    programs.length,
+    id,
+    updatedExistingValues,
+    location,
+    loading,
+    locationData,
+  ]);
+
   function fetchPrograms() {
     if (id) {
       axios
@@ -189,7 +206,23 @@ const Programs = () => {
       setExistingValues(updatedExistingValues);
     }
   }
-  // Mine custom fetch
+
+  const fetchData = async () => {
+    if (id) {
+      try {
+        const response = await axios.get(
+          `https://studyapi.ieodkv.com/students/${id}`
+        );
+        setData(response.data);
+        // console.log(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      console.warn("Id Not Found");
+    }
+  };
+
   // useEffect(() => {
   //   fetchAllPrograms();
   // }, []);
@@ -211,41 +244,100 @@ const Programs = () => {
   //     console.error("Error fetching from ALL UNIS:", error);
   //   }
   // };
+  const style = {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    bgcolor: "background.paper",
+    boxShadow: 24,
+  };
+
+  // start for location change
+  const dispatch = useDispatch();
+
+  const handleSaveFilters = async (forSave) => {
+    if (!id) {
+      console.log("ID does not exist");
+      console.log("phir bhi", forSave);
+      const data = [forSave];
+      try {
+        data.map((data, index) => {
+          localStorage.setItem(data.field, data.name);
+          fetchPrograms();
+        });
+      } catch (error) { }
+      fetchPrograms();
+      window.location.reload();
+      return;
+    }
+    try {
+      setLoading(true);
+      console.log(forSave);
+      const response = await axios.put(
+        `https://studyapi.ieodkv.com/students/${id}`,
+        { searchParameters: [forSave] }
+      );
+      console.log("Response", response.data);
+      fetchPrograms();
+      fetchPrograms();
+      setLoading(false);
+    } catch (error) {
+      console.log("Failed to update", error);
+    }
+  };
+  useEffect(() => {
+    console.log("sss");
+    axios
+      .get(`https://studyapi.ieodkv.com/popular/locations`)
+      .then((response) => {
+        setLocationData(response.data);
+      })
+      .catch((error) => console.log(error));
+  }, []);
+  const handleCountryChange = (e) => {
+    if (id) {
+      setLocation(e.target.value);
+      const locationFilter = locationData.filter(
+        (row) => row.name === e.target.value
+      );
+      const forSave = {
+        field: locationFilter[0].for,
+        name: e.target.value,
+      };
+      handleSaveFilters(forSave);
+    } else {
+      setLocation(e.target.value);
+      const locationFilter = locationData.filter(
+        (row) => row.name === e.target.value
+      );
+      const forSave = {
+        field: locationFilter[0].for,
+        name: e.target.value,
+      };
+      handleSaveFilters(forSave);
+    }
+  };
 
   return (
     <>
-      <div className="Program_card_wrap">
+      <div>
         <Modal
-          // className="Program_card_wrap_mainModal"
-          title="Apply Filters To Find Best Program"
-          centered
-          open={modal2Open}
-          okButtonProps={{
-            style: {
-              backgroundColor: "var(--primary-color)",
-              padding: "0px 40px 0px 40px",
-              fontSize: "20px",
-              height: "50px",
-            },
-          }}
-          cancelButtonProps={{
-            style: {
-              padding: "0px 30px 0px 30px",
-              fontSize: "20px",
-              height: "50px",
-            },
-          }}
-          okText={"Apply"}
-          onOk={() => setModal2Open(false)}
-          onCancel={() => setModal2Open(false)}
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
         >
-          <div className="filter_modal_wrap">
-            <div className="filter_modal_main">
-              <div className="filter_modal_main_title">
-                <VerticalTabs />
-              </div>
+          <>
+            <Box sx={style} className="modalSizingMineCustom">
+              <VerticalTabs />
+            </Box>
+
+            <div className="filt_modal_bot">
+              <button className="filt_modal_bot_1">Cancel</button>
+              <button className="filt_modal_bot_2">Apply</button>
             </div>
-          </div>
+          </>
         </Modal>
       </div>
 
@@ -274,46 +366,38 @@ const Programs = () => {
                   <h2>{paramtersCount} Applied Filter :</h2>
                   {id
                     ? userParamters.map((row, index) => {
-                        return (
-                          <div key={index} className="eachFilterBoxWrap">
-                            <span className="Filter-text">{row.name}</span>
+                      return (
+                        <div key={index} className="eachFilterBoxWrap">
+                          <span className="Filter-text">{row.name}</span>
 
-                            {row.field !== "annualBudget" ? (
-                              <AiOutlineClose
-                                onClick={() =>
-                                  handleDeleteSearch(index, row.name, row.field)
-                                }
-                                style={{ cursor: "pointer" }}
-                              />
-                            ) : (
-                              ""
-                            )}
-                          </div>
-                        );
-                      })
-                    : existingValues.map((row, index) => {
-                        return (
-                          <div
-                            key={index}
-                            style={{
-                              margin: "0px 10px",
-                              display: "flex",
-                              alignItems: "center",
-                              justifyContent: "space-between",
-                              backgroundColor: "#EEEAE9",
-                              padding: "0px 20px",
-                            }}
-                          >
-                            <p style={{ margin: "15px" }}>{row.name}</p>
+                          {/* {row.field !== "annualBudget" ? ( */}
+                          {row.field !== "annualBudget" ? (
+                            // {true ? (
                             <AiOutlineClose
                               onClick={() =>
                                 handleDeleteSearch(index, row.name, row.field)
                               }
                               style={{ cursor: "pointer" }}
                             />
-                          </div>
-                        );
-                      })}
+                          ) : (
+                            ""
+                          )}
+                        </div>
+                      );
+                    })
+                    : existingValues.map((row, index) => {
+                      return (
+                        <div key={index} className="eachFilterBoxWrap">
+                          <p style={{ margin: "15px" }}>{row.name}</p>
+                          <AiOutlineClose
+                            onClick={() =>
+                              handleDeleteSearch(index, row.name, row.field)
+                            }
+                            style={{ cursor: "pointer" }}
+                          />
+                        </div>
+                      );
+                    })}
                 </div>
               </div>
               <div className="Filters_sectioan_wrap">
@@ -321,13 +405,35 @@ const Programs = () => {
                   <div className="Filters_sectioan_main2_left">
                     <button
                       className="Filters_sectioan_main2_btn focus:outline-blue-500"
-                      onClick={() => setModal2Open(true)}
+                      // onClick={() => handleOpen(true)}
+
+                      onClick={() => (navigate('/personalized-matches'))}
                     >
-                      <BsFilterRight size={28} /> Filter
+                      <BsFilterRight size={28} />Filter
                     </button>
                   </div>
                   <div className="Filters_sectioan_main2_right">
                     <select
+                      id="country"
+                      value={location}
+                      onChange={handleCountryChange}
+                      className="Filters_sectioan_main2_btn"
+                    >
+                      <option value="">Sort by country, city..</option>
+                      {locationData.map((country) => (
+                        <option
+                          key={country.code}
+                          style={{ paddingBottom: "4px" }}
+                          value={country.name}
+                        >
+                          {country.name.length > 20
+                            ? country.name.slice(0, 20)
+                            : country.name}
+                          &nbsp; &nbsp; &nbsp;
+                        </option>
+                      ))}
+                    </select>
+                    {/* <select
                       id="country"
                       value={selectedCountry}
                       onChange={handleCountryChange}
@@ -339,7 +445,7 @@ const Programs = () => {
                           {country.name}
                         </option>
                       ))}
-                    </select>
+                    </select> */}
                   </div>
                 </div>
               </div>
@@ -348,7 +454,29 @@ const Programs = () => {
               <ProgramCard data={programs} />
             ) : (
               <>
-                <p>No program matched</p>
+                <div
+                  style={{
+                    width: "100%",
+                    height: "50vh",
+                    background: "rgb(244, 245, 247)",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      flexDirection: "column",
+                      width: "70%",
+                    }}
+                  >
+                    <FcEmptyFilter size={80} />
+                    <p style={{ fontSize: "20px" }}>No program matched</p>
+                  </div>
+                </div>
               </>
             )}
           </>

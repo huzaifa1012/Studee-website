@@ -94,7 +94,8 @@ const Account = () => {
                 </div>
               </Link>
 
-              <Link to="/documents" className="acc_box">
+              {/* Document Box Is Committed here  */}
+              {/* <Link to="/documents" className="acc_box">
                 <img
                   className="box_img"
                   src="https://images.studee.com/illustrations/illustration__spot--guide-students.png?ixlib=js-2.3.2&auto=format&w=98&h=64&q=45"
@@ -106,7 +107,7 @@ const Account = () => {
                     programs
                   </p>
                 </div>
-              </Link>
+              </Link> */}
 
               <br />
             </div>

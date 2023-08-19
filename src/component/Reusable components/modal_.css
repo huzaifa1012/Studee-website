@@ -49,3 +49,36 @@
   margin-left: 10px;
   font-size: 18px;
 }
+/* Newa */
+.filt_modal_main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.filt_modal_top {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  width: "100%";
+}
+
+.filt_modal_bot {
+  position: absolute;
+  top: 85%;
+  right: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  justify-content: center;
+}
+.filt_modal_bot button {
+  width: 50%;
+  border-radius: 10px;
+  margin: 0px 10px;
+  padding: 5px 6px;
+  color: white;
+}
+.filt_modal_bot_2 {
+  background-color: var(--secondary-color);
+}
