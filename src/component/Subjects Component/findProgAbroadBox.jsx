@@ -11,7 +11,7 @@ const FindProgramAbroadbox = ({degree,subjectName}) => {
     {subjectName &&   
       <div className="findProgBox_main_wrap">
         <div className="findProgBox_head">
-          <h2 className="mtc">Bachelor's programs in {subjectName.toLowerCase()}</h2>
+          <h2 className="mtc">Find your perfect {subjectName.toLowerCase()} programs abroad </h2>
           <p className="mtc">
             Find {subjectName.toLowerCase()} programs you love that match your needs & aspirations,
             where you stand a high chance of acceptance.
