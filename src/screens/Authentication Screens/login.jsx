@@ -26,12 +26,13 @@ const Login = () => {
           password: password,
         }
       );
+      dispatch(setUserId(response.data.user.id));
       console.log(response.data);
       const studentId = response.data.user.id;
 
       localStorage.setItem("id", studentId);
       const userId = localStorage.getItem("id");
-      dispatch(setUserId(userId));
+      
       navigate("/account");
     } catch (error) {
       console.log("error", error.message);
