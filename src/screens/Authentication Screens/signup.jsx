@@ -7,6 +7,10 @@ import image3 from "../../assets/sign in/essential-guidance-and-reminders.png";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { animateScroll } from "react-scroll";
+import { countryCode } from '../../assets/CountryCodes'
+import { setUserId } from "../../store/userIdSlice";
+import Swal from "sweetalert2";
+import { useDispatch } from "react-redux";
 const Register = () => {
   const navigate = useNavigate();
   const gender = [{ name: "Male" }, { name: "Female" }, { name: "Other" }];
@@ -36,18 +40,29 @@ const Register = () => {
   const [selectedGender, setSelectedGender] = useState("");
   const [selectedRegion, setSelectedRegion] = useState("");
   const [selectedCountry, setSelectedCountry] = useState("");
+  const [selectedCountryCode, setSelectedCountryCode] = useState("");
   const [selectedCurrency, setSelectedCurrency] = useState("");
   const [selectedProvince, setSelectedProvince] = useState("");
   const [phone, setPhone] = useState("");
 
   const [selectedNationality, setSelectedNationality] = useState("");
-  const [province, setProvince] = useState("");
   const [selectedCity, setSelectedCity] = useState("");
+
+  const [showPassword, setShowPassword] = useState(false);
+
+
+  // Country code starts
+  // 
+  // Country code ends
+
+  const dispatch = useDispatch()
 
   // for drop downs
   const [countries, setCountries] = useState([]);
   const [provinces, setProvinces] = useState([]);
+  const [AllProvinces, setAllProvinces] = useState([]);
   const [cities, setCities] = useState([]);
+  const [AllCities, setAllCities] = useState([]);
 
   async function fetchCountries() {
     const apiUrl = "https://studyapi.ieodkv.com/core-settings/country";
@@ -75,7 +90,9 @@ const Register = () => {
         country: province.country,
         _id: province._id,
       }));
+      // console.log(provincesData)
       setProvinces(provincesData);
+      setAllProvinces(provincesData);
     } catch (error) {
       console.error("Error fetching data from API:", error);
     }
@@ -93,27 +110,33 @@ const Register = () => {
         _id: city._id,
       }));
       setCities(citiesData);
+      setAllCities(citiesData);
     } catch (error) {
       console.error("Error fetching data from API:", error);
     }
   }
+  const handlePasswordToggle = () => {
+    setShowPassword(!showPassword);
+  };
+
+
   const handleRegister = async (e) => {
     e.preventDefault();
-    // console.log(
-    //   Fname,
-    //   Lname,
-    //   email,
-    //   phone,
-    //   selectedGender,
-    //   password,
-    //   selectedRegion,
-    //   selectedCountry,
-    //   selectedNationality,
-    //   selectedCurrency,
-    //   selectedProvince,
-    //   province,
-    //   selectedCity
-    // );
+    console.log(
+      Fname,
+      Lname,
+      email,
+      phone,
+      selectedGender,
+      password,
+      selectedRegion,
+      selectedCountry,
+      selectedNationality,
+      selectedCurrency,
+      selectedProvince,
+      selectedCity
+    );
+
 
     try {
       localStorage.setItem("email", email);
@@ -123,7 +146,7 @@ const Register = () => {
           firstname: Fname,
           lastname: Lname,
           email: email,
-          phoneNo: phone,
+          phoneNo: selectedCountryCode + phone,
           password: password,
           nationality: selectedNationality,
           currency: selectedCurrency,
@@ -134,6 +157,12 @@ const Register = () => {
           province: selectedProvince,
         }
       );
+      const studentId = response.data._id;
+
+      localStorage.setItem("id", studentId);
+      const userId = localStorage.getItem("id");
+      dispatch(setUserId(userId));
+
       console.log(response.data);
       navigate("/verification");
     } catch (error) {
@@ -171,7 +200,31 @@ const Register = () => {
   const handleCountryChange = (event) => {
     const selectedValue = event.target.value;
     setSelectedCountry(selectedValue);
+    // setSelectedCountryCode(selectedValue)
+    console.log(selectedValue)
+    const country = countryCode.find(
+      (item) => item.name.toLowerCase() === selectedValue.toLowerCase()
+    );
+    console.log(country)
+    setSelectedCountryCode(country.dial_code)
+
+
   };
+
+  // Here I'm saving only those specific provinces in the province dropdown those are in selected country
+  useEffect(() => {
+    const ProvincesForSelectedCountry = AllProvinces.filter(data => data.country.toLowerCase() === selectedCountry.toLowerCase())
+    setProvinces(ProvincesForSelectedCountry)
+    console.log(ProvincesForSelectedCountry)
+  }, [selectedCountry])
+
+
+  useEffect(() => {
+    const CitiesForSelectedProvince = AllCities.filter(data => data.province.toLowerCase() === selectedProvince.toLowerCase())
+    console.log(CitiesForSelectedProvince)
+    setCities(CitiesForSelectedProvince)
+  }, [selectedProvince])
+
   function handleProvinceChange(event) {
     setSelectedProvince(event.target.value);
   }
@@ -182,6 +235,12 @@ const Register = () => {
   function handleCityChange(event) {
     setSelectedCity(event.target.value);
   }
+
+  // Phone
+  const PHhandleCountryChange = (e) => {
+    setSelectedCountryCode(e.target.value);
+  };
+
 
   return (
     <div className="login_container_wrap">
@@ -211,6 +270,7 @@ const Register = () => {
               <input
                 type="text"
                 id="username"
+                placeholder="Your first name"
                 className="login_input"
                 onChange={(e) => {
                   setFName(e.target.value);
@@ -225,6 +285,7 @@ const Register = () => {
               <input
                 type="text"
                 id="password"
+                placeholder="Your last name"
                 className="login_input"
                 onChange={(e) => {
                   setLName(e.target.value);
@@ -241,6 +302,8 @@ const Register = () => {
                 id="password"
                 className="login_input"
                 name="email"
+                placeholder="Enter email address"
+
                 onChange={(e) => {
                   setEmail(e.target.value);
                 }}
@@ -250,8 +313,60 @@ const Register = () => {
                 We'll send you an activation code to your email.
               </span>
             </div>
+            {/* 
+            <div className="login_input_group">
+              <label htmlFor="password" className="lable_in_signup_screen">
+                Password *
+              </label>
+              <input
+                type="password"
+                id="password"
+                className="login_input"
+                name="email"
+                placeholder="Enter email address"
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                }}
+              />
+              <br />
+              <span className="ltc">
+                We'll send you an activation code to your email.
+              </span>
+            </div> */}
 
             <div className="login_input_group">
+
+              <div className="flex justify-between align-center">
+                <label htmlFor="password" className="lable_in_signup_screen">
+                  Password *
+                </label>
+                <span
+                  className="show_password_icon lable_in_signup_screen mr-12 cursor-pointer hover:text-blue-500
+                  "
+                  onClick={handlePasswordToggle}
+                >
+                  {showPassword ? 'Hide' : 'Show'}
+                </span>
+              </div>
+              <div className="password_input_container">
+                <input
+                  type={showPassword ? 'text' : 'password'}
+                  id="password"
+                  className="login_input"
+                  name="password"
+                  placeholder="Enter password"
+                  value={password}
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                  }}
+                />
+
+              </div>
+              <br />
+            </div>
+
+
+            {/* <div className="login_input_group">
               <label htmlFor="password" className="lable_in_signup_screen">
                 Phone No *
               </label>
@@ -263,20 +378,92 @@ const Register = () => {
                   setPhone(e.target.value);
                 }}
               />
+            </div> */}
+
+            {/* <div className="login_input_group">
+              <label htmlFor="phone" className="label_in_signup_screen">
+                Phone No *
+              </label>
+              <div className="phone_input_container">
+                <select
+                  value={selectedCountry}
+                  onChange={PHhandleCountryChange}
+                  style={{ background: 'none', textAlign: 'center' }}
+                  className="phone_input_select p-1.5"
+                >
+                  {countryCode.map((data, index) => {
+                    return (
+                      <>
+                        <option className="login_input" value={data.dial_code} style={{ maxWidth: '100px' }} >{data.dial_code}</option>
+                      </>
+                    )
+                  })}
+                </select>
+                <input
+                  type="text"
+                  id="phone"
+                  className="phone_input"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                />
+              </div>
+            </div> */}
+
+            <div className="login_input_group">
+              <label htmlFor="country" className="lable_in_signup_screen">
+                Country living in *
+              </label>
+              <select
+                id="country"
+                className="login_input signup_countries_dropdown"
+                onChange={handleCountryChange}
+                value={selectedCountry}
+              >
+                <option value="">Select a country</option>
+                {countries.map((country) => (
+                  <option key={country.code} value={country.name}>
+                    {country.name}
+                  </option>
+                ))}
+              </select>
+              <p>Selected Country: {selectedCountry}</p>
             </div>
             <div className="login_input_group">
-              <label htmlFor="password" className="lable_in_signup_screen">
-                Create a password *
+              <label htmlFor="phone" className="label_in_signup_screen">
+                Phone No *
               </label>
-              <input
-                type="password"
-                id="password"
-                className="login_input"
-                onChange={(e) => {
-                  setPassword(e.target.value);
-                }}
-              />
+              <div className="phone_input_container">
+                <input
+                  type="text"
+                  list="countryCodes"
+                  value={selectedCountryCode}
+                  placeholder="+"
+                  onChange={PHhandleCountryChange}
+                  className="country_select phone_input_select p-1.5"
+                  style={{ background: 'none', textAlign: 'center' }}
+
+                />
+                <datalist id="countryCodes">
+                  {countryCode.map((data, index) => (
+                    <option key={index} value={data.dial_code}>
+                      {data.dial_code}
+                    </option>
+                  ))}
+                </datalist>
+                <input
+                  type="text"
+                  id="phone"
+                  className="phone_input"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  placeholder="Enter phone number"
+                />
+              </div>
+
+
             </div>
+
+
             <div className="login_input_group">
               <label htmlFor="gender" className="lable_in_signup_screen">
                 Gender *
@@ -294,7 +481,6 @@ const Register = () => {
                   </option>
                 ))}
               </select>
-              {/* You can display the selected value elsewhere in your component */}
               <p>Selected Gender: {selectedGender}</p>
             </div>
 
@@ -320,25 +506,7 @@ const Register = () => {
               {/* You can display the selected region value elsewhere in your component */}
               <p>Selected Region: {selectedRegion}</p>
             </div>
-            <div className="login_input_group">
-              <label htmlFor="country" className="lable_in_signup_screen">
-                Country living in *
-              </label>
-              <select
-                id="country"
-                className="login_input signup_countries_dropdown"
-                onChange={handleCountryChange}
-                value={selectedCountry}
-              >
-                <option value="">Select a country</option>
-                {countries.map((country) => (
-                  <option key={country.code} value={country.name}>
-                    {country.name}
-                  </option>
-                ))}
-              </select>
-              <p>Selected Country: {selectedCountry}</p>
-            </div>
+
             <div className="login_input_group">
               <label htmlFor="country" className="lable_in_signup_screen">
                 Nationality *
@@ -403,7 +571,7 @@ const Register = () => {
               <br />
             </div>
 
-            <div className="login_input_group">
+            {/* <div className="login_input_group">
               <label htmlFor="city" className="lable_in_signup_screen">
                 City
               </label>
@@ -420,6 +588,28 @@ const Register = () => {
                   </option>
                 ))}
               </select>
+              <br />
+            </div> */}
+            <div className="login_input_group">
+              <label htmlFor="city" className="label_in_signup_screen">
+                City
+              </label>
+              <input
+                type="text"
+                id="city"
+                className="login_input"
+                onChange={handleCityChange}
+                value={selectedCity}
+                placeholder="Select or enter city name  "
+                list="cityOptions"
+              />
+              <datalist id="cityOptions">
+                {cities
+                  .filter((city) => city.name.toLowerCase().includes(selectedCity.toLowerCase()))
+                  .map((city) => (
+                    <option key={city._id} value={city.name} />
+                  ))}
+              </datalist>
               <br />
             </div>
 
@@ -477,8 +667,8 @@ const Register = () => {
             </div>
           </div>
         </div>
-      </div>
-    </div>
+      </div >
+    </div >
   );
 };
 

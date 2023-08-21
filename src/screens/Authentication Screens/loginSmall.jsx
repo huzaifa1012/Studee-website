@@ -5,9 +5,11 @@ import axios from "axios";
 import { animateScroll } from "react-scroll";
 import { useDispatch } from "react-redux";
 import { setUserId } from "../../store/userIdSlice";
+import Swal from "sweetalert2";
 const LoginSmall = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   useEffect(() => {
@@ -31,10 +33,12 @@ const LoginSmall = () => {
       localStorage.setItem("id", studentId);
       const userId = localStorage.getItem("id");
       dispatch(setUserId(userId));
-      navigate("/programs");
+      // navigate("/programs");
+      Swal.fire("login Success", "Yo've successfully logged in, Now continue your application  ", "success")
     } catch (error) {
       console.log("error", error.message);
       if (error.response) {
+        setError(error.response.data)
         console.log("message", error.response.data);
       }
     }
@@ -49,7 +53,12 @@ const LoginSmall = () => {
         <div className="login_form_small" style={{ boxShadow: "none" }}>
           <h2 className="text-2xl">Sign in</h2>
           <i>
-            <p className="ltc">*required information</p>
+            {error ?
+              <p style={{ color: 'red' }}>{error}</p>
+              :
+              <p className="ltc">*required information</p>
+            }
+
           </i>
           <form onSubmit={handleLogin}>
             <div className="login_input_group">
@@ -58,6 +67,7 @@ const LoginSmall = () => {
                 type="text"
                 id="username"
                 onChange={(e) => {
+                  setError(false)
                   setEmail(e.target.value);
                 }}
                 className="login_input"
@@ -68,6 +78,7 @@ const LoginSmall = () => {
               <input
                 type="password"
                 onChange={(e) => {
+                  setError(false)
                   setPassword(e.target.value);
                 }}
                 id="password"
@@ -91,7 +102,7 @@ const LoginSmall = () => {
           </form>
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 

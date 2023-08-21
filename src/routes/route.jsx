@@ -25,13 +25,16 @@ import Verification from "../screens/Authentication Screens/verification";
 import Profile from "../screens/profile";
 import Documents from "../screens/documents";
 import ApplyPrograms from "../screens/applyPrograms";
+import DegreeLandingPage from "../screens/degreeLandingPage";
+import ApplyToUniversity from "../screens/ApplyToUniversity";
+import ChangePassword from "../screens/Authentication Screens/change password";
 const Routing = () => (
   <Routes>
     <Route path="/" element={<Home />} />
     <Route path="/login" element={<Login />} />
     <Route path="/register" element={<Register />} />
     <Route path="/forget-password" element={<ForgePassword />} />
-    <Route path="/change-password" element={<ForgePassword />} />
+    <Route path="/change-password" element={<ChangePassword />} />
     <Route path="/verification" element={<Verification />} />
     <Route path="/programs" element={<Programs />} />
     <Route path="/search-programs/" element={<Programs />} />
@@ -42,6 +45,7 @@ const Routing = () => (
     <Route path="/guide1/:name" element={<GuideDetailPage />} />
     <Route path="/visas-&-travel/:name" element={<VisaRequirements />} />
     <Route path="/subjects/:name" element={<Selected_subject />} />
+    <Route path="/subjects/:name/:degree" element={<DegreeLandingPage />} />
     <Route
       path="/subjects/country/:countryUrl/subject/:subjectUrl"
       element={<Selected_subject_from_selected_country />}
@@ -59,6 +63,7 @@ const Routing = () => (
       element={<SelectedCampusFromUni />}
     />
     <Route path="/personalized-matches" element={<PersonalizedMatches />} />
+    <Route path="/ApplyToUniversity/:name" element={<ApplyToUniversity />} />
     <Route path="/account" element={<Account />} />
     <Route path="/your-applications" element={<YourApplications />} />
     <Route path="/profile" element={<Profile />} />

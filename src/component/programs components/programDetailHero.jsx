@@ -69,9 +69,9 @@ const ProgramDetailHero = ({ data }) => {
               <div className="selected_uni_right_div_section_body">
                 <h2>Program facts</h2>
                 <p className="mtc">
-                  Milan,{" "}
+                  {data.country.name},
                   <span className="dtc" style={{ marginBottom: "5px" }}>
-                    <b>italy</b>
+                    <b>{data.city.name}</b>
                   </span>
                 </p>
                 <div className="uni_bottom_square_wrap">

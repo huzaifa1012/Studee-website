@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 // import "../component/css storation/Login.css";
 import { useNavigate } from "react-router-dom";
-const ForgePassword = () => {
+const ChangePassword = () => {
   const [email, setEmail] = useState("");
   const navigate = useNavigate();
   const handleForget = async (e) => {
@@ -55,4 +55,4 @@ const ForgePassword = () => {
   );
 };
 
-export default ForgePassword;
+export default ChangePassword;

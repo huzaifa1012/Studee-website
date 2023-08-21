@@ -14,27 +14,28 @@ import FutureFinance from "../assets/Australlia country/accounting/Future-financ
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import parse from "html-react-parser";
-import Degrees from "../component/selectedDegree/degrees.jsx";
 import { animateScroll } from "react-scroll";
 // import CitiesAndUniForSelectedCountry from "../component/selectedCountry/Cities and Uni for selected country.jsx";
 import Countries from "../component/Subjects Component/Countries.jsx";
 import Universities from "../component/Subjects Component/Universities.jsx";
 import { GraduateProgramsHome } from "../component/Subjects Component/GraduateProgram.jsx";
 import { UndergraduateProgramsHome } from "../component/Subjects Component/UndergraduateProgramsHome.jsx";
-import DetalilsWithImage from "../component/detalilsWithImage.jsx";
 import AustriaKangaroImage from "../assets/Australlia country/australlia/Why study in Australia.png";
+import DetalilsWithImage from "../component/detalilsWithImage";
+import ViewProgMod from "../component/Reusable components/program_Modal.jsx";
 
-const Selected_subject = () => {
+
+const DegreeLandingPage = () => {
+
   const [data, setData] = useState("");
-
   const [faculties, setFaculties] = useState([]);
   const [graduateProgramType, setGraduatePrgramType] = useState("");
   const [undergraduateProgramType, setUndergraduatePrgramType] = useState("");
   const [graduate, setGraduate] = useState([]);
   const [undergraduate, setUnderGraduate] = useState([]);
   const [degree, setDegree] = useState([]);
-
   const params = useParams();
+
 
   useEffect(() => {
     fetchSelectedSubjectData();
@@ -102,42 +103,42 @@ const Selected_subject = () => {
 
   return (
     <>
-      {data ?
+      {data && degree[0] ?
         <>
 
           <SelectedSubjectHero
-            dataToAddProgram={data}
-            paramsFeild={"subject"}
-            subjectName={params.name}
-            BGImage={`https://studyapi.ieodkv.com/subjects/images/${data && data.image
-              }`}
+            uniModal={false}
+            dataToAddProgram={degree[0]}
+            paramsFeild={"degree"}
+            subjectName={degree[0].name}
+            BGImage={`https://studyapi.ieodkv.com/degree/images/${degree[0].image}`}
           />
 
-          <FindProgramAbroadbox subjectName={data.name} degree={data.degree} />
+
+          <FindProgramAbroadbox paramsFeild={"degree"} subjectName={degree[0].name} degree={data.degree} />
 
           <VerticalizeTreeProjectComponent
             imageUrl={futureAccountingCareer}
-            heading={`${data.name} degrees abroad`}
+            heading={`${degree[0].name} degrees abroad`}
             paragraph={
-              <div dangerouslySetInnerHTML={{ __html: data.abroad }}></div>
+              <div dangerouslySetInnerHTML={{ __html: degree[0].abroad }}></div>
             }
           />
 
-          <Whystudee paramsFeild={'subject'} programQuery={data.name} />
+          <Whystudee paramsFeild={'degree'} programQuery={degree[0].name} />
 
 
 
           <TreeProjectComponent
             imageUrl={accountingProgramStructure}
-            heading={`${data.name} program structure`}
+            heading={`${degree[0].name} program structure`}
             paragraph={
               <div
-                dangerouslySetInnerHTML={{ __html: data.programStructure }}
+                dangerouslySetInnerHTML={{ __html: degree[0].programStructure }}
               ></div>
 
             }
           />
-
 
           <div style={{ backgroundColor: "#f0f0f0" }}>
             <DetalilsWithImage
@@ -145,15 +146,15 @@ const Selected_subject = () => {
               imageUrl={AustriaKangaroImage}
               body={
                 <>
-                  <h1>Future Careers In {data.name}?</h1>
-                  {parse(data && data.futureCareers)}
+                  <h1>Future Careers At {degree[0].name}?</h1>
+                  {parse(degree && degree[0].futureCareers)}
                 </>
               }
             />
           </div>
 
 
-          <Degrees
+          <PopularSubjects
             heading={`Types of ${data.name} degrees`}
             paragraph={
               <div
@@ -175,16 +176,17 @@ const Selected_subject = () => {
 
 
 
+
           <Countries
             id={data._id}
-            name={data.name}
-            countryDescription={data.countryDescription}
+            name={degree[0].name}
+            countryDescription={degree[0].countryDescription}
           />
 
           <Universities
             id={data._id}
-            name={data.name}
-            universityDescription={data.universityDescription}
+            name={degree[0].name}
+            universityDescription={degree[0].universityDescription}
           />
 
 
@@ -205,12 +207,12 @@ const Selected_subject = () => {
           <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
             <div style={{ margin: "40px 0px", width: '90%' }}>
               <p className=" tree_hero-heading">
-                {data.name} study abroad programs
+                {degree[0].name} study abroad programs
               </p>
               <div
                 className=" ltc section-content"
                 dangerouslySetInnerHTML={{
-                  __html: data.programDescription,
+                  __html: degree[0].programDescription,
                 }}></div>
               <p className="section-heading" style={{
                 fontSize: '30px',
@@ -218,7 +220,7 @@ const Selected_subject = () => {
                 marginTop: '20px',
               }}
               >
-                {data.name} undergraduate programs
+                {degree[0].name} undergraduate programs
               </p>
               <div
                 style={{
@@ -300,9 +302,9 @@ const Selected_subject = () => {
 
 
           <VerticalizeTreeProjectComponent
-            heading={`Entry requirements to study ${data.name} abroad`}
+            heading={`Entry requirements to study ${degree[0].name} abroad`}
             paragraph={
-              <div dangerouslySetInnerHTML={{ __html: data.entryRequirements }}></div>
+              <div dangerouslySetInnerHTML={{ __html: degree[0].entryRequirements }}></div>
 
 
             }
@@ -325,4 +327,4 @@ const Selected_subject = () => {
     </>
   );
 };
-export default Selected_subject;
+export default DegreeLandingPage;

@@ -84,6 +84,22 @@ body {
   font-family: "Inter", sans-serif;
   font-weight: bold;
 }
+.hero_inpbox-style-personolized-matches_program {
+  height: 59px !important;
+  padding: 10px !important;
+  outline: none !important;
+  border-radius: 10px !important;
+  font-size: 17px !important;
+  min-width: '20%' !important;
+  width: 160% !important;
+  min-width: 280px !important;
+
+  border: 2px solid var(--text-color) !important;
+}
+.hero_inpbox-style-personolized-matches_program::placeholder {
+  font-size: 17px !important;
+  font-family: "Inter", sans-serif !important;
+}
 .hero_inpbox-style-personolized-matches {
   height: 59px !important;
   padding: 10px !important;
@@ -105,12 +121,35 @@ body {
   font-size: 17px !important;
   border: 2px solid var(--text-color) !important;
 }
+.hero_inpbox-style-findCard {
+  height: 59px !important;
+  /* padding: 10px !important; */
+  outline: none !important;
+  border-radius: 10px !important;
+  width: 100% !important;
+  font-size: 13px !important;
+  border: 2px solid var(--text-color) !important;
+}
 .hero_inpbox-style::placeholder {
   font-size: 17px !important;
   font-family: "Inter", sans-serif !important;
 }
 .main_hero_option_box {
   max-width: 200px;
+  background-color: #f2f8f6;
+  padding: 5px;
+  position: relative;
+  z-index: 1;
+  border-radius: 3px 3px 10px 10px;
+  box-shadow: 0px 2px 3px rgb(121, 121, 121);
+  height: fit-content;
+}
+.main_hero_option {
+  margin: 3px 0px;
+  border-bottom: 2px solid transparent;
+}
+.main_hero_option:hover {
+  border-bottom: 2px solid var(--secondary-color);
 }
 .hero_btn {
   font-family: "Inter", sans-serif;
@@ -134,7 +173,6 @@ body {
 .hero_btn:hover {
   letter-spacing: 1px;
   color: var(--secondary-color);
-
   background-color: var(--secondary-accent);
 }
 .heroBtnCover {
@@ -245,6 +283,9 @@ body {
   .hero_inpbox-style-personolized-matches {
     min-width: 130px;
     max-width: 100%;
+  }
+  .hero_inpbox-style-personolized-matches_program {
+    min-width: 285px;
   }
 }
 

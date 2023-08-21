@@ -8,8 +8,16 @@ import { setUserId } from "../../store/userIdSlice";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  const handlePasswordToggle = () => {
+    setShowPassword(!showPassword);
+  };
 
   useEffect(() => {
     animateScroll.scrollToTop();
@@ -32,11 +40,13 @@ const Login = () => {
 
       localStorage.setItem("id", studentId);
       const userId = localStorage.getItem("id");
-      
-      navigate("/account");
+
+      // navigate("/account");
+      window.location.replace('/account')
     } catch (error) {
       console.log("error", error.message);
       if (error.response) {
+        setError(error.response.data)
         console.log("message", error.response.data);
       }
     }
@@ -48,7 +58,12 @@ const Login = () => {
         <div className="login_form">
           <h2>Sign in to your account</h2>
           <i>
-            <p className="ltc">*required information</p>
+            {error ?
+              <p style={{ color: 'red' }}>{error}</p>
+              :
+              <p className="ltc">*required information</p>
+            }
+
           </i>
           <form onSubmit={handleLogin}>
             <div className="login_input_group">
@@ -56,13 +71,16 @@ const Login = () => {
               <input
                 type="text"
                 id="username"
+                placeholder="Enter Email"
                 onChange={(e) => {
                   setEmail(e.target.value);
                 }}
                 className="login_input"
               />
             </div>
-            <div className="login_input_group">
+
+
+            {/* <div className="login_input_group">
               <label htmlFor="password">Password*</label>
               <input
                 type="password"
@@ -72,7 +90,43 @@ const Login = () => {
                 id="password"
                 className="login_input"
               />
+            </div> */}
+
+            <div className="login_input_group">
+
+              <div className="flex justify-between align-center">
+                <label htmlFor="password" className="lable_in_signup_screen">
+                  Password *
+                </label>
+                <span
+                  className="show_password_icon lable_in_signup_screen mr-12 cursor-pointer hover:text-blue-500
+    "
+                  onClick={handlePasswordToggle}
+                >
+                  {showPassword ? 'Hide' : 'Show'}
+                </span>
+              </div>
+              <div className="password_input_container">
+                <input
+                  type={showPassword ? 'text' : 'password'}
+                  id="password"
+                  className="login_input"
+                  name="password"
+                  placeholder="Enter password"
+                  value={password}
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                  }}
+                />
+
+              </div>
+              <br />
+              <span className="ltc">
+                We'll send you an activation code to your email.
+              </span>
             </div>
+
+
             <div className="login_card_bottom">
               <Link to="/forget-password">
                 <p>Forgot your password</p>

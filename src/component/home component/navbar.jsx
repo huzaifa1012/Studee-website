@@ -19,12 +19,13 @@ import {
 import logo from "../../assets/studee_short_logo.png";
 import { AiOutlineUser } from "react-icons/ai";
 import { FiSearch } from "react-icons/fi";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { setSearchKeyword } from "../../store/searchKeywordSlice";
 import SearchResults from "./searchResult";
 import axios from "axios";
+import { useLocation } from "react-router-dom";
 
 const products = [
   {
@@ -67,9 +68,12 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 export function Navbar({ profileData }) {
+
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [locationData, setLocationData] = useState([]);
 
+
+  const location = useLocation();
   const id = useSelector((state) => state.userId);
   const dispatch = useDispatch();
   const searchItem = useSelector((state) => state.searchKeyword);
@@ -94,11 +98,11 @@ export function Navbar({ profileData }) {
         aria-label="Global"
       >
         <div className="flex lg:flex-1">
-          <Link to="/">
+          <NavLink activeClassName="active-link" to="/">
             <div className="flex">
               <img className="h-10 w-auto" src={IEOLogo} />
             </div>
-          </Link>
+          </NavLink>
         </div>
         <div className="relative">
           <input
@@ -130,9 +134,13 @@ export function Navbar({ profileData }) {
           <br />
           <Popover className="relative">
             <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
-              <Link className="My_navLink" to="/programs">
+              <NavLink
+                className={`My_navLink text-sm font-semibold leading-6 text-gray-900 ${location.pathname === "/programs" ? "active-link" : ""
+                  }`}
+                to="/programs"
+              >
                 Programs
-              </Link>
+              </NavLink>
             </Popover.Button>
 
             <Transition
@@ -145,20 +153,21 @@ export function Navbar({ profileData }) {
               leaveTo="opacity-0 translate-y-1"
             ></Transition>
           </Popover>
-
-          <Link
-            className="My_navLink text-sm font-semibold leading-6 text-gray-900"
+          <NavLink
+            className={`My_navLink text-sm font-semibold leading-6 text-gray-900 ${location.pathname === "/universities" ? "active-link" : ""
+              }`}
             to="/universities"
           >
             Universities
-          </Link>
+          </NavLink>
 
-          <Link
-            className="My_navLink text-sm font-semibold leading-6 text-gray-900"
+          <NavLink
+            className={`My_navLink text-sm font-semibold leading-6 text-gray-900 ${location.pathname === "/guides" ? "active-link" : ""
+              }`}
             to="/guides"
           >
             Guides
-          </Link>
+          </NavLink>
         </Popover.Group>
 
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
@@ -173,7 +182,7 @@ export function Navbar({ profileData }) {
         </div>
 
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <Link to={id ? "/account" : "/login"}>
+          <NavLink activeClassName="active-link" to={id ? "/account" : "/login"}>
             <button
               style={{
                 backgroundColor: "#f7f8f9",
@@ -193,7 +202,7 @@ export function Navbar({ profileData }) {
               <span aria-hidden="true" style={{ marginRight: "2px" }}></span>{" "}
               {id ? `Welcome ${profileData.firstname}` : "Sign In"}
             </button>
-          </Link>
+          </NavLink>
         </div>
       </nav>
 
@@ -226,12 +235,12 @@ export function Navbar({ profileData }) {
                   {({ open }) => (
                     <>
                       <Disclosure.Button className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
-                        <Link
+                        <NavLink activeClassName="active-link"
                           to="/programs"
                           onClick={() => setMobileMenuOpen(false)}
                         >
                           Programs
-                        </Link>
+                        </NavLink>
                         <ChevronDownIcon
                           className={classNames(
                             open ? "rotate-180" : "",
@@ -256,24 +265,24 @@ export function Navbar({ profileData }) {
                   )}
                 </Disclosure>
 
-                <Link
+                <NavLink activeClassName="active-link"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                   to="/universities"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Universities
-                </Link>
+                </NavLink>
 
-                <Link
+                <NavLink activeClassName="active-link"
                   to="/guides"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Guide
-                </Link>
+                </NavLink>
               </div>
               <div className="py-6">
-                <Link
+                <NavLink activeClassName="active-link"
                   to={id ? "/account" : "/login"}
                   onClick={() => setMobileMenuOpen(false)}
                 >
@@ -299,7 +308,7 @@ export function Navbar({ profileData }) {
                     ></span>{" "}
                     {id ? `Welcome ${profileData.firstname}` : "Sign In"}
                   </button>
-                </Link>
+                </NavLink>
               </div>
             </div>
           </div>

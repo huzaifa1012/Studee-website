@@ -3,6 +3,7 @@ import "./selectedSubject.css";
 import { BiRightArrowAlt } from "react-icons/bi";
 import ViewProgMod from "../Reusable components/program_Modal";
 import { Link } from "react-scroll";
+import { Link as NavLink } from "react-router-dom";
 
 const SelectedSubjectHero = ({
   subjectName,
@@ -10,6 +11,7 @@ const SelectedSubjectHero = ({
   countryName,
   paramsFeild,
   dataToAddProgram,
+  uniModal
 }) => {
   const component1Ref = useRef(null);
 
@@ -28,6 +30,8 @@ const SelectedSubjectHero = ({
   return (
     <>
       <ViewProgMod
+        dataToAddProgram={dataToAddProgram}
+        university={uniModal ? uniModal : false}
         isModalOpen={isModalOpen}
         paramsFeild={paramsFeild}
         programQuery={
@@ -66,6 +70,7 @@ const SelectedSubjectHero = ({
                 Start Application
                 <BiRightArrowAlt className="heroBtnIcon" size={25} />
               </button>
+
 
               <Link to="whyStudee" smooth={true} duration={1000}>
                 <button className="universities_hero_left_btn_trp">

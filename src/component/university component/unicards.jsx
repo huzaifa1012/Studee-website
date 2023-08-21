@@ -7,6 +7,7 @@ import ViewProgMod from "../Reusable components/program_Modal";
 const Unicards = ({ data }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedUni, setSelectedUni] = useState("");
+  const [selectedUniData, setSelectedUniData] = useState("");
   const navigate = useNavigate();
   const handlenavigation = (country, city, university) => {
     navigate(`/${country}/${city}/${university}`);
@@ -17,6 +18,7 @@ const Unicards = ({ data }) => {
     setIsModalOpen(true);
     console.log(uniName);
     setSelectedUni(uniName);
+    setSelectedUniData(uniName);
     console.log(selectedUni);
   };
   const handleCancel = () => {
@@ -85,6 +87,7 @@ const Unicards = ({ data }) => {
                             className="unicard_btn_orange"
                             onClick={() => {
                               showModal(item.universityName);
+                              setSelectedUniData(item)
                             }}
                           >
                             Start an application
@@ -112,6 +115,10 @@ const Unicards = ({ data }) => {
       </div>
       <Whystudee />
       <ViewProgMod
+        uniModal={true}
+        universityTitle={`Start your application to ${selectedUni}`}
+        dataToAddProgram={selectedUniData}
+        university={true}
         paramsFeild="universityName"
         programQuery={selectedUni}
         isModalOpen={isModalOpen}

@@ -5,6 +5,7 @@ import axios from "axios";
 import { animateScroll } from "react-scroll";
 import { useDispatch } from "react-redux";
 import { setUserId } from "../store/userIdSlice";
+import profile from "../assets/images/profile.png"
 const Account = () => {
   const [data, setData] = useState("");
   const navigate = useNavigate();
@@ -47,7 +48,7 @@ const Account = () => {
               <div className="acc_box">
                 <img
                   className="acc_prof_box_img"
-                  src="https://yt3.googleusercontent.com/ytc/AGIKgqMPsGpJrtJwiljcI3r7SP-oI2pR5WkSbFoVtQ=s900-c-k-c0x00ffffff-no-rj"
+                  src={profile}
                 />{" "}
                 <div className="acc_box_details">
                   <h1 className="acc_prof_box_h1">

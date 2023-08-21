@@ -23,6 +23,11 @@ const Hero = ({ data }) => {
   const [subjectFor, setSubjectFor] = useState("");
   const [locationFor, setLocationFor] = useState("");
 
+  // These states added when i change my hero options into input 
+  const [filteredLocations, setFilteredLocations] = useState([]);
+  const [filteredOptions, setFilteredOptions] = useState([]);
+
+
   const navigate = useNavigate();
   const id = useSelector((state) => state.userId);
 
@@ -165,73 +170,112 @@ const Hero = ({ data }) => {
           </div>
 
           <form className="hero_user-input-section" onSubmit={handleSearch}>
+
             <div className="theHero_label">
-              {" "}
-              <p className="mtc hero_labelP"> Location</p>
-              <select
-                className="hero_inpbox-style"
+              <p className="mtc hero_labelP">Location</p>
+
+              <input
+                type="text"
                 placeholder="Enter a country, campus or university"
+                className="hero_inpbox-style"
                 value={location}
                 onChange={(e) => {
-                  setLocation(e.target.value);
-                  const locationFilter = locationData.filter(
-                    (row) => row.name === e.target.value
-                  );
-                  setLocationFor({
-                    field: locationFilter[0].for,
-                    name: e.target.value,
-                  });
+                  const enteredValue = e.target.value;
+                  setLocation(enteredValue);
+
+                  if (enteredValue.trim() === '') {
+                    setFilteredLocations([]); // Clear the filtered locations
+                  } else {
+                    const locationFilter = locationData.filter(
+                      (row) =>
+                        row.name.toLowerCase().includes(enteredValue.toLowerCase()) ||
+                        row.showName.toLowerCase().includes(enteredValue.toLowerCase())
+                    );
+                    setFilteredLocations(locationFilter);
+                  }
                 }}
-              >
-                <option value="">Choose country, city or university</option>
-                {locationData.map((row) => (
-                  <option
-                    className="main_hero_option_box"
-                    value={row.name}
-                    style={{ fontSize: 18 }}
-                  >
-                    {row.showName.slice(0, 30)}
-                  </option>
-                ))}
-              </select>
+              />
+
+              {filteredLocations.length > 0 && location.trim() !== '' && (
+                <div className="main_hero_option_box">
+                  {filteredLocations.map((row) => (
+                    <div
+                      key={row.name}
+                      className="main_hero_option"
+                      style={{ fontSize: 18, cursor: "pointer" }}
+                      onClick={() => {
+                        setLocation(row.name);
+                        setLocationFor({
+                          field: row.for,
+                          name: row.name,
+                        });
+                        setFilteredLocations([]); // Clear the filtered locations
+                      }}
+                    >
+                      {row.showName.slice(0, 30)}
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
+
+
+
+
             <div className="theHero_label">
               <p className="mtc hero_labelP">Subject</p>
 
-              <select
+              <input
+                type="text"
                 placeholder="Enter a subject"
                 className="hero_inpbox-style"
                 value={subject}
                 onChange={(e) => {
-                  setSubject(e.target.value);
-                  const subjectFilter = subjectData.filter(
-                    (row) => row.name === e.target.value
-                  );
-                  setSubjectFor({
-                    field: subjectFilter[0].for,
-                    name: e.target.value,
-                  });
+                  const enteredValue = e.target.value;
+                  setSubject(enteredValue);
+
+                  if (enteredValue.trim() === '') {
+                    setFilteredOptions([]); // Clear the filtered options
+                  } else {
+                    const subjectFilter = subjectData.filter(
+                      (row) => row.name.toLowerCase().includes(enteredValue.toLowerCase())
+                    );
+                    setFilteredOptions(subjectFilter);
+                  }
                 }}
-              >
-                <option value="">Choose Subject</option>
-                {subjectData.map((row) => (
-                  <option
-                    className="main_hero_option_box"
-                    value={row.name}
-                    style={{ fontSize: 18 }}
-                  >
-                    {row.name.slice(0, 30)}
-                  </option>
-                ))}
-              </select>
+              />
+
+              {filteredOptions.length > 0 && subject.trim() !== '' && (
+                <div className="main_hero_option_box">
+                  {filteredOptions.map((row) => (
+                    <div
+                      key={row.name}
+                      className="main_hero_option"
+                      style={{ fontSize: 18, cursor: "pointer" }}
+                      onClick={() => {
+                        setSubject(row.name);
+                        setSubjectFor({
+                          field: row.for,
+                          name: row.name,
+                        });
+                        setFilteredOptions([]); // Clear the filtered options
+                      }}
+                    >
+                      {row.name.slice(0, 30)}
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
+
+
             <div className="heroBtnCover">
               <button
                 name=""
                 id=""
                 className="hero_btn"
-                // onClick={() => setIsModalOpen(true)}
-                // onClick={() => handleSearch()}
+              // onClick={() => setIsModalOpen(true)}
+              // onClick={() => handleSearch()}
               >
                 Find Your Perfect Program
                 <BiRightArrowAlt className="heroBtnIcon" size={25} />
@@ -240,7 +284,7 @@ const Hero = ({ data }) => {
           </form>
           <div className="studee_home_hero_bottom ltc">
             <p>
-              Promote your university to students worldwide. <u> Learn more </u>
+              {/* Promote your university to students worldwide. <u> Learn more </u> */}
             </p>
           </div>
         </div>

@@ -21,6 +21,7 @@ import { useState } from "react";
 import { resetCheckboxData } from "../store/checkboxDataSlice.jsx";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import parse from 'html-react-parser'
 const steps = [
   "What to study",
   "Where to study",
@@ -48,29 +49,6 @@ const PersonalizedMatches = () => {
 
     handleResetClick();
   }, []);
-
-  // const ProgramTypes = async () => {
-  //   try {
-  //     const response = await axios.get(
-  //       "https://studyapi.ieodkv.com/programTypes"
-  //     );
-  //     setProgTypes(response.data);
-
-  //     const postgraduateData = response.data.filter(
-  //       (entry) => entry.graduate === "Postgraduate"
-  //     );
-  //     const UndergraduateData = response.data.filter(
-  //       (entry) => entry.graduate === "Undergraduate"
-  //     );
-  //     setUnderGr(setUnderGr);
-  //     setPostGr(UndergraduateData);
-  //     setPostGr();
-  //     console.log(postgraduateData);
-  //     console.log("/progTypes", response.data);
-  //   } catch (error) {
-  //     console.error("Error in Browse Countries:", error);
-  //   }
-  // };
 
   const handleSaveFilters = async () => {
     if (!id) {
@@ -142,6 +120,22 @@ const PersonalizedMatches = () => {
     setCompleted({});
   };
 
+  const [data, setData] = useState('')
+  const shortPageContent = async () => {
+    try {
+      const response = await axios.get(
+        "https://studyapi.ieodkv.com/content/page/notsuredata"
+      );
+      setData(response.data);
+      console.log(response.data);
+    } catch (error) {
+      console.error("Error Not sure data :", error);
+    }
+  };
+  useEffect(() => {
+    shortPageContent()
+  }, [])
+
   return (
     <>
       <div className="PersonalizeMatched_wrap">
@@ -185,14 +179,14 @@ const PersonalizedMatches = () => {
                         mb: 2,
                       }}
                     >
-                      {/* <Button
+                      <Button
                         color="inherit"
                         disabled={activeStep === 0}
                         onClick={handleBack}
                         sx={{ mr: 1 }}
                       >
                         Back
-                      </Button> */}
+                      </Button>
                       <Box sx={{ flex: "1 1 auto" }} />
                       <Button
                         className="Personalize_NextBtn"
@@ -225,17 +219,15 @@ const PersonalizedMatches = () => {
                 width={"70%"}
               />
 
-              <div className="PersonalizeMatched_main-right_uder_text_content">
-                <h1>Not Sure ?</h1>
+              {data &&
+                <div className="PersonalizeMatched_main-right_uder_text_content">
+                  <h1>{data.mainHeadingName}  </h1>
 
-                <p className="ltc">
-                  Not sure what to chose ? Choose Them All! Leave your doubts
-                  behind and select all the options to discover a diverse range
-                  of study abroad programs tailored to your preferences. Embrace
-                  the freedom of exploring various possibilities and uncover the
-                  perfect opportunity that awaits you.
-                </p>
-              </div>
+                  <p className="ltc">
+                    {parse(data.description)}
+                  </p>
+                </div>
+              }
             </div>
           </div>
         </div>

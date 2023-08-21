@@ -131,7 +131,7 @@ const ApplyPrograms = () => {
         localStorage.removeItem("guardianEmail");
         localStorage.removeItem("studentAge");
         Swal.fire("Good job!", "You've Successfully Applied !", "success");
-        navigate("/programs");
+        navigate("/your-applications");
       }
     } catch (error) {
       console.log(error);

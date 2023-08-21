@@ -21,7 +21,7 @@ import { useParams } from "react-router-dom";
 import CitiesAndUniForSelectedCountry from "../component/selectedCountry/Cities and Uni for selected country";
 import Campuses from "../component/Selected University/campuses";
 import student_life_image from "../../src/assets/images/student-life.avif";
-import StudentLifeGalleryAndHeading from "../component/university component/studentLife(heading/Image)";
+import StudentLifeGalleryAndHeading from "../component/university component/studentLife(heading/Facilities";
 import SelectedUniHero from "../component/Selected University/selecteduniHero";
 import { animateScroll } from "react-scroll";
 
@@ -47,7 +47,7 @@ const SelectedCampusFromUni = () => {
       );
       setCampusData(response.data);
       setLoading(false); // Set loading to false after data is fetched
-      console.log("response.data", response.data);
+      console.log("Campus data", response.data);
     } catch (error) {
       setLoading(false); // Set loading to false in case of error as well
       console.error(

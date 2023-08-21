@@ -25,7 +25,6 @@ const Universities = () => {
         }
       );
       setUniData(response.data);
-      console.log("All Unis", response.data);
       setLoading(false);
     } catch (error) {
       setLoading(false);
@@ -40,7 +39,7 @@ const Universities = () => {
         <Unicards data={uniData} />
       ) : (
         <>
-          <div className="my-custom-spinner-wrap">
+          <div className="my-custom-spinner-wrap" style={{ position: 'absolute', top: '0' }}>
             <div
               className="my-custom-spinner  inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] text-success motion-reduce:animate-[spin_1.5s_linear_infinite]"
               role="status"

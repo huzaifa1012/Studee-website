@@ -7,96 +7,6 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { addCheckboxData } from "../store/checkboxDataSlice";
 
-const dummyData = [
-  "Apple",
-  "Banana",
-  "Cherry",
-  "Durian",
-  "Elderberry",
-  "Fig",
-  "Grape",
-  "Honeydew",
-  "Ivy gourd",
-  "Jackfruit",
-  "Kiwi",
-  "Lemon",
-  "Mango",
-  "Nectarine",
-  "Orange",
-  "Papayas",
-  "Quince",
-  "Raspberry",
-  "Strawberry",
-  "Tangerine",
-  "Ugli fruit",
-  "Vanilla",
-  "Watermelon",
-  "Xigua",
-  "Yellow passionfruit",
-  "Zucchini",
-];
-const dummySubject = [
-  "Commerce",
-  "Computer Science",
-  "Engineering",
-  "Medical",
-  "Artsy",
-  "Business",
-  "Communication",
-];
-const dummyCountries = [
-  "China",
-  "India",
-  "United States",
-  "Indonesia",
-  "Pakistan",
-  "Brazil",
-  "Nigeria",
-  "Bangladesh",
-  "Russia",
-  "Mexico",
-  "Japan",
-  "Ethiopia",
-  "Philippines",
-  "Egypt",
-  "Vietnam",
-  "DR Congo",
-  "Turkey",
-  "Iran",
-  "Germany",
-  "Thailand",
-  "United Kingdom",
-  "France",
-  "Italy",
-  "Tanzania",
-  "South Africa",
-  "Myanmar",
-  "Kenya",
-  "South Korea",
-  "Colombia",
-  "Spain",
-  "Uganda",
-  "Argentina",
-  "Algeria",
-  "Sudan",
-  "Ukraine",
-  "Iraq",
-  "Afghanistan",
-  "Poland",
-  "Canada",
-  "Morocco",
-  "Saudi Arabia",
-  "Uzbekistan",
-  "Peru",
-  "Angola",
-  "Malaysia",
-  "Mozambique",
-  "Ghana",
-  "Yemen",
-  "Nepal",
-  "Venezuela",
-  "Madagascar",
-];
 
 const handleSearchTextChange = (e) => {
   setSearchText(e.target.value);
@@ -128,6 +38,7 @@ const StepContent01 = () => {
         "https://studyapi.ieodkv.com/programTypes"
       );
       setProgTypes(response.data);
+      console.log('PRG TYPES', response.data)
 
       const postgraduateData = response.data.filter(
         (entry) => entry.graduate === "Postgraduate"
@@ -268,7 +179,15 @@ const StepContent02 = () => {
   const [location, setLocation] = useState();
   const [subjectData, setSubjectData] = useState([]);
   const [subject, setSubject] = useState();
+  const [filteredSubjects, setFilteredSubjects] = useState([]);
   const [locationFor, setLocationFor] = useState("");
+  const [showSubjectSuggestions, setShowSubjectSuggestions] = useState(true); // Show subject suggestions flag state
+
+  const [filteredLocations, setFilteredLocations] = useState([]);
+  const [selectedLocation, setSelectedLocation] = useState('');
+  const [showSuggestions, setShowSuggestions] = useState(true); // Show suggestions flag state
+
+
 
   const dispatch = useDispatch();
 
@@ -301,7 +220,8 @@ const StepContent02 = () => {
           <div className="StepContent01_body">
             <div className="StepContent_Body_data "></div>
             <div style={{ position: "relative", margin: "0px 15px " }}>
-              <div className="theHero_label" style={{ height: "90px" }}>
+              {/* Select working */}
+              {/* <div className="theHero_label" style={{ height: "90px" }}>
                 {" "}
                 <p className="mtc hero_labelP"> Location</p>
                 <select
@@ -335,12 +255,65 @@ const StepContent02 = () => {
                     </option>
                   ))}
                 </select>
+              </div> */}
+              {/* 2nd */}
+              <div className="theHero_label" style={{ height: "90px" }}>
+                <p className="mtc hero_labelP">Location</p>
+                <input
+                  type="text"
+                  className="hero_inpbox-style-personolized-matches"
+                  placeholder="Enter a country, campus or university"
+                  value={location}
+                  onChange={(e) => {
+                    const enteredValue = e.target.value;
+                    setLocation(enteredValue);
+
+                    if (enteredValue.trim() === '') {
+                      setShowSuggestions(false);
+                      setFilteredLocations([]); // Clear the filtered locations
+                    } else {
+                      setShowSuggestions(true); // Show suggestions when there's input
+                      const locationFilter = locationData.filter(
+                        (row) =>
+                          row.name.toLowerCase().includes(enteredValue.toLowerCase()) ||
+                          row.showName.toLowerCase().includes(enteredValue.toLowerCase())
+                      );
+
+                      setFilteredLocations(locationFilter);
+                    }
+                  }}
+                />
+
+
+                {filteredLocations.length > 0 && (
+                  <div className="main_hero_option_box">
+                    {filteredLocations.map((row) => (
+                      <div
+                        key={row.name}
+                        className="main_hero_option"
+                        style={{ fontSize: 18, cursor: "pointer" }}
+                        onClick={() => {
+                          setLocation(row.name);
+                          dispatch(
+                            addCheckboxData({
+                              field: row.for,
+                              name: row.name,
+                            })
+                          );
+                          setFilteredLocations([]); // Clear the filtered locations
+                        }}
+                      >
+                        {row.showName.slice(0, 30)}
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
 
               {/* Location Ends  */}
               {/* Subject Starts  */}
-
-              <div className="theHero_label" style={{ height: "90px" }}>
+              {/* Select working */}
+              {/* <div className="theHero_label" style={{ height: "90px" }}>
                 {" "}
                 <p className="mtc hero_labelP"> Subject</p>
                 <select
@@ -375,6 +348,56 @@ const StepContent02 = () => {
                     </option>
                   ))}
                 </select>
+              </div> */}
+              <div className="theHero_label" style={{ height: "90px" }}>
+                <p className="mtc hero_labelP">Subject</p>
+                <input
+                  type="text"
+                  className="hero_inpbox-style-personolized-matches"
+                  placeholder="Enter a country, campus or university"
+                  value={subject}
+                  onChange={(e) => {
+                    const enteredValue = e.target.value;
+                    setSubject(enteredValue);
+
+                    if (enteredValue.trim() === '') {
+                      setShowSubjectSuggestions(false);
+                      setFilteredSubjects([]); // Clear the filtered subjects
+                    } else {
+                      setShowSubjectSuggestions(true); // Show suggestions when there's input
+                      const subjectFilter = subjectData.filter(
+                        (row) => row.name.toLowerCase().includes(enteredValue.toLowerCase())
+                      );
+
+                      setFilteredSubjects(subjectFilter);
+                    }
+                  }}
+                />
+
+                {showSubjectSuggestions && filteredSubjects.length > 0 && (
+                  <div className="main_hero_option_box">
+                    {filteredSubjects.map((row) => (
+                      <div
+                        key={row.name}
+                        className="main_hero_option"
+                        style={{ fontSize: 18, cursor: "pointer" }}
+                        onClick={() => {
+                          setSubject(row.name);
+                          dispatch(
+                            addCheckboxData({
+                              field: row.for,
+                              name: row.name,
+                            })
+                          );
+                          setFilteredSubjects([]); // Clear the filtered subjects
+                          setShowSubjectSuggestions(false); // Hide suggestions after selection
+                        }}
+                      >
+                        {row.name.slice(0, 30)}
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
 
               <h4 className="mt-7 ">

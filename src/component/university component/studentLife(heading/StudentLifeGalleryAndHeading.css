@@ -1,17 +1,54 @@
+.facilities_Main_wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  
+}
+.facilities_Main {
+  width: 95%;
+}
 .StudentLifeGalleryAndHeading_Wrap {
   width: 100%;
   display: flex;
   justify-content: center;
 }
 .StudentLifeGalleryAndHeading_main {
-    width: 90%;
+  max-width: 1200px;
+margin: 0px auto;
+  width: 90%;
 }
 
 .StudentLifeGalleryAndHeading_main h1 { 
     /* padding: 15px 0px; */
 }
-@media screen {
-    
+
+.Facil_box_wrap {
+  margin:0px auto;
+  padding: 10px;
+  width: 90%;
+  justify-content: flex-start;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+max-width: 1200px;
 }
+.Facil_box {
+  margin:0px 10px ;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-width: 170px;
+  text-align: center;
+  
+}
+  .Facil_box  img{
+max-width: 150px;
+    box-shadow: 1px 0px 4px gray;
+  border-radius: 20px;
 
+  }
+  .Facil_box  h2 {
 
+    text-align: left;
+  }

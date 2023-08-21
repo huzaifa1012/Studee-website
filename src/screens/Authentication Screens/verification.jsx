@@ -12,11 +12,12 @@ const Verification = () => {
   const navigate = useNavigate();
   animateScroll.scrollToTop();
 
+
+  let email = localStorage.getItem("email");
   const handleOTPSubmit = async (event) => {
     event.preventDefault();
     console.log(otp);
     try {
-      let email = localStorage.getItem("email");
       console.log("MY OTP", otp);
       const response = await axios.post(
         "https://studyapi.ieodkv.com/students/verify",
@@ -51,9 +52,9 @@ const Verification = () => {
       Swal.fire({
         position: "center",
         icon: "success",
-        title: "Your work has been saved",
-        showConfirmButton: false,
-        timer: 1500,
+        title: "OTP Resend",
+        text: `We've sent the OTP to ${email} again.  `,
+        // showConfirmButton: false,
       });
     } catch (error) {
       console.log(error);

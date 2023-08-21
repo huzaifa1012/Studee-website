@@ -1,3 +1,8 @@
+
+
+
+
+/*  */
 .login_container_wrap {
   background-color: #f4f4f4;
   display: flex;
@@ -31,6 +36,33 @@
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+
+/* Phone Input  */
+.phone_input_container {
+  display: flex;
+  align-items: center;
+}
+
+.country_select {
+  /* margin-right: 8px; */
+  width: 50% !important;
+}
+.phone_input_select {
+  margin-right: 5px;
+  width: 20% !important;
+  padding: 15px 5px !important;
+  border: 2px solid #ccc !important;
+  border-radius: 8px !important; 
+
+
+}
+.phone_input {
+  width: 70% !important;
+  padding: 15px 10px !important;
+  border: 2px solid #ccc !important;
+  border-radius: 8px !important; 
+}
+/* Phone Input  end */
 .login_form h2 {
   font-size: 1.5rem;
   /* text-align: center; */

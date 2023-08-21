@@ -12,13 +12,15 @@ import {
 } from "react-icons/ai";
 import { CircularProgress } from "@mui/material";
 import Swal from "sweetalert2";
+import { FaDownload } from 'react-icons/fa';
+
 
 const YourApplications = () => {
 
   const [applications, setApplications] = useState([]);
   const [loading, setLoading] = useState(true);
   const [openModal, setOpenModal] = useState(false);
-  const [viewDocModal, setViewDocModal] = useState(true);
+  const [viewDocModal, setViewDocModal] = useState(false);
   const [document, setDocument] = useState(null);
   const [name, setName] = useState("");
   const [selectedRow, setSelectedRow] = useState("");
@@ -27,7 +29,7 @@ const YourApplications = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-  animateScroll.scrollToTop();
+    animateScroll.scrollToTop();
 
     axios
       .get(`https://studyapi.ieodkv.com/applications/student/${id}`)
@@ -105,6 +107,10 @@ const YourApplications = () => {
     setViewDocModal(true);
     console.log(selectedApplicationData);
   }
+  const handleDownloadDoc = (doc) => {
+    const response = axios.get(`/${doc}`)
+
+  }
   return (
     <>
       {openModal ? (
@@ -141,6 +147,8 @@ const YourApplications = () => {
                   style={{ opacity: 0.6 }}
                 >
                   Accepted document types: zip, pdf, png, jpg.
+                  <br />
+                  Max file size '10MB'
                 </label>
                 {document ? (
                   <input
@@ -218,10 +226,13 @@ const YourApplications = () => {
         <div className="modal">
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
             <div
-              style={{ maxHeight: "510px", overflow: "scroll" }}
+              style={{ maxHeight: "510px", overflowX: "scroll", }}
               className="bg-white rounded-lg p-6 w-full sm:w-1/2 md:w-1/3 lg:w-1/3 "
             >
-              <div style={{ display: "flex", justifyContent: "flex-end" }}>
+              <div style={{ display: "flex", justifyContent: "flex-end" }} onClick={() => {
+                setViewDocModal(false);
+                setName("");
+              }}>
                 <span
                   style={{
                     height: "20px",
@@ -233,13 +244,13 @@ const YourApplications = () => {
                     justifyContent: "center",
                     alignItems: "center",
                   }}
-                  className="fixed top-50 right-50 cursor-pointer text-gray-500 bg-white rounded-lg"
+                  className="top-50 right-50 cursor-pointer text-gray-500 bg-white rounded-lg"
                   onClick={() => {
                     setViewDocModal(false);
                     setName("");
                   }}
                 >
-                  <AiOutlineCloseCircle color="red" className="bg-white" />
+                  <AiOutlineCloseCircle color="red" size={50} className="bg-white" />
                 </span>
               </div>
               <div className="mb-6">
@@ -249,15 +260,31 @@ const YourApplications = () => {
                 <div className="relative mb-2">
                   {selectedApplicationData
                     ? selectedApplicationData.documents.map((data, index) => {
-                        return (
-                          <>
+                      return (
+                        <>
+                          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
                             <div>
-                              <h2  className="mt-5" style={{ fontSize: "20px" }}>{data.name}</h2>
+                              <h2 className="mt-5" style={{ fontSize: "20px" }}>{data.name}</h2>
                               <h5>Uploaded : {data.date}</h5>
                             </div>
-                          </>
-                        );
-                      })
+                            <a
+                              href={`https://studyapi.ieodkv.com/applications/docs/${data.document}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              style={{ textDecoration: "none" }}
+                            >
+
+                              <div
+                              //  onClick={() => handleDownloadDoc(data.document)} 
+                              >
+                                <FaDownload size={20} className="mb-1 cursor-pointer" />
+                              </div>
+                            </a>
+                          </div>
+                          <hr />
+                        </>
+                      );
+                    })
                     : "Loading"}
                 </div>
               </div>

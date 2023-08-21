@@ -1,12 +1,14 @@
 .the_main_header_wrap {
   border-bottom: 1px solid rgba(76, 76, 76, 0.128);
-}
-.My_navLink {
+}.My_navLink {
   border-bottom: 3px solid transparent;
   transition: 0.3s;
   border-radius: 2px;
 }
 .My_navLink:hover {
+  border-bottom: 3px solid var(--secondary-color);
+}
+.active-link {
   border-bottom: 3px solid var(--secondary-color);
 }
 .header_custom_searchbar {

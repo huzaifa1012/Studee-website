@@ -38,21 +38,7 @@ const Universities = ({ id, name, universityDescription }) => {
                             }}></div>
                     </p>
                     <div className="browseByCountry_body">
-                        {/* {data.map((row, index) => {
-                            return (
-                                <Link
-                                    key={index}
-                                    className="browseByCountry_card"
-                                    to={`/${row.countryUrl}/${row.cityUrl}/${row.urlName}`}>
-                                    <img
-                                        className="country-img-home"
-                                        alt={row.bannerImage}
-                                        src={`https://studyapi.ieodkv.com/universities/images/${row.banner}`}
-                                    />
-                                    <p className="country-heading-home">{row.universityName}</p>
-                                </Link>
-                            );
-                        })} */}
+
                         {data?.map((row, index) => (
                             <Link
                                 to={`/${row.countryUrl}/${row.cityUrl}/${row.urlName}`}

@@ -21,7 +21,7 @@ import { useParams } from "react-router-dom";
 import CitiesAndUniForSelectedCountry from "../component/selectedCountry/Cities and Uni for selected country";
 import Campuses from "../component/Selected University/campuses";
 import student_life_image from "../../src/assets/images/student-life.avif";
-import StudentLifeGalleryAndHeading from "../component/university component/studentLife(heading/Image)";
+import StudentLifeGalleryAndHeading from "../component/university component/studentLife(heading/Facilities";
 import { animateScroll } from "react-scroll";
 import Agent from "../component/Selected University/agent/agent";
 
@@ -29,6 +29,7 @@ const SelectedUniFromCountry = () => {
   const [loading, setLoading] = useState(true);
   const [subject, setSubjects] = useState("");
   const [uniData, setUniData] = useState("");
+  const [agent, setAgents] = useState("");
 
   const params = useParams();
 
@@ -36,20 +37,25 @@ const SelectedUniFromCountry = () => {
 
   useEffect(() => {
     animateScroll.scrollToTop();
-
-    fetchSelecteduniData();
+    {
+      params &&
+        fetchSelecteduniData();
+    }
     fetchPopularSubjectForTheCountry();
+    {
+      uniData &&
+        fetchAgents()
+    }
   }, []);
 
   const fetchSelecteduniData = async () => {
     try {
-      console.log(params.university);
       const response = await axios.get(
         `https://studyapi.ieodkv.com/universities/university1/${params.university}`
       );
       setUniData(response.data);
+      console.log(response.data);
       setLoading(false); // Set loading to false after data is fetched
-      console.log(uniData);
     } catch (error) {
       setLoading(false); // Set loading to false in case of error as well
       console.error(
@@ -63,8 +69,6 @@ const SelectedUniFromCountry = () => {
       const response = await axios.get(
         `https://studyapi.ieodkv.com/popular/country/${params.name}`
       );
-      cosnole.log("respo", response.data);
-      cosnole.log("respo");
       setSubjects(response.data);
     } catch (error) {
       console.error(
@@ -73,12 +77,26 @@ const SelectedUniFromCountry = () => {
       );
     }
   };
+  const fetchAgents = async () => {
+    try {
+      const response = await axios.get(
+
+        `https://studyapi.ieodkv.com/members/university/${uniData && uniData._id}`
+      );
+      setAgents(response.data);
+    } catch (error) {
+      console.error(
+        "Error fetching Agents:",
+        error
+      );
+    }
+  };
+
   const scrollToComponent2 = () => {
     component2Ref.current.scrollIntoView({ behavior: "smooth" });
   };
   return (
     <>
-      {/* Conditionally render based on loading state */}
       {loading ? (
         <>
           <div className="my-custom-spinner-wrap">
@@ -91,6 +109,7 @@ const SelectedUniFromCountry = () => {
       ) : (
         <>
           <SelectedSubjectHero
+            uniModal={true}
             paramsFeild={"universityName"}
             dataToAddProgram={uniData}
             scrollToComponent2={scrollToComponent2}
@@ -108,7 +127,7 @@ const SelectedUniFromCountry = () => {
               </>
             }
           />
-          <Uni_FindAndApplyCard name={uniData && uniData.name} />
+          <Uni_FindAndApplyCard name={uniData && uniData.universityName} data={uniData && uniData} />
           <div style={{ backgroundColor: "#f0f0f0" }}>
             <DetalilsWithImage
               imageUrl={AustriaKangaroImage}
@@ -121,8 +140,10 @@ const SelectedUniFromCountry = () => {
             />
           </div>
 
+          {agent &&
+            <Agent data={agent && agent} uniName={uniData && uniData.universityName} />
+          }
 
-          <Agent />
 
           <div style={{ backgroundColor: "##f7f8f9" }}>
             <DetalilsWithLeftImage
@@ -131,11 +152,6 @@ const SelectedUniFromCountry = () => {
                 <>
                   <h1>Life as an international student</h1>
                   {parse(uniData && uniData.lifeOfInternationalStudents)}
-                  {/* <Link to={`/visas-&-travel/${params.name}`}>
-                <button className="universities_hero_left_btn fsinm">
-                  {uniData && uniData.name} Visa Requirements
-                </button>
-              </Link> */}
                 </>
               }
             />
@@ -149,6 +165,7 @@ const SelectedUniFromCountry = () => {
           <StudentLifeGalleryAndHeading
             title={"Student life & facilities"}
             image={student_life_image}
+            facilities={uniData.studentFacilities}
           />
           <DetalilsWithImage
             imageUrl={AustriaKangaroImage}
@@ -177,7 +194,6 @@ const SelectedUniFromCountry = () => {
             />
           </div>
           <DetalilsWithImage
-            // imageUrl={AustriaKangaroImage}
             body={
               <>
                 <h1>Location Of {uniData && uniData.universityName}?</h1>
@@ -185,6 +201,13 @@ const SelectedUniFromCountry = () => {
               </>
             }
           />
+
+          <PopularSubjects
+            heading={"Popular Subjects"}
+            allSubjects={subject && subject}
+            length={9}
+          />
+
         </>
       )}
     </>

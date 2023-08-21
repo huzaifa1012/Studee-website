@@ -6,8 +6,9 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addCheckboxData } from "../../store/checkboxDataSlice";
-const handleNavigation = () => {};
-const ViewProgMod = ({ isModalOpen, onClose, programQuery, paramsFeild }) => {
+import { BiRightArrowAlt } from "react-icons/bi";
+const handleNavigation = () => { };
+const ViewProgMod = ({ isModalOpen, onClose, programQuery, paramsFeild, university, universityTitle, dataToAddProgram }) => {
   const navigate = useNavigate();
   const id = useSelector((state) => state.userId);
   const dispatch = useDispatch();
@@ -19,6 +20,7 @@ const ViewProgMod = ({ isModalOpen, onClose, programQuery, paramsFeild }) => {
     },
   ];
 
+  // console.log(Query)
   const handleSaveFilters = async () => {
     animateScroll.scrollToTop();
     if (!id) {
@@ -46,13 +48,36 @@ const ViewProgMod = ({ isModalOpen, onClose, programQuery, paramsFeild }) => {
     <>
       <Modal
         className="custom-modal"
-        title="Find your program matches"
+        title={university ? universityTitle : "Find your program matches"}
         open={isModalOpen}
         footer={null}
         closable={true}
         onCancel={onClose}
       >
         <div className="modal_Wrap">
+          {university &&
+            <div className="modal_top mb-2" style={{ background: 'var(--secondary-accent)', marginLeft: '-5px ', borderLeft: '5px solid var(--secondary-color)' }}>
+              <p className="mb-5 mt-2 ">
+                <b>
+                  If you've decided which program to study
+
+                </b>
+              </p>
+              <p className="mb-5">
+                Tell us which program you wish to apply to and we'll create your application form so you can get started
+              </p>
+              <div onClick={handleNavigation}>
+                <Link to={`/ApplyToUniversity/${dataToAddProgram.urlName}`}>
+                  <button className="flex align-center justify-center mb-2 modal_bigBtn" style={{ background: 'var(--secondary-color)', }}>
+                    Select program to apply
+
+                    <BiRightArrowAlt className=" ml-1  heroBtnIcon" size={25} />
+                  </button>
+                </Link>
+              </div>
+              <div className="mt-2 mb-2"></div>
+            </div>
+          }
           <div className="modal_top">
             <p className="mb-5 mt-2 ">
               <b>

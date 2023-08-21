@@ -5,7 +5,7 @@ import Uni_details_And_Logo from "../component/Selected University/uni_detailsAn
 import Uni_FindAndApplyCard from "../component/Selected University/Uni_FindAndApplyCard.jsx";
 import TreeProjectComponent from "../component/home component/treesProject.jsx";
 import VerticalizeTreeProjectComponent from "../component/home component/Verticalize layout treeProject.jsx";
-import StudentLifeGalleryAndHeading from "../component/university component/studentLife(heading/Image).jsx";
+import StudentLifeGalleryAndHeading from "../component/university component/studentLife(heading/Facilities.jsx";
 const SelectedUniversity = () => {
   return (
     <>

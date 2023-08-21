@@ -3,10 +3,14 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { animateScroll } from "react-scroll";
 import "../component/Account/account.css";
-
+import profile from "../assets/images/profile.png"
+import { RiLockPasswordLine } from 'react-icons/ri'
+import { TbPassword } from 'react-icons/tb'
+import Swal from "sweetalert2";
 const Profile = () => {
   const [data, setData] = useState([]);
   const [ediable, setEdiable] = useState(false);
+  const [changePassword, setChangePassword] = useState(false);
   // Fields
   const [firstname, setFirstName] = useState("");
   const [lastname, setLastName] = useState("");
@@ -25,6 +29,8 @@ const Profile = () => {
   const [nationality, setNationality] = useState("");
   const [annualBudget, setAnnualBudget] = useState("");
   const [currency, setCurrency] = useState("");
+  const [password, setPassword] = useState("");
+  const [password2, setPassword2] = useState("");
 
   const [reasonToStudyAbroad, setReasonToStudyAbroad] = useState("");
   const id = useSelector((state) => state.userId);
@@ -61,6 +67,49 @@ const Profile = () => {
   const handleCancel = () => {
     setEdiable(false);
     // fetchData();
+  };
+  const handlePasswordChange = async () => {
+    try {
+      const updateData = {};
+
+      if (password && password2) {
+        updateData.password = password;
+        updateData.password2 = password2;
+      }
+      else {
+        Swal.fire(
+          "Enter Valid Password", "Please check you've entered your current & new password")
+        return
+      }
+      const response = await axios.put(
+        `https://studyapi.ieodkv.com/students/${id}`,
+        updateData
+      );
+      setPassword('')
+      setPassword2('')
+      fetchData();
+      setChangePassword(false);
+      console.log("response", response.data);
+      if (response.status === 200) {
+        Swal.fire(
+          "Password changed", "Your password is successfully changed", "success")
+      }
+
+      // if (response.data.message) {
+      //   alert(response.data.message)
+      // }
+      // if (response.message) {
+      //   alert(response.data.message)
+      // }
+
+
+    } catch (error) {
+      if (error.response.data) {
+        Swal.fire(
+          `Error`, ` ${error.response.data}`, "warning")
+      }
+      console.log(error);
+    }
   };
   const handleSave = async () => {
     try {
@@ -110,6 +159,10 @@ const Profile = () => {
       if (lastEducationCountry) {
         updateData.lastEducationCountry = lastEducationCountry;
       }
+      if (password && password2) {
+        updateData.password = password;
+        updateData.password2 = password2;
+      }
       const response = await axios.put(
         `https://studyapi.ieodkv.com/students/${id}`,
         updateData
@@ -134,7 +187,7 @@ const Profile = () => {
               <div className="account_head_left">
                 <img
                   className="acc_prof_box_img"
-                  src="https://yt3.googleusercontent.com/ytc/AGIKgqMPsGpJrtJwiljcI3r7SP-oI2pR5WkSbFoVtQ=s900-c-k-c0x00ffffff-no-rj"
+                  src={profile}
                 />{" "}
                 <h1 className="acc_heading"> Your Profile</h1>
               </div>
@@ -338,23 +391,6 @@ const Profile = () => {
 
               <div className="profile-details-wrap">
                 <br />
-                {/* <span>Main reasosn to study abroad</span>
-                {ediable ? (
-                  <>
-                    <input
-                      type="text"
-                      className="editable-input"
-                      placeholder={data.reasonToStudyAbroad}
-                      name=""
-                      onChange={(e) => {
-                        setReasonToStudyAbroad(e.target.value);
-                      }}
-                      id=""
-                    />
-                  </>
-                ) : (
-                  <h1>{data.reasonToStudyAbroad}</h1>
-                )} */}
                 <span>Last institution</span>
                 {ediable ? (
                   <>
@@ -451,10 +487,48 @@ const Profile = () => {
                     </h1>
                   </>
                 )}
+
+                {/*  */}
+                <br />
+                {/* <span>Change Password</span> */}
+                {changePassword ? (
+                  <>
+                    <div className="half-input-profile-wrap mt-2" style={{ flexDirection: 'column', alignItems: 'flex-start' }}>
+                      <input
+                        type="text"
+                        value={password}
+                        placeholder={"Enter current password"}
+                        className="editable-input"
+                        onChange={(e) => setPassword(e.target.value)}
+                        // style={{ width: `${data.nationality.length + 10}ch` }}
+                        maxLength={10}
+                      />
+
+                      <input
+                        type="text"
+                        value={password2}
+                        placeholder={"Enter new password"}
+                        className="editable-input mt-2"
+                        onChange={(e) => setPassword2(e.target.value)}
+                        // style={{ width: `${data.nationality.length + 10}ch` }}
+                        maxLength={10}
+                      />
+                      <div className="flex">
+                        <span onClick={() => handlePasswordChange()} style={{ cursor: 'pointer', background: 'var(--secondary-color)', color: 'white' }} className="mt-2 p-2 rounded " >Update</span>
+                        <span onClick={() => setChangePassword(false)} style={{ cursor: 'pointer', color: 'black' }} className="mt-2 p-2 rounded " >Cancel</span>
+                      </div>
+
+                    </div>
+                  </>
+                ) : (
+                  // <h1 className="flex mt-1" >
+                  <span onClick={() => setChangePassword(true)} style={{ cursor: 'pointer', background: 'var(--primary-color)', color: 'white' }} className="p-2 rounded " >Change password ?</span>
+
+                )}
               </div>
             </div>
-          </div>
-        </div>
+          </div >
+        </div >
       ) : (
         <div className="my-custom-spinner-wrap">
           <div

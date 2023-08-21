@@ -13,7 +13,7 @@ export const UndergraduateProgramsHome = ({ subject, id }) => {
             .get(`https://studyapi.ieodkv.com/programs/type/${subject}/${id}`)
             .then((response) => {
                 setData(response.data);
-                console.log(response.data);
+                // console.log(response.data);
             })
             .catch((error) => {
                 console.log(error);
@@ -21,67 +21,7 @@ export const UndergraduateProgramsHome = ({ subject, id }) => {
     }, [id]);
     if (data.length > 0) {
         return (
-            // <div>
-            //     {data.map((row) => (
-            //         <div className="programView" style={{ margin: "20px 0px" }}>
-            //             <div className="content-view">
-            //                 <div className="column-1">
-            //                     <img
-            //                         src={`https://studyapi.ieodkv.com/universities/images/${row.university.logoImage}`}
-            //                         width={"100"}
-            //                         height={"100"}
-            //                     />
-            //                     <div
-            //                         style={{
-            //                             marginLeft: 20,
-            //                             display: "flex",
-            //                             flexDirection: "column",
-            //                         }}>
-            //                         <div style={{ justifyContent: "center" }}>
-            //                             <span style={{ fontSize: 25, fontWeight: "bold" }}>
-            //                                 {row.name}
-            //                             </span>
-            //                             <span style={{ fontSize: 25 }}>-{row.subject.name}</span>
-            //                         </div>
-            //                         <p style={{ fontSize: 20, fontWeight: 500 }}>
-            //                             {row.university.universityName},{row.country.name}
-            //                         </p>
-            //                     </div>
-            //                 </div>
-            //                 <div className="column-2">
-            //                     <div className="column2-row">
-            //                         <p style={{ fontSize: 20 }}>Program type:</p>
-            //                         <p style={{ fontSize: 20 }}>{row.programType.name}</p>
-            //                     </div>
-            //                     <div>
-            //                         <p style={{ fontSize: 20 }}>Duration:</p>
-            //                         <p style={{ fontSize: 20 }}>{row.duration}</p>
-            //                     </div>
-            //                     <div>
-            //                         <p style={{ fontSize: 20 }}>Annual tuition fee :</p>
-            //                         <p style={{ fontSize: 20 }}>{row.annualTutionFees}</p>
-            //                     </div>
-            //                     <div>
-            //                         <AiOutlineInfoCircle />
-            //                         <div>
-            //                             <p style={{ fontSize: 20 }}>Start Date:</p>
-            //                             <div style={{ display: "flex" }}>
-            //                                 {row.startData.map((row) => {
-            //                                     const date = new Date(row.startAt);
-            //                                     const month = date.toLocaleString("default", {
-            //                                         month: "long",
-            //                                     });
-            //                                     return <p style={{ fontSize: 20 }}>{month}</p>;
-            //                                 })}
-            //                             </div>
-            //                         </div>
-            //                     </div>
-            //                 </div>
-            //             </div>
-            //             {/* <ProgramButtons data={row} /> */}
-            //         </div>
-            //     ))}
-            // </div>
+
             <ProgramCard data={data} />
 
         );

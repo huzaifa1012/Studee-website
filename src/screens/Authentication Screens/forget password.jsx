@@ -15,6 +15,7 @@ const ForgePassword = () => {
           email: email,
         }
       );
+      localStorage.setItem('email', email)
       console.log(response.data);
       navigate("/verification");
     } catch (error) {

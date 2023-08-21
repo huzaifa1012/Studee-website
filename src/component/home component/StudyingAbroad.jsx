@@ -9,6 +9,7 @@ const StudyingAbroad = ({ studyingAbroadData }) => {
   const navigateToDetaills = (data) => {
     navigate(`/guide1/${data}`);
   };
+  console.log(studyingAbroadData)
   return (
     <>
       <div className="studying_abroad_wrap">

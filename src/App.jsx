@@ -17,7 +17,7 @@ function App() {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [userId]);
   const fetchData = async () => {
     const response = await axios.get(
       `https://studyapi.ieodkv.com/students/${REDUC_Id ? REDUC_Id : userId}`

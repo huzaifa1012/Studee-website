@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./personilzeMatchesCompo.css";
 import "./personilzeMatchesCompoOptRuff.css";
-import { GrFormClose } from "react-icons/gr";
 import LoginSmall from "../screens/Authentication Screens/loginSmall.jsx";
 import axios from "axios";
 import { useSelector } from "react-redux";
@@ -214,8 +213,8 @@ const StepContent03 = () => {
                         margin: 20,
                       }}
                     >
-                      {/* Age start */}
-                      <h3 className="text-xl font-bold">Age Verification</h3>
+
+                      {/* <h3 className="text-xl font-bold">Age Verification</h3>
                       <div className="flex items-start">
                         <input
                           type="checkbox"
@@ -239,8 +238,8 @@ const StepContent03 = () => {
                         If you are under 18, we can provide additional support
                         and require consent from a parent or guardian.
                       </p>
-                      {/* Age ends */}
-                      {/* parents start */}
+                      
+                      
                       <h3 className="text-xl font-bold">
                         Parental communication:
                       </h3>
@@ -279,8 +278,7 @@ const StepContent03 = () => {
                         receive from Studee and the University you're applying
                         to so they can stay up-to-date with your application.
                       </p>
-
-                      {/* parents ends */}
+ */}
                     </div>
                   </div>
                   <div className="StepContent_Body_data_for_program ">

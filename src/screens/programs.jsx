@@ -17,9 +17,12 @@ import Modal from "@mui/material/Modal";
 import { useDispatch, useSelector } from "react-redux";
 import { addCheckboxData } from "../store/checkboxDataSlice";
 import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import { selectActiveLink } from "../store/navlinkSLicer";
+import { animateScroll } from "react-scroll";
 
 const Programs = () => {
-  // const [programs, setPrograms] = useState("");
+
 
   const [userParamters, setUserParamters] = useState([]);
   const [programs, setPrograms] = useState([]);
@@ -44,6 +47,8 @@ const Programs = () => {
   const [location, setLocation] = useState();
 
   const [open, setOpen] = useState(false);
+
+
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
@@ -78,12 +83,7 @@ const Programs = () => {
 
       window.location.reload();
 
-      //
-      // window.location.reload();
-      // localStorage.removeItem(`${field}`, name);
-      // setExistingValues(updatedExistingValues);
-      // }
-      // };
+
     }
   };
 
@@ -91,6 +91,8 @@ const Programs = () => {
     fetchData();
     fetchPrograms();
     fetchStudentData();
+    animateScroll.scrollToTop();
+
   }, [
     id,
     setUserParamters,
@@ -114,6 +116,7 @@ const Programs = () => {
   ]);
 
   function fetchPrograms() {
+    console.log(id)
     if (id) {
       axios
         .post(`https://studyapi.ieodkv.com/search/programs`, {
@@ -223,27 +226,6 @@ const Programs = () => {
     }
   };
 
-  // useEffect(() => {
-  //   fetchAllPrograms();
-  // }, []);
-  // const fetchAllPrograms = async () => {
-  //   try {
-  //     const response = await axios.post(
-  //       `https://studyapi.ieodkv.com/search/programs`,
-  //       {
-  //         account: false,
-  //         accountId: "",
-  //         Searchparameters: [],
-  //       }
-  //     );
-  //     setPrograms(response.data);
-  //     console.log("All Programs", response.data);
-  //     setLoading(false);
-  //   } catch (error) {
-  //     setLoading(false);
-  //     console.error("Error fetching from ALL UNIS:", error);
-  //   }
-  // };
   const style = {
     position: "absolute",
     top: "50%",
@@ -287,7 +269,6 @@ const Programs = () => {
     }
   };
   useEffect(() => {
-    console.log("sss");
     axios
       .get(`https://studyapi.ieodkv.com/popular/locations`)
       .then((response) => {
@@ -319,6 +300,7 @@ const Programs = () => {
     }
   };
 
+
   return (
     <>
       <div>
@@ -344,7 +326,7 @@ const Programs = () => {
       {loading ? (
         <>
           <div
-            style={{ minHeight: "100vh" }}
+            style={{ minHeight: "100vh", position: 'absolute', top: '0', }}
             className="my-custom-spinner-wrap"
           >
             <div
@@ -356,6 +338,7 @@ const Programs = () => {
       ) : (
         <div>
           <>
+
             <SecondHero />
             <div
               className="filters_ultra_wrap"
@@ -433,19 +416,6 @@ const Programs = () => {
                         </option>
                       ))}
                     </select>
-                    {/* <select
-                      id="country"
-                      value={selectedCountry}
-                      onChange={handleCountryChange}
-                      className="Filters_sectioan_main2_btn"
-                    >
-                      <option value="">Sort by country</option>
-                      {countries.map((country) => (
-                        <option key={country.code} value={country.name}>
-                          {country.name}
-                        </option>
-                      ))}
-                    </select> */}
                   </div>
                 </div>
               </div>

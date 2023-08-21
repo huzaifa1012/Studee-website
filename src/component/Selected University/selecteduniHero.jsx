@@ -11,7 +11,8 @@ const SelectedUniHero = ({ uniName, BGImage, data, paramsFeild, dataToAddProgram
   const handleCancel = () => {
     setIsModalOpen(false);
   };
-  console.log("dataToAddProgram", dataToAddProgram)
+  console.log("data", data)
+
 
   return (
     <>
@@ -85,15 +86,16 @@ const SelectedUniHero = ({ uniName, BGImage, data, paramsFeild, dataToAddProgram
                 </div>
                 <div className="uni_bottom_square_box">
                   <p className="ltc">Students</p>
-                  <b> 3000 </b>
+
+                  <b>{data.university.internationalStudents}</b>
                 </div>
                 <div className="uni_bottom_square_box">
                   <p className="ltc">Nationalities</p>
                   <b> {data.university.nationalities}</b>
                 </div>
                 <div className="uni_bottom_square_box">
-                  <p className="ltc">Total programs</p>
-                  <b>140</b>
+                  <p className="ltc">Currency</p>
+                  <b>{data.currency}</b>
                 </div>
               </div>
             </div>

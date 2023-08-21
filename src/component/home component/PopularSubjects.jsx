@@ -27,7 +27,6 @@ const PopularSubjects = ({ heading, paragraph, allSubjects, length }) => {
       setVisibleSubjects(allSubjects);
     }
     setShowAll(!showAll);
-
   };
   const handleNavigation = () => {
     animateScroll.scrollToTop();
@@ -37,13 +36,13 @@ const PopularSubjects = ({ heading, paragraph, allSubjects, length }) => {
       <div className="populer_subject_wrap" style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
         <div className="populer_subject_main" style={{ width: '90%' }}>
           <div className="populer_subject_head">
-            <h1 className="mtc">{heading}</h1>
+            <h1 className="mtc">{heading && heading}</h1>
             <br />
             <p>{paragraph && paragraph}</p>
             <br />
           </div>
           <div className={`populer_subject_body ${showAll ? "fade-in" : ""}`}>
-            {allSubjects.map((item, index) => {
+            {allSubjects && allSubjects.map((item, index) => {
               return (
                 <div
                   key={index}

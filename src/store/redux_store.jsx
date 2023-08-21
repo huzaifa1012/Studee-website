@@ -5,6 +5,7 @@ import selectedProgramReducer from "./selectedProgramSlice.jsx";
 import searchKeywordReducer from "./searchKeywordSlice.jsx"; // Import the new slice
 import checkboxDataReducer from "./checkboxDataSlice"; // Import the new slice
 
+
 const rootReducer = {
   searchFilters: searchFiltersReducer,
   userId: userIdReducer,
