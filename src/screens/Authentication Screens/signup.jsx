@@ -70,11 +70,13 @@ const Register = () => {
     try {
       const response = await axios.get(apiUrl);
       const data = response.data;
+      console.log('data CoUNTRY ', data)
       const countriesData = data.data.map((country) => ({
         code: country._id,
         name: country.name,
       }));
       setCountries(countriesData);
+
     } catch (error) {
       console.error("Error fetching data from API:", error);
     }

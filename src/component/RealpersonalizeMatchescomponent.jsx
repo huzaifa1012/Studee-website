@@ -5,7 +5,7 @@ import { GrFormClose } from "react-icons/gr";
 import { useEffect } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { addCheckboxData } from "../store/checkboxDataSlice";
+import { addCheckboxData, removeCheckboxData } from "../store/checkboxDataSlice";
 
 
 const handleSearchTextChange = (e) => {
@@ -16,6 +16,9 @@ const handleTagClick = (tag) => {
   setSelectedTags((prevTags) => [...prevTags, tag]);
 };
 const StepContent01 = () => {
+
+  const checkboxData = useSelector((state) => state.checkboxData.checkboxData);
+
   const [searchText, setSearchText] = useState("");
   const [selectedTags, setSelectedTags] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
@@ -54,18 +57,67 @@ const StepContent01 = () => {
     }
   };
 
+  // const handleCheckboxClick = async (event, data) => {
+  //   if (event.target.checked) {
+  //     const updateData = {
+  //       field: "programType",
+  //       name: data ? data.name : "",
+  //     };
+
+  //     const progTypeData = {
+  //       field: "graduate",
+  //       name: data ? data.graduate : "",
+  //     };
+
+  //     try {
+  //       dispatch(addCheckboxData(updateData));
+  //       dispatch(addCheckboxData(progTypeData));
+
+  //       // ... your existing code
+  //     } catch (error) {
+  //       console.log("Failed to update", error);
+  //     }
+  //   }
+  // };
+
+
   const handleCheckboxClick = async (event, data) => {
+    const updateData = {
+      field: "programType",
+      name: data ? data.name : "",
+    };
+
+    const progTypeData = {
+      field: "graduate",
+      name: data ? data.graduate : "",
+    };
+
     if (event.target.checked) {
-      const updateData = {
-        field: "programType",
-        name: data ? data.name : "",
-      };
+      const shouldAddUpdateData = !checkboxData.some(item =>
+        item.field === updateData.field && item.name === updateData.name
+      );
+
+      const shouldAddProgTypeData = !checkboxData.some(item =>
+        item.field === progTypeData.field && item.name === progTypeData.name
+      );
 
       try {
-        // Dispatch the checkbox data to the Redux store
+        if (shouldAddUpdateData) {
+          dispatch(addCheckboxData(updateData));
+        }
 
-        console.log("desipi", updateData);
-        dispatch(addCheckboxData(updateData));
+        if (shouldAddProgTypeData) {
+          dispatch(addCheckboxData(progTypeData));
+        }
+
+        // ... your existing code
+      } catch (error) {
+        console.log("Failed to update", error);
+      }
+    } else {
+      try {
+        dispatch(removeCheckboxData(updateData));
+        dispatch(removeCheckboxData(progTypeData));
 
         // ... your existing code
       } catch (error) {
@@ -74,32 +126,9 @@ const StepContent01 = () => {
     }
   };
 
-  // const handleCheckboxClick = async (event, data) => {
 
-  //   if (!id) {
-  //     console.log("ID does not exist");
-  //     return;
-  //   }
 
-  //   if (event.target.checked) {
-  //     const updateData = {
-  //       field: "programType",
-  //       name: data ? data.name : "",
-  //     };
 
-  //     console.log("UpdateData", [updateData]);
-
-  //     try {
-  //       const response = await axios.put(
-  //         `https://studyapi.ieodkv.com/students/${id}`,
-  //         { searchParameters: [updateData] }
-  //       );
-  //       console.log("Response", response.data);
-  //     } catch (error) {
-  //       console.log("Failed to update", error);
-  //     }
-  //   }
-  // };
 
   return (
     <>
@@ -116,8 +145,8 @@ const StepContent01 = () => {
 
                 <span className="personalizeM_form__legend">Undergraduate</span>
                 <div className="modal_data_body">
-                  {postGr &&
-                    postGr.map((data, index) => {
+                  {underGr &&
+                    underGr.map((data, index) => {
                       // console.log(data);
                       return (
                         <label key={index}>
@@ -220,43 +249,7 @@ const StepContent02 = () => {
           <div className="StepContent01_body">
             <div className="StepContent_Body_data "></div>
             <div style={{ position: "relative", margin: "0px 15px " }}>
-              {/* Select working */}
-              {/* <div className="theHero_label" style={{ height: "90px" }}>
-                {" "}
-                <p className="mtc hero_labelP"> Location</p>
-                <select
-                  className="hero_inpbox-style-personolized-matches"
-                  placeholder="Enter a country, campus or university"
-                  value={location}
-                  onChange={(e) => {
-                    setLocation(e.target.value);
-                    const locationFilter = locationData.filter(
-                      (row) => row.name === e.target.value
-                    );
-                    console.log(e.target.value);
-                    dispatch(
-                      addCheckboxData({
-                        field: locationFilter[0].for,
-                        name: e.target.value,
-                      })
-                    );
-                  }}
-                >
-                  <option value="">
-                    Choose country, city or university &nbsp;&nbsp; &nbsp;
-                  </option>
-                  {locationData.map((row) => (
-                    <option
-                      className="main_hero_option_box"
-                      value={row.name}
-                      style={{ fontSize: 18 }}
-                    >
-                      {row.showName.slice(0, 30)}
-                    </option>
-                  ))}
-                </select>
-              </div> */}
-              {/* 2nd */}
+
               <div className="theHero_label" style={{ height: "90px" }}>
                 <p className="mtc hero_labelP">Location</p>
                 <input
@@ -309,46 +302,10 @@ const StepContent02 = () => {
                   </div>
                 )}
               </div>
-
               {/* Location Ends  */}
+
+
               {/* Subject Starts  */}
-              {/* Select working */}
-              {/* <div className="theHero_label" style={{ height: "90px" }}>
-                {" "}
-                <p className="mtc hero_labelP"> Subject</p>
-                <select
-                  className="hero_inpbox-style-personolized-matches"
-                  placeholder="Enter a country, campus or university"
-                  value={subject}
-                  onChange={(e) => {
-                    setSubject(e.target.value);
-                    const subjectFilter = subjectData.filter(
-                      (row) => row.name === e.target.value
-                    );
-                    dispatch(
-                      addCheckboxData({
-                        field: subjectFilter[0].for,
-                        name: e.target.value,
-                      })
-                    );
-                  }}
-                >
-                  <option value="">
-                    Select Your Subject &nbsp; &nbsp; &nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{" "}
-                  </option>
-                  {subjectData.map((row) => (
-                    <option
-                      className="main_hero_option_box"
-                      value={row.name}
-                      style={{ fontSize: 18 }}
-                    >
-                      {row.showName.slice(0, 30)}
-                    </option>
-                  ))}
-                </select>
-              </div> */}
               <div className="theHero_label" style={{ height: "90px" }}>
                 <p className="mtc hero_labelP">Subject</p>
                 <input
@@ -416,7 +373,45 @@ const StepContent02 = () => {
 };
 
 const StepContent03 = () => {
+  const checkboxData = useSelector((state) => state.checkboxData.checkboxData);
+
   const dispatch = useDispatch();
+
+
+  const handleCheckboxChange = (event) => {
+    const value = event.target.value;
+    const isCheckboxChecked = event.target.checked;
+
+    const updateData = {
+      field: "deliveryMethod",
+      name: value,
+    };
+
+    if (isCheckboxChecked) {
+      const shouldAddData = !checkboxData.some(item =>
+        item.field === updateData.field && item.name === updateData.name
+      );
+
+      try {
+        if (shouldAddData) {
+          dispatch(addCheckboxData(updateData));
+        }
+
+        // ... your existing code
+      } catch (error) {
+        console.log("Failed to update", error);
+      }
+    } else {
+      try {
+        dispatch(removeCheckboxData(updateData));
+
+        // ... your existing code
+      } catch (error) {
+        console.log("Failed to update", error);
+      }
+    }
+  };
+
 
   return (
     <>
@@ -436,7 +431,7 @@ const StepContent03 = () => {
                   <label>
                     <div class="personalizeM_modal_checkBox_wrap">
                       <div class="personalizeM_modal_checkBox_body">
-                        <input
+                        {/* <input
                           type="checkbox"
                           value={"On campus"}
                           name="undergraduate"
@@ -451,7 +446,14 @@ const StepContent03 = () => {
                               })
                             );
                           }}
-                        />{" "}
+                        />{" "} */}
+                        <input
+                          type="checkbox"
+                          value="On campus"
+                          name="undergraduate"
+                          className="modal_checkBox_inp"
+                          onChange={handleCheckboxChange}
+                        />
                         <span className="m-checkbox-text ">On campus</span>
                       </div>
                     </div>
@@ -459,7 +461,7 @@ const StepContent03 = () => {
                   <label>
                     <div className="modal_checkBox_wrap">
                       <div class="personalizeM_modal_checkBox_body">
-                        <input
+                        {/* <input
                           type="checkbox"
                           name="undergraduate"
                           value={"Online"}
@@ -474,7 +476,14 @@ const StepContent03 = () => {
                               })
                             );
                           }}
-                        />{" "}
+                        />{" "} */}
+                        <input
+                          type="checkbox"
+                          name="undergraduate"
+                          value="Online"
+                          className="modal_checkBox_inp"
+                          onChange={handleCheckboxChange}
+                        />
                         <span className="m-checkbox-text">Online</span>
                       </div>
                     </div>
@@ -482,7 +491,7 @@ const StepContent03 = () => {
                   <label>
                     <div className="modal_checkBox_wrap">
                       <div class="personalizeM_modal_checkBox_body">
-                        <input
+                        {/* <input
                           type="checkbox"
                           name="undergraduate"
                           className="modal_checkBox_inp"
@@ -497,7 +506,14 @@ const StepContent03 = () => {
                               })
                             );
                           }}
-                        />{" "}
+                        />{" "} */}
+                        <input
+                          type="checkbox"
+                          name="undergraduate"
+                          value="Blended Learning"
+                          className="modal_checkBox_inp"
+                          onChange={handleCheckboxChange}
+                        />
                         <span className="m-checkbox-text">
                           Blended Learning
                         </span>

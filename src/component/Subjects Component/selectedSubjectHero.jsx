@@ -67,7 +67,7 @@ const SelectedSubjectHero = ({
                 className="universities_hero_left_btn_org"
                 onClick={showModal}
               >
-                Start Application
+                Find Programs
                 <BiRightArrowAlt className="heroBtnIcon" size={25} />
               </button>
 

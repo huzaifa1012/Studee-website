@@ -69,9 +69,9 @@ const ProgramDetailHero = ({ data }) => {
               <div className="selected_uni_right_div_section_body">
                 <h2>Program facts</h2>
                 <p className="mtc">
-                  {data.country.name},
+                  {data.country && data.country.name},
                   <span className="dtc" style={{ marginBottom: "5px" }}>
-                    <b>{data.city.name}</b>
+                    <b>{data.city && data.city.name}</b>
                   </span>
                 </p>
                 <div className="uni_bottom_square_wrap">

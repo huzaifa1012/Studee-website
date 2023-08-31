@@ -58,7 +58,7 @@ const Programs = () => {
       setLoading(true);
       axios
         .patch(
-          `https://studyapi.ieodkv.com/students/${id}/search-params/${index - 1
+          `https://studyapi.ieodkv.com/students/${id}/search-params/${index
           }`
         )
         .then((response) => {
@@ -116,7 +116,6 @@ const Programs = () => {
   ]);
 
   function fetchPrograms() {
-    console.log(id)
     if (id) {
       axios
         .post(`https://studyapi.ieodkv.com/search/programs`, {
