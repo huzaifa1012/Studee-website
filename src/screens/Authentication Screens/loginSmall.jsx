@@ -6,11 +6,22 @@ import { animateScroll } from "react-scroll";
 import { useDispatch } from "react-redux";
 import { setUserId } from "../../store/userIdSlice";
 import Swal from "sweetalert2";
-const LoginSmall = () => {
+import RegisterSmall from "./signupSmall";
+const LoginSmall = ({ prop }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
-  const navigate = useNavigate();
+
+
+  const handleChange = (event) => {
+    const newState = event.target.value;
+    setChildState(newState);
+
+    // Call the callback function provided by the parent
+    props.onStateChange(newState);
+  };
+
+
   const dispatch = useDispatch();
   useEffect(() => {
     animateScroll.scrollToTop();
@@ -45,64 +56,64 @@ const LoginSmall = () => {
   };
 
   return (
-    <div
-      className="login_container_wrap"
-      style={{ background: "transparent", boxShadow: "none" }}
-    >
-      <div className="login_container">
-        <div className="login_form_small" style={{ boxShadow: "none" }}>
-          <h2 className="text-2xl">Sign in</h2>
-          <i>
-            {error ?
-              <p style={{ color: 'red' }}>{error}</p>
-              :
-              <p className="ltc">*required information</p>
-            }
+    <>
 
-          </i>
-          <form onSubmit={handleLogin}>
-            <div className="login_input_group">
-              <label htmlFor="username">Email address*</label>
-              <input
-                type="text"
-                id="username"
-                onChange={(e) => {
-                  setError(false)
-                  setEmail(e.target.value);
-                }}
-                className="login_input"
-              />
-            </div>
-            <div className="login_input_group">
-              <label htmlFor="password">Password*</label>
-              <input
-                type="password"
-                onChange={(e) => {
-                  setError(false)
-                  setPassword(e.target.value);
-                }}
-                id="password"
-                className="login_input"
-              />
-            </div>
-            <div className="login_card_bottom">
-              <Link to="/forget-password">
-                <p>Forgot your password</p>
-              </Link>
-              <Link to="/register">
-                <button className="login_register_button">
-                  Register for free
+      <div
+        className="login_container_wrap"
+        style={{ background: "transparent", boxShadow: "none" }}
+      >
+        <div className="login_container">
+          <div className="login_form_small" style={{ boxShadow: "none" }}>
+            <h2 className="text-2xl">Sign in</h2>
+            <i>
+              {error ?
+                <p style={{ color: 'red' }}>{error}</p>
+                :
+                <p className="ltc ">*required information</p>
+              }
+
+            </i>
+            <form onSubmit={handleLogin}>
+              <div className="login_input_group">
+                <label htmlFor="username">Email address*</label>
+                <input
+                  type="text"
+                  id="username"
+                  onChange={(e) => {
+                    setError(false)
+                    setEmail(e.target.value);
+                  }}
+                  className="login_input"
+                />
+              </div>
+              <div className="login_input_group">
+                <label htmlFor="password">Password*</label>
+                <input
+                  type="password"
+                  onChange={(e) => {
+                    setError(false)
+                    setPassword(e.target.value);
+                  }}
+                  id="password"
+                  className="login_input"
+                />
+              </div>
+              <div className="login_card_bottom">
+                <Link to="/forget-password">
+                  <p>Forgot your password</p>
+                </Link>
+
+                <button type="submit" className="login_button">
+                  Login
                 </button>
-              </Link>
-
-              <button type="submit" className="login_button">
-                Login
-              </button>
-            </div>
-          </form>
+              </div>
+            </form>
+          </div>
         </div>
-      </div>
-    </div >
+      </div >
+    </>
+
+
   );
 };
 

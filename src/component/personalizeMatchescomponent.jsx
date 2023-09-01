@@ -4,6 +4,7 @@ import "./personilzeMatchesCompoOptRuff.css";
 import LoginSmall from "../screens/Authentication Screens/loginSmall.jsx";
 import axios from "axios";
 import { useSelector } from "react-redux";
+import RegisterSmall from "../screens/Authentication Screens/signupSmall";
 
 const StepContent01 = ({ data }) => {
   const [confirmartion, setConfirmation] = useState([]);
@@ -136,7 +137,6 @@ const StepContent02 = ({ data }) => {
                   </label>
                 ))}
               </div>
-
               <div></div>
             </div>
           </div>
@@ -151,6 +151,8 @@ const StepContent03 = () => {
   const [apply, setApply] = useState([]);
   const [studentAge, setStudentAge] = useState(false);
   const [parent, setParent] = useState(false);
+  const [register, setRegiser] = useState(false);
+  const [data, setData] = useState(false);
 
   useEffect(() => {
     axios
@@ -163,20 +165,58 @@ const StepContent03 = () => {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+    fetchData()
+  }, [id]);
+
+  useEffect(() => {
+    fetchData()
+  }, [id]);
+
+
+  const fetchData = async () => {
+    if (id) {
+      try {
+        const response = await axios.get(
+          `https://studyapi.ieodkv.com/students/${id}`
+        );
+        setData(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      console.warn("Id Not Found");
+    }
+  };
+
+
   return (
     <>
-      {!id ? (
+      {!id && !data.isVerified ? (
         <>
           {" "}
           <div className="StepContent01_wrap">
             <div className="StepContent01_Main">
               <div className="StepContent01_head">
-                <h1>Before Applying You Need To Sign In With Your Account</h1>
+                <h1 style={{ marginBottom: '5px' }}>Before Applying You Need To Sign In With Your Account</h1>
+                {register ?
+                  <h2 style={{ marginBottom: '10px' }} onClick={() => setRegiser(false)}>Already Have an account? Login</h2>
+                  :
+                  <h2 style={{ marginBottom: '10px' }} onClick={() => setRegiser(true)}>Don't have an account? Register</h2>
+                }
+
               </div>
               <div className="StepContent01_body_wrap">
                 <div className="StepContent01_body">
-                  <LoginSmall />
+                  {register ? (
+                    <>
+                      <RegisterSmall prop={register} />
+                    </>
+                  )
+                    : (
+                      <>
+                        <LoginSmall prop={register} />
+                      </>
+                    )}
                 </div>
               </div>
             </div>
@@ -214,75 +254,10 @@ const StepContent03 = () => {
                       }}
                     >
 
-                      {/* <h3 className="text-xl font-bold">Age Verification</h3>
-                      <div className="flex items-start">
-                        <input
-                          type="checkbox"
-                          id="studentAgeCheckbox"
-                          className="mr-2 mt-1.5"
-                          checked={studentAge}
-                          onChange={() => {
-                            setStudentAge(!studentAge),
-                              localStorage.setItem("studentAge", !studentAge);
-                          }}
-                        />
-                        <label
-                          htmlFor="studentAgeCheckbox"
-                          className=" "
-                          style={{ fontSize: 20 }}
-                        >
-                          I am currently under the age of 18
-                        </label>
-                      </div>
-                      <p className="mt-2 mb-2">
-                        If you are under 18, we can provide additional support
-                        and require consent from a parent or guardian.
-                      </p>
-                      
-                      
-                      <h3 className="text-xl font-bold">
-                        Parental communication:
-                      </h3>
-                      <div className="flex items-start">
-                        <input
-                          type="checkbox"
-                          id="parentCheckbox"
-                          className="mr-2 mt-1.5"
-                          checked={parent}
-                          onChange={() => setParent(!parent)}
-                        />
-                        <label
-                          htmlFor="parentCheckbox"
-                          className=" "
-                          style={{ fontSize: 20 }}
-                        >
-                          I would like my parent or guardian to be copied into
-                          all emails between myself and the university or Studee
-                          {parent && (
-                            <input
-                              type="text"
-                              className="rounded"
-                              placeholder="Guardians Email"
-                              onChange={(e) => {
-                                localStorage.setItem(
-                                  "guardianEmail",
-                                  e.target.value
-                                );
-                              }}
-                            />
-                          )}
-                        </label>
-                      </div>
-                      <p className="mt-2 mb-2">
-                        We can copy a parent or guardian into the emails you
-                        receive from Studee and the University you're applying
-                        to so they can stay up-to-date with your application.
-                      </p>
- */}
+
                     </div>
                   </div>
                   <div className="StepContent_Body_data_for_program ">
-                    {/* <div className="modal_data_body"></div> */}
                   </div>
                 </div>
               </div>

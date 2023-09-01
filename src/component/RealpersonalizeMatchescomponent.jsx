@@ -431,22 +431,6 @@ const StepContent03 = () => {
                   <label>
                     <div class="personalizeM_modal_checkBox_wrap">
                       <div class="personalizeM_modal_checkBox_body">
-                        {/* <input
-                          type="checkbox"
-                          value={"On campus"}
-                          name="undergraduate"
-                          className="modal_checkBox_inp"
-                          onChange={(e) => {
-                            console.log(e.target.value);
-
-                            dispatch(
-                              addCheckboxData({
-                                field: "deliveryMethod",
-                                name: e.target.value,
-                              })
-                            );
-                          }}
-                        />{" "} */}
                         <input
                           type="checkbox"
                           value="On campus"
@@ -461,22 +445,7 @@ const StepContent03 = () => {
                   <label>
                     <div className="modal_checkBox_wrap">
                       <div class="personalizeM_modal_checkBox_body">
-                        {/* <input
-                          type="checkbox"
-                          name="undergraduate"
-                          value={"Online"}
-                          className="modal_checkBox_inp"
-                          onChange={(e) => {
-                            console.log(e.target.value);
 
-                            dispatch(
-                              addCheckboxData({
-                                field: "deliveryMethod",
-                                name: e.target.value,
-                              })
-                            );
-                          }}
-                        />{" "} */}
                         <input
                           type="checkbox"
                           name="undergraduate"
