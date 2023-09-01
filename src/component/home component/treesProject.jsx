@@ -13,9 +13,9 @@ function TreeProjectComponent({ imageUrl, heading, paragraph, linkText, linkUrl 
           <p className="tree_hero-paragraph">{paragraph}</p>
           <br />
           <br />
-          <a href={linkUrl} className="tree_hero-link">
+          {/* <a href={linkUrl} className="tree_hero-link">
             {linkText}
-          </a>
+          </a> */}
         </div>
       </div>
     </div>
