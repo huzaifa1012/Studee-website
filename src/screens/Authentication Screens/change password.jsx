@@ -3,49 +3,69 @@ import React, { useState } from "react";
 // import "../component/css storation/Login.css";
 import { useNavigate } from "react-router-dom";
 const ChangePassword = () => {
-  const [email, setEmail] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const [confirmNewPassword, setConfirmNewPassword] = useState("");
+  const [error, setError] = useState("");
   const navigate = useNavigate();
-  const handleForget = async (e) => {
+  let id = localStorage.getItem('id')
+  const handeChangePassword = async (e) => {
     e.preventDefault();
-    console.log(email);
     try {
-      const response = await axios.post(
-        "https://studyapi.ieodkv.com/students/resend",
+      const response = await axios.patch(
+        `https://studyapi.ieodkv.com/students/update_forget_password/${id}`,
         {
-          email: email,
+          password: newPassword,
+          password2: confirmNewPassword,
         }
       );
       console.log(response.data);
-      navigate("/verification");
+      navigate("/");
     } catch (error) {
       console.log(error);
       console.log(error.message);
+      if (error.response.data) {
+        setError(error.response.data)
+      }
     }
   };
   return (
     <div className="login_container_wrap">
       <div className="login_container">
         <div className="login_form">
-          <h2>Change Your Password </h2>
+          <h2>Enter New Password </h2>
           <i>
-            <p className="ltc">*required information</p>
+            <p className="ltc">{error ? <span style={{ color: 'red' }}> {error} </span> : '*required information'}</p>
           </i>
-          <form onSubmit={handleForget}>
+          <form onSubmit={handeChangePassword}>
             <div className="login_input_group">
-              <label htmlFor="username">Email address*</label>
+              <label htmlFor="username">New Password*</label>
               <input
                 type="text"
                 id="username"
                 className="login_input"
                 onChange={(e) => {
-                  setEmail(e.target.value);
+                  setNewPassword(e.target.value);
+                  setError(false)
+                }}
+              />
+            </div>
+            <div className="login_input_group">
+              <label htmlFor="username">Confirm New Password*</label>
+              <input
+                type="text"
+                id="username"
+                className="login_input"
+                onChange={(e) => {
+                  setConfirmNewPassword(e.target.value);
+                  setError(false)
+
                 }}
               />
             </div>
             <div className="login_card_bottom">
-              <p>We will send you a reset code to entered email address</p>
+              <p>Create a new password for your account</p>
               <button type="submit" className="login_button">
-                Reset Password
+                Update Password
               </button>
             </div>
           </form>

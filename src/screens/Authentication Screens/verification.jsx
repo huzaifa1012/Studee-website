@@ -3,12 +3,15 @@ import React, { useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import { animateScroll } from "react-scroll";
 import Swal from "sweetalert2";
+import { useLocation } from "react-router-dom";
 // import "../component/css storation/Login.css";
 
 const Verification = () => {
   const [otp, setOtp] = useState("");
   const [error, setError] = useState("");
 
+  const location = useLocation();
+  let fromForget = location.state.fromForget
   const navigate = useNavigate();
   animateScroll.scrollToTop();
 
@@ -30,7 +33,13 @@ const Verification = () => {
       localStorage.setItem("id", studentId);
       console.log(response.data);
       console.log(response.status);
-      navigate("/account");
+      {
+        fromForget ?
+          navigate("/change-password") :
+          navigate("/account")
+      }
+      // navigate("/verification", { changePasswordScreen: true });
+
     } catch (error) {
       console.log("error", error.message);
       if (error.response.data) {
