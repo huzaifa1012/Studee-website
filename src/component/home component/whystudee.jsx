@@ -5,7 +5,7 @@ import ViewProgMod from "../Reusable components/program_Modal";
 import axios from "axios";
 import parse from "html-react-parser";
 
-const Whystudee = ({ scrollToComponent2, paramsFeild, programQuery }) => {
+const Whystudee = ({ fromHome, scrollToComponent2, paramsFeild, programQuery }) => {
   const component2Ref = useRef(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [data, setData] = useState([]);
@@ -32,7 +32,7 @@ const Whystudee = ({ scrollToComponent2, paramsFeild, programQuery }) => {
 
   return (
     <div>
-      <ViewProgMod paramsFeild={paramsFeild} programQuery={programQuery} isModalOpen={isModalOpen} onClose={handleCancel} />
+      <ViewProgMod fromHome={fromHome} paramsFeild={paramsFeild} programQuery={programQuery} isModalOpen={isModalOpen} onClose={handleCancel} />
 
       <div className="why_use_main_wrap" id="whyStudee" ref={component2Ref}>
         <div className="why_use_head">

@@ -94,8 +94,12 @@ const SelectedCampusFromUni = () => {
             data={campusData}
             BGImage={`https://studyapi.ieodkv.com/campus/images/${campusData.image}`}
           />
+          <Whystudee paramsFeild={"campus"} programQuery={
+            campusData.universityName
+              ? campusData.universityName
+              : campusData.name
+          } scrollToComponent2={scrollToComponent2} />
 
-          <Whystudee />
           <DetalilsWithImage
             imageUrl={`https://studyapi.ieodkv.com/universities/images/${campusData && campusData.university.logoImage
               }`}

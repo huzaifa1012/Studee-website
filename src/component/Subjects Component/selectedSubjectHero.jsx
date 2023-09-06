@@ -27,6 +27,7 @@ const SelectedSubjectHero = ({
   // modal code ends
   // console.log("dataToAddProgram", dataToAddProgram);
 
+  console.log("paramsFeild", paramsFeild)
   return (
     <>
       <ViewProgMod

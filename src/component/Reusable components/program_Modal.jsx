@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addCheckboxData } from "../../store/checkboxDataSlice";
 import { BiRightArrowAlt } from "react-icons/bi";
 const handleNavigation = () => { };
-const ViewProgMod = ({ isModalOpen, onClose, programQuery, paramsFeild, university, universityTitle, dataToAddProgram }) => {
+const ViewProgMod = ({ fromHome, isModalOpen, onClose, programQuery, paramsFeild, university, universityTitle, dataToAddProgram }) => {
   const navigate = useNavigate();
   const id = useSelector((state) => state.userId);
   const dispatch = useDispatch();
@@ -113,9 +113,10 @@ const ViewProgMod = ({ isModalOpen, onClose, programQuery, paramsFeild, universi
               See a list of programs based on your current searches
             </p>
             <div className="modal-bottom-btn-wrap">
-              <div onClick={handleSaveFilters}>
+              <div onClick={fromHome ? () => navigate('/programs') : () => handleSaveFilters()}>
                 <button>View Programs</button>
               </div>
+
             </div>
           </div>
         </div>

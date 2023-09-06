@@ -20,10 +20,12 @@ import PopularSubjectsSelectedCountry from "../component/home component/PopularS
 import { useParams } from "react-router-dom";
 import CitiesAndUniForSelectedCountry from "../component/selectedCountry/Cities and Uni for selected country";
 import { animateScroll } from "react-scroll";
+import ViewProgMod from "../component/Reusable components/program_Modal";
 
 const SelectedCountry = () => {
   const [subject, setSubjects] = useState("");
   const [countryData, setCountryData] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const params = useParams();
 
@@ -67,6 +69,17 @@ const SelectedCountry = () => {
   const scrollToComponent2 = () => {
     component2Ref.current.scrollIntoView({ behavior: "smooth" });
   };
+  let a =
+    countryData.universityName
+      ? countryData.universityName
+      : countryData.name
+
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
   return (
     <>
       <SelectedSubjectHero
@@ -105,7 +118,23 @@ const SelectedCountry = () => {
 
       <Uni_FindAndApplyCard name={countryData && countryData.name} />
 
-      <Whystudee scrollToComponent2={scrollToComponent2} />
+      <ViewProgMod
+        dataToAddProgram={countryData}
+        // university={uniModal ? uniModal : false}
+        isModalOpen={isModalOpen}
+        paramsFeild={"country"}
+        programQuery={
+          countryData.universityName
+            ? countryData.universityName
+            : countryData.name
+        }
+        onClose={handleCancel}
+      />
+      <Whystudee paramsFeild={"country"} programQuery={
+        countryData.universityName
+          ? countryData.universityName
+          : countryData.name
+      } scrollToComponent2={scrollToComponent2} />
 
       {subject && (
         <PopularSubjectsSelectedCountry

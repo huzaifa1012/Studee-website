@@ -116,7 +116,12 @@ const SelectedUniFromCountry = () => {
             subjectName={uniData && uniData.universityName}
             BGImage={`https://studyapi.ieodkv.com/universities/images/${uniData.banner}`}
           />
-          <Whystudee />
+          <Whystudee paramsFeild={"universityName"} programQuery={
+            uniData.universityName
+              ? uniData.universityName
+              : uniData.name
+          } scrollToComponent2={scrollToComponent2} />
+
 
           <DetalilsWithImage
             imageUrl={`https://studyapi.ieodkv.com/universities/images/${uniData.logoImage}`}

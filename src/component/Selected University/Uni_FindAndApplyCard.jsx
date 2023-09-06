@@ -127,7 +127,7 @@ const Uni_FindAndApplyCard = ({ name, data }) => {
   return (
     <>
       <div className="flex justify-center">
-        <div className="flex justify-center" style={{ flexDirection: 'column', width: '85% ', }}>
+        <div className="flex justify-center" style={{ marginTop: '60px', flexDirection: 'column', width: '85% ', }}>
 
           <h1 className="mb-2 text-3xl">Find & Apply Programs Instantly </h1>
           <p className="ltc mb-5">

@@ -69,7 +69,7 @@ const Home = () => {
   return (
     <>
       <Hero data={heroData} />
-      <Whystudee />
+      <Whystudee fromHome={true} />
       <TreeProjectComponent
         imageUrl={tresImg}
         heading="Trees for degrees - The one million trees project"
