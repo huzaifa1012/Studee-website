@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 // import "../component/css storation/Login.css";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 const ChangePassword = () => {
   const [newPassword, setNewPassword] = useState("");
   const [confirmNewPassword, setConfirmNewPassword] = useState("");
@@ -10,6 +11,14 @@ const ChangePassword = () => {
   let id = localStorage.getItem('id')
   const handeChangePassword = async (e) => {
     e.preventDefault();
+    if (newPassword !== confirmNewPassword) {
+      setError("New password & confirm password should be same")
+      return
+    }
+    if (newPassword.length < 6 || confirmNewPassword.length < 6) {
+      setError("Password should be at least 6 characters")
+      return
+    }
     try {
       const response = await axios.patch(
         `https://studyapi.ieodkv.com/students/update_forget_password/${id}`,
@@ -18,8 +27,11 @@ const ChangePassword = () => {
           password2: confirmNewPassword,
         }
       );
-      console.log(response.data);
-      navigate("/");
+      if (response.status === 200) {
+        Swal.fire("Password Updated!", "You've successfully updated your password!, Now just need to login", "success");
+        navigate("/login");
+      }
+
     } catch (error) {
       console.log(error);
       console.log(error.message);

@@ -292,12 +292,6 @@ const Profile = () => {
                 ) : (
                   <h1>{data.phoneNo}</h1>
                 )}
-                {/*  */}
-                <br />
-                <span>ID Number</span>
-                <h1>{data.nic}</h1>
-                {/*  */}
-
                 <br />
                 <span>Address / Postal</span>
                 {ediable ? (

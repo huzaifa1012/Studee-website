@@ -9,7 +9,6 @@ import { useNavigate } from "react-router-dom";
 import { animateScroll } from "react-scroll";
 import { countryCode } from '../../assets/CountryCodes'
 import { setUserId } from "../../store/userIdSlice";
-import Swal from "sweetalert2";
 import { useDispatch } from "react-redux";
 const Register = () => {
   const navigate = useNavigate();
@@ -124,6 +123,21 @@ const Register = () => {
 
   const handleRegister = async (e) => {
     e.preventDefault();
+    if (password.length < 6) {
+      setError("Password should be at least 6 characters")
+      animateScroll.scrollToTop();
+      return
+    }
+    if (!Fname || !Lname) {
+      setError("Please enter your first & last name")
+      animateScroll.scrollToTop();
+      return
+    }
+    if (!email) {
+      setError("Please enter your email")
+      animateScroll.scrollToTop();
+      return
+    }
     console.log(
       Fname,
       Lname,
@@ -166,7 +180,7 @@ const Register = () => {
       dispatch(setUserId(userId));
 
       console.log(response.data);
-      navigate("/verification");
+      navigate("/verification", { state: { fromForget: false } });
     } catch (error) {
       console.log("error", error.message);
       if (error.response) {

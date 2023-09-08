@@ -123,6 +123,21 @@ const RegisterSmall = () => {
 
     const handleRegister = async (e) => {
         e.preventDefault();
+        if (password.length < 6) {
+            setError("Password should be at least 6 characters")
+            animateScroll.scrollToTop();
+            return
+        }
+        if (!Fname || !Lname) {
+            setError("Please enter your first & last name")
+            animateScroll.scrollToTop();
+            return
+        }
+        if (!email) {
+            setError("Please enter your email")
+            animateScroll.scrollToTop();
+            return
+        }
         console.log(
             Fname,
             Lname,

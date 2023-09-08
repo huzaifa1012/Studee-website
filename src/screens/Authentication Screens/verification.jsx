@@ -19,7 +19,7 @@ const Verification = () => {
   let email = localStorage.getItem("email");
   const handleOTPSubmit = async (event) => {
     event.preventDefault();
-    console.log(otp);
+    // console.log(otp);
     try {
       console.log("MY OTP", otp);
       const response = await axios.post(
