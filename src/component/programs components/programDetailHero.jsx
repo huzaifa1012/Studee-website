@@ -99,13 +99,14 @@ const ProgramDetailHero = ({ data }) => {
                     className="uni_bottom_square_box"
                     style={{ width: "100%" }}
                   >
-                    <p className="ltc">Starting From</p>
+                    <p className="ltc">Sessions</p>
 
                     <b>
                       {data.startData?.map((data, index) => {
                         return (
                           <>
-                            {data?.startYear}/ {"  "} {" "}
+
+                            {data?.startMonth},
                           </>
                         )
                       })}

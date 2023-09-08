@@ -481,10 +481,9 @@ const ApplyToUniversity = () => {
 
                                                                     <>
 
-
                                                                         <div className="selected_uni_right_div">
                                                                             <div className="selected_uni_right_div_section_body">
-                                                                                <h2>Uni Facts</h2>
+                                                                                <h2>Program Facts</h2>
                                                                                 <p className="mtc">
                                                                                     {selectedProgram.city.name},
                                                                                     <span className="dtc" style={{ marginBottom: "5px" }}>
@@ -496,20 +495,20 @@ const ApplyToUniversity = () => {
                                                                                 </p>
                                                                                 <div className="uni_bottom_square_wrap">
                                                                                     <div className="uni_bottom_square_box">
-                                                                                        <p className="ltc" style={{ fontSize: '12px' }}>Type</p>
-                                                                                        <b>{selectedProgram.university.type}</b>
+                                                                                        <p className="ltc" style={{ fontSize: '12px' }}>Campus</p>
+                                                                                        <b>{selectedProgram.campus.name}</b>
                                                                                     </div>
                                                                                     <div className="uni_bottom_square_box" style={{ fontSize: '12px' }}>
-                                                                                        <p className="ltc">Students</p>
-                                                                                        <b> {selectedProgram.university.internationalStudents} </b>
+                                                                                        <p className="ltc">Duration</p>
+                                                                                        <b> {selectedProgram.duration} </b>
                                                                                     </div>
                                                                                     <div className="uni_bottom_square_box">
-                                                                                        <p className="ltc" style={{ fontSize: '12px' }}>Nationalities</p>
-                                                                                        <b> {selectedProgram.university.nationalities}</b>
+                                                                                        <p className="ltc" style={{ fontSize: '12px' }}>Scholarship</p>
+                                                                                        <b>£{selectedProgram.scholarship}</b>
                                                                                     </div>
                                                                                     <div className="uni_bottom_square_box">
                                                                                         <p className="ltc" style={{ fontSize: '12px' }} >Annual Fees</p>
-                                                                                        <b>{selectedProgram.campus.currency} {selectedProgram.annualTutionFees}</b>
+                                                                                        <b>£{selectedProgram.annualTutionFees}</b>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>

@@ -67,8 +67,8 @@ const ProgramCard = ({ data }) => {
                     <div className="Program_card_left_bottom">
                       <div className="program_card_square_box_wrap">
                         <div className="program_bottom_square_box">
-                          <p className="ltc">Type</p>
-                          <b> {item.university.type} </b>
+                          <p className="ltc">Campus</p>
+                          <b> {item.campus.name} </b>
                         </div>
                         <div className="program_bottom_square_box">
                           <p className="ltc">Duration</p>
@@ -79,8 +79,14 @@ const ProgramCard = ({ data }) => {
                           <b>£{item.annualTutionFees} </b>
                         </div>
                         <div className="program_bottom_square_box">
-                          <p className="ltc">Scholarship</p>
-                          <b>£{item.scholarship} </b>
+                          <p className="ltc">Sessions</p>
+                          <b>{item.startData?.map((data, index) => {
+                            return (
+                              <>
+                                {data?.startMonth},
+                              </>
+                            )
+                          })}</b>
                         </div>
                       </div>
                     </div>
