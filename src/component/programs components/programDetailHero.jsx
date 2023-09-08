@@ -85,20 +85,35 @@ const ProgramDetailHero = ({ data }) => {
                   </div>
                   <div className="uni_bottom_square_box">
                     <p className="ltc">Annual Fee</p>
-                    <b>{data.annualTutionFees}</b>
+                    <b>£{data.annualTutionFees}</b>
                   </div>
                   <div className="uni_bottom_square_box">
-                    <p className="ltc">Language Taught in</p>
-                    <b>{data.languageThoughtIn}</b>
+                    <p className="ltc">Campus</p>
+                    <b>{data.campus?.name}</b>
+                  </div>
+                  <div className="uni_bottom_square_box">
+                    <p className="ltc">Scholarship Fee</p>
+                    <b>£{data?.scholarship}</b>
                   </div>
                   <div
                     className="uni_bottom_square_box"
                     style={{ width: "100%" }}
                   >
-                    <p className="ltc">Start Date</p>
-                    <b>{data.startData && data.startData[0].startDate}</b>
+                    <p className="ltc">Starting From</p>
+
+                    <b>
+                      {data.startData?.map((data, index) => {
+                        return (
+                          <>
+                            {data?.startYear}/ {"  "} {" "}
+                          </>
+                        )
+                      })}
+
+                    </b>
+                    {/* <b>{data.startData && data.startData[0].startDate}</b>
                     <b>/{data.startData && data.startData[0].startMonth}</b>
-                    <b>/{data.startData && data.startData[0].startYear}</b>
+                    <b>/{data.startData && data.startData[0].startYear}</b> */}
                   </div>
                 </div>
               </div>

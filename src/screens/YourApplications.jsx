@@ -26,13 +26,19 @@ const YourApplications = () => {
   const [selectedRow, setSelectedRow] = useState("");
   const [selectedApplicationData, setSelectedApplicationData] = useState("");
   const id = localStorage.getItem("id");
+  const token = localStorage.getItem('token')
   const navigate = useNavigate();
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
 
   useEffect(() => {
     animateScroll.scrollToTop();
 
     axios
-      .get(`https://studyapi.ieodkv.com/applications/student/${id}`)
+      .get(`https://studyapi.ieodkv.com/applications/student/${id}`, config)
       .then((response) => {
         setApplications(response.data);
         setLoading(false);

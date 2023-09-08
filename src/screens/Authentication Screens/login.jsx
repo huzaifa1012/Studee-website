@@ -24,8 +24,6 @@ const Login = () => {
   }, []);
   const handleLogin = async (e) => {
     e.preventDefault();
-    console.log(email);
-    console.log(password);
     try {
       const response = await axios.post(
         "https://studyapi.ieodkv.com/students/login",
@@ -34,14 +32,14 @@ const Login = () => {
           password: password,
         }
       );
-      dispatch(setUserId(response.data.user.id));
+      dispatch(setUserId(response.data.user));
       console.log(response.data);
-      const studentId = response.data.user.id;
-
+      const studentId = response.data.user;
+      const studentToken = response.data.token;
       localStorage.setItem("id", studentId);
+      localStorage.setItem("token", studentToken);
       const userId = localStorage.getItem("id");
 
-      // navigate("/account");
       window.location.replace('/account')
     } catch (error) {
       console.log("error", error.message);

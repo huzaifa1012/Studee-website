@@ -282,9 +282,15 @@ const ApplyToUniversity = () => {
         }
         console.log("Saving Data", checkboxData);
         try {
+            const token = localStorage.getItem('token')
+            const config = {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            };
             const response = await axios.put(
                 `https://studyapi.ieodkv.com/students/${id}`,
-                { searchParameters: checkboxData }
+                { searchParameters: checkboxData }, config
             );
             console.log("Response", response.data);
         } catch (error) {

@@ -29,9 +29,12 @@ const Verification = () => {
           otp: Number(otp),
         }
       );
-      const studentId = response.data._id;
+      const studentId = response.data.user;
+      const studentToken = response.data.token;
       localStorage.setItem("id", studentId);
-      console.log(response.data);
+
+      localStorage.setItem("token", studentToken);
+      console.log('from verification', response.data);
       console.log(response.status);
       {
         fromForget ?

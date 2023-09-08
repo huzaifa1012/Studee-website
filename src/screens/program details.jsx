@@ -59,54 +59,11 @@ const ProgramDetails = () => {
               "https://images.studee.com/illustrations/illustration__for-students--what-is-studee.png?ixlib=js-2.3.2&auto=format&fit=crop&q=40&w=460&h=345"
             }
             body={
-              // parse()
               <div
                 dangerouslySetInnerHTML={{
                   __html: data.admissionRequirements && data.admissionRequirements,
                 }}
               ></div>
-              // <>
-              //   <h3>Undergraduate academic requirements</h3>
-              //   <ul>
-              //     <li>
-              //       Be 17 years or older at the time of commencement (students
-              //       under 18 will require a support letter from their parent or
-              //       guardian)
-              //     </li>
-              //     <li>
-              //       Have completed high school certification equivalent to year
-              //       12; OR )
-              //     </li>
-              //     <li>
-              //       Have completed year 11 (or equivalent) and be able to provide
-              //       year 11 results, a support letter from a parent or guardian &
-              //       attend a screening interview; OR
-              //     </li>
-              //     <li>
-              //       Have successfully completed a certificate IV, VET Diploma or
-              //       Higher Education Diploma; OR
-              //     </li>
-              //     <li>
-              //       Have successfully completed one year of full time study in a
-              //       degree course at a higher education provider
-              //     </li>
-              //   </ul>
-              //   <h3>English proficiency</h3>
-              //   <ul>
-              //     <li>
-              //       IELTS: Diploma 5.5 (no band less than 5.0) | Bachelor 6.0 (no
-              //       band less than 5.5). Exams must have been completed within the
-              //       last 12 months
-              //     </li>
-              //     <li>
-              //       PTE Academic: Diploma 46 no band less than 42 | Bachelor 6.0
-              //       no band less than 5.5
-              //     </li>
-              //     <li>Cambridge (CAE): Diploma 162 | Bachelor 169</li>
-              //     <li>TOEFL: Diploma PB 506, TWE 3.5 | Bachelor PB 534, TWE 4</li>
-              //     <li>EF SET Scores: Diploma & Bachelor B2 upper intermediate</li>
-              //   </ul>
-              // </>
             }
           />
         </div>

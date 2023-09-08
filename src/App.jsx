@@ -15,12 +15,19 @@ function App() {
   const dispatch = useDispatch();
   const [data, setData] = useState("");
 
+
   useEffect(() => {
     fetchData();
   }, [userId]);
   const fetchData = async () => {
+    const token = localStorage.getItem('token')
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
     const response = await axios.get(
-      `https://studyapi.ieodkv.com/students/${REDUC_Id ? REDUC_Id : userId}`
+      `https://studyapi.ieodkv.com/students/${REDUC_Id ? REDUC_Id : userId}`, config
     );
     setData(response.data);
     console.log(data);

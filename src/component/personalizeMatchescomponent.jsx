@@ -125,10 +125,12 @@ const StepContent02 = ({ data }) => {
                     />
                     <span style={{ display: "flex", flexDirection: "column" }}>
                       <span>
-                        {row.startDate} {row.startMonth} {row.startYear}
+                        {/* {row.startDate} */}
+                        {row.startMonth}{" "}
+                        {row.startYear}
                       </span>
                       <span style={{ fontSize: "20px" }}>
-                        Apply by {row.deadlineDate} {row.deadlineMonth}
+                        Apply by {row.deadlineMonth}{" "}
                         {row.deadlineYear}
                       </span>
                     </span>
@@ -174,10 +176,16 @@ const StepContent03 = () => {
 
 
   const fetchData = async () => {
+    const token = localStorage.getItem('token')
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
     if (id) {
       try {
         const response = await axios.get(
-          `https://studyapi.ieodkv.com/students/${id}`
+          `https://studyapi.ieodkv.com/students/${id}`, config
         );
         setData(response.data);
       } catch (error) {

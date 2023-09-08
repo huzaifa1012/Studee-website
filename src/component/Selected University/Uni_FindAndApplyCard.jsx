@@ -57,10 +57,16 @@ const Uni_FindAndApplyCard = ({ name, data }) => {
       searchParameters.push(programFor);
     }
     if (id) {
+      const token = localStorage.getItem('token')
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      };
       axios
         .put(`https://studyapi.ieodkv.com/students/${id}`, {
           searchParameters: searchParameters,
-        })
+        }, config)
         .then((response) => {
           // if (locationFor) {
           //   const formattedLocation = location

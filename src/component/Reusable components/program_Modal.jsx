@@ -33,10 +33,16 @@ const ViewProgMod = ({ fromHome, isModalOpen, onClose, programQuery, paramsFeild
     }
 
     try {
+      const token = localStorage.getItem('token')
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      };
       dispatch(addCheckboxData([Query]));
       const response = await axios.put(
         `https://studyapi.ieodkv.com/students/${id}`,
-        { searchParameters: Query }
+        { searchParameters: Query }, config
       );
       console.log("Response", response.data);
       navigate("/programs");

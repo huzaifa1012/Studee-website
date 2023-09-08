@@ -65,11 +65,17 @@ const Hero = ({ data }) => {
     if (subject) {
       searchParameters.push(subjectFor);
     }
+    const token = localStorage.getItem('token')
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
     if (id) {
       axios
         .put(`https://studyapi.ieodkv.com/students/${id}`, {
           searchParameters: searchParameters,
-        })
+        }, config)
         .then((response) => {
           if (locationFor) {
             const formattedLocation = location

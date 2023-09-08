@@ -76,11 +76,11 @@ const ProgramCard = ({ data }) => {
                         </div>
                         <div className="program_bottom_square_box">
                           <p className="ltc">Tutuion Fees </p>
-                          <b> {item.annualTutionFees} </b>
+                          <b>£{item.annualTutionFees} </b>
                         </div>
                         <div className="program_bottom_square_box">
-                          <p className="ltc">Nationalities</p>
-                          <b> {item.university.nationalities} </b>
+                          <p className="ltc">Scholarship</p>
+                          <b>£{item.scholarship} </b>
                         </div>
                       </div>
                     </div>

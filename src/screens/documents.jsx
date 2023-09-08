@@ -14,8 +14,14 @@ const Documents = () => {
 
   const fetchUploadedDocs = async () => {
     try {
+      const token = localStorage.getItem('token')
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      };
       const response = await axios.get(
-        `https://studyapi.ieodkv.com/students/${id}`
+        `https://studyapi.ieodkv.com/students/${id}`, config
       );
       if (response.data.documents) {
         setData(response.data.documents);
@@ -39,12 +45,18 @@ const Documents = () => {
       console.log(selectedFile);
 
       try {
+        const token = localStorage.getItem('token')
+        const config = {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        };
         const documents = {};
         documents.name = fileName;
         documents.document = selectedFile;
         const response = await axios.patch(
           `https://studyapi.ieodkv.com/students/upload/${id}`,
-          documents
+          documents, config
         );
         console.log("response", response.data);
         console.log("response", response.status);

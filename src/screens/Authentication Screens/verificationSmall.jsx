@@ -31,9 +31,11 @@ const VerificationSmall = () => {
             );
 
 
-            const studentId = response.data._id;
+            const studentId = response.data.user;
+            const studentToken = response.data.token;
 
             localStorage.setItem("id", studentId);
+            localStorage.setItem("token", studentToken);
             const userId = localStorage.getItem("id");
             dispatch(setUserId(userId));
             localStorage.setItem("id", studentId);

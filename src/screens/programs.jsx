@@ -55,11 +55,17 @@ const Programs = () => {
   var updatedExistingValues;
   const handleDeleteSearch = (index, name, field) => {
     if (id) {
+      const token = localStorage.getItem('token')
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      };
       setLoading(true);
       axios
         .patch(
           `https://studyapi.ieodkv.com/students/${id}/search-params/${index
-          }`
+          }`, config
         )
         .then((response) => {
           setUserParamters(response.data.searchParameters);
@@ -147,8 +153,14 @@ const Programs = () => {
   }
   function fetchStudentData() {
     if (id) {
+      const token = localStorage.getItem('token')
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      };
       axios
-        .get(`https://studyapi.ieodkv.com/students/${id}`)
+        .get(`https://studyapi.ieodkv.com/students/${id}`, config)
         .then((response) => {
           if (typeof response.data.annualBudget !== "undefined") {
             setUserParamters([
@@ -211,9 +223,15 @@ const Programs = () => {
 
   const fetchData = async () => {
     if (id) {
+      const token = localStorage.getItem('token')
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      };
       try {
         const response = await axios.get(
-          `https://studyapi.ieodkv.com/students/${id}`
+          `https://studyapi.ieodkv.com/students/${id}`, config
         );
         setData(response.data);
         // console.log(response.data);
@@ -255,9 +273,15 @@ const Programs = () => {
     try {
       setLoading(true);
       console.log(forSave);
+      const token = localStorage.getItem('token')
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      };
       const response = await axios.put(
         `https://studyapi.ieodkv.com/students/${id}`,
-        { searchParameters: [forSave] }
+        { searchParameters: [forSave] }, config
       );
       console.log("Response", response.data);
       fetchPrograms();

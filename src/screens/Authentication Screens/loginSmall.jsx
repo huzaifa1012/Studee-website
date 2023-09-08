@@ -39,9 +39,12 @@ const LoginSmall = ({ prop }) => {
         }
       );
       console.log(response.data);
-      const studentId = response.data.user.id;
+      const studentId = response.data.user;
+      const studentToken = response.data.token;
 
       localStorage.setItem("id", studentId);
+      localStorage.setItem("token", studentToken);
+
       const userId = localStorage.getItem("id");
       dispatch(setUserId(userId));
       // navigate("/programs");

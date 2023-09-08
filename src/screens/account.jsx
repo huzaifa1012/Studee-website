@@ -19,16 +19,28 @@ const Account = () => {
   const fetchData = async () => {
     const id = localStorage.getItem("id");
     console.log(id);
-    const response = await axios.get(
-      `https://studyapi.ieodkv.com/students/${id}`
-    );
-    setData(response.data);
-    console.log(data);
+    try {
+
+      const token = localStorage.getItem('token')
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      };
+
+      const response = await axios.get(
+        `https://studyapi.ieodkv.com/students/${id}`, config);
+      setData(response.data);
+      console.log(data);
+    } catch (error) {
+      console.log(error.response)
+    }
   };
   const handleLogout = async () => {
     try {
       localStorage.removeItem("id");
       localStorage.removeItem("email");
+      localStorage.removeItem("token");
       dispatch(setUserId(false));
       console.log("done");
       navigate("/");

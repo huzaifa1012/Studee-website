@@ -52,8 +52,14 @@ const Profile = () => {
   const fetchData = async () => {
     if (id) {
       try {
+        const token = localStorage.getItem('token')
+        const config = {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        };
         const response = await axios.get(
-          `https://studyapi.ieodkv.com/students/${id}`
+          `https://studyapi.ieodkv.com/students/${id}`, config
         );
         setData(response.data);
       } catch (error) {
@@ -81,9 +87,15 @@ const Profile = () => {
           "Enter Valid Password", "Please check you've entered your current & new password")
         return
       }
+      const token = localStorage.getItem('token')
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      };
       const response = await axios.put(
         `https://studyapi.ieodkv.com/students/${id}`,
-        updateData
+        updateData, config
       );
       setPassword('')
       setPassword2('')
@@ -163,9 +175,15 @@ const Profile = () => {
         updateData.password = password;
         updateData.password2 = password2;
       }
+      const token = localStorage.getItem('token')
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      };
       const response = await axios.put(
         `https://studyapi.ieodkv.com/students/${id}`,
-        updateData
+        updateData, config
       );
       fetchData();
       setEdiable(false);
