@@ -124,14 +124,13 @@ const StepContent02 = ({ data }) => {
                       }}
                     />
                     <span style={{ display: "flex", flexDirection: "column" }}>
-                      <span>
-                        {/* {row.startDate} */}
+                      {/* <span>
                         {row.startMonth}{" "}
                         {row.startYear}
-                      </span>
+                      </span> */}
                       <span style={{ fontSize: "20px" }}>
-                        Apply by {row.deadlineMonth}{" "}
-                        {row.deadlineYear}
+                        {row.startMonth}{" "}
+                        {row.startYear}
                       </span>
                     </span>
 

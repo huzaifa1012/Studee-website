@@ -23,7 +23,6 @@ import { animateScroll } from "react-scroll";
 
 const Programs = () => {
 
-
   const [userParamters, setUserParamters] = useState([]);
   const [programs, setPrograms] = useState([]);
   const [paramtersCount, setParamtersCount] = useState();
@@ -34,6 +33,7 @@ const Programs = () => {
   const universityValue = localStorage.getItem("universityName");
   const subjectValue = localStorage.getItem("subject");
   const degreeValue = localStorage.getItem("degree");
+  const graduateValue = localStorage.getItem("graduate");
   const [loading, setLoading] = useState([]);
   const [modal2Open, setModal2Open] = useState(false);
   const [data, setData] = useState([]);
@@ -183,7 +183,6 @@ const Programs = () => {
           field: "country",
         });
       }
-
       if (campusValue !== "null" && campusValue !== null) {
         updatedExistingValues.push({
           name: campusValue,
@@ -196,14 +195,12 @@ const Programs = () => {
           field: "city",
         });
       }
-
       if (universityValue !== "null" && universityValue !== null) {
         updatedExistingValues.push({
           name: universityValue,
           field: "universityName",
         });
       }
-
       if (subjectValue !== "null" && subjectValue !== null) {
         updatedExistingValues.push({
           name: subjectValue,
@@ -214,6 +211,12 @@ const Programs = () => {
         updatedExistingValues.push({
           name: degreeValue,
           field: "degree",
+        });
+      }
+      if (graduateValue !== "null" && graduateValue !== null) {
+        updatedExistingValues.push({
+          name: graduateValue,
+          field: "graduate",
         });
       }
 
